@@ -1,1 +1,137 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<AutoTitle>false</AutoTitle>	<CommandBarLocation>Bottom</CommandBarLocation>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<HorizontalAlign>Right</HorizontalAlign>		<Autofill>false</Autofill>		<ChildItems>			<Button name="ФормаКомандаГотово" id="19">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<CommandName>Form.Command.КомандаГотово</CommandName>				<ExtendedTooltip name="ФормаКомандаГотовоРасширеннаяПодсказка" id="20"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<Pages name="ПанельОсновная" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Панель основная</v8:content>				</v8:item>			</Title>			<PagesRepresentation>None</PagesRepresentation>			<ExtendedTooltip name="ПанельОсновнаяРасширеннаяПодсказка" id="2"/>			<ChildItems>				<Page name="СтраницаДлительнаяОперация" id="3">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Страница длительная операция</v8:content>						</v8:item>					</Title>					<Group>AlwaysHorizontal</Group>					<ExtendedTooltip name="СтраницаДлительнаяОперацияРасширеннаяПодсказка" id="4"/>					<ChildItems>						<PictureDecoration name="Декорация1" id="7">							<Width>6</Width>							<Height>2</Height>							<Picture>								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>								<xr:LoadTransparent>false</xr:LoadTransparent>							</Picture>							<FileDragMode>AsFile</FileDragMode>							<ContextMenu name="Декорация1КонтекстноеМеню" id="8"/>							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="9"/>						</PictureDecoration>						<LabelDecoration name="ДекорацияНадписьОжидание" id="10">							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Выполняется получение параметров из программы "%1".Пожалуйста, подождите...</v8:content>								</v8:item>							</Title>							<ContextMenu name="ДекорацияНадписьОжиданиеКонтекстноеМеню" id="11"/>							<ExtendedTooltip name="ДекорацияНадписьОжиданиеРасширеннаяПодсказка" id="12"/>						</LabelDecoration>					</ChildItems>				</Page>				<Page name="СтраницаОшибка" id="5">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Страница ошибка</v8:content>						</v8:item>					</Title>					<Group>AlwaysHorizontal</Group>					<ExtendedTooltip name="СтраницаОшибкаРасширеннаяПодсказка" id="6"/>					<ChildItems>						<PictureDecoration name="Декорация3" id="13">							<Width>6</Width>							<Height>2</Height>							<Picture>								<xr:Ref>CommonPicture.Информация32</xr:Ref>								<xr:LoadTransparent>false</xr:LoadTransparent>							</Picture>							<FileDragMode>AsFile</FileDragMode>							<ContextMenu name="Декорация3КонтекстноеМеню" id="14"/>							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="15"/>						</PictureDecoration>						<LabelDecoration name="ДекорацияНадписьОшибка" id="16">							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Перед продолжением настройки синхронизации данных (настройки правил отправки и получения данных) требуется получить параметры из программы "%1".Перейдите в "%1", завершите в ней настройку и выполните первоначальную выгрузку данных, после чего завершите настройку в этой программе.</v8:content>								</v8:item>							</Title>							<ContextMenu name="ДекорацияНадписьОшибкаКонтекстноеМеню" id="17"/>							<ExtendedTooltip name="ДекорацияНадписьОшибкаРасширеннаяПодсказка" id="18"/>						</LabelDecoration>					</ChildItems>				</Page>			</ChildItems>		</Pages>	</ChildItems>	<Attributes>		<Attribute name="УзелОбмена" id="1">			<Type>				<v8:TypeSet>cfg:ExchangePlanRef</v8:TypeSet>			</Type>		</Attribute>		<Attribute name="ПараметрыОбработчикаОжидания" id="2">			<Type/>		</Attribute>		<Attribute name="ПараметрыОбработчика" id="3">			<Type/>		</Attribute>		<Attribute name="НаименованиеКорреспондента" id="4">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="КомандаГотово" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Готово</v8:content>				</v8:item>			</Title>			<Action>КомандаГотово</Action>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґР°Р“РѕС‚РѕРІРѕ" id="19">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.РљРѕРјР°РЅРґР°Р“РѕС‚РѕРІРѕ</CommandName>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґР°Р“РѕС‚РѕРІРѕР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="20"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="РџР°РЅРµР»СЊРћСЃРЅРѕРІРЅР°СЏ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџР°РЅРµР»СЊ РѕСЃРЅРѕРІРЅР°СЏ</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="РџР°РЅРµР»СЊРћСЃРЅРѕРІРЅР°СЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="2"/>
+			<ChildItems>
+				<Page name="РЎС‚СЂР°РЅРёС†Р°Р”Р»РёС‚РµР»СЊРЅР°СЏРћРїРµСЂР°С†РёСЏ" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂР°РЅРёС†Р° РґР»РёС‚РµР»СЊРЅР°СЏ РѕРїРµСЂР°С†РёСЏ</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°Р”Р»РёС‚РµР»СЊРЅР°СЏРћРїРµСЂР°С†РёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="4"/>
+					<ChildItems>
+						<PictureDecoration name="Р”РµРєРѕСЂР°С†РёСЏ1" id="7">
+							<Width>6</Width>
+							<Height>2</Height>
+							<Picture>
+								<xr:Ref>CommonPicture.Р”Р»РёС‚РµР»СЊРЅР°СЏРћРїРµСЂР°С†РёСЏ48</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏ1РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="8"/>
+							<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏ1Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="9"/>
+						</PictureDecoration>
+						<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏРќР°РґРїРёСЃСЊРћР¶РёРґР°РЅРёРµ" id="10">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ РїРѕР»СѓС‡РµРЅРёРµ РїР°СЂР°РјРµС‚СЂРѕРІ РёР· РїСЂРѕРіСЂР°РјРјС‹ "%1".
+РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїРѕРґРѕР¶РґРёС‚Рµ...</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРќР°РґРїРёСЃСЊРћР¶РёРґР°РЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="11"/>
+							<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРќР°РґРїРёСЃСЊРћР¶РёРґР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="12"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="РЎС‚СЂР°РЅРёС†Р°РћС€РёР±РєР°" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂР°РЅРёС†Р° РѕС€РёР±РєР°</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РћС€РёР±РєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="6"/>
+					<ChildItems>
+						<PictureDecoration name="Р”РµРєРѕСЂР°С†РёСЏ3" id="13">
+							<Width>6</Width>
+							<Height>2</Height>
+							<Picture>
+								<xr:Ref>CommonPicture.РРЅС„РѕСЂРјР°С†РёСЏ32</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏ3РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="14"/>
+							<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏ3Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="15"/>
+						</PictureDecoration>
+						<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏРќР°РґРїРёСЃСЊРћС€РёР±РєР°" id="16">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РџРµСЂРµРґ РїСЂРѕРґРѕР»Р¶РµРЅРёРµРј РЅР°СЃС‚СЂРѕР№РєРё СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёРё РґР°РЅРЅС‹С… (РЅР°СЃС‚СЂРѕР№РєРё РїСЂР°РІРёР» РѕС‚РїСЂР°РІРєРё Рё РїРѕР»СѓС‡РµРЅРёСЏ РґР°РЅРЅС‹С…) С‚СЂРµР±СѓРµС‚СЃСЏ РїРѕР»СѓС‡РёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РёР· РїСЂРѕРіСЂР°РјРјС‹ "%1".
+
+РџРµСЂРµР№РґРёС‚Рµ РІ "%1", Р·Р°РІРµСЂС€РёС‚Рµ РІ РЅРµР№ РЅР°СЃС‚СЂРѕР№РєСѓ Рё РІС‹РїРѕР»РЅРёС‚Рµ РїРµСЂРІРѕРЅР°С‡Р°Р»СЊРЅСѓСЋ РІС‹РіСЂСѓР·РєСѓ РґР°РЅРЅС‹С…, РїРѕСЃР»Рµ С‡РµРіРѕ Р·Р°РІРµСЂС€РёС‚Рµ РЅР°СЃС‚СЂРѕР№РєСѓ РІ СЌС‚РѕР№ РїСЂРѕРіСЂР°РјРјРµ.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРќР°РґРїРёСЃСЊРћС€РёР±РєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="17"/>
+							<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРќР°РґРїРёСЃСЊРћС€РёР±РєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="18"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РЈР·РµР»РћР±РјРµРЅР°" id="1">
+			<Type>
+				<v8:TypeSet>cfg:ExchangePlanRef</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="РџР°СЂР°РјРµС‚СЂС‹РћР±СЂР°Р±РѕС‚С‡РёРєР°РћР¶РёРґР°РЅРёСЏ" id="2">
+			<Type/>
+		</Attribute>
+		<Attribute name="РџР°СЂР°РјРµС‚СЂС‹РћР±СЂР°Р±РѕС‚С‡РёРєР°" id="3">
+			<Type/>
+		</Attribute>
+		<Attribute name="РќР°РёРјРµРЅРѕРІР°РЅРёРµРљРѕСЂСЂРµСЃРїРѕРЅРґРµРЅС‚Р°" id="4">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РљРѕРјР°РЅРґР°Р“РѕС‚РѕРІРѕ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р“РѕС‚РѕРІРѕ</v8:content>
+				</v8:item>
+			</Title>
+			<Action>РљРѕРјР°РЅРґР°Р“РѕС‚РѕРІРѕ</Action>
+		</Command>
+	</Commands>
+</Form>

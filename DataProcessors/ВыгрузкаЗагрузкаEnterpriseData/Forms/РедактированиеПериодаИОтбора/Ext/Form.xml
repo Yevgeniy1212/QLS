@@ -1,1 +1,246 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<Title>		<v8:item>			<v8:lang>ru</v8:lang>			<v8:content>Общие условия отбора отправляемых данных</v8:content>		</v8:item>	</Title>	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoTitle>false</AutoTitle>	<CommandBarLocation>Bottom</CommandBarLocation>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<HorizontalAlign>Right</HorizontalAlign>		<Autofill>false</Autofill>		<ChildItems>			<Button name="ФормаКомандаОК" id="11">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<CommandName>Form.Command.КомандаОК</CommandName>				<ExtendedTooltip name="ФормаКомандаОКExtendedTooltip" id="17"/>			</Button>			<Button name="ФормаСправка" id="4">				<Type>CommandBarButton</Type>				<CommandName>Form.StandardCommand.Help</CommandName>				<ExtendedTooltip name="ФормаСправкаExtendedTooltip" id="18"/>			</Button>			<Button name="ФормаОтмена" id="5">				<Type>CommandBarButton</Type>				<CommandName>Form.StandardCommand.Cancel</CommandName>				<ExtendedTooltip name="ФормаОтменаExtendedTooltip" id="19"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаПериод" id="14">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Период</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаПериодExtendedTooltip" id="20"/>			<ChildItems>				<InputField name="ПериодДанных" id="9">					<DataPath>ПериодДанных</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>За период</v8:content>						</v8:item>					</Title>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Общий отбор по периоду, применяется для всех документов</v8:content>						</v8:item>					</ToolTip>					<HorizontalStretch>false</HorizontalStretch>					<ContextMenu name="ПериодДанныхКонтекстноеМеню" id="10"/>					<ExtendedTooltip name="ПериодДанныхExtendedTooltip" id="21"/>					<Events>						<Event name="Clearing">ПериодДанныхОчистка</Event>					</Events>				</InputField>			</ChildItems>		</UsualGroup>		<Table name="КомпоновщикНастроекОтбор" id="6">			<Representation>Tree</Representation>			<Autofill>true</Autofill>			<HorizontalLines>false</HorizontalLines>			<UseAlternationRowColor>true</UseAlternationRowColor>			<InitialTreeView>ExpandAllLevels</InitialTreeView>			<EnableStartDrag>true</EnableStartDrag>			<EnableDrag>true</EnableDrag>			<FileDragMode>AsFile</FileDragMode>			<DataPath>КомпоновщикНастроек.Settings.Filter</DataPath>			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Компоновщик настроек (отбор)</v8:content>				</v8:item>			</Title>			<SearchStringLocation>None</SearchStringLocation>			<ViewStatusLocation>None</ViewStatusLocation>			<SearchControlLocation>None</SearchControlLocation>			<ViewMode>All</ViewMode>			<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>			<ContextMenu name="КомпоновщикНастроекОтборКонтекстноеМеню" id="7"/>			<AutoCommandBar name="КомпоновщикНастроекОтборКоманднаяПанель" id="8">				<Autofill>false</Autofill>				<ChildItems>					<Button name="КомпоновщикНастроекОтборДобавитьЭлементОтбора" id="16">						<Type>CommandBarButton</Type>						<CommandName>Form.Item.КомпоновщикНастроекОтбор.StandardCommand.AddFilterItem</CommandName>						<Title>							<v8:item>								<v8:lang>ru</v8:lang>								<v8:content>Добавить условие</v8:content>							</v8:item>						</Title>						<ExtendedTooltip name="КомпоновщикНастроекОтборДобавитьЭлементОтбораExtendedTooltip" id="22"/>					</Button>					<ButtonGroup name="КомпоновщикНастроекОтборГруппаВсеДействия" id="15">						<Title>							<v8:item>								<v8:lang>ru</v8:lang>								<v8:content>Компоновщик настроек отбор группа все действия</v8:content>							</v8:item>						</Title>						<CommandSource>Item.КомпоновщикНастроекОтбор</CommandSource>						<ExtendedTooltip name="КомпоновщикНастроекОтборГруппаВсеДействияExtendedTooltip" id="23"/>					</ButtonGroup>				</ChildItems>			</AutoCommandBar>			<ExtendedTooltip name="КомпоновщикНастроекОтборExtendedTooltip" id="24"/>			<SearchStringAddition name="КомпоновщикНастроекОтборSearchString" id="25">				<AdditionSource>					<Item>КомпоновщикНастроекОтбор</Item>					<Type>SearchStringRepresentation</Type>				</AdditionSource>				<ContextMenu name="КомпоновщикНастроекОтборSearchStringContextMenu" id="26"/>				<ExtendedTooltip name="КомпоновщикНастроекОтборSearchStringExtendedTooltip" id="27"/>			</SearchStringAddition>			<ViewStatusAddition name="КомпоновщикНастроекОтборViewStatus" id="28">				<AdditionSource>					<Item>КомпоновщикНастроекОтбор</Item>					<Type>ViewStatusRepresentation</Type>				</AdditionSource>				<ContextMenu name="КомпоновщикНастроекОтборViewStatusContextMenu" id="29"/>				<ExtendedTooltip name="КомпоновщикНастроекОтборViewStatusExtendedTooltip" id="30"/>			</ViewStatusAddition>			<SearchControlAddition name="КомпоновщикНастроекОтборSearchControl" id="31">				<AdditionSource>					<Item>КомпоновщикНастроекОтбор</Item>					<Type>SearchControl</Type>				</AdditionSource>				<ContextMenu name="КомпоновщикНастроекОтборSearchControlContextMenu" id="32"/>				<ExtendedTooltip name="КомпоновщикНастроекОтборSearchControlExtendedTooltip" id="33"/>			</SearchControlAddition>		</Table>	</ChildItems>	<Attributes>		<Attribute name="ВыгружатьЗаПериод" id="2">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="КомпоновщикНастроек" id="3">			<Type>				<v8:Type>dcsset:SettingsComposer</v8:Type>			</Type>		</Attribute>		<Attribute name="ПериодДанных" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Период данных</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>v8:StandardPeriod</v8:Type>			</Type>		</Attribute>		<Attribute name="АдресКомпоновщикаНастроек" id="1">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="АдресСхемыКомпоновки" id="5">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="КомандаОК" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>ОК</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Команда ОК</v8:content>				</v8:item>			</ToolTip>			<Action>КомандаОК</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands>	<Parameters>		<Parameter name="КомпоновщикНастроек">			<Type>				<v8:Type>dcsset:SettingsComposer</v8:Type>			</Type>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="ПериодДанных">			<Type>				<v8:Type>v8:StandardPeriod</v8:Type>			</Type>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="ДействиеВыбора">			<Type/>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="Заголовок">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="ВыборПериода">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="АдресХранилищаФормы">			<Type/>			<KeyParameter>true</KeyParameter>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>РћР±С‰РёРµ СѓСЃР»РѕРІРёСЏ РѕС‚Р±РѕСЂР° РѕС‚РїСЂР°РІР»СЏРµРјС‹С… РґР°РЅРЅС‹С…</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґР°РћРљ" id="11">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.РљРѕРјР°РЅРґР°РћРљ</CommandName>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґР°РћРљExtendedTooltip" id="17"/>
+			</Button>
+			<Button name="Р¤РѕСЂРјР°РЎРїСЂР°РІРєР°" id="4">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°РЎРїСЂР°РІРєР°ExtendedTooltip" id="18"/>
+			</Button>
+			<Button name="Р¤РѕСЂРјР°РћС‚РјРµРЅР°" id="5">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°РћС‚РјРµРЅР°ExtendedTooltip" id="19"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РџРµСЂРёРѕРґ" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРёРѕРґ</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РџРµСЂРёРѕРґExtendedTooltip" id="20"/>
+			<ChildItems>
+				<InputField name="РџРµСЂРёРѕРґР”Р°РЅРЅС‹С…" id="9">
+					<DataPath>РџРµСЂРёРѕРґР”Р°РЅРЅС‹С…</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р—Р° РїРµСЂРёРѕРґ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћР±С‰РёР№ РѕС‚Р±РѕСЂ РїРѕ РїРµСЂРёРѕРґСѓ, РїСЂРёРјРµРЅСЏРµС‚СЃСЏ РґР»СЏ РІСЃРµС… РґРѕРєСѓРјРµРЅС‚РѕРІ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="РџРµСЂРёРѕРґР”Р°РЅРЅС‹С…РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="10"/>
+					<ExtendedTooltip name="РџРµСЂРёРѕРґР”Р°РЅРЅС‹С…ExtendedTooltip" id="21"/>
+					<Events>
+						<Event name="Clearing">РџРµСЂРёРѕРґР”Р°РЅРЅС‹С…РћС‡РёСЃС‚РєР°</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂ" id="6">
+			<Representation>Tree</Representation>
+			<Autofill>true</Autofill>
+			<HorizontalLines>false</HorizontalLines>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРє.Settings.Filter</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљРѕРјРїРѕРЅРѕРІС‰РёРє РЅР°СЃС‚СЂРѕРµРє (РѕС‚Р±РѕСЂ)</v8:content>
+				</v8:item>
+			</Title>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ViewMode>All</ViewMode>
+			<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+			<ContextMenu name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="7"/>
+			<AutoCommandBar name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="8">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂР”РѕР±Р°РІРёС‚СЊР­Р»РµРјРµРЅС‚РћС‚Р±РѕСЂР°" id="16">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂ.StandardCommand.AddFilterItem</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Р”РѕР±Р°РІРёС‚СЊ СѓСЃР»РѕРІРёРµ</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂР”РѕР±Р°РІРёС‚СЊР­Р»РµРјРµРЅС‚РћС‚Р±РѕСЂР°ExtendedTooltip" id="22"/>
+					</Button>
+					<ButtonGroup name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂР“СЂСѓРїРїР°Р’СЃРµР”РµР№СЃС‚РІРёСЏ" id="15">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>РљРѕРјРїРѕРЅРѕРІС‰РёРє РЅР°СЃС‚СЂРѕРµРє РѕС‚Р±РѕСЂ РіСЂСѓРїРїР° РІСЃРµ РґРµР№СЃС‚РІРёСЏ</v8:content>
+							</v8:item>
+						</Title>
+						<CommandSource>Item.РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂ</CommandSource>
+						<ExtendedTooltip name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂР“СЂСѓРїРїР°Р’СЃРµР”РµР№СЃС‚РІРёСЏExtendedTooltip" id="23"/>
+					</ButtonGroup>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂExtendedTooltip" id="24"/>
+			<SearchStringAddition name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂSearchString" id="25">
+				<AdditionSource>
+					<Item>РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂ</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂSearchStringContextMenu" id="26"/>
+				<ExtendedTooltip name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂSearchStringExtendedTooltip" id="27"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂViewStatus" id="28">
+				<AdditionSource>
+					<Item>РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂ</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂViewStatusContextMenu" id="29"/>
+				<ExtendedTooltip name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂViewStatusExtendedTooltip" id="30"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂSearchControl" id="31">
+				<AdditionSource>
+					<Item>РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂ</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂSearchControlContextMenu" id="32"/>
+				<ExtendedTooltip name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРєРћС‚Р±РѕСЂSearchControlExtendedTooltip" id="33"/>
+			</SearchControlAddition>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Р’С‹РіСЂСѓР¶Р°С‚СЊР—Р°РџРµСЂРёРѕРґ" id="2">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРє" id="3">
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРµСЂРёРѕРґР”Р°РЅРЅС‹С…" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРёРѕРґ РґР°РЅРЅС‹С…</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РђРґСЂРµСЃРљРѕРјРїРѕРЅРѕРІС‰РёРєР°РќР°СЃС‚СЂРѕРµРє" id="1">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РђРґСЂРµСЃРЎС…РµРјС‹РљРѕРјРїРѕРЅРѕРІРєРё" id="5">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РљРѕРјР°РЅРґР°РћРљ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћРљ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљРѕРјР°РЅРґР° РћРљ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РљРѕРјР°РЅРґР°РћРљ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРє">
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="РџРµСЂРёРѕРґР”Р°РЅРЅС‹С…">
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="Р”РµР№СЃС‚РІРёРµР’С‹Р±РѕСЂР°">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="Р—Р°РіРѕР»РѕРІРѕРє">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="Р’С‹Р±РѕСЂРџРµСЂРёРѕРґР°">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="РђРґСЂРµСЃРҐСЂР°РЅРёР»РёС‰Р°Р¤РѕСЂРјС‹">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

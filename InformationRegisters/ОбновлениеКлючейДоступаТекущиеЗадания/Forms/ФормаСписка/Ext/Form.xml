@@ -1,1 +1,203 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<Autofill>false</Autofill>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаПользовательскихНастроек" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Группа пользовательских настроек</v8:content>				</v8:item>			</Title>			<VerticalStretch>false</VerticalStretch>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="2"/>		</UsualGroup>		<CommandBar name="КоманднаяПанель" id="22">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Командная панель</v8:content>				</v8:item>			</Title>			<CommandSource>Form</CommandSource>			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="23"/>			<ChildItems>				<Button name="ФормаВключитьВозможностьРедактирования" id="24">					<Type>CommandBarButton</Type>					<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>					<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияExtendedTooltip" id="25"/>				</Button>				<Button name="ФормаОтменитьФоновоеЗадание" id="29">					<Type>CommandBarButton</Type>					<CommandName>Form.Command.ОтменитьФоновоеЗадание</CommandName>					<ExtendedTooltip name="ФормаОтменитьФоновоеЗаданиеРасширеннаяПодсказка" id="30"/>				</Button>			</ChildItems>		</CommandBar>		<Table name="Список" id="3">			<Representation>List</Representation>			<CommandBarLocation>None</CommandBarLocation>			<DefaultItem>true</DefaultItem>			<UseAlternationRowColor>true</UseAlternationRowColor>			<InitialTreeView>ExpandTopLevel</InitialTreeView>			<EnableStartDrag>true</EnableStartDrag>			<FileDragMode>AsFile</FileDragMode>			<DataPath>Список</DataPath>			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Список</v8:content>				</v8:item>			</Title>			<AutoRefresh>false</AutoRefresh>			<AutoRefreshPeriod>60</AutoRefreshPeriod>			<Period>				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>				<v8:startDate>0001-01-01T00:00:00</v8:startDate>				<v8:endDate>0001-01-01T00:00:00</v8:endDate>			</Period>			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>			<RestoreCurrentRow>false</RestoreCurrentRow>			<TopLevelParent xsi:nil="true"/>			<ShowRoot>true</ShowRoot>			<AllowRootChoice>false</AllowRootChoice>			<UpdateOnDataChange>Auto</UpdateOnDataChange>			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>			<ContextMenu name="СписокКонтекстноеМеню" id="4">				<ChildItems>					<Button name="СписокКонтекстноеМенюОтменитьФоновоеЗадание" id="31">						<Type>CommandBarButton</Type>						<CommandName>Form.Command.ОтменитьФоновоеЗадание</CommandName>						<ExtendedTooltip name="СписокКонтекстноеМенюОтменитьФоновоеЗаданиеРасширеннаяПодсказка" id="32"/>					</Button>				</ChildItems>			</ContextMenu>			<AutoCommandBar name="СписокКоманднаяПанель" id="5">				<Autofill>false</Autofill>			</AutoCommandBar>			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>			<SearchStringAddition name="СписокСтрокаПоиска" id="7">				<AdditionSource>					<Item>Список</Item>					<Type>SearchStringRepresentation</Type>				</AdditionSource>				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>			</SearchStringAddition>			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">				<AdditionSource>					<Item>Список</Item>					<Type>ViewStatusRepresentation</Type>				</AdditionSource>				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>			</ViewStatusAddition>			<SearchControlAddition name="СписокУправлениеПоиском" id="13">				<AdditionSource>					<Item>Список</Item>					<Type>SearchControl</Type>				</AdditionSource>				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>			</SearchControlAddition>			<ChildItems>				<LabelField name="ИдентификаторПотока" id="19">					<DataPath>Список.ИдентификаторПотока</DataPath>					<ContextMenu name="ИдентификаторПотокаКонтекстноеМеню" id="20"/>					<ExtendedTooltip name="ИдентификаторПотокаРасширеннаяПодсказка" id="21"/>				</LabelField>				<CheckBoxField name="ЭтоЗапуск" id="16">					<DataPath>Список.ЭтоЗапуск</DataPath>					<DefaultItem>true</DefaultItem>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ЭтоЗапускКонтекстноеМеню" id="17"/>					<ExtendedTooltip name="ЭтоЗапускРасширеннаяПодсказка" id="18"/>				</CheckBoxField>				<LabelField name="ДатаИзмененияЗаписиРегистра" id="26">					<DataPath>Список.ДатаИзмененияЗаписиРегистра</DataPath>					<ContextMenu name="ДатаИзмененияЗаписиРегистраКонтекстноеМеню" id="27"/>					<ExtendedTooltip name="ДатаИзмененияЗаписиРегистраРасширеннаяПодсказка" id="28"/>				</LabelField>			</ChildItems>		</Table>	</ChildItems>	<Attributes>		<Attribute name="Список" id="1">			<Type>				<v8:Type>cfg:DynamicList</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>			<Settings xsi:type="DynamicList">				<ManualQuery>false</ManualQuery>				<DynamicDataRead>true</DynamicDataRead>				<MainTable>InformationRegister.ОбновлениеКлючейДоступаТекущиеЗадания</MainTable>				<ListSettings>					<dcsset:filter>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>					</dcsset:filter>					<dcsset:order>						<dcsset:item xsi:type="dcsset:OrderItemField">							<dcsset:field>ДатаИзмененияЗаписиРегистра</dcsset:field>							<dcsset:orderType>Asc</dcsset:orderType>						</dcsset:item>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>					</dcsset:order>					<dcsset:conditionalAppearance>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>					</dcsset:conditionalAppearance>					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>				</ListSettings>			</Settings>		</Attribute>	</Attributes>	<Commands>		<Command name="ВключитьВозможностьРедактирования" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Включить возможность редактирования</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Включить возможность редактирования только для целей поиска неисправности (требуется углубленное понимание работы механизма)</v8:content>				</v8:item>			</ToolTip>			<Action>ВключитьВозможностьРедактирования</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ОтменитьФоновоеЗадание" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Отменить фоновое задание</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Отменить фоновое задание потока обновления доступа прямо сейчас.Через 15 минут зависшие фоновые задания отменяются автоматически.Недостающее фоновое задание будет запущено автоматически.</v8:content>				</v8:item>			</ToolTip>			<Action>ОтменитьФоновоеЗадание</Action>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС…РќР°СЃС‚СЂРѕРµРє" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р“СЂСѓРїРїР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС… РЅР°СЃС‚СЂРѕРµРє</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС…РќР°СЃС‚СЂРѕРµРєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="2"/>
+		</UsualGroup>
+		<CommandBar name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљРѕРјР°РЅРґРЅР°СЏ РїР°РЅРµР»СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="23"/>
+			<ChildItems>
+				<Button name="Р¤РѕСЂРјР°Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" id="24">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</CommandName>
+					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="Р¤РѕСЂРјР°Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="25"/>
+				</Button>
+				<Button name="Р¤РѕСЂРјР°РћС‚РјРµРЅРёС‚СЊР¤РѕРЅРѕРІРѕРµР—Р°РґР°РЅРёРµ" id="29">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.РћС‚РјРµРЅРёС‚СЊР¤РѕРЅРѕРІРѕРµР—Р°РґР°РЅРёРµ</CommandName>
+					<ExtendedTooltip name="Р¤РѕСЂРјР°РћС‚РјРµРЅРёС‚СЊР¤РѕРЅРѕРІРѕРµР—Р°РґР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="30"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+		<Table name="РЎРїРёСЃРѕРє" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>РЎРїРёСЃРѕРє</DataPath>
+			<RowPictureDataPath>РЎРїРёСЃРѕРє.DefaultPicture</RowPictureDataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРїРёСЃРѕРє</v8:content>
+				</v8:item>
+			</Title>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>Р“СЂСѓРїРїР°РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёС…РќР°СЃС‚СЂРѕРµРє</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="РЎРїРёСЃРѕРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="4">
+				<ChildItems>
+					<Button name="РЎРїРёСЃРѕРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋРћС‚РјРµРЅРёС‚СЊР¤РѕРЅРѕРІРѕРµР—Р°РґР°РЅРёРµ" id="31">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.РћС‚РјРµРЅРёС‚СЊР¤РѕРЅРѕРІРѕРµР—Р°РґР°РЅРёРµ</CommandName>
+						<ExtendedTooltip name="РЎРїРёСЃРѕРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋРћС‚РјРµРЅРёС‚СЊР¤РѕРЅРѕРІРѕРµР—Р°РґР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="32"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="РЎРїРёСЃРѕРєРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="РЎРїРёСЃРѕРєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="6"/>
+			<SearchStringAddition name="РЎРїРёСЃРѕРєРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="7">
+				<AdditionSource>
+					<Item>РЎРїРёСЃРѕРє</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РЎРїРёСЃРѕРєРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="8"/>
+				<ExtendedTooltip name="РЎРїРёСЃРѕРєРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РЎРїРёСЃРѕРєРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="10">
+				<AdditionSource>
+					<Item>РЎРїРёСЃРѕРє</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РЎРїРёСЃРѕРєРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="11"/>
+				<ExtendedTooltip name="РЎРїРёСЃРѕРєРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РЎРїРёСЃРѕРєРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="13">
+				<AdditionSource>
+					<Item>РЎРїРёСЃРѕРє</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РЎРїРёСЃРѕРєРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="14"/>
+				<ExtendedTooltip name="РЎРїРёСЃРѕРєРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="15"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРџРѕС‚РѕРєР°" id="19">
+					<DataPath>РЎРїРёСЃРѕРє.РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРџРѕС‚РѕРєР°</DataPath>
+					<ContextMenu name="РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРџРѕС‚РѕРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="20"/>
+					<ExtendedTooltip name="РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРџРѕС‚РѕРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="21"/>
+				</LabelField>
+				<CheckBoxField name="Р­С‚РѕР—Р°РїСѓСЃРє" id="16">
+					<DataPath>РЎРїРёСЃРѕРє.Р­С‚РѕР—Р°РїСѓСЃРє</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="Р­С‚РѕР—Р°РїСѓСЃРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="17"/>
+					<ExtendedTooltip name="Р­С‚РѕР—Р°РїСѓСЃРєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="18"/>
+				</CheckBoxField>
+				<LabelField name="Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏР—Р°РїРёСЃРёР РµРіРёСЃС‚СЂР°" id="26">
+					<DataPath>РЎРїРёСЃРѕРє.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏР—Р°РїРёСЃРёР РµРіРёСЃС‚СЂР°</DataPath>
+					<ContextMenu name="Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏР—Р°РїРёСЃРёР РµРіРёСЃС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="27"/>
+					<ExtendedTooltip name="Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏР—Р°РїРёСЃРёР РµРіРёСЃС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="28"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РЎРїРёСЃРѕРє" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.РћР±РЅРѕРІР»РµРЅРёРµРљР»СЋС‡РµР№Р”РѕСЃС‚СѓРїР°РўРµРєСѓС‰РёРµР—Р°РґР°РЅРёСЏ</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏР—Р°РїРёСЃРёР РµРіРёСЃС‚СЂР°</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РєР»СЋС‡РёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РєР»СЋС‡РёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚РѕР»СЊРєРѕ РґР»СЏ С†РµР»РµР№ РїРѕРёСЃРєР° РЅРµРёСЃРїСЂР°РІРЅРѕСЃС‚Рё (С‚СЂРµР±СѓРµС‚СЃСЏ СѓРіР»СѓР±Р»РµРЅРЅРѕРµ РїРѕРЅРёРјР°РЅРёРµ СЂР°Р±РѕС‚С‹ РјРµС…Р°РЅРёР·РјР°)</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РћС‚РјРµРЅРёС‚СЊР¤РѕРЅРѕРІРѕРµР—Р°РґР°РЅРёРµ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РјРµРЅРёС‚СЊ С„РѕРЅРѕРІРѕРµ Р·Р°РґР°РЅРёРµ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РјРµРЅРёС‚СЊ С„РѕРЅРѕРІРѕРµ Р·Р°РґР°РЅРёРµ РїРѕС‚РѕРєР° РѕР±РЅРѕРІР»РµРЅРёСЏ РґРѕСЃС‚СѓРїР° РїСЂСЏРјРѕ СЃРµР№С‡Р°СЃ.
+Р§РµСЂРµР· 15 РјРёРЅСѓС‚ Р·Р°РІРёСЃС€РёРµ С„РѕРЅРѕРІС‹Рµ Р·Р°РґР°РЅРёСЏ РѕС‚РјРµРЅСЏСЋС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё.
+РќРµРґРѕСЃС‚Р°СЋС‰РµРµ С„РѕРЅРѕРІРѕРµ Р·Р°РґР°РЅРёРµ Р±СѓРґРµС‚ Р·Р°РїСѓС‰РµРЅРѕ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РћС‚РјРµРЅРёС‚СЊР¤РѕРЅРѕРІРѕРµР—Р°РґР°РЅРёРµ</Action>
+		</Command>
+	</Commands>
+</Form>

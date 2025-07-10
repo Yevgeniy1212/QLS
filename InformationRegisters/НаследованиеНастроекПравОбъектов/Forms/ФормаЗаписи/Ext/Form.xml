@@ -1,1 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<ChildItems>			<Button name="ФормаВключитьВозможностьРедактирования" id="14">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>				<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияExtendedTooltip" id="15"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<InputField name="Объект" id="1">			<DataPath>Запись.Объект</DataPath>			<ContextMenu name="ОбъектКонтекстноеМеню" id="2"/>			<ExtendedTooltip name="ОбъектExtendedTooltip" id="16"/>		</InputField>		<InputField name="Родитель" id="3">			<DataPath>Запись.Родитель</DataPath>			<ContextMenu name="РодительКонтекстноеМеню" id="4"/>			<ExtendedTooltip name="РодительExtendedTooltip" id="17"/>		</InputField>		<CheckBoxField name="Наследовать" id="5">			<DataPath>Запись.Наследовать</DataPath>			<TitleLocation>Right</TitleLocation>			<CheckBoxType>Auto</CheckBoxType>			<ContextMenu name="НаследоватьКонтекстноеМеню" id="6"/>			<ExtendedTooltip name="НаследоватьExtendedTooltip" id="18"/>		</CheckBoxField>		<InputField name="УровеньИспользования" id="19">			<DataPath>Запись.УровеньИспользования</DataPath>			<ContextMenu name="УровеньИспользованияКонтекстноеМеню" id="20"/>			<ExtendedTooltip name="УровеньИспользованияРасширеннаяПодсказка" id="21"/>		</InputField>	</ChildItems>	<Attributes>		<Attribute name="Запись" id="1">			<Type>				<v8:Type>cfg:InformationRegisterRecordManager.НаследованиеНастроекПравОбъектов</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>			<SavedData>true</SavedData>		</Attribute>	</Attributes>	<Commands>		<Command name="ВключитьВозможностьРедактирования" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Включить возможность редактирования</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Включить возможность редактирования только для целей поиска неисправности (требуется углубленное понимание работы механизма)</v8:content>				</v8:item>			</ToolTip>			<Action>ВключитьВозможностьРедактирования</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" id="14">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="15"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="РћР±СЉРµРєС‚" id="1">
+			<DataPath>Р—Р°РїРёСЃСЊ.РћР±СЉРµРєС‚</DataPath>
+			<ContextMenu name="РћР±СЉРµРєС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+			<ExtendedTooltip name="РћР±СЉРµРєС‚ExtendedTooltip" id="16"/>
+		</InputField>
+		<InputField name="Р РѕРґРёС‚РµР»СЊ" id="3">
+			<DataPath>Р—Р°РїРёСЃСЊ.Р РѕРґРёС‚РµР»СЊ</DataPath>
+			<ContextMenu name="Р РѕРґРёС‚РµР»СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="4"/>
+			<ExtendedTooltip name="Р РѕРґРёС‚РµР»СЊExtendedTooltip" id="17"/>
+		</InputField>
+		<CheckBoxField name="РќР°СЃР»РµРґРѕРІР°С‚СЊ" id="5">
+			<DataPath>Р—Р°РїРёСЃСЊ.РќР°СЃР»РµРґРѕРІР°С‚СЊ</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="РќР°СЃР»РµРґРѕРІР°С‚СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="6"/>
+			<ExtendedTooltip name="РќР°СЃР»РµРґРѕРІР°С‚СЊExtendedTooltip" id="18"/>
+		</CheckBoxField>
+		<InputField name="РЈСЂРѕРІРµРЅСЊРСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ" id="19">
+			<DataPath>Р—Р°РїРёСЃСЊ.РЈСЂРѕРІРµРЅСЊРСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ</DataPath>
+			<ContextMenu name="РЈСЂРѕРІРµРЅСЊРСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="20"/>
+			<ExtendedTooltip name="РЈСЂРѕРІРµРЅСЊРСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="21"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Р—Р°РїРёСЃСЊ" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.РќР°СЃР»РµРґРѕРІР°РЅРёРµРќР°СЃС‚СЂРѕРµРєРџСЂР°РІРћР±СЉРµРєС‚РѕРІ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РєР»СЋС‡РёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РєР»СЋС‡РёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚РѕР»СЊРєРѕ РґР»СЏ С†РµР»РµР№ РїРѕРёСЃРєР° РЅРµРёСЃРїСЂР°РІРЅРѕСЃС‚Рё (С‚СЂРµР±СѓРµС‚СЃСЏ СѓРіР»СѓР±Р»РµРЅРЅРѕРµ РїРѕРЅРёРјР°РЅРёРµ СЂР°Р±РѕС‚С‹ РјРµС…Р°РЅРёР·РјР°)</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

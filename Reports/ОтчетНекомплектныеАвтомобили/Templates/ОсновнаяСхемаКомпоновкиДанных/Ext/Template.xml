@@ -1,1 +1,112 @@
-<?xml version="1.0" encoding="UTF-8"?><DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">	<dataSource>		<name>ИсточникДанных1</name>		<dataSourceType>Local</dataSourceType>	</dataSource>	<dataSet xsi:type="DataSetQuery">		<name>НаборДанных1</name>		<field xsi:type="DataSetFieldField">			<dataPath>Заказ</dataPath>			<field>Заказ</field>			<role>				<dcscom:dimension>true</dcscom:dimension>			</role>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Количество</dataPath>			<field>Количество</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Номенклатура</dataPath>			<field>Номенклатура</field>			<role>				<dcscom:dimension>true</dcscom:dimension>			</role>		</field>		<dataSource>ИсточникДанных1</dataSource>		<query>ВЫБРАТЬ	НекомплектыОстатки.Заказ,	НекомплектыОстатки.Номенклатура,	СУММА(НекомплектыОстатки.КоличествоОстаток) КАК КоличествоИЗ	РегистрНакопления.Некомплекты.Остатки КАК НекомплектыОстаткиГДЕ	НекомплектыОстатки.КоличествоОстаток &gt; 0СГРУППИРОВАТЬ ПО	НекомплектыОстатки.Заказ,	НекомплектыОстатки.Номенклатура</query>	</dataSet>	<totalField>		<dataPath>Количество</dataPath>		<expression>Сумма(Количество)</expression>	</totalField>	<parameter>		<name>Период</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Период</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>		<useRestriction>false</useRestriction>	</parameter>	<settingsVariant>		<dcsset:name>Основной</dcsset:name>		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">			<dcsset:selection>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Заказ</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Номенклатура</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Количество</dcsset:field>				</dcsset:item>			</dcsset:selection>			<dcsset:dataParameters>				<dcscor:item xsi:type="dcsset:SettingsParameterValue">					<dcscor:use>false</dcscor:use>					<dcscor:parameter>Период</dcscor:parameter>					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>					<dcsset:userSettingID>aad128aa-0271-45ae-a0e5-9a748e958150</dcsset:userSettingID>				</dcscor:item>			</dcsset:dataParameters>			<dcsset:item xsi:type="dcsset:StructureItemGroup">				<dcsset:groupItems>					<dcsset:item xsi:type="dcsset:GroupItemField">						<dcsset:field>Заказ</dcsset:field>						<dcsset:groupType>Items</dcsset:groupType>						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>					</dcsset:item>				</dcsset:groupItems>				<dcsset:order>					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>				</dcsset:order>				<dcsset:selection>					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>				</dcsset:selection>				<dcsset:item xsi:type="dcsset:StructureItemGroup">					<dcsset:order>						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>					</dcsset:order>					<dcsset:selection>						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>					</dcsset:selection>				</dcsset:item>			</dcsset:item>		</dcsset:settings>	</settingsVariant></DataCompositionSchema>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>РСЃС‚РѕС‡РЅРёРєР”Р°РЅРЅС‹С…1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>РќР°Р±РѕСЂР”Р°РЅРЅС‹С…1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Р—Р°РєР°Р·</dataPath>
+			<field>Р—Р°РєР°Р·</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РљРѕР»РёС‡РµСЃС‚РІРѕ</dataPath>
+			<field>РљРѕР»РёС‡РµСЃС‚РІРѕ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РќРѕРјРµРЅРєР»Р°С‚СѓСЂР°</dataPath>
+			<field>РќРѕРјРµРЅРєР»Р°С‚СѓСЂР°</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>РСЃС‚РѕС‡РЅРёРєР”Р°РЅРЅС‹С…1</dataSource>
+		<query>Р’Р«Р‘Р РђРўР¬
+	РќРµРєРѕРјРїР»РµРєС‚С‹РћСЃС‚Р°С‚РєРё.Р—Р°РєР°Р·,
+	РќРµРєРѕРјРїР»РµРєС‚С‹РћСЃС‚Р°С‚РєРё.РќРѕРјРµРЅРєР»Р°С‚СѓСЂР°,
+	РЎРЈРњРњРђ(РќРµРєРѕРјРїР»РµРєС‚С‹РћСЃС‚Р°С‚РєРё.РљРѕР»РёС‡РµСЃС‚РІРѕРћСЃС‚Р°С‚РѕРє) РљРђРљ РљРѕР»РёС‡РµСЃС‚РІРѕ
+РР—
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏ.РќРµРєРѕРјРїР»РµРєС‚С‹.РћСЃС‚Р°С‚РєРё РљРђРљ РќРµРєРѕРјРїР»РµРєС‚С‹РћСЃС‚Р°С‚РєРё
+Р“Р”Р•
+	РќРµРєРѕРјРїР»РµРєС‚С‹РћСЃС‚Р°С‚РєРё.РљРѕР»РёС‡РµСЃС‚РІРѕРћСЃС‚Р°С‚РѕРє &gt; 0
+
+РЎР“Р РЈРџРџРР РћР’РђРўР¬ РџРћ
+	РќРµРєРѕРјРїР»РµРєС‚С‹РћСЃС‚Р°С‚РєРё.Р—Р°РєР°Р·,
+	РќРµРєРѕРјРїР»РµРєС‚С‹РћСЃС‚Р°С‚РєРё.РќРѕРјРµРЅРєР»Р°С‚СѓСЂР°</query>
+	</dataSet>
+	<totalField>
+		<dataPath>РљРѕР»РёС‡РµСЃС‚РІРѕ</dataPath>
+		<expression>РЎСѓРјРјР°(РљРѕР»РёС‡РµСЃС‚РІРѕ)</expression>
+	</totalField>
+	<parameter>
+		<name>РџРµСЂРёРѕРґ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РџРµСЂРёРѕРґ</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>РћСЃРЅРѕРІРЅРѕР№</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">РћСЃРЅРѕРІРЅРѕР№</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Р—Р°РєР°Р·</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РќРѕРјРµРЅРєР»Р°С‚СѓСЂР°</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РљРѕР»РёС‡РµСЃС‚РІРѕ</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РџРµСЂРёРѕРґ</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>aad128aa-0271-45ae-a0e5-9a748e958150</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Р—Р°РєР°Р·</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

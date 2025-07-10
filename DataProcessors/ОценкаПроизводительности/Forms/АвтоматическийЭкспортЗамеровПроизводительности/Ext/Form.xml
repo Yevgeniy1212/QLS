@@ -1,1 +1,430 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<ChildItems>			<Button name="ФормаСохранитьЗакрыть" id="17">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<CommandName>Form.Command.СохранитьЗакрыть</CommandName>				<Title>					<v8:item>						<v8:lang>ru</v8:lang>						<v8:content>Записать и закрыть</v8:content>					</v8:item>				</Title>				<ExtendedTooltip name="ФормаСохранитьЗакрытьExtendedTooltip" id="25"/>			</Button>			<Button name="ФормаСохранитьНастройки" id="16">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.СохранитьНастройки</CommandName>				<Title>					<v8:item>						<v8:lang>ru</v8:lang>						<v8:content>Записать</v8:content>					</v8:item>				</Title>				<ExtendedTooltip name="ФормаСохранитьНастройкиExtendedTooltip" id="26"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>		<Event name="bf0ac0e1-bcbb-4dfe-8fc4-0b1923b461a6">ПередЗаписьюНаСервере</Event>		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="НастройкиВыполненияЗамеров" id="40">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настройки выполнения замеров</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<ThroughAlign>DontUse</ThroughAlign>			<ExtendedTooltip name="НастройкиВыполненияЗамеровРасширеннаяПодсказка" id="41"/>			<ChildItems>				<UsualGroup name="НастройкиВыполненияЗамеровФлаги" id="45">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки выполнения замеров флаги</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиВыполненияЗамеровФлагиРасширеннаяПодсказка" id="46"/>					<ChildItems>						<CheckBoxField name="ВыполнятьЗамерыПроизводительностиВыполнятьЗамерыПроизводительности" id="37">							<DataPath>КонстантыНабор.ВыполнятьЗамерыПроизводительности</DataPath>							<Visible>false</Visible>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ВыполнятьЗамерыПроизводительностиВыполнятьЗамерыПроизводительностиКонтекстноеМеню" id="38"/>							<ExtendedTooltip name="ВыполнятьЗамерыПроизводительностиВыполнятьЗамерыПроизводительностиРасширеннаяПодсказка" id="39"/>						</CheckBoxField>						<CheckBoxField name="ВыполнятьЭкспорт" id="14">							<DataPath>ВыполнятьЭкспорт</DataPath>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ВыполнятьЭкспортКонтекстноеМеню" id="15"/>							<ExtendedTooltip name="ВыполнятьЭкспортExtendedTooltip" id="29"/>							<Events>								<Event name="OnChange">ВыполнятьЭкспортПриИзменении</Event>							</Events>						</CheckBoxField>					</ChildItems>				</UsualGroup>				<UsualGroup name="НастройкиВыполненияЗамеровИнфо" id="47">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки выполнения замеров инфо</v8:content>						</v8:item>					</Title>					<ChildrenAlign>None</ChildrenAlign>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиВыполненияЗамеровИнфоРасширеннаяПодсказка" id="48"/>					<ChildItems>						<InputField name="КонстантыНаборОценкаПроизводительностиПериодЗаписи" id="58">							<DataPath>КонстантыНабор.ОценкаПроизводительностиПериодЗаписи</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Период записи</v8:content>								</v8:item>							</Title>							<ContextMenu name="КонстантыНаборОценкаПроизводительностиПериодЗаписиКонтекстноеМеню" id="59"/>							<ExtendedTooltip name="КонстантыНаборОценкаПроизводительностиПериодЗаписиРасширеннаяПодсказка" id="60"/>							<Events>								<Event name="OnChange">КонстантыНаборОценкаПроизводительностиПериодЗаписиПриИзменении</Event>							</Events>						</InputField>						<LabelDecoration name="ДекорацияПериодЗаписи" id="55">							<AutoMaxWidth>false</AutoMaxWidth>							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>сек.      </v8:content>								</v8:item>							</Title>							<ContextMenu name="ДекорацияПериодЗаписиКонтекстноеМеню" id="56"/>							<ExtendedTooltip name="ДекорацияПериодЗаписиРасширеннаяПодсказка" id="57"/>						</LabelDecoration>						<LabelDecoration name="ДекорацияПередЗамеровВПакете" id="64">							<Width>1</Width>							<ContextMenu name="ДекорацияПередЗамеровВПакетеКонтекстноеМеню" id="65"/>							<ExtendedTooltip name="ДекорацияПередЗамеровВПакетеРасширеннаяПодсказка" id="66"/>						</LabelDecoration>						<InputField name="КонстантыНаборКоличествоЗамеровВПакетеЭкспорта" id="61">							<DataPath>КонстантыНабор.КоличествоЗамеровВПакетеЭкспорта</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Замеров в пакете</v8:content>								</v8:item>							</Title>							<HorizontalStretch>true</HorizontalStretch>							<ContextMenu name="КонстантыНаборКоличествоЗамеровВПакетеЭкспортаКонтекстноеМеню" id="62"/>							<ExtendedTooltip name="КонстантыНаборКоличествоЗамеровВПакетеЭкспортаРасширеннаяПодсказка" id="63"/>							<Events>								<Event name="OnChange">КонстантыНаборКоличествоЗамеровВПакетеЭкспортаПриИзменении</Event>							</Events>						</InputField>					</ChildItems>				</UsualGroup>				<InputField name="КонстантыНаборДатаПоследнейВыгрузкиЗамеровПроизводительностиUTC" id="42">					<DataPath>КонстантыНабор.ДатаПоследнейВыгрузкиЗамеровПроизводительностиUTC</DataPath>					<ReadOnly>true</ReadOnly>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Дата последнего выгруженного замера в UTC</v8:content>						</v8:item>					</Title>					<HorizontalStretch>true</HorizontalStretch>					<ContextMenu name="КонстантыНаборДатаПоследнейВыгрузкиЗамеровПроизводительностиUTCКонтекстноеМеню" id="43"/>					<ExtendedTooltip name="КонстантыНаборДатаПоследнейВыгрузкиЗамеровПроизводительностиUTCРасширеннаяПодсказка" id="44"/>				</InputField>			</ChildItems>		</UsualGroup>		<UsualGroup name="НастройкиУдаленияЗамеров" id="67">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настройки удаления замеров</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<ExtendedTooltip name="НастройкиУдаленияЗамеровРасширеннаяПодсказка" id="68"/>			<ChildItems>				<UsualGroup name="НастройкиУдаленияЗамеровПериод" id="72">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки удаления замеров период</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиУдаленияЗамеровПериодРасширеннаяПодсказка" id="73"/>					<ChildItems>						<InputField name="КонстантыНаборПериодХраненияЗамеров" id="69">							<DataPath>КонстантыНабор.ПериодХраненияЗамеров</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Удалять через</v8:content>								</v8:item>							</Title>							<ContextMenu name="КонстантыНаборПериодХраненияЗамеровКонтекстноеМеню" id="70"/>							<ExtendedTooltip name="КонстантыНаборПериодХраненияЗамеровРасширеннаяПодсказка" id="71"/>							<Events>								<Event name="OnChange">КонстантыНаборПериодХраненияЗамеровПриИзменении</Event>							</Events>						</InputField>						<LabelDecoration name="ДекорацияДней" id="74">							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>дн.</v8:content>								</v8:item>							</Title>							<ContextMenu name="ДекорацияДнейКонтекстноеМеню" id="75"/>							<ExtendedTooltip name="ДекорацияДнейРасширеннаяПодсказка" id="76"/>						</LabelDecoration>					</ChildItems>				</UsualGroup>			</ChildItems>		</UsualGroup>		<UsualGroup name="НастройкиЭкспортаВЛокальныйКаталог" id="8">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настройки экспорта в локальный каталог</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<ThroughAlign>Use</ThroughAlign>			<ExtendedTooltip name="НастройкиЭкспортаВЛокальныйКаталогExtendedTooltip" id="30"/>			<ChildItems>				<CheckBoxField name="ВыполнятьЭкспортВЛокальныйКаталог" id="20">					<DataPath>ВыполнятьЭкспортВЛокальныйКаталог</DataPath>					<TitleLocation>Right</TitleLocation>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ВыполнятьЭкспортВЛокальныйКаталогКонтекстноеМеню" id="21"/>					<ExtendedTooltip name="ВыполнятьЭкспортВЛокальныйКаталогExtendedTooltip" id="31"/>					<Events>						<Event name="OnChange">ВыполнятьЭкспортВКаталогПриИзменении</Event>					</Events>				</CheckBoxField>				<InputField name="ЛокальныйКаталогЭкспорта" id="9">					<DataPath>ЛокальныйКаталогЭкспорта</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Локальный каталог экспорта</v8:content>						</v8:item>					</Title>					<ChoiceButton>true</ChoiceButton>					<ContextMenu name="ЛокальныйКаталогЭкспортаКонтекстноеМеню" id="10"/>					<ExtendedTooltip name="ЛокальныйКаталогЭкспортаExtendedTooltip" id="32"/>					<Events>						<Event name="OnChange">ЛокальныйКаталогЭкспортаПриИзменении</Event>						<Event name="StartChoice">ЛокальныйКаталогФайловЭкспортаНачалоВыбора</Event>					</Events>				</InputField>			</ChildItems>		</UsualGroup>		<UsualGroup name="НастройкиЭкспортаНаFTP" id="24">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настройки экспорта на FTP</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<ThroughAlign>Use</ThroughAlign>			<ExtendedTooltip name="НастройкиЭкспортаНаFTPExtendedTooltip" id="33"/>			<ChildItems>				<CheckBoxField name="ВыполнятьЭкспортНаFTP" id="18">					<DataPath>ВыполнятьЭкспортНаFTP</DataPath>					<TitleLocation>Right</TitleLocation>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ВыполнятьЭкспортНаFTPКонтекстноеМеню" id="19"/>					<ExtendedTooltip name="ВыполнятьЭкспортНаFTPExtendedTooltip" id="34"/>					<Events>						<Event name="OnChange">ВыполнятьЭкспортВКаталогПриИзменении</Event>					</Events>				</CheckBoxField>				<InputField name="FTPКаталогЭкспорта" id="22">					<DataPath>FTPКаталогЭкспорта</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Адрес ftp-сервера</v8:content>						</v8:item>					</Title>					<ContextMenu name="FTPКаталогЭкспортаКонтекстноеМеню" id="23"/>					<ExtendedTooltip name="FTPКаталогЭкспортаExtendedTooltip" id="35"/>					<Events>						<Event name="OnChange">FTPКаталогЭкспортаПриИзменении</Event>					</Events>				</InputField>			</ChildItems>		</UsualGroup>		<Button name="НастроитьРасписаниеЭкспорта" id="11">			<Type>Hyperlink</Type>			<CommandName>Form.Command.НастроитьРасписаниеЭкспорта</CommandName>			<ExtendedTooltip name="НастроитьРасписаниеЭкспортаExtendedTooltip" id="36"/>		</Button>	</ChildItems>	<Attributes>		<Attribute name="ЛокальныйКаталогЭкспорта" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Локальный каталог экспорта</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>255</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<SavedData>true</SavedData>		</Attribute>		<Attribute name="ВыполнятьЭкспорт" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполнять экспорт</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>			<SavedData>true</SavedData>		</Attribute>		<Attribute name="ВыполнятьЭкспортВЛокальныйКаталог" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполнять экспорт в локальный каталог</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>			<SavedData>true</SavedData>		</Attribute>		<Attribute name="ВыполнятьЭкспортНаFTP" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполнять экспорт на FTP</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>			<SavedData>true</SavedData>		</Attribute>		<Attribute name="FTPКаталогЭкспорта" id="5">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Адрес ftp-сервера</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>255</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<SavedData>true</SavedData>		</Attribute>		<Attribute name="КонстантыНабор" id="6">			<Type>				<v8:Type>cfg:ConstantsSet</v8:Type>			</Type>		</Attribute>		<Attribute name="ЕстьБСП" id="7">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ЕстьПрофилиБезопасности" id="8">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="Объект" id="9">			<Type>				<v8:Type>cfg:DataProcessorObject.ОценкаПроизводительности</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>		</Attribute>	</Attributes>	<Commands>		<Command name="НастроитьРасписаниеЭкспорта" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настроить расписание экспорта</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настроить расписание экспорта</v8:content>				</v8:item>			</ToolTip>			<Action>НастроитьРасписаниеЭкспорта</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="СохранитьНастройки" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить настройки</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить настройки</v8:content>				</v8:item>			</ToolTip>			<Action>СохранитьНастройки</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="СохранитьЗакрыть" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить и закрыть</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить закрыть</v8:content>				</v8:item>			</ToolTip>			<Action>СохранитьЗакрыть</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°РЎРѕС…СЂР°РЅРёС‚СЊР—Р°РєСЂС‹С‚СЊ" id="17">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.РЎРѕС…СЂР°РЅРёС‚СЊР—Р°РєСЂС‹С‚СЊ</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Р—Р°РїРёСЃР°С‚СЊ Рё Р·Р°РєСЂС‹С‚СЊ</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°РЎРѕС…СЂР°РЅРёС‚СЊР—Р°РєСЂС‹С‚СЊExtendedTooltip" id="25"/>
+			</Button>
+			<Button name="Р¤РѕСЂРјР°РЎРѕС…СЂР°РЅРёС‚СЊРќР°СЃС‚СЂРѕР№РєРё" id="16">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.РЎРѕС…СЂР°РЅРёС‚СЊРќР°СЃС‚СЂРѕР№РєРё</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Р—Р°РїРёСЃР°С‚СЊ</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°РЎРѕС…СЂР°РЅРёС‚СЊРќР°СЃС‚СЂРѕР№РєРёExtendedTooltip" id="26"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+		<Event name="bf0ac0e1-bcbb-4dfe-8fc4-0b1923b461a6">РџРµСЂРµРґР—Р°РїРёСЃСЊСЋРќР°РЎРµСЂРІРµСЂРµ</Event>
+		<Event name="FillCheckProcessingAtServer">РћР±СЂР°Р±РѕС‚РєР°РџСЂРѕРІРµСЂРєРёР—Р°РїРѕР»РЅРµРЅРёСЏРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР’С‹РїРѕР»РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІ" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕР№РєРё РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РјРµСЂРѕРІ</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ThroughAlign>DontUse</ThroughAlign>
+			<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР’С‹РїРѕР»РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="41"/>
+			<ChildItems>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР’С‹РїРѕР»РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІР¤Р»Р°РіРё" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РјРµСЂРѕРІ С„Р»Р°РіРё</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР’С‹РїРѕР»РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІР¤Р»Р°РіРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="46"/>
+					<ChildItems>
+						<CheckBoxField name="Р’С‹РїРѕР»РЅСЏС‚СЊР—Р°РјРµСЂС‹РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёР’С‹РїРѕР»РЅСЏС‚СЊР—Р°РјРµСЂС‹РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚Рё" id="37">
+							<DataPath>РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂ.Р’С‹РїРѕР»РЅСЏС‚СЊР—Р°РјРµСЂС‹РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚Рё</DataPath>
+							<Visible>false</Visible>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="Р’С‹РїРѕР»РЅСЏС‚СЊР—Р°РјРµСЂС‹РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёР’С‹РїРѕР»РЅСЏС‚СЊР—Р°РјРµСЂС‹РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="38"/>
+							<ExtendedTooltip name="Р’С‹РїРѕР»РЅСЏС‚СЊР—Р°РјРµСЂС‹РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёР’С‹РїРѕР»РЅСЏС‚СЊР—Р°РјРµСЂС‹РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="39"/>
+						</CheckBoxField>
+						<CheckBoxField name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚" id="14">
+							<DataPath>Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="15"/>
+							<ExtendedTooltip name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚ExtendedTooltip" id="29"/>
+							<Events>
+								<Event name="OnChange">Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚РџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР’С‹РїРѕР»РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІРРЅС„Рѕ" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РјРµСЂРѕРІ РёРЅС„Рѕ</v8:content>
+						</v8:item>
+					</Title>
+					<ChildrenAlign>None</ChildrenAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР’С‹РїРѕР»РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІРРЅС„РѕР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="48"/>
+					<ChildItems>
+						<InputField name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРћС†РµРЅРєР°РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёРџРµСЂРёРѕРґР—Р°РїРёСЃРё" id="58">
+							<DataPath>РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂ.РћС†РµРЅРєР°РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёРџРµСЂРёРѕРґР—Р°РїРёСЃРё</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РџРµСЂРёРѕРґ Р·Р°РїРёСЃРё</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРћС†РµРЅРєР°РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёРџРµСЂРёРѕРґР—Р°РїРёСЃРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="59"/>
+							<ExtendedTooltip name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРћС†РµРЅРєР°РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёРџРµСЂРёРѕРґР—Р°РїРёСЃРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="60"/>
+							<Events>
+								<Event name="OnChange">РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРћС†РµРЅРєР°РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёРџРµСЂРёРѕРґР—Р°РїРёСЃРёРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏРџРµСЂРёРѕРґР—Р°РїРёСЃРё" id="55">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>СЃРµРє.      </v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРџРµСЂРёРѕРґР—Р°РїРёСЃРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="56"/>
+							<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРџРµСЂРёРѕРґР—Р°РїРёСЃРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="57"/>
+						</LabelDecoration>
+						<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏРџРµСЂРµРґР—Р°РјРµСЂРѕРІР’РџР°РєРµС‚Рµ" id="64">
+							<Width>1</Width>
+							<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРџРµСЂРµРґР—Р°РјРµСЂРѕРІР’РџР°РєРµС‚РµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="65"/>
+							<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРџРµСЂРµРґР—Р°РјРµСЂРѕРІР’РџР°РєРµС‚РµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="66"/>
+						</LabelDecoration>
+						<InputField name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРљРѕР»РёС‡РµСЃС‚РІРѕР—Р°РјРµСЂРѕРІР’РџР°РєРµС‚РµР­РєСЃРїРѕСЂС‚Р°" id="61">
+							<DataPath>РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂ.РљРѕР»РёС‡РµСЃС‚РІРѕР—Р°РјРµСЂРѕРІР’РџР°РєРµС‚РµР­РєСЃРїРѕСЂС‚Р°</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р—Р°РјРµСЂРѕРІ РІ РїР°РєРµС‚Рµ</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРљРѕР»РёС‡РµСЃС‚РІРѕР—Р°РјРµСЂРѕРІР’РџР°РєРµС‚РµР­РєСЃРїРѕСЂС‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="62"/>
+							<ExtendedTooltip name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРљРѕР»РёС‡РµСЃС‚РІРѕР—Р°РјРµСЂРѕРІР’РџР°РєРµС‚РµР­РєСЃРїРѕСЂС‚Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="63"/>
+							<Events>
+								<Event name="OnChange">РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРљРѕР»РёС‡РµСЃС‚РІРѕР—Р°РјРµСЂРѕРІР’РџР°РєРµС‚РµР­РєСЃРїРѕСЂС‚Р°РџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂР”Р°С‚Р°РџРѕСЃР»РµРґРЅРµР№Р’С‹РіСЂСѓР·РєРёР—Р°РјРµСЂРѕРІРџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёUTC" id="42">
+					<DataPath>РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂ.Р”Р°С‚Р°РџРѕСЃР»РµРґРЅРµР№Р’С‹РіСЂСѓР·РєРёР—Р°РјРµСЂРѕРІРџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёUTC</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РІС‹РіСЂСѓР¶РµРЅРЅРѕРіРѕ Р·Р°РјРµСЂР° РІ UTC</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂР”Р°С‚Р°РџРѕСЃР»РµРґРЅРµР№Р’С‹РіСЂСѓР·РєРёР—Р°РјРµСЂРѕРІРџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёUTCРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="43"/>
+					<ExtendedTooltip name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂР”Р°С‚Р°РџРѕСЃР»РµРґРЅРµР№Р’С‹РіСЂСѓР·РєРёР—Р°РјРµСЂРѕРІРџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚РёUTCР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="44"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёРЈРґР°Р»РµРЅРёСЏР—Р°РјРµСЂРѕРІ" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕР№РєРё СѓРґР°Р»РµРЅРёСЏ Р·Р°РјРµСЂРѕРІ</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРЈРґР°Р»РµРЅРёСЏР—Р°РјРµСЂРѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="68"/>
+			<ChildItems>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёРЈРґР°Р»РµРЅРёСЏР—Р°РјРµСЂРѕРІРџРµСЂРёРѕРґ" id="72">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё СѓРґР°Р»РµРЅРёСЏ Р·Р°РјРµСЂРѕРІ РїРµСЂРёРѕРґ</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРЈРґР°Р»РµРЅРёСЏР—Р°РјРµСЂРѕРІРџРµСЂРёРѕРґР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="73"/>
+					<ChildItems>
+						<InputField name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРџРµСЂРёРѕРґРҐСЂР°РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІ" id="69">
+							<DataPath>РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂ.РџРµСЂРёРѕРґРҐСЂР°РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЈРґР°Р»СЏС‚СЊ С‡РµСЂРµР·</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРџРµСЂРёРѕРґРҐСЂР°РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="70"/>
+							<ExtendedTooltip name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРџРµСЂРёРѕРґРҐСЂР°РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="71"/>
+							<Events>
+								<Event name="OnChange">РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂРџРµСЂРёРѕРґРҐСЂР°РЅРµРЅРёСЏР—Р°РјРµСЂРѕРІРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏР”РЅРµР№" id="74">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РґРЅ.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏР”РЅРµР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="75"/>
+							<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏР”РЅРµР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="76"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР­РєСЃРїРѕСЂС‚Р°Р’Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРі" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕР№РєРё СЌРєСЃРїРѕСЂС‚Р° РІ Р»РѕРєР°Р»СЊРЅС‹Р№ РєР°С‚Р°Р»РѕРі</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ThroughAlign>Use</ThroughAlign>
+			<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР­РєСЃРїРѕСЂС‚Р°Р’Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіExtendedTooltip" id="30"/>
+			<ChildItems>
+				<CheckBoxField name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚Р’Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРі" id="20">
+					<DataPath>Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚Р’Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРі</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚Р’Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="21"/>
+					<ExtendedTooltip name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚Р’Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіExtendedTooltip" id="31"/>
+					<Events>
+						<Event name="OnChange">Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚Р’РљР°С‚Р°Р»РѕРіРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°" id="9">
+					<DataPath>Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р›РѕРєР°Р»СЊРЅС‹Р№ РєР°С‚Р°Р»РѕРі СЌРєСЃРїРѕСЂС‚Р°</v8:content>
+						</v8:item>
+					</Title>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="10"/>
+					<ExtendedTooltip name="Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°ExtendedTooltip" id="32"/>
+					<Events>
+						<Event name="OnChange">Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°РџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+						<Event name="StartChoice">Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіР¤Р°Р№Р»РѕРІР­РєСЃРїРѕСЂС‚Р°РќР°С‡Р°Р»РѕР’С‹Р±РѕСЂР°</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР­РєСЃРїРѕСЂС‚Р°РќР°FTP" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕР№РєРё СЌРєСЃРїРѕСЂС‚Р° РЅР° FTP</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ThroughAlign>Use</ThroughAlign>
+			<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР­РєСЃРїРѕСЂС‚Р°РќР°FTPExtendedTooltip" id="33"/>
+			<ChildItems>
+				<CheckBoxField name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚РќР°FTP" id="18">
+					<DataPath>Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚РќР°FTP</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚РќР°FTPРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="19"/>
+					<ExtendedTooltip name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚РќР°FTPExtendedTooltip" id="34"/>
+					<Events>
+						<Event name="OnChange">Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚Р’РљР°С‚Р°Р»РѕРіРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="FTPРљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°" id="22">
+					<DataPath>FTPРљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РђРґСЂРµСЃ ftp-СЃРµСЂРІРµСЂР°</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="FTPРљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="23"/>
+					<ExtendedTooltip name="FTPРљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°ExtendedTooltip" id="35"/>
+					<Events>
+						<Event name="OnChange">FTPРљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°РџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Button name="РќР°СЃС‚СЂРѕРёС‚СЊР Р°СЃРїРёСЃР°РЅРёРµР­РєСЃРїРѕСЂС‚Р°" id="11">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.РќР°СЃС‚СЂРѕРёС‚СЊР Р°СЃРїРёСЃР°РЅРёРµР­РєСЃРїРѕСЂС‚Р°</CommandName>
+			<ExtendedTooltip name="РќР°СЃС‚СЂРѕРёС‚СЊР Р°СЃРїРёСЃР°РЅРёРµР­РєСЃРїРѕСЂС‚Р°ExtendedTooltip" id="36"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р›РѕРєР°Р»СЊРЅС‹Р№ РєР°С‚Р°Р»РѕРі СЌРєСЃРїРѕСЂС‚Р°</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏС‚СЊ СЌРєСЃРїРѕСЂС‚</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚Р’Р›РѕРєР°Р»СЊРЅС‹Р№РљР°С‚Р°Р»РѕРі" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏС‚СЊ СЌРєСЃРїРѕСЂС‚ РІ Р»РѕРєР°Р»СЊРЅС‹Р№ РєР°С‚Р°Р»РѕРі</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Р’С‹РїРѕР»РЅСЏС‚СЊР­РєСЃРїРѕСЂС‚РќР°FTP" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏС‚СЊ СЌРєСЃРїРѕСЂС‚ РЅР° FTP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="FTPРљР°С‚Р°Р»РѕРіР­РєСЃРїРѕСЂС‚Р°" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РђРґСЂРµСЃ ftp-СЃРµСЂРІРµСЂР°</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РљРѕРЅСЃС‚Р°РЅС‚С‹РќР°Р±РѕСЂ" id="6">
+			<Type>
+				<v8:Type>cfg:ConstantsSet</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р•СЃС‚СЊР‘РЎРџ" id="7">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р•СЃС‚СЊРџСЂРѕС„РёР»РёР‘РµР·РѕРїР°СЃРЅРѕСЃС‚Рё" id="8">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РћР±СЉРµРєС‚" id="9">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.РћС†РµРЅРєР°РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚Рё</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РќР°СЃС‚СЂРѕРёС‚СЊР Р°СЃРїРёСЃР°РЅРёРµР­РєСЃРїРѕСЂС‚Р°" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕРёС‚СЊ СЂР°СЃРїРёСЃР°РЅРёРµ СЌРєСЃРїРѕСЂС‚Р°</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕРёС‚СЊ СЂР°СЃРїРёСЃР°РЅРёРµ СЌРєСЃРїРѕСЂС‚Р°</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РќР°СЃС‚СЂРѕРёС‚СЊР Р°СЃРїРёСЃР°РЅРёРµР­РєСЃРїРѕСЂС‚Р°</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РЎРѕС…СЂР°РЅРёС‚СЊРќР°СЃС‚СЂРѕР№РєРё" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЎРѕС…СЂР°РЅРёС‚СЊРќР°СЃС‚СЂРѕР№РєРё</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РЎРѕС…СЂР°РЅРёС‚СЊР—Р°РєСЂС‹С‚СЊ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ Рё Р·Р°РєСЂС‹С‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ Р·Р°РєСЂС‹С‚СЊ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЎРѕС…СЂР°РЅРёС‚СЊР—Р°РєСЂС‹С‚СЊ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

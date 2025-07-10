@@ -1,1 +1,104 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<ChildItems>			<Button name="ФормаВключитьВозможностьРедактирования" id="17">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>				<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияРасширеннаяПодсказка" id="18"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<InputField name="ИмяПодсистемы" id="1">			<DataPath>Запись.ИмяПодсистемы</DataPath>			<ContextMenu name="ИмяПодсистемыКонтекстноеМеню" id="2"/>			<ExtendedTooltip name="ИмяПодсистемыРасширеннаяПодсказка" id="3"/>		</InputField>		<UsualGroup name="ГруппаВерсия" id="13">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Версия</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаВерсияРасширеннаяПодсказка" id="14"/>			<ChildItems>				<InputField name="Версия" id="4">					<DataPath>Запись.Версия</DataPath>					<ToolTipRepresentation>Button</ToolTipRepresentation>					<HorizontalStretch>false</HorizontalStretch>					<ContextMenu name="ВерсияКонтекстноеМеню" id="5"/>					<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="6">						<Title formatted="true">							<v8:item>								<v8:lang>ru</v8:lang>								<v8:content>&lt;b&gt;{Р|РР}.{П|ПП}.{З|ЗЗ}.{С|СС} &lt;/&gt;где: &lt;b&gt;Р&lt;/&gt; - номер редакции (минимум 1 цифра, может занимать и больше разрядов); &lt;b&gt;П&lt;/&gt; - номер подредакции (минимум 1 цифра, может занимать и больше разрядов); &lt;b&gt;З&lt;/&gt; - номер версии (минимум 1 цифра, может занимать и больше разрядов); &lt;b&gt;С&lt;/&gt; - номер сборки (минимум 1 цифра, может занимать и больше разрядов). Пример:&lt;b&gt;1.6.4.7&lt;/&gt; – 7-я сборка, 4-й версии, редакции 1.6Подробнее см. &lt;link http://its.1c.ru/db/v8std#content:2149184132:hdoc&gt;Нумерация редакций и версий&lt;/&gt;</v8:content>							</v8:item>						</Title>					</ExtendedTooltip>				</InputField>				<CheckBoxField name="ЭтоОсновнаяКонфигурация" id="7">					<DataPath>Запись.ЭтоОсновнаяКонфигурация</DataPath>					<TitleLocation>Right</TitleLocation>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ЭтоОсновнаяКонфигурацияКонтекстноеМеню" id="8"/>					<ExtendedTooltip name="ЭтоОсновнаяКонфигурацияРасширеннаяПодсказка" id="9"/>				</CheckBoxField>			</ChildItems>		</UsualGroup>		<CheckBoxField name="ВыполненаРегистрацияОтложенныхОбработчиков" id="10">			<DataPath>Запись.ВыполненаРегистрацияОтложенныхОбработчиков</DataPath>			<TitleLocation>Right</TitleLocation>			<CheckBoxType>Auto</CheckBoxType>			<ContextMenu name="ВыполненаРегистрацияОтложенныхОбработчиковКонтекстноеМеню" id="11"/>			<ExtendedTooltip name="ВыполненаРегистрацияОтложенныхОбработчиковРасширеннаяПодсказка" id="12"/>		</CheckBoxField>	</ChildItems>	<Attributes>		<Attribute name="Запись" id="1">			<Type>				<v8:Type>cfg:InformationRegisterRecordManager.ВерсииПодсистем</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>			<SavedData>true</SavedData>		</Attribute>	</Attributes>	<Commands>		<Command name="ВключитьВозможностьРедактирования" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Включить возможность редактирования</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Только для целей поиска неисправности (требуется углубленное понимание работы механизма)</v8:content>				</v8:item>			</ToolTip>			<Action>ВключитьВозможностьРедактирования</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" id="17">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="18"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="РРјСЏРџРѕРґСЃРёСЃС‚РµРјС‹" id="1">
+			<DataPath>Р—Р°РїРёСЃСЊ.РРјСЏРџРѕРґСЃРёСЃС‚РµРјС‹</DataPath>
+			<ContextMenu name="РРјСЏРџРѕРґСЃРёСЃС‚РµРјС‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+			<ExtendedTooltip name="РРјСЏРџРѕРґСЃРёСЃС‚РµРјС‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="3"/>
+		</InputField>
+		<UsualGroup name="Р“СЂСѓРїРїР°Р’РµСЂСЃРёСЏ" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РµСЂСЃРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°Р’РµСЂСЃРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="14"/>
+			<ChildItems>
+				<InputField name="Р’РµСЂСЃРёСЏ" id="4">
+					<DataPath>Р—Р°РїРёСЃСЊ.Р’РµСЂСЃРёСЏ</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="Р’РµСЂСЃРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="5"/>
+					<ExtendedTooltip name="Р’РµСЂСЃРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="6">
+						<Title formatted="true">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;b&gt;{Р |Р Р }.{Рџ|РџРџ}.{Р—|Р—Р—}.{РЎ|РЎРЎ} &lt;/&gt;
+
+РіРґРµ: 
+&lt;b&gt;Р &lt;/&gt; - РЅРѕРјРµСЂ СЂРµРґР°РєС†РёРё (РјРёРЅРёРјСѓРј 1 С†РёС„СЂР°, РјРѕР¶РµС‚ Р·Р°РЅРёРјР°С‚СЊ Рё Р±РѕР»СЊС€Рµ СЂР°Р·СЂСЏРґРѕРІ); 
+&lt;b&gt;Рџ&lt;/&gt; - РЅРѕРјРµСЂ РїРѕРґСЂРµРґР°РєС†РёРё (РјРёРЅРёРјСѓРј 1 С†РёС„СЂР°, РјРѕР¶РµС‚ Р·Р°РЅРёРјР°С‚СЊ Рё Р±РѕР»СЊС€Рµ СЂР°Р·СЂСЏРґРѕРІ); 
+&lt;b&gt;Р—&lt;/&gt; - РЅРѕРјРµСЂ РІРµСЂСЃРёРё (РјРёРЅРёРјСѓРј 1 С†РёС„СЂР°, РјРѕР¶РµС‚ Р·Р°РЅРёРјР°С‚СЊ Рё Р±РѕР»СЊС€Рµ СЂР°Р·СЂСЏРґРѕРІ); 
+&lt;b&gt;РЎ&lt;/&gt; - РЅРѕРјРµСЂ СЃР±РѕСЂРєРё (РјРёРЅРёРјСѓРј 1 С†РёС„СЂР°, РјРѕР¶РµС‚ Р·Р°РЅРёРјР°С‚СЊ Рё Р±РѕР»СЊС€Рµ СЂР°Р·СЂСЏРґРѕРІ). 
+
+РџСЂРёРјРµСЂ:
+&lt;b&gt;1.6.4.7&lt;/&gt; вЂ“ 7-СЏ СЃР±РѕСЂРєР°, 4-Р№ РІРµСЂСЃРёРё, СЂРµРґР°РєС†РёРё 1.6
+
+РџРѕРґСЂРѕР±РЅРµРµ СЃРј. &lt;link http://its.1c.ru/db/v8std#content:2149184132:hdoc&gt;РќСѓРјРµСЂР°С†РёСЏ СЂРµРґР°РєС†РёР№ Рё РІРµСЂСЃРёР№&lt;/&gt;</v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+				</InputField>
+				<CheckBoxField name="Р­С‚РѕРћСЃРЅРѕРІРЅР°СЏРљРѕРЅС„РёРіСѓСЂР°С†РёСЏ" id="7">
+					<DataPath>Р—Р°РїРёСЃСЊ.Р­С‚РѕРћСЃРЅРѕРІРЅР°СЏРљРѕРЅС„РёРіСѓСЂР°С†РёСЏ</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="Р­С‚РѕРћСЃРЅРѕРІРЅР°СЏРљРѕРЅС„РёРіСѓСЂР°С†РёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="8"/>
+					<ExtendedTooltip name="Р­С‚РѕРћСЃРЅРѕРІРЅР°СЏРљРѕРЅС„РёРіСѓСЂР°С†РёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="9"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="Р’С‹РїРѕР»РЅРµРЅР°Р РµРіРёСЃС‚СЂР°С†РёСЏРћС‚Р»РѕР¶РµРЅРЅС‹С…РћР±СЂР°Р±РѕС‚С‡РёРєРѕРІ" id="10">
+			<DataPath>Р—Р°РїРёСЃСЊ.Р’С‹РїРѕР»РЅРµРЅР°Р РµРіРёСЃС‚СЂР°С†РёСЏРћС‚Р»РѕР¶РµРЅРЅС‹С…РћР±СЂР°Р±РѕС‚С‡РёРєРѕРІ</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="Р’С‹РїРѕР»РЅРµРЅР°Р РµРіРёСЃС‚СЂР°С†РёСЏРћС‚Р»РѕР¶РµРЅРЅС‹С…РћР±СЂР°Р±РѕС‚С‡РёРєРѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="11"/>
+			<ExtendedTooltip name="Р’С‹РїРѕР»РЅРµРЅР°Р РµРіРёСЃС‚СЂР°С†РёСЏРћС‚Р»РѕР¶РµРЅРЅС‹С…РћР±СЂР°Р±РѕС‚С‡РёРєРѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="12"/>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Р—Р°РїРёСЃСЊ" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.Р’РµСЂСЃРёРёРџРѕРґСЃРёСЃС‚РµРј</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РєР»СЋС‡РёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўРѕР»СЊРєРѕ РґР»СЏ С†РµР»РµР№ РїРѕРёСЃРєР° РЅРµРёСЃРїСЂР°РІРЅРѕСЃС‚Рё (С‚СЂРµР±СѓРµС‚СЃСЏ СѓРіР»СѓР±Р»РµРЅРЅРѕРµ РїРѕРЅРёРјР°РЅРёРµ СЂР°Р±РѕС‚С‹ РјРµС…Р°РЅРёР·РјР°)</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

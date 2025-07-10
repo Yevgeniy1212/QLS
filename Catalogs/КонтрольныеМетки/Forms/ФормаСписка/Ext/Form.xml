@@ -1,1 +1,200 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<VerticalScroll>useIfNecessary</VerticalScroll>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<ChildItems>			<Button name="УстановитьСнятьПометкуПоУмолчанию" id="8">				<Type>CommandBarButton</Type>				<Visible>false</Visible>				<CommandName>Form.Command.УстановитьСнятьПометкуПоУмолчанию</CommandName>				<ExtendedTooltip name="УстановитьСнятьПометкуПоУмолчаниюРасширеннаяПодсказка" id="29"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<CheckBoxField name="ЕстьПробелы" id="17">			<DataPath>Items.Список.CurrentData.ЕстьПробелы</DataPath>			<CheckBoxType>Auto</CheckBoxType>			<ContextMenu name="ЕстьПробелыКонтекстноеМеню" id="18"/>			<ExtendedTooltip name="ЕстьПробелыРасширеннаяПодсказка" id="30"/>		</CheckBoxField>		<Table name="Список" id="1">			<Representation>List</Representation>			<CommandBarLocation>None</CommandBarLocation>			<DefaultItem>true</DefaultItem>			<UseAlternationRowColor>true</UseAlternationRowColor>			<InitialTreeView>ExpandTopLevel</InitialTreeView>			<EnableStartDrag>true</EnableStartDrag>			<FileDragMode>AsFile</FileDragMode>			<DataPath>Список</DataPath>			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>			<SearchStringLocation>None</SearchStringLocation>			<ViewStatusLocation>None</ViewStatusLocation>			<SearchControlLocation>None</SearchControlLocation>			<AutoRefresh>false</AutoRefresh>			<AutoRefreshPeriod>60</AutoRefreshPeriod>			<Period>				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>				<v8:startDate>0001-01-01T00:00:00</v8:startDate>				<v8:endDate>0001-01-01T00:00:00</v8:endDate>			</Period>			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>			<RestoreCurrentRow>false</RestoreCurrentRow>			<TopLevelParent xsi:nil="true"/>			<ShowRoot>true</ShowRoot>			<AllowRootChoice>false</AllowRootChoice>			<UpdateOnDataChange>Auto</UpdateOnDataChange>			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>			<AutoCommandBar name="СписокКоманднаяПанель" id="3">				<Autofill>false</Autofill>			</AutoCommandBar>			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="31"/>			<SearchStringAddition name="СписокСтрокаПоиска" id="32">				<AdditionSource>					<Item>Список</Item>					<Type>SearchStringRepresentation</Type>				</AdditionSource>				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="33"/>				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="34"/>			</SearchStringAddition>			<ViewStatusAddition name="СписокСостояниеПросмотра" id="35">				<AdditionSource>					<Item>Список</Item>					<Type>ViewStatusRepresentation</Type>				</AdditionSource>				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="36"/>				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="37"/>			</ViewStatusAddition>			<SearchControlAddition name="СписокУправлениеПоиском" id="38">				<AdditionSource>					<Item>Список</Item>					<Type>SearchControl</Type>				</AdditionSource>				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="39"/>				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="40"/>			</SearchControlAddition>			<ChildItems>				<LabelField name="Наименование" id="4">					<DataPath>Список.Description</DataPath>					<DefaultItem>true</DefaultItem>					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="41"/>				</LabelField>				<LabelField name="Код" id="6">					<DataPath>Список.Code</DataPath>					<ContextMenu name="КодКонтекстноеМеню" id="7"/>					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="42"/>				</LabelField>				<LabelField name="РеквизитЗаказа" id="9">					<DataPath>Список.РеквизитЗаказа</DataPath>					<ContextMenu name="РеквизитЗаказаКонтекстноеМеню" id="10"/>					<ExtendedTooltip name="РеквизитЗаказаРасширеннаяПодсказка" id="43"/>				</LabelField>				<CheckBoxField name="ИспользоватьПоУмолчанию" id="27">					<DataPath>Список.ИспользоватьПоУмолчанию</DataPath>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ИспользоватьПоУмолчаниюКонтекстноеМеню" id="28"/>					<ExtendedTooltip name="ИспользоватьПоУмолчаниюРасширеннаяПодсказка" id="44"/>				</CheckBoxField>				<CheckBoxField name="КонтролироватьФормат" id="11">					<DataPath>Список.КонтролироватьФормат</DataPath>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="КонтролироватьФорматКонтекстноеМеню" id="12"/>					<ExtendedTooltip name="КонтролироватьФорматРасширеннаяПодсказка" id="45"/>				</CheckBoxField>				<LabelField name="Длина" id="13">					<DataPath>Список.Длина</DataPath>					<ContextMenu name="ДлинаКонтекстноеМеню" id="14"/>					<ExtendedTooltip name="ДлинаРасширеннаяПодсказка" id="46"/>				</LabelField>				<CheckBoxField name="ТолькоЦифры" id="15">					<DataPath>Список.ТолькоЦифры</DataPath>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ТолькоЦифрыКонтекстноеМеню" id="16"/>					<ExtendedTooltip name="ТолькоЦифрыРасширеннаяПодсказка" id="47"/>				</CheckBoxField>				<CheckBoxField name="ЕстьЛидирующиеНули" id="19">					<DataPath>Список.ЕстьЛидирующиеНули</DataPath>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ЕстьЛидирующиеНулиКонтекстноеМеню" id="20"/>					<ExtendedTooltip name="ЕстьЛидирующиеНулиРасширеннаяПодсказка" id="48"/>				</CheckBoxField>				<CheckBoxField name="СодержитКонтрольныйСимвол" id="21">					<DataPath>~Список.СодержитКонтрольныйСимвол</DataPath>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="СодержитКонтрольныйСимволКонтекстноеМеню" id="22"/>					<ExtendedTooltip name="СодержитКонтрольныйСимволРасширеннаяПодсказка" id="49"/>				</CheckBoxField>				<CheckBoxField name="ПроверятьКонтрольныйСимволНаКорректность" id="23">					<DataPath>~Список.ПроверятьКонтрольныйСимволНаКорректность</DataPath>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ПроверятьКонтрольныйСимволНаКорректностьКонтекстноеМеню" id="24"/>					<ExtendedTooltip name="ПроверятьКонтрольныйСимволНаКорректностьРасширеннаяПодсказка" id="50"/>				</CheckBoxField>				<LabelField name="Префикс" id="25">					<DataPath>~Список.Префикс</DataPath>					<ContextMenu name="ПрефиксКонтекстноеМеню" id="26"/>					<ExtendedTooltip name="ПрефиксРасширеннаяПодсказка" id="51"/>				</LabelField>			</ChildItems>		</Table>	</ChildItems>	<Attributes>		<Attribute name="Список" id="1">			<Type>				<v8:Type>cfg:DynamicList</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>			<Settings xsi:type="DynamicList">				<ManualQuery>false</ManualQuery>				<DynamicDataRead>true</DynamicDataRead>				<MainTable>Catalog.КонтрольныеМетки</MainTable>				<ListSettings>					<dcsset:filter>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>					</dcsset:filter>					<dcsset:order>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>					</dcsset:order>					<dcsset:conditionalAppearance>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>					</dcsset:conditionalAppearance>					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>				</ListSettings>			</Settings>		</Attribute>	</Attributes>	<Commands>		<Command name="УстановитьСнятьПометкуПоУмолчанию" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Установить/снять пометку использования по умолчанию</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Check/uncheck usage by default</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Установить снять пометку по умолчанию</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Check uncheck by default</v8:content>				</v8:item>			</ToolTip>			<Action>УстановитьСнятьПометкуПоУмолчанию</Action>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<ChildItems>
+			<Button name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎРЅСЏС‚СЊРџРѕРјРµС‚РєСѓРџРѕРЈРјРѕР»С‡Р°РЅРёСЋ" id="8">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎРЅСЏС‚СЊРџРѕРјРµС‚РєСѓРџРѕРЈРјРѕР»С‡Р°РЅРёСЋ</CommandName>
+				<ExtendedTooltip name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎРЅСЏС‚СЊРџРѕРјРµС‚РєСѓРџРѕРЈРјРѕР»С‡Р°РЅРёСЋР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="29"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<CheckBoxField name="Р•СЃС‚СЊРџСЂРѕР±РµР»С‹" id="17">
+			<DataPath>Items.РЎРїРёСЃРѕРє.CurrentData.Р•СЃС‚СЊРџСЂРѕР±РµР»С‹</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="Р•СЃС‚СЊРџСЂРѕР±РµР»С‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="18"/>
+			<ExtendedTooltip name="Р•СЃС‚СЊРџСЂРѕР±РµР»С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="30"/>
+		</CheckBoxField>
+		<Table name="РЎРїРёСЃРѕРє" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>РЎРїРёСЃРѕРє</DataPath>
+			<RowPictureDataPath>РЎРїРёСЃРѕРє.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="РЎРїРёСЃРѕРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+			<AutoCommandBar name="РЎРїРёСЃРѕРєРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="РЎРїРёСЃРѕРєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="31"/>
+			<SearchStringAddition name="РЎРїРёСЃРѕРєРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="32">
+				<AdditionSource>
+					<Item>РЎРїРёСЃРѕРє</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РЎРїРёСЃРѕРєРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="33"/>
+				<ExtendedTooltip name="РЎРїРёСЃРѕРєРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="34"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РЎРїРёСЃРѕРєРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="35">
+				<AdditionSource>
+					<Item>РЎРїРёСЃРѕРє</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РЎРїРёСЃРѕРєРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="36"/>
+				<ExtendedTooltip name="РЎРїРёСЃРѕРєРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="37"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РЎРїРёСЃРѕРєРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="38">
+				<AdditionSource>
+					<Item>РЎРїРёСЃРѕРє</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РЎРїРёСЃРѕРєРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="39"/>
+				<ExtendedTooltip name="РЎРїРёСЃРѕРєРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="40"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="РќР°РёРјРµРЅРѕРІР°РЅРёРµ" id="4">
+					<DataPath>РЎРїРёСЃРѕРє.Description</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="РќР°РёРјРµРЅРѕРІР°РЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="5"/>
+					<ExtendedTooltip name="РќР°РёРјРµРЅРѕРІР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="41"/>
+				</LabelField>
+				<LabelField name="РљРѕРґ" id="6">
+					<DataPath>РЎРїРёСЃРѕРє.Code</DataPath>
+					<ContextMenu name="РљРѕРґРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="7"/>
+					<ExtendedTooltip name="РљРѕРґР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="42"/>
+				</LabelField>
+				<LabelField name="Р РµРєРІРёР·РёС‚Р—Р°РєР°Р·Р°" id="9">
+					<DataPath>РЎРїРёСЃРѕРє.Р РµРєРІРёР·РёС‚Р—Р°РєР°Р·Р°</DataPath>
+					<ContextMenu name="Р РµРєРІРёР·РёС‚Р—Р°РєР°Р·Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="10"/>
+					<ExtendedTooltip name="Р РµРєРІРёР·РёС‚Р—Р°РєР°Р·Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="43"/>
+				</LabelField>
+				<CheckBoxField name="РСЃРїРѕР»СЊР·РѕРІР°С‚СЊРџРѕРЈРјРѕР»С‡Р°РЅРёСЋ" id="27">
+					<DataPath>РЎРїРёСЃРѕРє.РСЃРїРѕР»СЊР·РѕРІР°С‚СЊРџРѕРЈРјРѕР»С‡Р°РЅРёСЋ</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РСЃРїРѕР»СЊР·РѕРІР°С‚СЊРџРѕРЈРјРѕР»С‡Р°РЅРёСЋРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="28"/>
+					<ExtendedTooltip name="РСЃРїРѕР»СЊР·РѕРІР°С‚СЊРџРѕРЈРјРѕР»С‡Р°РЅРёСЋР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="44"/>
+				</CheckBoxField>
+				<CheckBoxField name="РљРѕРЅС‚СЂРѕР»РёСЂРѕРІР°С‚СЊР¤РѕСЂРјР°С‚" id="11">
+					<DataPath>РЎРїРёСЃРѕРє.РљРѕРЅС‚СЂРѕР»РёСЂРѕРІР°С‚СЊР¤РѕСЂРјР°С‚</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РљРѕРЅС‚СЂРѕР»РёСЂРѕРІР°С‚СЊР¤РѕСЂРјР°С‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="12"/>
+					<ExtendedTooltip name="РљРѕРЅС‚СЂРѕР»РёСЂРѕРІР°С‚СЊР¤РѕСЂРјР°С‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="45"/>
+				</CheckBoxField>
+				<LabelField name="Р”Р»РёРЅР°" id="13">
+					<DataPath>РЎРїРёСЃРѕРє.Р”Р»РёРЅР°</DataPath>
+					<ContextMenu name="Р”Р»РёРЅР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="14"/>
+					<ExtendedTooltip name="Р”Р»РёРЅР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="46"/>
+				</LabelField>
+				<CheckBoxField name="РўРѕР»СЊРєРѕР¦РёС„СЂС‹" id="15">
+					<DataPath>РЎРїРёСЃРѕРє.РўРѕР»СЊРєРѕР¦РёС„СЂС‹</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РўРѕР»СЊРєРѕР¦РёС„СЂС‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="16"/>
+					<ExtendedTooltip name="РўРѕР»СЊРєРѕР¦РёС„СЂС‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="47"/>
+				</CheckBoxField>
+				<CheckBoxField name="Р•СЃС‚СЊР›РёРґРёСЂСѓСЋС‰РёРµРќСѓР»Рё" id="19">
+					<DataPath>РЎРїРёСЃРѕРє.Р•СЃС‚СЊР›РёРґРёСЂСѓСЋС‰РёРµРќСѓР»Рё</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="Р•СЃС‚СЊР›РёРґРёСЂСѓСЋС‰РёРµРќСѓР»РёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="20"/>
+					<ExtendedTooltip name="Р•СЃС‚СЊР›РёРґРёСЂСѓСЋС‰РёРµРќСѓР»РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="48"/>
+				</CheckBoxField>
+				<CheckBoxField name="РЎРѕРґРµСЂР¶РёС‚РљРѕРЅС‚СЂРѕР»СЊРЅС‹Р№РЎРёРјРІРѕР»" id="21">
+					<DataPath>~РЎРїРёСЃРѕРє.РЎРѕРґРµСЂР¶РёС‚РљРѕРЅС‚СЂРѕР»СЊРЅС‹Р№РЎРёРјРІРѕР»</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РЎРѕРґРµСЂР¶РёС‚РљРѕРЅС‚СЂРѕР»СЊРЅС‹Р№РЎРёРјРІРѕР»РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="22"/>
+					<ExtendedTooltip name="РЎРѕРґРµСЂР¶РёС‚РљРѕРЅС‚СЂРѕР»СЊРЅС‹Р№РЎРёРјРІРѕР»Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="49"/>
+				</CheckBoxField>
+				<CheckBoxField name="РџСЂРѕРІРµСЂСЏС‚СЊРљРѕРЅС‚СЂРѕР»СЊРЅС‹Р№РЎРёРјРІРѕР»РќР°РљРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ" id="23">
+					<DataPath>~РЎРїРёСЃРѕРє.РџСЂРѕРІРµСЂСЏС‚СЊРљРѕРЅС‚СЂРѕР»СЊРЅС‹Р№РЎРёРјРІРѕР»РќР°РљРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РџСЂРѕРІРµСЂСЏС‚СЊРљРѕРЅС‚СЂРѕР»СЊРЅС‹Р№РЎРёРјРІРѕР»РќР°РљРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="24"/>
+					<ExtendedTooltip name="РџСЂРѕРІРµСЂСЏС‚СЊРљРѕРЅС‚СЂРѕР»СЊРЅС‹Р№РЎРёРјРІРѕР»РќР°РљРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="50"/>
+				</CheckBoxField>
+				<LabelField name="РџСЂРµС„РёРєСЃ" id="25">
+					<DataPath>~РЎРїРёСЃРѕРє.РџСЂРµС„РёРєСЃ</DataPath>
+					<ContextMenu name="РџСЂРµС„РёРєСЃРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="26"/>
+					<ExtendedTooltip name="РџСЂРµС„РёРєСЃР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="51"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РЎРїРёСЃРѕРє" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Catalog.РљРѕРЅС‚СЂРѕР»СЊРЅС‹РµРњРµС‚РєРё</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎРЅСЏС‚СЊРџРѕРјРµС‚РєСѓРџРѕРЈРјРѕР»С‡Р°РЅРёСЋ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃС‚Р°РЅРѕРІРёС‚СЊ/СЃРЅСЏС‚СЊ РїРѕРјРµС‚РєСѓ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check/uncheck usage by default</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРЅСЏС‚СЊ РїРѕРјРµС‚РєСѓ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check uncheck by default</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎРЅСЏС‚СЊРџРѕРјРµС‚РєСѓРџРѕРЈРјРѕР»С‡Р°РЅРёСЋ</Action>
+		</Command>
+	</Commands>
+</Form>

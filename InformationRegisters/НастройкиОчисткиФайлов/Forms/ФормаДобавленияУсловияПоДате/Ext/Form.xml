@@ -1,1 +1,140 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<MobileDeviceCommandBarContent>		<xr:Item>			<xr:Presentation/>			<xr:CheckState>0</xr:CheckState>			<xr:Value xsi:type="xs:string">КоманднаяПанель</xr:Value>		</xr:Item>	</MobileDeviceCommandBarContent>	<CommandSet>		<ExcludedCommand>Abort</ExcludedCommand>		<ExcludedCommand>CustomizeForm</ExcludedCommand>		<ExcludedCommand>Help</ExcludedCommand>		<ExcludedCommand>Ignore</ExcludedCommand>		<ExcludedCommand>No</ExcludedCommand>		<ExcludedCommand>RestoreValues</ExcludedCommand>		<ExcludedCommand>Retry</ExcludedCommand>		<ExcludedCommand>SaveValues</ExcludedCommand>		<ExcludedCommand>Yes</ExcludedCommand>	</CommandSet>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаУсловиеПоДате" id="7">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Условие по дате</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаУсловиеПоДатеРасширеннаяПодсказка" id="8"/>			<ChildItems>				<InputField name="ИнтервалИсключение" id="4">					<DataPath>ИнтервалИсключение</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Очищать файлы спустя</v8:content>						</v8:item>					</Title>					<ContextMenu name="ИнтервалИсключениеКонтекстноеМеню" id="5"/>					<ExtendedTooltip name="ИнтервалИсключениеРасширеннаяПодсказка" id="6"/>				</InputField>				<InputField name="РеквизитСТипомДата" id="1">					<DataPath>РеквизитСТипомДата</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>дней относительно</v8:content>						</v8:item>					</Title>					<ListChoiceMode>true</ListChoiceMode>					<ChooseType>false</ChooseType>					<ContextMenu name="РеквизитСТипомДатаКонтекстноеМеню" id="2"/>					<ExtendedTooltip name="РеквизитСТипомДатаРасширеннаяПодсказка" id="3"/>				</InputField>			</ChildItems>		</UsualGroup>		<CommandBar name="КоманднаяПанель" id="9">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Командная панель</v8:content>				</v8:item>			</Title>			<HorizontalLocation>Right</HorizontalLocation>			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="10"/>			<ChildItems>				<Button name="ОК" id="11">					<Type>CommandBarButton</Type>					<DefaultButton>true</DefaultButton>					<CommandName>Form.Command.ОК</CommandName>					<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="12"/>				</Button>				<Button name="Отмена" id="13">					<Type>CommandBarButton</Type>					<CommandName>Form.StandardCommand.Cancel</CommandName>					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="14"/>				</Button>			</ChildItems>		</CommandBar>	</ChildItems>	<Attributes>		<Attribute name="РеквизитСТипомДата" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Реквизит с типом дата</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<FillCheck>ShowError</FillCheck>		</Attribute>		<Attribute name="ИнтервалИсключение" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Интервал исключение</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>10</v8:Digits>					<v8:FractionDigits>0</v8:FractionDigits>					<v8:AllowedSign>Any</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="ОК" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>ОК</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>ОК</v8:content>				</v8:item>			</ToolTip>			<Action>ОК</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<MobileDeviceCommandBarContent>
+		<xr:Item>
+			<xr:Presentation/>
+			<xr:CheckState>0</xr:CheckState>
+			<xr:Value xsi:type="xs:string">РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ</xr:Value>
+		</xr:Item>
+	</MobileDeviceCommandBarContent>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РЈСЃР»РѕРІРёРµРџРѕР”Р°С‚Рµ" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃР»РѕРІРёРµ РїРѕ РґР°С‚Рµ</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РЈСЃР»РѕРІРёРµРџРѕР”Р°С‚РµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="8"/>
+			<ChildItems>
+				<InputField name="РРЅС‚РµСЂРІР°Р»РСЃРєР»СЋС‡РµРЅРёРµ" id="4">
+					<DataPath>РРЅС‚РµСЂРІР°Р»РСЃРєР»СЋС‡РµРЅРёРµ</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћС‡РёС‰Р°С‚СЊ С„Р°Р№Р»С‹ СЃРїСѓСЃС‚СЏ</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РРЅС‚РµСЂРІР°Р»РСЃРєР»СЋС‡РµРЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="5"/>
+					<ExtendedTooltip name="РРЅС‚РµСЂРІР°Р»РСЃРєР»СЋС‡РµРЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="6"/>
+				</InputField>
+				<InputField name="Р РµРєРІРёР·РёС‚РЎРўРёРїРѕРјР”Р°С‚Р°" id="1">
+					<DataPath>Р РµРєРІРёР·РёС‚РЎРўРёРїРѕРјР”Р°С‚Р°</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РґРЅРµР№ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ</v8:content>
+						</v8:item>
+					</Title>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="Р РµРєРІРёР·РёС‚РЎРўРёРїРѕРјР”Р°С‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+					<ExtendedTooltip name="Р РµРєРІРёР·РёС‚РЎРўРёРїРѕРјР”Р°С‚Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CommandBar name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљРѕРјР°РЅРґРЅР°СЏ РїР°РЅРµР»СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="10"/>
+			<ChildItems>
+				<Button name="РћРљ" id="11">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.РћРљ</CommandName>
+					<ExtendedTooltip name="РћРљР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="12"/>
+				</Button>
+				<Button name="РћС‚РјРµРЅР°" id="13">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Cancel</CommandName>
+					<ExtendedTooltip name="РћС‚РјРµРЅР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="14"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Р РµРєРІРёР·РёС‚РЎРўРёРїРѕРјР”Р°С‚Р°" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р РµРєРІРёР·РёС‚ СЃ С‚РёРїРѕРј РґР°С‚Р°</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="РРЅС‚РµСЂРІР°Р»РСЃРєР»СЋС‡РµРЅРёРµ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РРЅС‚РµСЂРІР°Р» РёСЃРєР»СЋС‡РµРЅРёРµ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РћРљ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћРљ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћРљ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РћРљ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,1 +1,185 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<Title>		<v8:item>			<v8:lang>ru</v8:lang>			<v8:content>Выбор поля отчета</v8:content>		</v8:item>	</Title>	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoTitle>false</AutoTitle>	<AutoURL>false</AutoURL>	<AutoFillCheck>false</AutoFillCheck>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<Autofill>false</Autofill>		<ChildItems>			<Button name="Выбрать" id="26">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<CommandName>Form.Command.Выбрать</CommandName>				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="27"/>			</Button>			<Button name="ДобавитьФормулу" id="96">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.ДобавитьФормулу</CommandName>				<ExtendedTooltip name="ДобавитьФормулуРасширеннаяПодсказка" id="97"/>			</Button>			<Button name="ИзменитьФормулу" id="98">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.ИзменитьФормулу</CommandName>				<ExtendedTooltip name="ИзменитьФормулуРасширеннаяПодсказка" id="99"/>			</Button>			<Button name="УдалитьФормулу" id="100">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.УдалитьФормулу</CommandName>				<ExtendedTooltip name="УдалитьФормулуРасширеннаяПодсказка" id="101"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаДоступныеПоля" id="94">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Доступные поля</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаДоступныеПоляРасширеннаяПодсказка" id="95"/>		</UsualGroup>	</ChildItems>	<Attributes>		<Attribute name="КомпоновщикНастроек" id="1">			<Type>				<v8:Type>dcsset:SettingsComposer</v8:Type>			</Type>		</Attribute>		<Attribute name="НастройкиОтчета" id="3">			<Type/>		</Attribute>		<Attribute name="ИмяКоллекцииПолей" id="4">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ИдентификаторЭлементаСтруктурыНастроек" id="5">			<Type/>		</Attribute>		<Attribute name="Режим" id="7">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="Выбрать" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выбрать</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выбрать</v8:content>				</v8:item>			</ToolTip>			<Action>Выбрать</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ДобавитьФормулу" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Добавить формулу</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Добавить новую формулу</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>StdPicture.CreateListItem</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>ДобавитьФормулу</Action>			<Representation>Text</Representation>		</Command>		<Command name="ИзменитьФормулу" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Изменить формулу</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Изменить выбранную формулу</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>StdPicture.Change</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>ИзменитьФормулу</Action>			<Representation>Picture</Representation>		</Command>		<Command name="УдалитьФормулу" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Удалить формулу</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Удалить выбранную формулу</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>StdPicture.Delete</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>УдалитьФормулу</Action>			<Representation>Picture</Representation>		</Command>	</Commands>	<Parameters>		<Parameter name="КомпоновщикНастроек">			<Type>				<v8:Type>dcsset:SettingsComposer</v8:Type>			</Type>		</Parameter>		<Parameter name="Режим">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>		<Parameter name="НастройкиОтчета">			<Type/>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Р’С‹Р±РѕСЂ РїРѕР»СЏ РѕС‚С‡РµС‚Р°</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
+	<AutoFillCheck>false</AutoFillCheck>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Р’С‹Р±СЂР°С‚СЊ" id="26">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Р’С‹Р±СЂР°С‚СЊ</CommandName>
+				<ExtendedTooltip name="Р’С‹Р±СЂР°С‚СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="27"/>
+			</Button>
+			<Button name="Р”РѕР±Р°РІРёС‚СЊР¤РѕСЂРјСѓР»Сѓ" id="96">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Р”РѕР±Р°РІРёС‚СЊР¤РѕСЂРјСѓР»Сѓ</CommandName>
+				<ExtendedTooltip name="Р”РѕР±Р°РІРёС‚СЊР¤РѕСЂРјСѓР»СѓР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="97"/>
+			</Button>
+			<Button name="РР·РјРµРЅРёС‚СЊР¤РѕСЂРјСѓР»Сѓ" id="98">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.РР·РјРµРЅРёС‚СЊР¤РѕСЂРјСѓР»Сѓ</CommandName>
+				<ExtendedTooltip name="РР·РјРµРЅРёС‚СЊР¤РѕСЂРјСѓР»СѓР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="99"/>
+			</Button>
+			<Button name="РЈРґР°Р»РёС‚СЊР¤РѕСЂРјСѓР»Сѓ" id="100">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.РЈРґР°Р»РёС‚СЊР¤РѕСЂРјСѓР»Сѓ</CommandName>
+				<ExtendedTooltip name="РЈРґР°Р»РёС‚СЊР¤РѕСЂРјСѓР»СѓР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="101"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°Р”РѕСЃС‚СѓРїРЅС‹РµРџРѕР»СЏ" id="94">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РѕСЃС‚СѓРїРЅС‹Рµ РїРѕР»СЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°Р”РѕСЃС‚СѓРїРЅС‹РµРџРѕР»СЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="95"/>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРє" id="1">
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РќР°СЃС‚СЂРѕР№РєРёРћС‚С‡РµС‚Р°" id="3">
+			<Type/>
+		</Attribute>
+		<Attribute name="РРјСЏРљРѕР»Р»РµРєС†РёРёРџРѕР»РµР№" id="4">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР­Р»РµРјРµРЅС‚Р°РЎС‚СЂСѓРєС‚СѓСЂС‹РќР°СЃС‚СЂРѕРµРє" id="5">
+			<Type/>
+		</Attribute>
+		<Attribute name="Р РµР¶РёРј" id="7">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Р’С‹Р±СЂР°С‚СЊ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹Р±СЂР°С‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹Р±СЂР°С‚СЊ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р’С‹Р±СЂР°С‚СЊ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Р”РѕР±Р°РІРёС‚СЊР¤РѕСЂРјСѓР»Сѓ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РѕР±Р°РІРёС‚СЊ С„РѕСЂРјСѓР»Сѓ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ С„РѕСЂРјСѓР»Сѓ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Р”РѕР±Р°РІРёС‚СЊР¤РѕСЂРјСѓР»Сѓ</Action>
+			<Representation>Text</Representation>
+		</Command>
+		<Command name="РР·РјРµРЅРёС‚СЊР¤РѕСЂРјСѓР»Сѓ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РР·РјРµРЅРёС‚СЊ С„РѕСЂРјСѓР»Сѓ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РР·РјРµРЅРёС‚СЊ РІС‹Р±СЂР°РЅРЅСѓСЋ С„РѕСЂРјСѓР»Сѓ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РР·РјРµРЅРёС‚СЊР¤РѕСЂРјСѓР»Сѓ</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="РЈРґР°Р»РёС‚СЊР¤РѕСЂРјСѓР»Сѓ" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈРґР°Р»РёС‚СЊ С„РѕСЂРјСѓР»Сѓ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈРґР°Р»РёС‚СЊ РІС‹Р±СЂР°РЅРЅСѓСЋ С„РѕСЂРјСѓР»Сѓ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РЈРґР°Р»РёС‚СЊР¤РѕСЂРјСѓР»Сѓ</Action>
+			<Representation>Picture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="РљРѕРјРїРѕРЅРѕРІС‰РёРєРќР°СЃС‚СЂРѕРµРє">
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Р РµР¶РёРј">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="РќР°СЃС‚СЂРѕР№РєРёРћС‚С‡РµС‚Р°">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>

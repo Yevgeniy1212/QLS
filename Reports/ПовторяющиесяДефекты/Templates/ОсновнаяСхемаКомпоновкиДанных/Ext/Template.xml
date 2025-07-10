@@ -1,1 +1,492 @@
-<?xml version="1.0" encoding="UTF-8"?><DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">	<dataSource>		<name>ИсточникДанных1</name>		<dataSourceType>Local</dataSourceType>	</dataSource>	<dataSet xsi:type="DataSetQuery">		<name>НаборДанных1</name>		<field xsi:type="DataSetFieldField">			<dataPath>КонсернДефект</dataPath>			<field>КонсернДефект</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>КонсернИнспектируемыйЭлемент</dataPath>			<field>КонсернИнспектируемыйЭлемент</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>КоличествоДефектовВторогоПериода</dataPath>			<field>КоличествоДефектовВторогоПериода</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>КоличествоДефектовПервогоПериода</dataPath>			<field>КоличествоДефектовПервогоПериода</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Заказ</dataPath>			<field>Заказ</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Консерн</dataPath>			<field>Консерн</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Область</dataPath>			<field>Область</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Зона</dataPath>			<field>Зона</field>			<inputParameters>				<dcscor:item>					<dcscor:parameter>СвязиПараметровВыбора</dcscor:parameter>					<dcscor:value xsi:type="dcscor:ChoiceParameterLinks">						<dcscor:item>							<dcscor:choiceParameter>Отбор.Владелец</dcscor:choiceParameter>							<dcscor:value>Область</dcscor:value>							<dcscor:mode xmlns:d8p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d8p1:LinkedValueChangeMode">Clear</dcscor:mode>						</dcscor:item>					</dcscor:value>				</dcscor:item>			</inputParameters>		</field>		<dataSource>ИсточникДанных1</dataSource>		<query>ВЫБРАТЬ ПЕРВЫЕ 5	КонсерныОбороты.Консерн.Дефект КАК КонсернДефект,	КонсерныОбороты.Консерн.ИнспектируемыйЭлемент КАК КонсернИнспектируемыйЭлемент,	СУММА(КонсерныОбороты.КоличествоПриход) КАК КоличествоДефектовПервогоПериодаПОМЕСТИТЬ ТопДефектовПервогоПериодаИЗ	РегистрНакопления.Консерны.Обороты(&amp;НачалоПервогоПериода, &amp;КонецПервогоПериода, Запись,) КАК КонсерныОборотыГДЕ	КонсерныОбороты.КоличествоПриход &gt; 0{ГДЕ	КонсерныОбороты.Консерн.ТочкаПроверкиКачества.Область КАК Область,	КонсерныОбороты.Консерн.ТочкаПроверкиКачества.Зона КАК Зона}СГРУППИРОВАТЬ ПО	КонсерныОбороты.Консерн.Дефект,	КонсерныОбороты.Консерн.ИнспектируемыйЭлементУПОРЯДОЧИТЬ ПО	КоличествоДефектовПервогоПериода УБЫВ;//////////////////////////////////////////////////////////////////////////////// ВЫБРАТЬ	КонсерныОбороты.Консерн.Дефект КАК КонсернДефект,	КонсерныОбороты.Консерн.ИнспектируемыйЭлемент КАК КонсернИнспектируемыйЭлемент,	СУММА(КонсерныОбороты.КоличествоПриход) КАК КоличествоДефектовВторогоПериодаПОМЕСТИТЬ ДефектыВторгоПериодаИЗ	ТопДефектовПервогоПериода КАК ТопДефектовПервогоПериода		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.Консерны.Обороты(&amp;НачалоВторогоПериода, &amp;КонецВторогоПериода, Запись,) КАК			КонсерныОбороты		ПО ТопДефектовПервогоПериода.КонсернДефект = КонсерныОбороты.Консерн.Дефект		И ТопДефектовПервогоПериода.КонсернИнспектируемыйЭлемент = КонсерныОбороты.Консерн.ИнспектируемыйЭлементГДЕ	КонсерныОбороты.КоличествоПриход &gt; 0СГРУППИРОВАТЬ ПО	КонсерныОбороты.Консерн.Дефект,	КонсерныОбороты.Консерн.ИнспектируемыйЭлемент;//////////////////////////////////////////////////////////////////////////////// ВЫБРАТЬ	ТопДефектовПервогоПериода.КонсернДефект КАК КонсернДефект,	ТопДефектовПервогоПериода.КонсернИнспектируемыйЭлемент КАК КонсернИнспектируемыйЭлемент,	ТопДефектовПервогоПериода.КоличествоДефектовПервогоПериода КАК КоличествоДефектовПервогоПериода,	ДефектыВторгоПериода.КоличествоДефектовВторогоПериода КАК КоличествоДефектовВторогоПериодаИЗ	ТопДефектовПервогоПериода КАК ТопДефектовПервогоПериода		ЛЕВОЕ СОЕДИНЕНИЕ ДефектыВторгоПериода КАК ДефектыВторгоПериода		ПО (ТопДефектовПервогоПериода.КонсернДефект = ДефектыВторгоПериода.КонсернДефект)		И (ТопДефектовПервогоПериода.КонсернИнспектируемыйЭлемент = ДефектыВторгоПериода.КонсернИнспектируемыйЭлемент)</query>	</dataSet>	<calculatedField>		<dataPath>Дефект</dataPath>		<expression>СтроковыеФункцииКлиентСервер.ДополнитьСтроку(Представление(КонсернИнспектируемыйЭлемент),0 )+ " "+ СтроковыеФункцииКлиентСервер.ДополнитьСтроку(Представление(КонсернДефект),0)</expression>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Дефект</v8:content>			</v8:item>		</title>	</calculatedField>	<totalField>		<dataPath>КоличествоДефектовВторогоПериода</dataPath>		<expression>ЕСТЬNULL(Сумма(КоличествоДефектовВторогоПериода), 0)</expression>	</totalField>	<totalField>		<dataPath>КоличествоДефектовПервогоПериода</dataPath>		<expression>ЕСТЬNULL(Сумма(КоличествоДефектовПервогоПериода), 0)</expression>	</totalField>	<parameter>		<name>НачалоПериода</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Начало периода</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:nil="true"/>		<useRestriction>true</useRestriction>	</parameter>	<parameter>		<name>КонецПериода</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Конец периода</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:nil="true"/>		<useRestriction>true</useRestriction>	</parameter>	<parameter>		<name>НачалоПервогоПериода</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Начало первого периода</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:nil="true"/>		<useRestriction>true</useRestriction>		<expression>&amp;ПервыйПериодОтчета.ДатаНачала</expression>	</parameter>	<parameter>		<name>КонецПервогоПериода</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Конец первого периода</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:nil="true"/>		<useRestriction>true</useRestriction>		<expression>&amp;ПервыйПериодОтчета.ДатаОкончания</expression>	</parameter>	<parameter>		<name>НачалоВторогоПериода</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Начало второго периода</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:nil="true"/>		<useRestriction>true</useRestriction>		<expression>&amp;ВторойПериодОтчета.ДатаНачала</expression>	</parameter>	<parameter>		<name>КонецВторогоПериода</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Конец второго периода</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:nil="true"/>		<useRestriction>true</useRestriction>		<expression>&amp;ВторойПериодОтчета.ДатаОкончания</expression>	</parameter>	<parameter>		<name>ПервыйПериодОтчета</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Первый период отчета</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>v8:StandardPeriod</v8:Type>		</valueType>		<value xsi:nil="true"/>		<useRestriction>false</useRestriction>		<denyIncompleteValues>true</denyIncompleteValues>		<use>Always</use>	</parameter>	<parameter>		<name>ВторойПериодОтчета</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Второй период отчета</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>v8:StandardPeriod</v8:Type>		</valueType>		<value xsi:nil="true"/>		<useRestriction>false</useRestriction>		<denyIncompleteValues>true</denyIncompleteValues>		<use>Always</use>	</parameter>	<parameter>		<name>Топ</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Топ</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:decimal</v8:Type>			<v8:NumberQualifiers>				<v8:Digits>3</v8:Digits>				<v8:FractionDigits>0</v8:FractionDigits>				<v8:AllowedSign>Nonnegative</v8:AllowedSign>			</v8:NumberQualifiers>		</valueType>		<value xsi:nil="true"/>		<useRestriction>false</useRestriction>		<denyIncompleteValues>true</denyIncompleteValues>		<use>Always</use>	</parameter>	<settingsVariant>		<dcsset:name>ПовторяющиесяДефекты</dcsset:name>		<dcsset:presentation xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Повторяющиеся дефекты</v8:content>			</v8:item>		</dcsset:presentation>		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">			<dcsset:selection>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Дефект</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>КоличествоДефектовПервогоПериода</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>КоличествоДефектовВторогоПериода</dcsset:field>				</dcsset:item>			</dcsset:selection>			<dcsset:filter>				<dcsset:item xsi:type="dcsset:FilterItemComparison">					<dcsset:use>false</dcsset:use>					<dcsset:left xsi:type="dcscor:Field">Консерн.ТочкаПроверкиКачества</dcsset:left>					<dcsset:comparisonType>InList</dcsset:comparisonType>					<dcsset:userSettingID>fb12e5b2-2b31-4cc3-b9d1-f3aa9892d5b0</dcsset:userSettingID>					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Точка проверки качества</v8:content>						</v8:item>					</dcsset:userSettingPresentation>				</dcsset:item>				<dcsset:item xsi:type="dcsset:FilterItemComparison">					<dcsset:use>false</dcsset:use>					<dcsset:left xsi:type="dcscor:Field">Область</dcsset:left>					<dcsset:comparisonType>Equal</dcsset:comparisonType>					<dcsset:viewMode>Normal</dcsset:viewMode>					<dcsset:userSettingID>6442e401-01c1-4550-8aba-0c0d8147eb97</dcsset:userSettingID>				</dcsset:item>				<dcsset:item xsi:type="dcsset:FilterItemComparison">					<dcsset:use>false</dcsset:use>					<dcsset:left xsi:type="dcscor:Field">Зона</dcsset:left>					<dcsset:comparisonType>InList</dcsset:comparisonType>					<dcsset:right xsi:nil="true"/>					<dcsset:viewMode>Normal</dcsset:viewMode>					<dcsset:userSettingID>e89ed2f0-563e-40dd-a226-2f16ce30b166</dcsset:userSettingID>				</dcsset:item>				<dcsset:item xsi:type="dcsset:FilterItemComparison">					<dcsset:use>false</dcsset:use>					<dcsset:left xsi:type="dcscor:Field">Заказ.Модель</dcsset:left>					<dcsset:comparisonType>InList</dcsset:comparisonType>					<dcsset:viewMode>Normal</dcsset:viewMode>					<dcsset:userSettingID>b3485a24-9c6c-43e6-afd0-f5d8cc77ebfa</dcsset:userSettingID>					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Модель</v8:content>						</v8:item>					</dcsset:userSettingPresentation>				</dcsset:item>				<dcsset:item xsi:type="dcsset:FilterItemComparison">					<dcsset:use>false</dcsset:use>					<dcsset:left xsi:type="dcscor:Field">Консерн.ОтветственныйЗаДефект</dcsset:left>					<dcsset:comparisonType>InList</dcsset:comparisonType>					<dcsset:viewMode>Normal</dcsset:viewMode>					<dcsset:userSettingID>323087d5-317a-4258-83ba-50e8750fe59b</dcsset:userSettingID>					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Ответственный за дефект</v8:content>						</v8:item>					</dcsset:userSettingPresentation>				</dcsset:item>				<dcsset:item xsi:type="dcsset:FilterItemComparison">					<dcsset:use>false</dcsset:use>					<dcsset:left xsi:type="dcscor:Field">Заказ.Бренд</dcsset:left>					<dcsset:comparisonType>InList</dcsset:comparisonType>					<dcsset:viewMode>Normal</dcsset:viewMode>					<dcsset:userSettingID>5a18a6e3-e12a-4fe4-996e-4ff255a4e473</dcsset:userSettingID>					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Бренд</v8:content>						</v8:item>					</dcsset:userSettingPresentation>				</dcsset:item>			</dcsset:filter>			<dcsset:dataParameters>				<dcscor:item xsi:type="dcsset:SettingsParameterValue">					<dcscor:parameter>ПервыйПериодОтчета</dcscor:parameter>					<dcscor:value xsi:type="v8:StandardPeriod">						<v8:variant xsi:type="v8:StandardPeriodVariant">LastMonthTillSameDate</v8:variant>					</dcscor:value>					<dcsset:userSettingID>30830883-dc3b-4be7-9a1f-08e89063cc6e</dcsset:userSettingID>				</dcscor:item>				<dcscor:item xsi:type="dcsset:SettingsParameterValue">					<dcscor:parameter>ВторойПериодОтчета</dcscor:parameter>					<dcscor:value xsi:type="v8:StandardPeriod">						<v8:variant xsi:type="v8:StandardPeriodVariant">FromBeginningOfThisMonth</v8:variant>					</dcscor:value>					<dcsset:userSettingID>e6510eff-dac7-4279-bcdf-ce75527138aa</dcsset:userSettingID>				</dcscor:item>				<dcscor:item xsi:type="dcsset:SettingsParameterValue">					<dcscor:parameter>Топ</dcscor:parameter>					<dcscor:value xsi:type="xs:decimal">5</dcscor:value>					<dcsset:userSettingID>e5498b1a-451f-4d23-89d8-900a1dd94fc5</dcsset:userSettingID>				</dcscor:item>			</dcsset:dataParameters>			<dcsset:conditionalAppearance>				<dcsset:item>					<dcsset:selection>						<dcsset:item>							<dcsset:field>КоличествоДефектовПервогоПериода</dcsset:field>						</dcsset:item>						<dcsset:item>							<dcsset:field>КоличествоДефектовВторогоПериода</dcsset:field>						</dcsset:item>					</dcsset:selection>					<dcsset:filter/>					<dcsset:appearance>						<dcscor:item xsi:type="dcsset:SettingsParameterValue">							<dcscor:parameter>Формат</dcscor:parameter>							<dcscor:value xsi:type="v8:LocalStringType">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>ЧН=0</v8:content>								</v8:item>							</dcscor:value>						</dcscor:item>					</dcsset:appearance>				</dcsset:item>			</dcsset:conditionalAppearance>			<dcsset:item xsi:type="dcsset:StructureItemGroup">				<dcsset:groupItems>					<dcsset:item xsi:type="dcsset:GroupItemField">						<dcsset:field>Дефект</dcsset:field>						<dcsset:groupType>Items</dcsset:groupType>						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>					</dcsset:item>				</dcsset:groupItems>				<dcsset:order>					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>				</dcsset:order>				<dcsset:selection>					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>				</dcsset:selection>				<dcsset:outputParameters>					<dcscor:item xsi:type="dcsset:SettingsParameterValue">						<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>					</dcscor:item>				</dcsset:outputParameters>			</dcsset:item>			<dcsset:item xsi:type="dcsset:StructureItemChart">				<dcsset:point>					<dcsset:groupItems>						<dcsset:item xsi:type="dcsset:GroupItemField">							<dcsset:field>Дефект</dcsset:field>							<dcsset:groupType>Items</dcsset:groupType>							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>						</dcsset:item>					</dcsset:groupItems>					<dcsset:order>						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>					</dcsset:order>					<dcsset:selection>						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>					</dcsset:selection>				</dcsset:point>				<dcsset:selection>					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>				</dcsset:selection>				<dcsset:conditionalAppearance>					<dcsset:item>						<dcsset:selection>							<dcsset:item>								<dcsset:field>Дефект</dcsset:field>							</dcsset:item>						</dcsset:selection>						<dcsset:filter/>						<dcsset:appearance>							<dcscor:item xsi:type="dcsset:SettingsParameterValue">								<dcscor:parameter>ОриентацияТекста</dcscor:parameter>								<dcscor:value xsi:type="xs:decimal">90</dcscor:value>							</dcscor:item>						</dcsset:appearance>					</dcsset:item>				</dcsset:conditionalAppearance>				<dcsset:outputParameters>					<dcscor:item xsi:type="dcsset:SettingsParameterValue">						<dcscor:use>false</dcscor:use>						<dcscor:parameter>ТипДиаграммы</dcscor:parameter>						<dcscor:value xsi:type="v8ui:ChartType">Column3D</dcscor:value>						<dcscor:item xsi:type="dcsset:SettingsParameterValue">							<dcscor:parameter>ТипДиаграммы.ВидПодписей</dcscor:parameter>							<dcscor:value xsi:type="v8ui:ChartLabelType">Value</dcscor:value>						</dcscor:item>						<dcscor:item xsi:type="dcsset:SettingsParameterValue">							<dcscor:parameter>ТипДиаграммы.РасположениеЛегенды</dcscor:parameter>							<dcscor:value xsi:type="dcsset:DataCompositionChartLegendPlacement">Bottom</dcscor:value>						</dcscor:item>					</dcscor:item>				</dcsset:outputParameters>			</dcsset:item>		</dcsset:settings>	</settingsVariant></DataCompositionSchema>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>РСЃС‚РѕС‡РЅРёРєР”Р°РЅРЅС‹С…1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>РќР°Р±РѕСЂР”Р°РЅРЅС‹С…1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚</dataPath>
+			<field>РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚</dataPath>
+			<field>РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°</dataPath>
+			<field>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°</dataPath>
+			<field>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Р—Р°РєР°Р·</dataPath>
+			<field>Р—Р°РєР°Р·</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РљРѕРЅСЃРµСЂРЅ</dataPath>
+			<field>РљРѕРЅСЃРµСЂРЅ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РћР±Р»Р°СЃС‚СЊ</dataPath>
+			<field>РћР±Р»Р°СЃС‚СЊ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Р—РѕРЅР°</dataPath>
+			<field>Р—РѕРЅР°</field>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:parameter>РЎРІСЏР·РёРџР°СЂР°РјРµС‚СЂРѕРІР’С‹Р±РѕСЂР°</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:ChoiceParameterLinks">
+						<dcscor:item>
+							<dcscor:choiceParameter>РћС‚Р±РѕСЂ.Р’Р»Р°РґРµР»РµС†</dcscor:choiceParameter>
+							<dcscor:value>РћР±Р»Р°СЃС‚СЊ</dcscor:value>
+							<dcscor:mode xmlns:d8p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d8p1:LinkedValueChangeMode">Clear</dcscor:mode>
+						</dcscor:item>
+					</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<dataSource>РСЃС‚РѕС‡РЅРёРєР”Р°РЅРЅС‹С…1</dataSource>
+		<query>Р’Р«Р‘Р РђРўР¬ РџР•Р Р’Р«Р• 5
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.Р”РµС„РµРєС‚ РљРђРљ РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚ РљРђРљ РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚,
+	РЎРЈРњРњРђ(РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕР»РёС‡РµСЃС‚РІРѕРџСЂРёС…РѕРґ) РљРђРљ РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°
+РџРћРњР•РЎРўРРўР¬ РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°
+РР—
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏ.РљРѕРЅСЃРµСЂРЅС‹.РћР±РѕСЂРѕС‚С‹(&amp;РќР°С‡Р°Р»РѕРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°, &amp;РљРѕРЅРµС†РџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°, Р—Р°РїРёСЃСЊ,) РљРђРљ РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹
+Р“Р”Р•
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕР»РёС‡РµСЃС‚РІРѕРџСЂРёС…РѕРґ &gt; 0
+{Р“Р”Р•
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°.РћР±Р»Р°СЃС‚СЊ РљРђРљ РћР±Р»Р°СЃС‚СЊ,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°.Р—РѕРЅР° РљРђРљ Р—РѕРЅР°}
+РЎР“Р РЈРџРџРР РћР’РђРўР¬ РџРћ
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.Р”РµС„РµРєС‚,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚
+РЈРџРћР РЇР”РћР§РРўР¬ РџРћ
+	РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР° РЈР‘Р«Р’
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ Р’Р«Р‘Р РђРўР¬
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.Р”РµС„РµРєС‚ РљРђРљ РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚ РљРђРљ РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚,
+	РЎРЈРњРњРђ(РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕР»РёС‡РµСЃС‚РІРѕРџСЂРёС…РѕРґ) РљРђРљ РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°
+РџРћРњР•РЎРўРРўР¬ Р”РµС„РµРєС‚С‹Р’С‚РѕСЂРіРѕРџРµСЂРёРѕРґР°
+РР—
+	РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР° РљРђРљ РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°
+		Р›Р•Р’РћР• РЎРћР•Р”РРќР•РќРР• Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏ.РљРѕРЅСЃРµСЂРЅС‹.РћР±РѕСЂРѕС‚С‹(&amp;РќР°С‡Р°Р»РѕР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°, &amp;РљРѕРЅРµС†Р’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°, Р—Р°РїРёСЃСЊ,) РљРђРљ
+			РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹
+		РџРћ РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°.РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚ = РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.Р”РµС„РµРєС‚
+		Р РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°.РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚ = РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚
+Р“Р”Р•
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕР»РёС‡РµСЃС‚РІРѕРџСЂРёС…РѕРґ &gt; 0
+РЎР“Р РЈРџРџРР РћР’РђРўР¬ РџРћ
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.Р”РµС„РµРєС‚,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ Р’Р«Р‘Р РђРўР¬
+	РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°.РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚ РљРђРљ РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚,
+	РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°.РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚ РљРђРљ РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚,
+	РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°.РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР° РљРђРљ РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°,
+	Р”РµС„РµРєС‚С‹Р’С‚РѕСЂРіРѕРџРµСЂРёРѕРґР°.РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР° РљРђРљ РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°
+РР—
+	РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР° РљРђРљ РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°
+		Р›Р•Р’РћР• РЎРћР•Р”РРќР•РќРР• Р”РµС„РµРєС‚С‹Р’С‚РѕСЂРіРѕРџРµСЂРёРѕРґР° РљРђРљ Р”РµС„РµРєС‚С‹Р’С‚РѕСЂРіРѕРџРµСЂРёРѕРґР°
+		РџРћ (РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°.РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚ = Р”РµС„РµРєС‚С‹Р’С‚РѕСЂРіРѕРџРµСЂРёРѕРґР°.РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚)
+		Р (РўРѕРїР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°.РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚ = Р”РµС„РµРєС‚С‹Р’С‚РѕСЂРіРѕРџРµСЂРёРѕРґР°.РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚)</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>Р”РµС„РµРєС‚</dataPath>
+		<expression>РЎС‚СЂРѕРєРѕРІС‹РµР¤СѓРЅРєС†РёРёРљР»РёРµРЅС‚РЎРµСЂРІРµСЂ.Р”РѕРїРѕР»РЅРёС‚СЊРЎС‚СЂРѕРєСѓ(РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ(РљРѕРЅСЃРµСЂРЅРРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚),0 )+ " "+ РЎС‚СЂРѕРєРѕРІС‹РµР¤СѓРЅРєС†РёРёРљР»РёРµРЅС‚РЎРµСЂРІРµСЂ.Р”РѕРїРѕР»РЅРёС‚СЊРЎС‚СЂРѕРєСѓ(РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ(РљРѕРЅСЃРµСЂРЅР”РµС„РµРєС‚),0)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Р”РµС„РµРєС‚</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°</dataPath>
+		<expression>Р•РЎРўР¬NULL(РЎСѓРјРјР°(РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°), 0)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°</dataPath>
+		<expression>Р•РЎРўР¬NULL(РЎСѓРјРјР°(РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°), 0)</expression>
+	</totalField>
+	<parameter>
+		<name>РќР°С‡Р°Р»РѕРџРµСЂРёРѕРґР°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РќР°С‡Р°Р»Рѕ РїРµСЂРёРѕРґР°</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>РљРѕРЅРµС†РџРµСЂРёРѕРґР°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РљРѕРЅРµС† РїРµСЂРёРѕРґР°</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>РќР°С‡Р°Р»РѕРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РќР°С‡Р°Р»Рѕ РїРµСЂРІРѕРіРѕ РїРµСЂРёРѕРґР°</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;РџРµСЂРІС‹Р№РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°.Р”Р°С‚Р°РќР°С‡Р°Р»Р°</expression>
+	</parameter>
+	<parameter>
+		<name>РљРѕРЅРµС†РџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РљРѕРЅРµС† РїРµСЂРІРѕРіРѕ РїРµСЂРёРѕРґР°</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;РџРµСЂРІС‹Р№РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°.Р”Р°С‚Р°РћРєРѕРЅС‡Р°РЅРёСЏ</expression>
+	</parameter>
+	<parameter>
+		<name>РќР°С‡Р°Р»РѕР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РќР°С‡Р°Р»Рѕ РІС‚РѕСЂРѕРіРѕ РїРµСЂРёРѕРґР°</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Р’С‚РѕСЂРѕР№РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°.Р”Р°С‚Р°РќР°С‡Р°Р»Р°</expression>
+	</parameter>
+	<parameter>
+		<name>РљРѕРЅРµС†Р’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РљРѕРЅРµС† РІС‚РѕСЂРѕРіРѕ РїРµСЂРёРѕРґР°</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Р’С‚РѕСЂРѕР№РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°.Р”Р°С‚Р°РћРєРѕРЅС‡Р°РЅРёСЏ</expression>
+	</parameter>
+	<parameter>
+		<name>РџРµСЂРІС‹Р№РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РџРµСЂРІС‹Р№ РїРµСЂРёРѕРґ РѕС‚С‡РµС‚Р°</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Р’С‚РѕСЂРѕР№РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Р’С‚РѕСЂРѕР№ РїРµСЂРёРѕРґ РѕС‚С‡РµС‚Р°</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>РўРѕРї</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РўРѕРї</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>3</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>РџРѕРІС‚РѕСЂСЏСЋС‰РёРµСЃСЏР”РµС„РµРєС‚С‹</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РџРѕРІС‚РѕСЂСЏСЋС‰РёРµСЃСЏ РґРµС„РµРєС‚С‹</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Р”РµС„РµРєС‚</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">РљРѕРЅСЃРµСЂРЅ.РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:userSettingID>fb12e5b2-2b31-4cc3-b9d1-f3aa9892d5b0</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РўРѕС‡РєР° РїСЂРѕРІРµСЂРєРё РєР°С‡РµСЃС‚РІР°</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">РћР±Р»Р°СЃС‚СЊ</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>6442e401-01c1-4550-8aba-0c0d8147eb97</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Р—РѕРЅР°</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:nil="true"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>e89ed2f0-563e-40dd-a226-2f16ce30b166</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Р—Р°РєР°Р·.РњРѕРґРµР»СЊ</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>b3485a24-9c6c-43e6-afd0-f5d8cc77ebfa</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РњРѕРґРµР»СЊ</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">РљРѕРЅСЃРµСЂРЅ.РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Р№Р—Р°Р”РµС„РµРєС‚</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>323087d5-317a-4258-83ba-50e8750fe59b</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Р№ Р·Р° РґРµС„РµРєС‚</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Р—Р°РєР°Р·.Р‘СЂРµРЅРґ</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>5a18a6e3-e12a-4fe4-996e-4ff255a4e473</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р‘СЂРµРЅРґ</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РџРµСЂРІС‹Р№РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">LastMonthTillSameDate</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>30830883-dc3b-4be7-9a1f-08e89063cc6e</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Р’С‚РѕСЂРѕР№РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">FromBeginningOfThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>e6510eff-dac7-4279-bcdf-ce75527138aa</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РўРѕРї</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">5</dcscor:value>
+					<dcsset:userSettingID>e5498b1a-451f-4d23-89d8-900a1dd94fc5</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІРџРµСЂРІРѕРіРѕРџРµСЂРёРѕРґР°</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>РљРѕР»РёС‡РµСЃС‚РІРѕР”РµС„РµРєС‚РѕРІР’С‚РѕСЂРѕРіРѕРџРµСЂРёРѕРґР°</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Р¤РѕСЂРјР°С‚</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р§Рќ=0</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Р”РµС„РµРєС‚</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Р’РµСЂС‚РёРєР°Р»СЊРЅРѕРµР Р°СЃРїРѕР»РѕР¶РµРЅРёРµРћР±С‰РёС…РС‚РѕРіРѕРІ</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Р”РµС„РµРєС‚</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>Р”РµС„РµРєС‚</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>РћСЂРёРµРЅС‚Р°С†РёСЏРўРµРєСЃС‚Р°</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">90</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>РўРёРїР”РёР°РіСЂР°РјРјС‹</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:ChartType">Column3D</dcscor:value>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>РўРёРїР”РёР°РіСЂР°РјРјС‹.Р’РёРґРџРѕРґРїРёСЃРµР№</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:ChartLabelType">Value</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>РўРёРїР”РёР°РіСЂР°РјРјС‹.Р Р°СЃРїРѕР»РѕР¶РµРЅРёРµР›РµРіРµРЅРґС‹</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionChartLegendPlacement">Bottom</dcscor:value>
+						</dcscor:item>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

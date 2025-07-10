@@ -1,1 +1,130 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<CommandBarLocation>Bottom</CommandBarLocation>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<HorizontalAlign>Right</HorizontalAlign>		<Autofill>false</Autofill>		<ChildItems>			<Button name="ОК" id="20">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<CommandName>Form.Command.ОК</CommandName>				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="21"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаНапоминаниеИКартинка" id="7">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Напоминание и картинка</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаНапоминаниеИКартинкаРасширеннаяПодсказка" id="8"/>			<ChildItems>				<PictureDecoration name="ДекорацияИнформация" id="4">					<Title formatted="false">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Декорация информация</v8:content>						</v8:item>					</Title>					<Picture>						<xr:Ref>CommonPicture.Информация32</xr:Ref>						<xr:LoadTransparent>false</xr:LoadTransparent>					</Picture>					<FileDragMode>AsFile</FileDragMode>					<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="5"/>					<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="6"/>				</PictureDecoration>				<UsualGroup name="ГруппаНапоминание" id="9">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Напоминание</v8:content>						</v8:item>					</Title>					<Group>Vertical</Group>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="ГруппаНапоминаниеРасширеннаяПодсказка" id="10"/>					<ChildItems>						<LabelDecoration name="ДекорацияНапоминание" id="1">							<AutoMaxWidth>false</AutoMaxWidth>							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>В клиент-серверном варианте работы необходимо настроитьрезервное копирование и восстановление данных средствамиСУБД или другими сторонними средствами.</v8:content>								</v8:item>							</Title>							<TitleHeight>3</TitleHeight>							<ContextMenu name="ДекорацияНапоминаниеКонтекстноеМеню" id="2"/>							<ExtendedTooltip name="ДекорацияНапоминаниеРасширеннаяПодсказка" id="3"/>						</LabelDecoration>						<CheckBoxField name="ОтключитьНапоминания" id="11">							<DataPath>ОтключитьНапоминания</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Больше не напоминать</v8:content>								</v8:item>							</Title>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ОтключитьНапоминанияКонтекстноеМеню" id="12"/>							<ExtendedTooltip name="ОтключитьНапоминанияРасширеннаяПодсказка" id="13"/>						</CheckBoxField>					</ChildItems>				</UsualGroup>			</ChildItems>		</UsualGroup>	</ChildItems>	<Attributes>		<Attribute name="Объект" id="1">			<Type>				<v8:Type>cfg:DataProcessorObject.НастройкаРезервногоКопированияИБ</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>		</Attribute>		<Attribute name="ОтключитьНапоминания" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Отключить напоминания</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="ОК" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>ОК</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>ОК</v8:content>				</v8:item>			</ToolTip>			<Action>ОК</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="РћРљ" id="20">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.РћРљ</CommandName>
+				<ExtendedTooltip name="РћРљР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="21"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РќР°РїРѕРјРёРЅР°РЅРёРµРРљР°СЂС‚РёРЅРєР°" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°РїРѕРјРёРЅР°РЅРёРµ Рё РєР°СЂС‚РёРЅРєР°</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РќР°РїРѕРјРёРЅР°РЅРёРµРРљР°СЂС‚РёРЅРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="8"/>
+			<ChildItems>
+				<PictureDecoration name="Р”РµРєРѕСЂР°С†РёСЏРРЅС„РѕСЂРјР°С†РёСЏ" id="4">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”РµРєРѕСЂР°С†РёСЏ РёРЅС„РѕСЂРјР°С†РёСЏ</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.РРЅС„РѕСЂРјР°С†РёСЏ32</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРРЅС„РѕСЂРјР°С†РёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="5"/>
+					<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРРЅС„РѕСЂРјР°С†РёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="6"/>
+				</PictureDecoration>
+				<UsualGroup name="Р“СЂСѓРїРїР°РќР°РїРѕРјРёРЅР°РЅРёРµ" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°РїРѕРјРёРЅР°РЅРёРµ</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РќР°РїРѕРјРёРЅР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="10"/>
+					<ChildItems>
+						<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏРќР°РїРѕРјРёРЅР°РЅРёРµ" id="1">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р’ РєР»РёРµРЅС‚-СЃРµСЂРІРµСЂРЅРѕРј РІР°СЂРёР°РЅС‚Рµ СЂР°Р±РѕС‚С‹ РЅРµРѕР±С…РѕРґРёРјРѕ РЅР°СЃС‚СЂРѕРёС‚СЊ
+СЂРµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ Рё РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С… СЃСЂРµРґСЃС‚РІР°РјРё
+РЎРЈР‘Р” РёР»Рё РґСЂСѓРіРёРјРё СЃС‚РѕСЂРѕРЅРЅРёРјРё СЃСЂРµРґСЃС‚РІР°РјРё.</v8:content>
+								</v8:item>
+							</Title>
+							<TitleHeight>3</TitleHeight>
+							<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРќР°РїРѕРјРёРЅР°РЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+							<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРќР°РїРѕРјРёРЅР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="3"/>
+						</LabelDecoration>
+						<CheckBoxField name="РћС‚РєР»СЋС‡РёС‚СЊРќР°РїРѕРјРёРЅР°РЅРёСЏ" id="11">
+							<DataPath>РћС‚РєР»СЋС‡РёС‚СЊРќР°РїРѕРјРёРЅР°РЅРёСЏ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р‘РѕР»СЊС€Рµ РЅРµ РЅР°РїРѕРјРёРЅР°С‚СЊ</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РћС‚РєР»СЋС‡РёС‚СЊРќР°РїРѕРјРёРЅР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="12"/>
+							<ExtendedTooltip name="РћС‚РєР»СЋС‡РёС‚СЊРќР°РїРѕРјРёРЅР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="13"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±СЉРµРєС‚" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.РќР°СЃС‚СЂРѕР№РєР°Р РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏРР‘</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="РћС‚РєР»СЋС‡РёС‚СЊРќР°РїРѕРјРёРЅР°РЅРёСЏ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РєР»СЋС‡РёС‚СЊ РЅР°РїРѕРјРёРЅР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РћРљ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћРљ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћРљ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РћРљ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

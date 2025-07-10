@@ -1,1 +1,164 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<ChildItems>			<Button name="ФормаВключитьВозможностьРедактирования" id="10">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.ВключитьВозможностьРедактирования</CommandName>				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>				<ExtendedTooltip name="ФормаВключитьВозможностьРедактированияExtendedTooltip" id="11"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаПользователь" id="28">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Пользователь</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<Representation>NormalSeparation</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаПользовательРасширеннаяПодсказка" id="29"/>			<ChildItems>				<InputField name="Пользователь" id="1">					<DataPath>Запись.Пользователь</DataPath>					<ContextMenu name="ПользовательКонтекстноеМеню" id="2"/>					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="3"/>				</InputField>			</ChildItems>		</UsualGroup>		<UsualGroup name="ГруппаНастройки" id="26">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настройки</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<Representation>NormalSeparation</Representation>			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="27"/>			<ChildItems>				<CheckBoxField name="ПотребоватьСменуПароляПриВходе" id="15">					<DataPath>Запись.ПотребоватьСменуПароляПриВходе</DataPath>					<TitleLocation>Right</TitleLocation>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ПотребоватьСменуПароляПриВходеКонтекстноеМеню" id="16"/>					<ExtendedTooltip name="ПотребоватьСменуПароляПриВходеРасширеннаяПодсказка" id="17"/>				</CheckBoxField>				<CheckBoxField name="СрокДействияНеОграничен" id="35">					<DataPath>Запись.СрокДействияНеОграничен</DataPath>					<TitleLocation>Right</TitleLocation>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="СрокДействияНеОграниченКонтекстноеМеню" id="36"/>					<ExtendedTooltip name="СрокДействияНеОграниченРасширеннаяПодсказка" id="37"/>				</CheckBoxField>				<InputField name="СрокДействия" id="18">					<DataPath>Запись.СрокДействия</DataPath>					<ContextMenu name="СрокДействияКонтекстноеМеню" id="19"/>					<ExtendedTooltip name="СрокДействияРасширеннаяПодсказка" id="20"/>				</InputField>				<UsualGroup name="ГруппаПросрочка" id="30">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Просрочка</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="ГруппаПросрочкаРасширеннаяПодсказка" id="31"/>					<ChildItems>						<InputField name="ПросрочкаРаботыВПрограммеДоЗапрещенияВхода" id="21">							<DataPath>Запись.ПросрочкаРаботыВПрограммеДоЗапрещенияВхода</DataPath>							<TitleLocation>Left</TitleLocation>							<ContextMenu name="ПросрочкаРаботыВПрограммеДоЗапрещенияВходаКонтекстноеМеню" id="22"/>							<ExtendedTooltip name="ПросрочкаРаботыВПрограммеДоЗапрещенияВходаРасширеннаяПодсказка" id="23"/>						</InputField>						<LabelDecoration name="ПояснениеПросрочкаРаботыВПрограммеДоЗапрещенияВхода" id="32">							<AutoMaxWidth>false</AutoMaxWidth>							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>дн.</v8:content>								</v8:item>							</Title>							<ContextMenu name="ПояснениеПросрочкаРаботыВПрограммеДоЗапрещенияВходаКонтекстноеМеню" id="33"/>							<ExtendedTooltip name="ПояснениеПросрочкаРаботыВПрограммеДоЗапрещенияВходаРасширеннаяПодсказка" id="34"/>						</LabelDecoration>					</ChildItems>				</UsualGroup>			</ChildItems>		</UsualGroup>		<UsualGroup name="ГруппаСведения" id="24">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сведения</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<Representation>NormalSeparation</Representation>			<ExtendedTooltip name="ГруппаСведенияРасширеннаяПодсказка" id="25"/>			<ChildItems>				<InputField name="ДатаРазрешенияВходаВПрограмму" id="38">					<DataPath>Запись.ДатаРазрешенияВходаВПрограмму</DataPath>					<ContextMenu name="ДатаРазрешенияВходаВПрограммуКонтекстноеМеню" id="39"/>					<ExtendedTooltip name="ДатаРазрешенияВходаВПрограммуРасширеннаяПодсказка" id="40"/>				</InputField>				<InputField name="ДатаПоследнейАктивности" id="4">					<DataPath>Запись.ДатаПоследнейАктивности</DataPath>					<ContextMenu name="ДатаПоследнейАктивностиКонтекстноеМеню" id="5"/>					<ExtendedTooltip name="ДатаПоследнейАктивностиРасширеннаяПодсказка" id="6"/>				</InputField>				<InputField name="ДатаАвтоматическогоЗапрещенияВхода" id="7">					<DataPath>Запись.ДатаАвтоматическогоЗапрещенияВхода</DataPath>					<ContextMenu name="ДатаАвтоматическогоЗапрещенияВходаКонтекстноеМеню" id="8"/>					<ExtendedTooltip name="ДатаАвтоматическогоЗапрещенияВходаРасширеннаяПодсказка" id="9"/>				</InputField>				<InputField name="ДатаНачалаИспользованияПароля" id="12">					<DataPath>Запись.ДатаНачалаИспользованияПароля</DataPath>					<ContextMenu name="ДатаНачалаИспользованияПароляКонтекстноеМеню" id="13"/>					<ExtendedTooltip name="ДатаНачалаИспользованияПароляРасширеннаяПодсказка" id="14"/>				</InputField>			</ChildItems>		</UsualGroup>	</ChildItems>	<Attributes>		<Attribute name="Запись" id="1">			<Type>				<v8:Type>cfg:InformationRegisterRecordManager.СведенияОПользователях</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>			<SavedData>true</SavedData>		</Attribute>	</Attributes>	<Commands>		<Command name="ВключитьВозможностьРедактирования" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Включить возможность редактирования</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Включить возможность редактирования только для целей поиска неисправности (требуется углубленное понимание работы механизма)</v8:content>				</v8:item>			</ToolTip>			<Action>ВключитьВозможностьРедактирования</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" id="10">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="11"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РџРѕР»СЊР·РѕРІР°С‚РµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="29"/>
+			<ChildItems>
+				<InputField name="РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ" id="1">
+					<DataPath>Р—Р°РїРёСЃСЊ.РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ</DataPath>
+					<ContextMenu name="РџРѕР»СЊР·РѕРІР°С‚РµР»СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+					<ExtendedTooltip name="РџРѕР»СЊР·РѕРІР°С‚РµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°РќР°СЃС‚СЂРѕР№РєРё" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕР№РєРё</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РќР°СЃС‚СЂРѕР№РєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="27"/>
+			<ChildItems>
+				<CheckBoxField name="РџРѕС‚СЂРµР±РѕРІР°С‚СЊРЎРјРµРЅСѓРџР°СЂРѕР»СЏРџСЂРёР’С…РѕРґРµ" id="15">
+					<DataPath>Р—Р°РїРёСЃСЊ.РџРѕС‚СЂРµР±РѕРІР°С‚СЊРЎРјРµРЅСѓРџР°СЂРѕР»СЏРџСЂРёР’С…РѕРґРµ</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РџРѕС‚СЂРµР±РѕРІР°С‚СЊРЎРјРµРЅСѓРџР°СЂРѕР»СЏРџСЂРёР’С…РѕРґРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="16"/>
+					<ExtendedTooltip name="РџРѕС‚СЂРµР±РѕРІР°С‚СЊРЎРјРµРЅСѓРџР°СЂРѕР»СЏРџСЂРёР’С…РѕРґРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="17"/>
+				</CheckBoxField>
+				<CheckBoxField name="РЎСЂРѕРєР”РµР№СЃС‚РІРёСЏРќРµРћРіСЂР°РЅРёС‡РµРЅ" id="35">
+					<DataPath>Р—Р°РїРёСЃСЊ.РЎСЂРѕРєР”РµР№СЃС‚РІРёСЏРќРµРћРіСЂР°РЅРёС‡РµРЅ</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РЎСЂРѕРєР”РµР№СЃС‚РІРёСЏРќРµРћРіСЂР°РЅРёС‡РµРЅРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="36"/>
+					<ExtendedTooltip name="РЎСЂРѕРєР”РµР№СЃС‚РІРёСЏРќРµРћРіСЂР°РЅРёС‡РµРЅР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="37"/>
+				</CheckBoxField>
+				<InputField name="РЎСЂРѕРєР”РµР№СЃС‚РІРёСЏ" id="18">
+					<DataPath>Р—Р°РїРёСЃСЊ.РЎСЂРѕРєР”РµР№СЃС‚РІРёСЏ</DataPath>
+					<ContextMenu name="РЎСЂРѕРєР”РµР№СЃС‚РІРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="19"/>
+					<ExtendedTooltip name="РЎСЂРѕРєР”РµР№СЃС‚РІРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="20"/>
+				</InputField>
+				<UsualGroup name="Р“СЂСѓРїРїР°РџСЂРѕСЃСЂРѕС‡РєР°" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџСЂРѕСЃСЂРѕС‡РєР°</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РџСЂРѕСЃСЂРѕС‡РєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="31"/>
+					<ChildItems>
+						<InputField name="РџСЂРѕСЃСЂРѕС‡РєР°Р Р°Р±РѕС‚С‹Р’РџСЂРѕРіСЂР°РјРјРµР”РѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°" id="21">
+							<DataPath>Р—Р°РїРёСЃСЊ.РџСЂРѕСЃСЂРѕС‡РєР°Р Р°Р±РѕС‚С‹Р’РџСЂРѕРіСЂР°РјРјРµР”РѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<ContextMenu name="РџСЂРѕСЃСЂРѕС‡РєР°Р Р°Р±РѕС‚С‹Р’РџСЂРѕРіСЂР°РјРјРµР”РѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="22"/>
+							<ExtendedTooltip name="РџСЂРѕСЃСЂРѕС‡РєР°Р Р°Р±РѕС‚С‹Р’РџСЂРѕРіСЂР°РјРјРµР”РѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="23"/>
+						</InputField>
+						<LabelDecoration name="РџРѕСЏСЃРЅРµРЅРёРµРџСЂРѕСЃСЂРѕС‡РєР°Р Р°Р±РѕС‚С‹Р’РџСЂРѕРіСЂР°РјРјРµР”РѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°" id="32">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РґРЅ.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="РџРѕСЏСЃРЅРµРЅРёРµРџСЂРѕСЃСЂРѕС‡РєР°Р Р°Р±РѕС‚С‹Р’РџСЂРѕРіСЂР°РјРјРµР”РѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="33"/>
+							<ExtendedTooltip name="РџРѕСЏСЃРЅРµРЅРёРµРџСЂРѕСЃСЂРѕС‡РєР°Р Р°Р±РѕС‚С‹Р’РџСЂРѕРіСЂР°РјРјРµР”РѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="34"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°РЎРІРµРґРµРЅРёСЏ" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРІРµРґРµРЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РЎРІРµРґРµРЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="25"/>
+			<ChildItems>
+				<InputField name="Р”Р°С‚Р°Р Р°Р·СЂРµС€РµРЅРёСЏР’С…РѕРґР°Р’РџСЂРѕРіСЂР°РјРјСѓ" id="38">
+					<DataPath>Р—Р°РїРёСЃСЊ.Р”Р°С‚Р°Р Р°Р·СЂРµС€РµРЅРёСЏР’С…РѕРґР°Р’РџСЂРѕРіСЂР°РјРјСѓ</DataPath>
+					<ContextMenu name="Р”Р°С‚Р°Р Р°Р·СЂРµС€РµРЅРёСЏР’С…РѕРґР°Р’РџСЂРѕРіСЂР°РјРјСѓРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="39"/>
+					<ExtendedTooltip name="Р”Р°С‚Р°Р Р°Р·СЂРµС€РµРЅРёСЏР’С…РѕРґР°Р’РџСЂРѕРіСЂР°РјРјСѓР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="40"/>
+				</InputField>
+				<InputField name="Р”Р°С‚Р°РџРѕСЃР»РµРґРЅРµР№РђРєС‚РёРІРЅРѕСЃС‚Рё" id="4">
+					<DataPath>Р—Р°РїРёСЃСЊ.Р”Р°С‚Р°РџРѕСЃР»РµРґРЅРµР№РђРєС‚РёРІРЅРѕСЃС‚Рё</DataPath>
+					<ContextMenu name="Р”Р°С‚Р°РџРѕСЃР»РµРґРЅРµР№РђРєС‚РёРІРЅРѕСЃС‚РёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="5"/>
+					<ExtendedTooltip name="Р”Р°С‚Р°РџРѕСЃР»РµРґРЅРµР№РђРєС‚РёРІРЅРѕСЃС‚РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="6"/>
+				</InputField>
+				<InputField name="Р”Р°С‚Р°РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРіРѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°" id="7">
+					<DataPath>Р—Р°РїРёСЃСЊ.Р”Р°С‚Р°РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРіРѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°</DataPath>
+					<ContextMenu name="Р”Р°С‚Р°РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРіРѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="8"/>
+					<ExtendedTooltip name="Р”Р°С‚Р°РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРіРѕР—Р°РїСЂРµС‰РµРЅРёСЏР’С…РѕРґР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="9"/>
+				</InputField>
+				<InputField name="Р”Р°С‚Р°РќР°С‡Р°Р»Р°РСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏРџР°СЂРѕР»СЏ" id="12">
+					<DataPath>Р—Р°РїРёСЃСЊ.Р”Р°С‚Р°РќР°С‡Р°Р»Р°РСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏРџР°СЂРѕР»СЏ</DataPath>
+					<ContextMenu name="Р”Р°С‚Р°РќР°С‡Р°Р»Р°РСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏРџР°СЂРѕР»СЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="13"/>
+					<ExtendedTooltip name="Р”Р°С‚Р°РќР°С‡Р°Р»Р°РСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏРџР°СЂРѕР»СЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="14"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Р—Р°РїРёСЃСЊ" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.РЎРІРµРґРµРЅРёСЏРћРџРѕР»СЊР·РѕРІР°С‚РµР»СЏС…</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РєР»СЋС‡РёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РєР»СЋС‡РёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚РѕР»СЊРєРѕ РґР»СЏ С†РµР»РµР№ РїРѕРёСЃРєР° РЅРµРёСЃРїСЂР°РІРЅРѕСЃС‚Рё (С‚СЂРµР±СѓРµС‚СЃСЏ СѓРіР»СѓР±Р»РµРЅРЅРѕРµ РїРѕРЅРёРјР°РЅРёРµ СЂР°Р±РѕС‚С‹ РјРµС…Р°РЅРёР·РјР°)</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р’РєР»СЋС‡РёС‚СЊР’РѕР·РјРѕР¶РЅРѕСЃС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

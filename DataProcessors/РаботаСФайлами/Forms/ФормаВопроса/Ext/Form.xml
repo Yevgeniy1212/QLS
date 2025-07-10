@@ -1,1 +1,221 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoTitle>false</AutoTitle>	<CommandBarLocation>None</CommandBarLocation>	<MobileDeviceCommandBarContent>		<xr:Item>			<xr:Presentation/>			<xr:CheckState>0</xr:CheckState>			<xr:Value xsi:type="xs:string">ОсновнаяКоманднаяПанель</xr:Value>		</xr:Item>	</MobileDeviceCommandBarContent>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<LabelField name="СообщениеЗаголовок" id="2">			<DataPath>СообщениеЗаголовок</DataPath>			<TitleLocation>None</TitleLocation>			<ContextMenu name="СообщениеЗаголовокКонтекстноеМеню" id="3"/>			<ExtendedTooltip name="СообщениеЗаголовокExtendedTooltip" id="17"/>		</LabelField>		<Table name="Файлы" id="4">			<Representation>List</Representation>			<CommandBarLocation>None</CommandBarLocation>			<SkipOnInput>false</SkipOnInput>			<Header>false</Header>			<AutoInsertNewRow>true</AutoInsertNewRow>			<FileDragMode>AsFile</FileDragMode>			<DataPath>Файлы</DataPath>			<RowPictureDataPath>Файлы.Picture</RowPictureDataPath>			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Файлы</v8:content>				</v8:item>			</Title>			<SearchStringLocation>None</SearchStringLocation>			<ViewStatusLocation>None</ViewStatusLocation>			<SearchControlLocation>None</SearchControlLocation>			<ContextMenu name="ФайлыКонтекстноеМеню" id="5"/>			<AutoCommandBar name="ФайлыКоманднаяПанель" id="6"/>			<ExtendedTooltip name="ФайлыExtendedTooltip" id="18"/>			<SearchStringAddition name="ФайлыСтрокаПоиска" id="25">				<AdditionSource>					<Item>Файлы</Item>					<Type>SearchStringRepresentation</Type>				</AdditionSource>				<ContextMenu name="ФайлыСтрокаПоискаКонтекстноеМеню" id="26"/>				<ExtendedTooltip name="ФайлыСтрокаПоискаРасширеннаяПодсказка" id="27"/>			</SearchStringAddition>			<ViewStatusAddition name="ФайлыСостояниеПросмотра" id="28">				<AdditionSource>					<Item>Файлы</Item>					<Type>ViewStatusRepresentation</Type>				</AdditionSource>				<ContextMenu name="ФайлыСостояниеПросмотраКонтекстноеМеню" id="29"/>				<ExtendedTooltip name="ФайлыСостояниеПросмотраРасширеннаяПодсказка" id="30"/>			</ViewStatusAddition>			<SearchControlAddition name="ФайлыУправлениеПоиском" id="31">				<AdditionSource>					<Item>Файлы</Item>					<Type>SearchControl</Type>				</AdditionSource>				<ContextMenu name="ФайлыУправлениеПоискомКонтекстноеМеню" id="32"/>				<ExtendedTooltip name="ФайлыУправлениеПоискомРасширеннаяПодсказка" id="33"/>			</SearchControlAddition>			<Events>				<Event name="Selection">ФайлыВыбор</Event>			</Events>			<ChildItems>				<InputField name="Представление" id="9">					<DataPath>Файлы.Presentation</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Представление</v8:content>						</v8:item>					</Title>					<Wrap>false</Wrap>					<ContextMenu name="ПредставлениеКонтекстноеМеню" id="10"/>					<ExtendedTooltip name="ПредставлениеExtendedTooltip" id="19"/>				</InputField>			</ChildItems>		</Table>		<LabelField name="СообщениеВопрос" id="11">			<DataPath>СообщениеВопрос</DataPath>			<TitleLocation>None</TitleLocation>			<ContextMenu name="СообщениеВопросКонтекстноеМеню" id="12"/>			<ExtendedTooltip name="СообщениеВопросExtendedTooltip" id="20"/>		</LabelField>		<CommandBar name="ОсновнаяКоманднаяПанель" id="13">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Основная командная панель</v8:content>				</v8:item>			</Title>			<HorizontalLocation>Right</HorizontalLocation>			<ExtendedTooltip name="ОсновнаяКоманднаяПанельExtendedTooltip" id="21"/>			<ChildItems>				<Button name="Да" id="14">					<Type>CommandBarButton</Type>					<DefaultButton>true</DefaultButton>					<SkipOnInput>false</SkipOnInput>					<CommandName>Form.StandardCommand.Yes</CommandName>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Да</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="ДаExtendedTooltip" id="22"/>				</Button>				<Button name="Нет" id="15">					<Type>CommandBarButton</Type>					<SkipOnInput>false</SkipOnInput>					<CommandName>Form.StandardCommand.No</CommandName>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Нет</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="НетExtendedTooltip" id="23"/>				</Button>				<Button name="Справка" id="16">					<Type>CommandBarButton</Type>					<SkipOnInput>false</SkipOnInput>					<CommandName>Form.StandardCommand.Help</CommandName>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Справка</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="СправкаExtendedTooltip" id="24"/>				</Button>			</ChildItems>		</CommandBar>	</ChildItems>	<Attributes>		<Attribute name="Файлы" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Файлы</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>v8:ValueListType</v8:Type>			</Type>			<Settings xsi:type="v8:TypeDescription"/>		</Attribute>		<Attribute name="СообщениеЗаголовок" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сообщение заголовок</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="СообщениеВопрос" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сообщение вопрос</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>	</Attributes>	<Parameters>		<Parameter name="СообщениеВопрос">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>		<Parameter name="СообщениеЗаголовок">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>		<Parameter name="Файлы">			<Type>				<v8:Type>v8:ValueListType</v8:Type>			</Type>		</Parameter>		<Parameter name="Заголовок">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<MobileDeviceCommandBarContent>
+		<xr:Item>
+			<xr:Presentation/>
+			<xr:CheckState>0</xr:CheckState>
+			<xr:Value xsi:type="xs:string">РћСЃРЅРѕРІРЅР°СЏРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ</xr:Value>
+		</xr:Item>
+	</MobileDeviceCommandBarContent>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="РЎРѕРѕР±С‰РµРЅРёРµР—Р°РіРѕР»РѕРІРѕРє" id="2">
+			<DataPath>РЎРѕРѕР±С‰РµРЅРёРµР—Р°РіРѕР»РѕРІРѕРє</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<ContextMenu name="РЎРѕРѕР±С‰РµРЅРёРµР—Р°РіРѕР»РѕРІРѕРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="3"/>
+			<ExtendedTooltip name="РЎРѕРѕР±С‰РµРЅРёРµР—Р°РіРѕР»РѕРІРѕРєExtendedTooltip" id="17"/>
+		</LabelField>
+		<Table name="Р¤Р°Р№Р»С‹" id="4">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<SkipOnInput>false</SkipOnInput>
+			<Header>false</Header>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Р¤Р°Р№Р»С‹</DataPath>
+			<RowPictureDataPath>Р¤Р°Р№Р»С‹.Picture</RowPictureDataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р¤Р°Р№Р»С‹</v8:content>
+				</v8:item>
+			</Title>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ContextMenu name="Р¤Р°Р№Р»С‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="5"/>
+			<AutoCommandBar name="Р¤Р°Р№Р»С‹РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="6"/>
+			<ExtendedTooltip name="Р¤Р°Р№Р»С‹ExtendedTooltip" id="18"/>
+			<SearchStringAddition name="Р¤Р°Р№Р»С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="25">
+				<AdditionSource>
+					<Item>Р¤Р°Р№Р»С‹</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="Р¤Р°Р№Р»С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="26"/>
+				<ExtendedTooltip name="Р¤Р°Р№Р»С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="27"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="Р¤Р°Р№Р»С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="28">
+				<AdditionSource>
+					<Item>Р¤Р°Р№Р»С‹</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="Р¤Р°Р№Р»С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="29"/>
+				<ExtendedTooltip name="Р¤Р°Р№Р»С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="30"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="Р¤Р°Р№Р»С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="31">
+				<AdditionSource>
+					<Item>Р¤Р°Р№Р»С‹</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="Р¤Р°Р№Р»С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="32"/>
+				<ExtendedTooltip name="Р¤Р°Р№Р»С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="33"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">Р¤Р°Р№Р»С‹Р’С‹Р±РѕСЂ</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ" id="9">
+					<DataPath>Р¤Р°Р№Р»С‹.Presentation</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ</v8:content>
+						</v8:item>
+					</Title>
+					<Wrap>false</Wrap>
+					<ContextMenu name="РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="10"/>
+					<ExtendedTooltip name="РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµExtendedTooltip" id="19"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<LabelField name="РЎРѕРѕР±С‰РµРЅРёРµР’РѕРїСЂРѕСЃ" id="11">
+			<DataPath>РЎРѕРѕР±С‰РµРЅРёРµР’РѕРїСЂРѕСЃ</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<ContextMenu name="РЎРѕРѕР±С‰РµРЅРёРµР’РѕРїСЂРѕСЃРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="12"/>
+			<ExtendedTooltip name="РЎРѕРѕР±С‰РµРЅРёРµР’РѕРїСЂРѕСЃExtendedTooltip" id="20"/>
+		</LabelField>
+		<CommandBar name="РћСЃРЅРѕРІРЅР°СЏРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћСЃРЅРѕРІРЅР°СЏ РєРѕРјР°РЅРґРЅР°СЏ РїР°РЅРµР»СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="РћСЃРЅРѕРІРЅР°СЏРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊExtendedTooltip" id="21"/>
+			<ChildItems>
+				<Button name="Р”Р°" id="14">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<SkipOnInput>false</SkipOnInput>
+					<CommandName>Form.StandardCommand.Yes</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”Р°</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Р”Р°ExtendedTooltip" id="22"/>
+				</Button>
+				<Button name="РќРµС‚" id="15">
+					<Type>CommandBarButton</Type>
+					<SkipOnInput>false</SkipOnInput>
+					<CommandName>Form.StandardCommand.No</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќРµС‚</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="РќРµС‚ExtendedTooltip" id="23"/>
+				</Button>
+				<Button name="РЎРїСЂР°РІРєР°" id="16">
+					<Type>CommandBarButton</Type>
+					<SkipOnInput>false</SkipOnInput>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎРїСЂР°РІРєР°</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="РЎРїСЂР°РІРєР°ExtendedTooltip" id="24"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Р¤Р°Р№Р»С‹" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р¤Р°Р№Р»С‹</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="РЎРѕРѕР±С‰РµРЅРёРµР—Р°РіРѕР»РѕРІРѕРє" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕРѕР±С‰РµРЅРёРµ Р·Р°РіРѕР»РѕРІРѕРє</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РЎРѕРѕР±С‰РµРЅРёРµР’РѕРїСЂРѕСЃ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕРѕР±С‰РµРЅРёРµ РІРѕРїСЂРѕСЃ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="РЎРѕРѕР±С‰РµРЅРёРµР’РѕРїСЂРѕСЃ">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="РЎРѕРѕР±С‰РµРЅРёРµР—Р°РіРѕР»РѕРІРѕРє">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="Р¤Р°Р№Р»С‹">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Р—Р°РіРѕР»РѕРІРѕРє">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

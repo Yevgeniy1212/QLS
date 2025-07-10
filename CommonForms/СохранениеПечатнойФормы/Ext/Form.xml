@@ -1,1 +1,431 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>	<CommandBarLocation>Bottom</CommandBarLocation>	<CommandSet>		<ExcludedCommand>Abort</ExcludedCommand>		<ExcludedCommand>Close</ExcludedCommand>		<ExcludedCommand>CustomizeForm</ExcludedCommand>		<ExcludedCommand>Help</ExcludedCommand>		<ExcludedCommand>Ignore</ExcludedCommand>		<ExcludedCommand>No</ExcludedCommand>		<ExcludedCommand>OK</ExcludedCommand>		<ExcludedCommand>RestoreValues</ExcludedCommand>		<ExcludedCommand>Retry</ExcludedCommand>		<ExcludedCommand>SaveValues</ExcludedCommand>		<ExcludedCommand>Yes</ExcludedCommand>	</CommandSet>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<HorizontalAlign>Right</HorizontalAlign>		<ChildItems>			<Button name="КнопкаСохранить" id="17">				<Type>CommandBarButton</Type>				<Representation>Text</Representation>				<DefaultButton>true</DefaultButton>				<SkipOnInput>false</SkipOnInput>				<CommandName>Form.Command.Сохранить</CommandName>				<Picture>					<xr:Ref>StdPicture.WriteAndClose</xr:Ref>					<xr:LoadTransparent>true</xr:LoadTransparent>				</Picture>				<Title>					<v8:item>						<v8:lang>ru</v8:lang>						<v8:content>Сохранить</v8:content>					</v8:item>				</Title>				<ExtendedTooltip name="КнопкаСохранитьExtendedTooltip" id="80"/>			</Button>			<Button name="КнопкаОтмена" id="64">				<Type>CommandBarButton</Type>				<CommandName>Form.StandardCommand.Cancel</CommandName>				<ExtendedTooltip name="КнопкаОтменаExtendedTooltip" id="81"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>		<Event name="BeforeLoadDataFromSettingsAtServer">ПередЗагрузкойДанныхИзНастроекНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ВыборМестаСохраненияФайла" id="50" DisplayImportance="VeryHigh">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выбор места сохранения файла</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<Representation>NormalSeparation</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ВыборМестаСохраненияФайлаExtendedTooltip" id="82"/>			<ChildItems>				<RadioButtonField name="ВариантСохранения" id="67" DisplayImportance="VeryHigh">					<DataPath>ВариантСохранения</DataPath>					<TitleLocation>None</TitleLocation>					<RadioButtonType>RadioButtons</RadioButtonType>					<ChoiceList>						<xr:Item>							<xr:Presentation/>							<xr:CheckState>0</xr:CheckState>							<xr:Value xsi:type="FormChoiceListDesTimeValue">								<Presentation>									<v8:item>										<v8:lang>ru</v8:lang>										<v8:content>Сохранить в папку на компьютер</v8:content>									</v8:item>								</Presentation>								<Value xsi:type="xs:string">СохранитьВПапку</Value>							</xr:Value>						</xr:Item>						<xr:Item>							<xr:Presentation/>							<xr:CheckState>0</xr:CheckState>							<xr:Value xsi:type="FormChoiceListDesTimeValue">								<Presentation>									<v8:item>										<v8:lang>ru</v8:lang>										<v8:content>Присоединить к документу</v8:content>									</v8:item>								</Presentation>								<Value xsi:type="xs:string">Присоединить</Value>							</xr:Value>						</xr:Item>					</ChoiceList>					<ContextMenu name="ВариантСохраненияКонтекстноеМеню" id="68"/>					<ExtendedTooltip name="ВариантСохраненияExtendedTooltip" id="83"/>					<Events>						<Event name="OnChange">ВариантСохраненияПриИзменении</Event>					</Events>				</RadioButtonField>				<Pages name="ГруппаМестаСохранения" id="69" DisplayImportance="VeryHigh">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Места сохранения</v8:content>						</v8:item>					</Title>					<PagesRepresentation>None</PagesRepresentation>					<ExtendedTooltip name="ГруппаМестаСохраненияExtendedTooltip" id="84"/>					<ChildItems>						<Page name="СтраницаСохранениеВПапку" id="70">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Страница сохранение в папку</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="СтраницаСохранениеВПапкуExtendedTooltip" id="85"/>							<ChildItems>								<InputField name="ПапкаДляСохраненияФайлов" id="42">									<DataPath>ВыбраннаяПапка</DataPath>									<TitleLocation>None</TitleLocation>									<Width>40</Width>									<AutoMaxWidth>false</AutoMaxWidth>									<ChoiceButton>true</ChoiceButton>									<AutoMarkIncomplete>true</AutoMarkIncomplete>									<ContextMenu name="ПапкаДляСохраненияФайловКонтекстноеМеню" id="43"/>									<ExtendedTooltip name="ПапкаДляСохраненияФайловExtendedTooltip" id="86"/>									<Events>										<Event name="StartChoice">ПапкаДляСохраненияФайловНачалоВыбора</Event>									</Events>								</InputField>							</ChildItems>						</Page>						<Page name="СтраницаПрисоединениеКОбъекту" id="71">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Страница присоединение к объекту</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="СтраницаПрисоединениеКОбъектуExtendedTooltip" id="87"/>							<ChildItems>								<InputField name="ВыбранныйОбъект" id="48">									<DataPath>ВыбранныйОбъект</DataPath>									<TitleLocation>None</TitleLocation>									<ClearButton>false</ClearButton>									<CreateButton>false</CreateButton>									<ListChoiceMode>true</ListChoiceMode>									<TextEdit>false</TextEdit>									<ContextMenu name="ВыбранныйОбъектКонтекстноеМеню" id="49"/>									<ExtendedTooltip name="ВыбранныйОбъектExtendedTooltip" id="88"/>									<Events>										<Event name="Clearing">ВыбранныйОбъектОчистка</Event>									</Events>								</InputField>							</ChildItems>						</Page>					</ChildItems>				</Pages>			</ChildItems>		</UsualGroup>		<UsualGroup name="ГруппаВыборФорматов" id="77" DisplayImportance="VeryHigh">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>В форматах</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<ExtendedTooltip name="ГруппаВыборФорматовExtendedTooltip" id="89"/>			<ChildItems>				<Table name="ВыбранныеФорматыСохранения" id="72">					<Representation>List</Representation>					<ChangeRowSet>false</ChangeRowSet>					<ChangeRowOrder>false</ChangeRowOrder>					<Header>false</Header>					<HorizontalLines>false</HorizontalLines>					<VerticalLines>false</VerticalLines>					<FileDragMode>AsFile</FileDragMode>					<DataPath>ВыбранныеФорматыСохранения</DataPath>					<RowPictureDataPath>ВыбранныеФорматыСохранения.Picture</RowPictureDataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Выбранные форматы сохранения</v8:content>						</v8:item>					</Title>					<CommandSet>						<ExcludedCommand>Add</ExcludedCommand>						<ExcludedCommand>Change</ExcludedCommand>						<ExcludedCommand>Copy</ExcludedCommand>						<ExcludedCommand>Delete</ExcludedCommand>						<ExcludedCommand>EndEdit</ExcludedCommand>						<ExcludedCommand>MoveDown</ExcludedCommand>						<ExcludedCommand>MoveUp</ExcludedCommand>						<ExcludedCommand>Pickup</ExcludedCommand>						<ExcludedCommand>SelectAll</ExcludedCommand>						<ExcludedCommand>SortListAsc</ExcludedCommand>						<ExcludedCommand>SortListDesc</ExcludedCommand>					</CommandSet>					<ContextMenu name="ВыбранныеФорматыСохраненияКонтекстноеМеню" id="73"/>					<AutoCommandBar name="ВыбранныеФорматыСохраненияКоманднаяПанель" id="74">						<Autofill>false</Autofill>					</AutoCommandBar>					<ExtendedTooltip name="ВыбранныеФорматыСохраненияExtendedTooltip" id="90"/>					<SearchStringAddition name="ВыбранныеФорматыСохраненияSearchString" id="95">						<AdditionSource>							<Item>ВыбранныеФорматыСохранения</Item>							<Type>SearchStringRepresentation</Type>						</AdditionSource>						<ContextMenu name="ВыбранныеФорматыСохраненияSearchStringContextMenu" id="96"/>						<ExtendedTooltip name="ВыбранныеФорматыСохраненияSearchStringExtendedTooltip" id="97"/>					</SearchStringAddition>					<ViewStatusAddition name="ВыбранныеФорматыСохраненияViewStatus" id="98">						<AdditionSource>							<Item>ВыбранныеФорматыСохранения</Item>							<Type>ViewStatusRepresentation</Type>						</AdditionSource>						<ContextMenu name="ВыбранныеФорматыСохраненияViewStatusContextMenu" id="99"/>						<ExtendedTooltip name="ВыбранныеФорматыСохраненияViewStatusExtendedTooltip" id="100"/>					</ViewStatusAddition>					<SearchControlAddition name="ВыбранныеФорматыСохраненияSearchControl" id="101">						<AdditionSource>							<Item>ВыбранныеФорматыСохранения</Item>							<Type>SearchControl</Type>						</AdditionSource>						<ContextMenu name="ВыбранныеФорматыСохраненияSearchControlContextMenu" id="102"/>						<ExtendedTooltip name="ВыбранныеФорматыСохраненияSearchControlExtendedTooltip" id="103"/>					</SearchControlAddition>					<ChildItems>						<CheckBoxField name="ВыбранныеФорматыСохраненияПометка" id="78">							<DataPath>ВыбранныеФорматыСохранения.Check</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Пометка</v8:content>								</v8:item>							</Title>							<EditMode>EnterOnInput</EditMode>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ВыбранныеФорматыСохраненияПометкаКонтекстноеМеню" id="79"/>							<ExtendedTooltip name="ВыбранныеФорматыСохраненияПометкаExtendedTooltip" id="91"/>						</CheckBoxField>						<InputField name="ВыбранныеФорматыСохраненияЗначение" id="75">							<DataPath>ВыбранныеФорматыСохранения.Value</DataPath>							<ReadOnly>true</ReadOnly>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Значение</v8:content>								</v8:item>							</Title>							<EditMode>EnterOnInput</EditMode>							<ContextMenu name="ВыбранныеФорматыСохраненияЗначениеКонтекстноеМеню" id="76"/>							<ExtendedTooltip name="ВыбранныеФорматыСохраненияЗначениеExtendedTooltip" id="92"/>						</InputField>					</ChildItems>				</Table>			</ChildItems>		</UsualGroup>		<UsualGroup name="ГруппаДополнительныеПараметры" id="63" DisplayImportance="VeryHigh">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Дополнительные параметры</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<Representation>NormalSeparation</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаДополнительныеПараметрыExtendedTooltip" id="93"/>			<ChildItems>				<CheckBoxField name="УпаковатьВАрхив" id="14">					<DataPath>УпаковатьВАрхив</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Дополнительно упаковать в архив (.zip)</v8:content>						</v8:item>					</Title>					<TitleLocation>Right</TitleLocation>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="УпаковатьВАрхивКонтекстноеМеню" id="15"/>					<ExtendedTooltip name="УпаковатьВАрхивExtendedTooltip" id="94"/>				</CheckBoxField>				<CheckBoxField name="ПереводитьИменаФайловВТранслит" id="104">					<DataPath>ПереводитьИменаФайловВТранслит</DataPath>					<TitleLocation>Right</TitleLocation>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Сохраненные файлы будут иметь имена, содержащие только латинские буквы и цифры, для возможности переноса между различными операционными системами. Например, файл "Документ.txt" будет сохранен с именем "Document.txt".</v8:content>						</v8:item>					</ToolTip>					<ToolTipRepresentation>Button</ToolTipRepresentation>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ПереводитьИменаФайловВТранслитКонтекстноеМеню" id="105"/>					<ExtendedTooltip name="ПереводитьИменаФайловВТранслитРасширеннаяПодсказка" id="106"/>				</CheckBoxField>			</ChildItems>		</UsualGroup>	</ChildItems>	<Attributes>		<Attribute name="УпаковатьВАрхив" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Упаковать в архив (.zip)</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>			<Save>				<Field>УпаковатьВАрхив</Field>			</Save>		</Attribute>		<Attribute name="ВыбраннаяПапка" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить в папку на компьютер</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>255</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<Save>				<Field>ВыбраннаяПапка</Field>			</Save>		</Attribute>		<Attribute name="ВариантСохранения" id="8">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Вариант сохранения</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>20</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<Save>				<Field>ВариантСохранения</Field>			</Save>		</Attribute>		<Attribute name="ВыбранныйОбъект" id="9">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выбранный объект</v8:content>				</v8:item>			</Title>			<Type>				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>			</Type>		</Attribute>		<Attribute name="ВыбранныеФорматыСохранения" id="12">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выбранные форматы сохранения</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>v8:ValueListType</v8:Type>			</Type>			<Save>				<Field>ВыбранныеФорматыСохранения</Field>			</Save>			<Settings xsi:type="v8:TypeDescription"/>		</Attribute>		<Attribute name="ПереводитьИменаФайловВТранслит" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Транслитерировать имена файлов</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>			<Save>				<Field>ПереводитьИменаФайловВТранслит</Field>			</Save>		</Attribute>	</Attributes>	<Commands>		<Command name="Сохранить" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить</v8:content>				</v8:item>			</ToolTip>			<Action>Сохранить</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands>	<Parameters>		<Parameter name="ОбъектыПечати">			<Type>				<v8:Type>v8:ValueListType</v8:Type>			</Type>		</Parameter>		<Parameter name="РасширениеДляРаботыСФайламиПодключено">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="РљРЅРѕРїРєР°РЎРѕС…СЂР°РЅРёС‚СЊ" id="17">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.РЎРѕС…СЂР°РЅРёС‚СЊ</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="РљРЅРѕРїРєР°РЎРѕС…СЂР°РЅРёС‚СЊExtendedTooltip" id="80"/>
+			</Button>
+			<Button name="РљРЅРѕРїРєР°РћС‚РјРµРЅР°" id="64">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="РљРЅРѕРїРєР°РћС‚РјРµРЅР°ExtendedTooltip" id="81"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">РџРµСЂРµРґР—Р°РіСЂСѓР·РєРѕР№Р”Р°РЅРЅС‹С…РР·РќР°СЃС‚СЂРѕРµРєРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р’С‹Р±РѕСЂРњРµСЃС‚Р°РЎРѕС…СЂР°РЅРµРЅРёСЏР¤Р°Р№Р»Р°" id="50" DisplayImportance="VeryHigh">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹Р±РѕСЂ РјРµСЃС‚Р° СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р°</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р’С‹Р±РѕСЂРњРµСЃС‚Р°РЎРѕС…СЂР°РЅРµРЅРёСЏР¤Р°Р№Р»Р°ExtendedTooltip" id="82"/>
+			<ChildItems>
+				<RadioButtonField name="Р’Р°СЂРёР°РЅС‚РЎРѕС…СЂР°РЅРµРЅРёСЏ" id="67" DisplayImportance="VeryHigh">
+					<DataPath>Р’Р°СЂРёР°РЅС‚РЎРѕС…СЂР°РЅРµРЅРёСЏ</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>RadioButtons</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ РІ РїР°РїРєСѓ РЅР° РєРѕРјРїСЊСЋС‚РµСЂ</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">РЎРѕС…СЂР°РЅРёС‚СЊР’РџР°РїРєСѓ</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>РџСЂРёСЃРѕРµРґРёРЅРёС‚СЊ Рє РґРѕРєСѓРјРµРЅС‚Сѓ</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">РџСЂРёСЃРѕРµРґРёРЅРёС‚СЊ</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="Р’Р°СЂРёР°РЅС‚РЎРѕС…СЂР°РЅРµРЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="68"/>
+					<ExtendedTooltip name="Р’Р°СЂРёР°РЅС‚РЎРѕС…СЂР°РЅРµРЅРёСЏExtendedTooltip" id="83"/>
+					<Events>
+						<Event name="OnChange">Р’Р°СЂРёР°РЅС‚РЎРѕС…СЂР°РЅРµРЅРёСЏРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+					</Events>
+				</RadioButtonField>
+				<Pages name="Р“СЂСѓРїРїР°РњРµСЃС‚Р°РЎРѕС…СЂР°РЅРµРЅРёСЏ" id="69" DisplayImportance="VeryHigh">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РњРµСЃС‚Р° СЃРѕС…СЂР°РЅРµРЅРёСЏ</v8:content>
+						</v8:item>
+					</Title>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РњРµСЃС‚Р°РЎРѕС…СЂР°РЅРµРЅРёСЏExtendedTooltip" id="84"/>
+					<ChildItems>
+						<Page name="РЎС‚СЂР°РЅРёС†Р°РЎРѕС…СЂР°РЅРµРЅРёРµР’РџР°РїРєСѓ" id="70">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎС‚СЂР°РЅРёС†Р° СЃРѕС…СЂР°РЅРµРЅРёРµ РІ РїР°РїРєСѓ</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РЎРѕС…СЂР°РЅРµРЅРёРµР’РџР°РїРєСѓExtendedTooltip" id="85"/>
+							<ChildItems>
+								<InputField name="РџР°РїРєР°Р”Р»СЏРЎРѕС…СЂР°РЅРµРЅРёСЏР¤Р°Р№Р»РѕРІ" id="42">
+									<DataPath>Р’С‹Р±СЂР°РЅРЅР°СЏРџР°РїРєР°</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>40</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ChoiceButton>true</ChoiceButton>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="РџР°РїРєР°Р”Р»СЏРЎРѕС…СЂР°РЅРµРЅРёСЏР¤Р°Р№Р»РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="43"/>
+									<ExtendedTooltip name="РџР°РїРєР°Р”Р»СЏРЎРѕС…СЂР°РЅРµРЅРёСЏР¤Р°Р№Р»РѕРІExtendedTooltip" id="86"/>
+									<Events>
+										<Event name="StartChoice">РџР°РїРєР°Р”Р»СЏРЎРѕС…СЂР°РЅРµРЅРёСЏР¤Р°Р№Р»РѕРІРќР°С‡Р°Р»РѕР’С‹Р±РѕСЂР°</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Page>
+						<Page name="РЎС‚СЂР°РЅРёС†Р°РџСЂРёСЃРѕРµРґРёРЅРµРЅРёРµРљРћР±СЉРµРєС‚Сѓ" id="71">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎС‚СЂР°РЅРёС†Р° РїСЂРёСЃРѕРµРґРёРЅРµРЅРёРµ Рє РѕР±СЉРµРєС‚Сѓ</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РџСЂРёСЃРѕРµРґРёРЅРµРЅРёРµРљРћР±СЉРµРєС‚СѓExtendedTooltip" id="87"/>
+							<ChildItems>
+								<InputField name="Р’С‹Р±СЂР°РЅРЅС‹Р№РћР±СЉРµРєС‚" id="48">
+									<DataPath>Р’С‹Р±СЂР°РЅРЅС‹Р№РћР±СЉРµРєС‚</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ClearButton>false</ClearButton>
+									<CreateButton>false</CreateButton>
+									<ListChoiceMode>true</ListChoiceMode>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹Р№РћР±СЉРµРєС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="49"/>
+									<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹Р№РћР±СЉРµРєС‚ExtendedTooltip" id="88"/>
+									<Events>
+										<Event name="Clearing">Р’С‹Р±СЂР°РЅРЅС‹Р№РћР±СЉРµРєС‚РћС‡РёСЃС‚РєР°</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°Р’С‹Р±РѕСЂР¤РѕСЂРјР°С‚РѕРІ" id="77" DisplayImportance="VeryHigh">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’ С„РѕСЂРјР°С‚Р°С…</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°Р’С‹Р±РѕСЂР¤РѕСЂРјР°С‚РѕРІExtendedTooltip" id="89"/>
+			<ChildItems>
+				<Table name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ" id="72">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<Header>false</Header>
+					<HorizontalLines>false</HorizontalLines>
+					<VerticalLines>false</VerticalLines>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ</DataPath>
+					<RowPictureDataPath>Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ.Picture</RowPictureDataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р’С‹Р±СЂР°РЅРЅС‹Рµ С„РѕСЂРјР°С‚С‹ СЃРѕС…СЂР°РЅРµРЅРёСЏ</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>Change</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+						<ExcludedCommand>EndEdit</ExcludedCommand>
+						<ExcludedCommand>MoveDown</ExcludedCommand>
+						<ExcludedCommand>MoveUp</ExcludedCommand>
+						<ExcludedCommand>Pickup</ExcludedCommand>
+						<ExcludedCommand>SelectAll</ExcludedCommand>
+						<ExcludedCommand>SortListAsc</ExcludedCommand>
+						<ExcludedCommand>SortListDesc</ExcludedCommand>
+					</CommandSet>
+					<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="73"/>
+					<AutoCommandBar name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="74">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏExtendedTooltip" id="90"/>
+					<SearchStringAddition name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏSearchString" id="95">
+						<AdditionSource>
+							<Item>Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏSearchStringContextMenu" id="96"/>
+						<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏSearchStringExtendedTooltip" id="97"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏViewStatus" id="98">
+						<AdditionSource>
+							<Item>Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏViewStatusContextMenu" id="99"/>
+						<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏViewStatusExtendedTooltip" id="100"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏSearchControl" id="101">
+						<AdditionSource>
+							<Item>Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏSearchControlContextMenu" id="102"/>
+						<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏSearchControlExtendedTooltip" id="103"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<CheckBoxField name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏРџРѕРјРµС‚РєР°" id="78">
+							<DataPath>Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ.Check</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РџРѕРјРµС‚РєР°</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏРџРѕРјРµС‚РєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="79"/>
+							<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏРџРѕРјРµС‚РєР°ExtendedTooltip" id="91"/>
+						</CheckBoxField>
+						<InputField name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏР—РЅР°С‡РµРЅРёРµ" id="75">
+							<DataPath>Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ.Value</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р—РЅР°С‡РµРЅРёРµ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏР—РЅР°С‡РµРЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="76"/>
+							<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏР—РЅР°С‡РµРЅРёРµExtendedTooltip" id="92"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРџР°СЂР°РјРµС‚СЂС‹" id="63" DisplayImportance="VeryHigh">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРџР°СЂР°РјРµС‚СЂС‹ExtendedTooltip" id="93"/>
+			<ChildItems>
+				<CheckBoxField name="РЈРїР°РєРѕРІР°С‚СЊР’РђСЂС…РёРІ" id="14">
+					<DataPath>РЈРїР°РєРѕРІР°С‚СЊР’РђСЂС…РёРІ</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ СѓРїР°РєРѕРІР°С‚СЊ РІ Р°СЂС…РёРІ (.zip)</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РЈРїР°РєРѕРІР°С‚СЊР’РђСЂС…РёРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="15"/>
+					<ExtendedTooltip name="РЈРїР°РєРѕРІР°С‚СЊР’РђСЂС…РёРІExtendedTooltip" id="94"/>
+				</CheckBoxField>
+				<CheckBoxField name="РџРµСЂРµРІРѕРґРёС‚СЊРРјРµРЅР°Р¤Р°Р№Р»РѕРІР’РўСЂР°РЅСЃР»РёС‚" id="104">
+					<DataPath>РџРµСЂРµРІРѕРґРёС‚СЊРРјРµРЅР°Р¤Р°Р№Р»РѕРІР’РўСЂР°РЅСЃР»РёС‚</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎРѕС…СЂР°РЅРµРЅРЅС‹Рµ С„Р°Р№Р»С‹ Р±СѓРґСѓС‚ РёРјРµС‚СЊ РёРјРµРЅР°, СЃРѕРґРµСЂР¶Р°С‰РёРµ С‚РѕР»СЊРєРѕ Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹, РґР»СЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РїРµСЂРµРЅРѕСЃР° РјРµР¶РґСѓ СЂР°Р·Р»РёС‡РЅС‹РјРё РѕРїРµСЂР°С†РёРѕРЅРЅС‹РјРё СЃРёСЃС‚РµРјР°РјРё. РќР°РїСЂРёРјРµСЂ, С„Р°Р№Р» "Р”РѕРєСѓРјРµРЅС‚.txt" Р±СѓРґРµС‚ СЃРѕС…СЂР°РЅРµРЅ СЃ РёРјРµРЅРµРј "Document.txt".</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РџРµСЂРµРІРѕРґРёС‚СЊРРјРµРЅР°Р¤Р°Р№Р»РѕРІР’РўСЂР°РЅСЃР»РёС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="105"/>
+					<ExtendedTooltip name="РџРµСЂРµРІРѕРґРёС‚СЊРРјРµРЅР°Р¤Р°Р№Р»РѕРІР’РўСЂР°РЅСЃР»РёС‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="106"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РЈРїР°РєРѕРІР°С‚СЊР’РђСЂС…РёРІ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈРїР°РєРѕРІР°С‚СЊ РІ Р°СЂС…РёРІ (.zip)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>РЈРїР°РєРѕРІР°С‚СЊР’РђСЂС…РёРІ</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Р’С‹Р±СЂР°РЅРЅР°СЏРџР°РїРєР°" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ РІ РїР°РїРєСѓ РЅР° РєРѕРјРїСЊСЋС‚РµСЂ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>Р’С‹Р±СЂР°РЅРЅР°СЏРџР°РїРєР°</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Р’Р°СЂРёР°РЅС‚РЎРѕС…СЂР°РЅРµРЅРёСЏ" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’Р°СЂРёР°РЅС‚ СЃРѕС…СЂР°РЅРµРЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>Р’Р°СЂРёР°РЅС‚РЎРѕС…СЂР°РЅРµРЅРёСЏ</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Р’С‹Р±СЂР°РЅРЅС‹Р№РћР±СЉРµРєС‚" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹Р±СЂР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹Р±СЂР°РЅРЅС‹Рµ С„РѕСЂРјР°С‚С‹ СЃРѕС…СЂР°РЅРµРЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>Р’С‹Р±СЂР°РЅРЅС‹РµР¤РѕСЂРјР°С‚С‹РЎРѕС…СЂР°РЅРµРЅРёСЏ</Field>
+			</Save>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="РџРµСЂРµРІРѕРґРёС‚СЊРРјРµРЅР°Р¤Р°Р№Р»РѕРІР’РўСЂР°РЅСЃР»РёС‚" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўСЂР°РЅСЃР»РёС‚РµСЂРёСЂРѕРІР°С‚СЊ РёРјРµРЅР° С„Р°Р№Р»РѕРІ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>РџРµСЂРµРІРѕРґРёС‚СЊРРјРµРЅР°Р¤Р°Р№Р»РѕРІР’РўСЂР°РЅСЃР»РёС‚</Field>
+			</Save>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РЎРѕС…СЂР°РЅРёС‚СЊ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЎРѕС…СЂР°РЅРёС‚СЊ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="РћР±СЉРµРєС‚С‹РџРµС‡Р°С‚Рё">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Р Р°СЃС€РёСЂРµРЅРёРµР”Р»СЏР Р°Р±РѕС‚С‹РЎР¤Р°Р№Р»Р°РјРёРџРѕРґРєР»СЋС‡РµРЅРѕ">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

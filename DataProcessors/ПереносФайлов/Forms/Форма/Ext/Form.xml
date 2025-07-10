@@ -1,1 +1,598 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<Customizable>false</Customizable>	<CommandBarLocation>Bottom</CommandBarLocation>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<HorizontalAlign>Right</HorizontalAlign>		<Autofill>false</Autofill>		<ChildItems>			<Button name="ФормаВыполнитьПеренос" id="59">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<CommandName>Form.Command.ВыполнитьПеренос</CommandName>				<ExtendedTooltip name="ФормаВыполнитьПереносРасширеннаяПодсказка" id="60"/>			</Button>			<Button name="ФормаЗакрыть" id="61">				<Type>CommandBarButton</Type>				<CommandName>Form.StandardCommand.Close</CommandName>				<Title>					<v8:item>						<v8:lang>ru</v8:lang>						<v8:content>Отмена</v8:content>					</v8:item>				</Title>				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="62"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<RadioButtonField name="Действие" id="1">			<DataPath>Действие</DataPath>			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перенести файлы</v8:content>				</v8:item>			</Title>			<TitleLocation>Top</TitleLocation>			<RadioButtonType>RadioButtons</RadioButtonType>			<ColumnsCount>1</ColumnsCount>			<ChoiceList>				<xr:Item>					<xr:Presentation/>					<xr:CheckState>0</xr:CheckState>					<xr:Value xsi:type="FormChoiceListDesTimeValue">						<Presentation>							<v8:item>								<v8:lang>ru</v8:lang>								<v8:content>Между томами на диске</v8:content>							</v8:item>						</Presentation>						<Value xsi:type="xs:string">ПеренестиМеждуТомами</Value>					</xr:Value>				</xr:Item>				<xr:Item>					<xr:Presentation/>					<xr:CheckState>0</xr:CheckState>					<xr:Value xsi:type="FormChoiceListDesTimeValue">						<Presentation>							<v8:item>								<v8:lang>ru</v8:lang>								<v8:content>Из информационной базы в тома на диске</v8:content>							</v8:item>						</Presentation>						<Value xsi:type="xs:string">ПеренестиВТома</Value>					</xr:Value>				</xr:Item>				<xr:Item>					<xr:Presentation/>					<xr:CheckState>0</xr:CheckState>					<xr:Value xsi:type="FormChoiceListDesTimeValue">						<Presentation>							<v8:item>								<v8:lang>ru</v8:lang>								<v8:content>Из томов на диске в информационную базу</v8:content>							</v8:item>						</Presentation>						<Value xsi:type="xs:string">ПеренестиВБазу</Value>					</xr:Value>				</xr:Item>			</ChoiceList>			<ContextMenu name="ДействиеКонтекстноеМеню" id="2"/>			<ExtendedTooltip name="ДействиеРасширеннаяПодсказка" id="3"/>			<Events>				<Event name="OnChange">ДействиеПриИзменении</Event>			</Events>		</RadioButtonField>		<UsualGroup name="Настройки" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настройки</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<ExtendedTooltip name="НастройкиРасширеннаяПодсказка" id="5"/>			<ChildItems>				<UsualGroup name="НастройкиПриемника" id="6">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки приемника</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<United>false</United>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиПриемникаРасширеннаяПодсказка" id="7"/>					<ChildItems>						<CheckBoxField name="ПереноситьВТом" id="8">							<DataPath>ПереноситьВТом</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>В указанный том:</v8:content>								</v8:item>							</Title>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ПереноситьВТомКонтекстноеМеню" id="9"/>							<ExtendedTooltip name="ПереноситьВТомРасширеннаяПодсказка" id="10"/>						</CheckBoxField>						<InputField name="ТомХраненияПриемник" id="11">							<DataPath>ТомХраненияПриемник</DataPath>							<TitleLocation>None</TitleLocation>							<Width>35</Width>							<AutoMaxWidth>false</AutoMaxWidth>							<ContextMenu name="ТомХраненияПриемникКонтекстноеМеню" id="12"/>							<ExtendedTooltip name="ТомХраненияПриемникРасширеннаяПодсказка" id="13"/>							<Events>								<Event name="OnChange">ТомХраненияПриемникПриИзменении</Event>							</Events>						</InputField>					</ChildItems>				</UsualGroup>				<UsualGroup name="НастройкиИсточника" id="14">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки источника</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<United>false</United>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиИсточникаРасширеннаяПодсказка" id="15"/>					<ChildItems>						<CheckBoxField name="ПереноситьИзТома" id="16">							<DataPath>ПереноситьИзТома</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Из указанного тома:</v8:content>								</v8:item>							</Title>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ПереноситьИзТомаКонтекстноеМеню" id="17"/>							<ExtendedTooltip name="ПереноситьИзТомаРасширеннаяПодсказка" id="18"/>						</CheckBoxField>						<InputField name="ТомХраненияИсточник" id="19">							<DataPath>ТомХраненияИсточник</DataPath>							<TitleLocation>None</TitleLocation>							<Width>35</Width>							<AutoMaxWidth>false</AutoMaxWidth>							<ContextMenu name="ТомХраненияИсточникКонтекстноеМеню" id="20"/>							<ExtendedTooltip name="ТомХраненияИсточникРасширеннаяПодсказка" id="21"/>							<Events>								<Event name="OnChange">ТомХраненияИсточникПриИзменении</Event>							</Events>						</InputField>					</ChildItems>				</UsualGroup>				<UsualGroup name="НастройкиВладельца" id="22">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки владельца</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<United>false</United>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиВладельцаРасширеннаяПодсказка" id="23"/>					<ChildItems>						<CheckBoxField name="ПереноситьФайлыВладельца" id="24">							<DataPath>ПереноситьФайлыВладельца</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Файлы указанного владельца:</v8:content>								</v8:item>							</Title>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ПереноситьФайлыВладельцаКонтекстноеМеню" id="25"/>							<ExtendedTooltip name="ПереноситьФайлыВладельцаРасширеннаяПодсказка" id="26"/>						</CheckBoxField>						<InputField name="ВладелецФайлов" id="27">							<DataPath>ВладелецФайлов</DataPath>							<TitleLocation>None</TitleLocation>							<Width>35</Width>							<AutoMaxWidth>false</AutoMaxWidth>							<ListChoiceMode>true</ListChoiceMode>							<ContextMenu name="ВладелецФайловКонтекстноеМеню" id="28"/>							<ExtendedTooltip name="ВладелецФайловРасширеннаяПодсказка" id="29"/>							<Events>								<Event name="OnChange">ВладелецФайловПриИзменении</Event>							</Events>						</InputField>					</ChildItems>				</UsualGroup>				<UsualGroup name="НастройкиДатыСоздания" id="30">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки даты создания</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<United>false</United>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиДатыСозданияРасширеннаяПодсказка" id="31"/>					<ChildItems>						<CheckBoxField name="ПереноситьПоДатеСоздания" id="32">							<DataPath>ПереноситьПоДатеСоздания</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Созданные:</v8:content>								</v8:item>							</Title>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ПереноситьПоДатеСозданияКонтекстноеМеню" id="33"/>							<ExtendedTooltip name="ПереноситьПоДатеСозданияРасширеннаяПодсказка" id="34"/>						</CheckBoxField>						<UsualGroup name="НастройкиУточненияДаты" id="35">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Настройки уточнения даты</v8:content>								</v8:item>							</Title>							<Group>AlwaysHorizontal</Group>							<Behavior>Usual</Behavior>							<Representation>None</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="НастройкиУточненияДатыРасширеннаяПодсказка" id="36"/>							<ChildItems>								<InputField name="УточнениеДатыСоздания" id="37">									<DataPath>УточнениеДатыСоздания</DataPath>									<TitleLocation>None</TitleLocation>									<Width>5</Width>									<AutoMaxWidth>false</AutoMaxWidth>									<MaxWidth>5</MaxWidth>									<ListChoiceMode>true</ListChoiceMode>									<TextEdit>false</TextEdit>									<ChoiceList>										<xr:Item>											<xr:Presentation/>											<xr:CheckState>0</xr:CheckState>											<xr:Value xsi:type="FormChoiceListDesTimeValue">												<Presentation/>												<Value xsi:type="xs:string">до</Value>											</xr:Value>										</xr:Item>										<xr:Item>											<xr:Presentation/>											<xr:CheckState>0</xr:CheckState>											<xr:Value xsi:type="FormChoiceListDesTimeValue">												<Presentation/>												<Value xsi:type="xs:string">после</Value>											</xr:Value>										</xr:Item>									</ChoiceList>									<ContextMenu name="УточнениеДатыСозданияКонтекстноеМеню" id="38"/>									<ExtendedTooltip name="УточнениеДатыСозданияРасширеннаяПодсказка" id="39"/>								</InputField>								<InputField name="ДатаСоздания" id="40">									<DataPath>ДатаСоздания</DataPath>									<TitleLocation>None</TitleLocation>									<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="41"/>									<ExtendedTooltip name="ДатаСозданияРасширеннаяПодсказка" id="42"/>								</InputField>							</ChildItems>						</UsualGroup>					</ChildItems>				</UsualGroup>				<UsualGroup name="НастройкиРасширений" id="43">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки расширений</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<United>false</United>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиРасширенийРасширеннаяПодсказка" id="44"/>					<ChildItems>						<CheckBoxField name="ПереноситьПоРасширению" id="45">							<DataPath>ПереноситьПоРасширению</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>С указанным расширением:</v8:content>								</v8:item>							</Title>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ПереноситьПоРасширениюКонтекстноеМеню" id="46"/>							<ExtendedTooltip name="ПереноситьПоРасширениюРасширеннаяПодсказка" id="47"/>						</CheckBoxField>						<InputField name="РасширенияФайлов" id="48">							<DataPath>РасширенияФайлов</DataPath>							<TitleLocation>None</TitleLocation>							<Width>35</Width>							<AutoMaxWidth>false</AutoMaxWidth>							<DropListButton>true</DropListButton>							<ContextMenu name="РасширенияФайловКонтекстноеМеню" id="49"/>							<ExtendedTooltip name="РасширенияФайловРасширеннаяПодсказка" id="50"/>							<Events>								<Event name="OnChange">РасширенияФайловПриИзменении</Event>								<Event name="ChoiceProcessing">РасширенияФайловОбработкаВыбора</Event>							</Events>						</InputField>					</ChildItems>				</UsualGroup>				<UsualGroup name="НастройкиДополнительныхПравил" id="51">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки дополнительных правил</v8:content>						</v8:item>					</Title>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<United>false</United>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкиДополнительныхПравилРасширеннаяПодсказка" id="52"/>					<ChildItems>						<CheckBoxField name="ПереноситьПоУсловию" id="53">							<DataPath>ПереноситьПоУсловию</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>По дополнительным условиям:</v8:content>								</v8:item>							</Title>							<TitleLocation>Right</TitleLocation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ПереноситьПоУсловиюКонтекстноеМеню" id="54"/>							<ExtendedTooltip name="ПереноситьПоУсловиюРасширеннаяПодсказка" id="55"/>						</CheckBoxField>						<InputField name="ДополнительныеУсловияНастройкиОтбор" id="56">							<DataPath>ДополнительныеУсловия.Settings.Filter</DataPath>							<TitleLocation>None</TitleLocation>							<Width>35</Width>							<AutoMaxWidth>false</AutoMaxWidth>							<TextEdit>false</TextEdit>							<ContextMenu name="ДополнительныеУсловияНастройкиОтборКонтекстноеМеню" id="57"/>							<ExtendedTooltip name="ДополнительныеУсловияНастройкиОтборРасширеннаяПодсказка" id="58"/>						</InputField>					</ChildItems>				</UsualGroup>			</ChildItems>		</UsualGroup>	</ChildItems>	<Attributes>		<Attribute name="Объект" id="1">			<Type>				<v8:Type>cfg:DataProcessorObject.ПереносФайлов</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>		</Attribute>		<Attribute name="Действие" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Действие</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ПереноситьВТом" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Переносить в том</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ТомХраненияПриемник" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Том хранения приемник</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:CatalogRef.ТомаХраненияФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ПереноситьИзТома" id="5">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Переносить из тома</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ТомХраненияИсточник" id="6">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Том хранения источник</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:CatalogRef.ТомаХраненияФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ПереноситьФайлыВладельца" id="7">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Переносить файлы владельца</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ВладелецФайлов" id="8">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Владелец файлов</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>250</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ПереноситьПоДатеСоздания" id="9">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Переносить по дате создания</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ДатаСоздания" id="10">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Дата создания</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:dateTime</v8:Type>				<v8:DateQualifiers>					<v8:DateFractions>Date</v8:DateFractions>				</v8:DateQualifiers>			</Type>		</Attribute>		<Attribute name="УточнениеДатыСоздания" id="11">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Уточнение даты создания</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ПереноситьПоРасширению" id="12">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Переносить по расширению</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="РасширенияФайлов" id="13">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Расширения файлов</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ПереноситьПоУсловию" id="14">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Переносить по условию</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ДополнительныеУсловия" id="15">			<Type>				<v8:Type>dcsset:SettingsComposer</v8:Type>			</Type>		</Attribute>		<Attribute name="КоличествоТомовХранения" id="16">			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>5</v8:Digits>					<v8:FractionDigits>0</v8:FractionDigits>					<v8:AllowedSign>Nonnegative</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="ХранитьФайлыВТомахНаДиске" id="17">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ФайловКПереносу" id="20">			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>10</v8:Digits>					<v8:FractionDigits>0</v8:FractionDigits>					<v8:AllowedSign>Nonnegative</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="ВыполнитьПеренос" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перенести</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполнить перенос файлов</v8:content>				</v8:item>			</ToolTip>			<Action>ВыполнитьПеренос</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°Р’С‹РїРѕР»РЅРёС‚СЊРџРµСЂРµРЅРѕСЃ" id="59">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Р’С‹РїРѕР»РЅРёС‚СЊРџРµСЂРµРЅРѕСЃ</CommandName>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°Р’С‹РїРѕР»РЅРёС‚СЊРџРµСЂРµРЅРѕСЃР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="60"/>
+			</Button>
+			<Button name="Р¤РѕСЂРјР°Р—Р°РєСЂС‹С‚СЊ" id="61">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>РћС‚РјРµРЅР°</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°Р—Р°РєСЂС‹С‚СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="62"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<RadioButtonField name="Р”РµР№СЃС‚РІРёРµ" id="1">
+			<DataPath>Р”РµР№СЃС‚РІРёРµ</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµРЅРµСЃС‚Рё С„Р°Р№Р»С‹</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Top</TitleLocation>
+			<RadioButtonType>RadioButtons</RadioButtonType>
+			<ColumnsCount>1</ColumnsCount>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>РњРµР¶РґСѓ С‚РѕРјР°РјРё РЅР° РґРёСЃРєРµ</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">РџРµСЂРµРЅРµСЃС‚РёРњРµР¶РґСѓРўРѕРјР°РјРё</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>РР· РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅРѕР№ Р±Р°Р·С‹ РІ С‚РѕРјР° РЅР° РґРёСЃРєРµ</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">РџРµСЂРµРЅРµСЃС‚РёР’РўРѕРјР°</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>РР· С‚РѕРјРѕРІ РЅР° РґРёСЃРєРµ РІ РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅСѓСЋ Р±Р°Р·Сѓ</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">РџРµСЂРµРЅРµСЃС‚РёР’Р‘Р°Р·Сѓ</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="Р”РµР№СЃС‚РІРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+			<ExtendedTooltip name="Р”РµР№СЃС‚РІРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="3"/>
+			<Events>
+				<Event name="OnChange">Р”РµР№СЃС‚РІРёРµРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+			</Events>
+		</RadioButtonField>
+		<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРё" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕР№РєРё</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="5"/>
+			<ChildItems>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёРџСЂРёРµРјРЅРёРєР°" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё РїСЂРёРµРјРЅРёРєР°</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџСЂРёРµРјРЅРёРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="7"/>
+					<ChildItems>
+						<CheckBoxField name="РџРµСЂРµРЅРѕСЃРёС‚СЊР’РўРѕРј" id="8">
+							<DataPath>РџРµСЂРµРЅРѕСЃРёС‚СЊР’РўРѕРј</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р’ СѓРєР°Р·Р°РЅРЅС‹Р№ С‚РѕРј:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РџРµСЂРµРЅРѕСЃРёС‚СЊР’РўРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="9"/>
+							<ExtendedTooltip name="РџРµСЂРµРЅРѕСЃРёС‚СЊР’РўРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="10"/>
+						</CheckBoxField>
+						<InputField name="РўРѕРјРҐСЂР°РЅРµРЅРёСЏРџСЂРёРµРјРЅРёРє" id="11">
+							<DataPath>РўРѕРјРҐСЂР°РЅРµРЅРёСЏРџСЂРёРµРјРЅРёРє</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>35</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="РўРѕРјРҐСЂР°РЅРµРЅРёСЏРџСЂРёРµРјРЅРёРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="12"/>
+							<ExtendedTooltip name="РўРѕРјРҐСЂР°РЅРµРЅРёСЏРџСЂРёРµРјРЅРёРєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="13"/>
+							<Events>
+								<Event name="OnChange">РўРѕРјРҐСЂР°РЅРµРЅРёСЏРџСЂРёРµРјРЅРёРєРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёРСЃС‚РѕС‡РЅРёРєР°" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё РёСЃС‚РѕС‡РЅРёРєР°</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРСЃС‚РѕС‡РЅРёРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="15"/>
+					<ChildItems>
+						<CheckBoxField name="РџРµСЂРµРЅРѕСЃРёС‚СЊРР·РўРѕРјР°" id="16">
+							<DataPath>РџРµСЂРµРЅРѕСЃРёС‚СЊРР·РўРѕРјР°</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РР· СѓРєР°Р·Р°РЅРЅРѕРіРѕ С‚РѕРјР°:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РџРµСЂРµРЅРѕСЃРёС‚СЊРР·РўРѕРјР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="17"/>
+							<ExtendedTooltip name="РџРµСЂРµРЅРѕСЃРёС‚СЊРР·РўРѕРјР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="18"/>
+						</CheckBoxField>
+						<InputField name="РўРѕРјРҐСЂР°РЅРµРЅРёСЏРСЃС‚РѕС‡РЅРёРє" id="19">
+							<DataPath>РўРѕРјРҐСЂР°РЅРµРЅРёСЏРСЃС‚РѕС‡РЅРёРє</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>35</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="РўРѕРјРҐСЂР°РЅРµРЅРёСЏРСЃС‚РѕС‡РЅРёРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="20"/>
+							<ExtendedTooltip name="РўРѕРјРҐСЂР°РЅРµРЅРёСЏРСЃС‚РѕС‡РЅРёРєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="21"/>
+							<Events>
+								<Event name="OnChange">РўРѕРјРҐСЂР°РЅРµРЅРёСЏРСЃС‚РѕС‡РЅРёРєРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР’Р»Р°РґРµР»СЊС†Р°" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё РІР»Р°РґРµР»СЊС†Р°</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР’Р»Р°РґРµР»СЊС†Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="23"/>
+					<ChildItems>
+						<CheckBoxField name="РџРµСЂРµРЅРѕСЃРёС‚СЊР¤Р°Р№Р»С‹Р’Р»Р°РґРµР»СЊС†Р°" id="24">
+							<DataPath>РџРµСЂРµРЅРѕСЃРёС‚СЊР¤Р°Р№Р»С‹Р’Р»Р°РґРµР»СЊС†Р°</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р¤Р°Р№Р»С‹ СѓРєР°Р·Р°РЅРЅРѕРіРѕ РІР»Р°РґРµР»СЊС†Р°:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РџРµСЂРµРЅРѕСЃРёС‚СЊР¤Р°Р№Р»С‹Р’Р»Р°РґРµР»СЊС†Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="25"/>
+							<ExtendedTooltip name="РџРµСЂРµРЅРѕСЃРёС‚СЊР¤Р°Р№Р»С‹Р’Р»Р°РґРµР»СЊС†Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="26"/>
+						</CheckBoxField>
+						<InputField name="Р’Р»Р°РґРµР»РµС†Р¤Р°Р№Р»РѕРІ" id="27">
+							<DataPath>Р’Р»Р°РґРµР»РµС†Р¤Р°Р№Р»РѕРІ</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>35</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ContextMenu name="Р’Р»Р°РґРµР»РµС†Р¤Р°Р№Р»РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="28"/>
+							<ExtendedTooltip name="Р’Р»Р°РґРµР»РµС†Р¤Р°Р№Р»РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="29"/>
+							<Events>
+								<Event name="OnChange">Р’Р»Р°РґРµР»РµС†Р¤Р°Р№Р»РѕРІРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР”Р°С‚С‹РЎРѕР·РґР°РЅРёСЏ" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё РґР°С‚С‹ СЃРѕР·РґР°РЅРёСЏ</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР”Р°С‚С‹РЎРѕР·РґР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="31"/>
+					<ChildItems>
+						<CheckBoxField name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР”Р°С‚РµРЎРѕР·РґР°РЅРёСЏ" id="32">
+							<DataPath>РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР”Р°С‚РµРЎРѕР·РґР°РЅРёСЏ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎРѕР·РґР°РЅРЅС‹Рµ:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР”Р°С‚РµРЎРѕР·РґР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="33"/>
+							<ExtendedTooltip name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР”Р°С‚РµРЎРѕР·РґР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="34"/>
+						</CheckBoxField>
+						<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёРЈС‚РѕС‡РЅРµРЅРёСЏР”Р°С‚С‹" id="35">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РќР°СЃС‚СЂРѕР№РєРё СѓС‚РѕС‡РЅРµРЅРёСЏ РґР°С‚С‹</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРЈС‚РѕС‡РЅРµРЅРёСЏР”Р°С‚С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="36"/>
+							<ChildItems>
+								<InputField name="РЈС‚РѕС‡РЅРµРЅРёРµР”Р°С‚С‹РЎРѕР·РґР°РЅРёСЏ" id="37">
+									<DataPath>РЈС‚РѕС‡РЅРµРЅРёРµР”Р°С‚С‹РЎРѕР·РґР°РЅРёСЏ</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>5</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>5</MaxWidth>
+									<ListChoiceMode>true</ListChoiceMode>
+									<TextEdit>false</TextEdit>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:string">РґРѕ</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:string">РїРѕСЃР»Рµ</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="РЈС‚РѕС‡РЅРµРЅРёРµР”Р°С‚С‹РЎРѕР·РґР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="38"/>
+									<ExtendedTooltip name="РЈС‚РѕС‡РЅРµРЅРёРµР”Р°С‚С‹РЎРѕР·РґР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="39"/>
+								</InputField>
+								<InputField name="Р”Р°С‚Р°РЎРѕР·РґР°РЅРёСЏ" id="40">
+									<DataPath>Р”Р°С‚Р°РЎРѕР·РґР°РЅРёСЏ</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="Р”Р°С‚Р°РЎРѕР·РґР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="41"/>
+									<ExtendedTooltip name="Р”Р°С‚Р°РЎРѕР·РґР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="42"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР Р°СЃС€РёСЂРµРЅРёР№" id="43">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё СЂР°СЃС€РёСЂРµРЅРёР№</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР Р°СЃС€РёСЂРµРЅРёР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="44"/>
+					<ChildItems>
+						<CheckBoxField name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР Р°СЃС€РёСЂРµРЅРёСЋ" id="45">
+							<DataPath>РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР Р°СЃС€РёСЂРµРЅРёСЋ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎ СѓРєР°Р·Р°РЅРЅС‹Рј СЂР°СЃС€РёСЂРµРЅРёРµРј:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР Р°СЃС€РёСЂРµРЅРёСЋРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="46"/>
+							<ExtendedTooltip name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР Р°СЃС€РёСЂРµРЅРёСЋР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="47"/>
+						</CheckBoxField>
+						<InputField name="Р Р°СЃС€РёСЂРµРЅРёСЏР¤Р°Р№Р»РѕРІ" id="48">
+							<DataPath>Р Р°СЃС€РёСЂРµРЅРёСЏР¤Р°Р№Р»РѕРІ</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>35</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<DropListButton>true</DropListButton>
+							<ContextMenu name="Р Р°СЃС€РёСЂРµРЅРёСЏР¤Р°Р№Р»РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="49"/>
+							<ExtendedTooltip name="Р Р°СЃС€РёСЂРµРЅРёСЏР¤Р°Р№Р»РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="50"/>
+							<Events>
+								<Event name="OnChange">Р Р°СЃС€РёСЂРµРЅРёСЏР¤Р°Р№Р»РѕРІРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+								<Event name="ChoiceProcessing">Р Р°СЃС€РёСЂРµРЅРёСЏР¤Р°Р№Р»РѕРІРћР±СЂР°Р±РѕС‚РєР°Р’С‹Р±РѕСЂР°</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєРёР”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С…РџСЂР°РІРёР»" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РїСЂР°РІРёР»</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёР”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С…РџСЂР°РІРёР»Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="52"/>
+					<ChildItems>
+						<CheckBoxField name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕРЈСЃР»РѕРІРёСЋ" id="53">
+							<DataPath>РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕРЈСЃР»РѕРІРёСЋ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РџРѕ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рј СѓСЃР»РѕРІРёСЏРј:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕРЈСЃР»РѕРІРёСЋРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="54"/>
+							<ExtendedTooltip name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕРЈСЃР»РѕРІРёСЋР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="55"/>
+						</CheckBoxField>
+						<InputField name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРЈСЃР»РѕРІРёСЏРќР°СЃС‚СЂРѕР№РєРёРћС‚Р±РѕСЂ" id="56">
+							<DataPath>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРЈСЃР»РѕРІРёСЏ.Settings.Filter</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>35</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРЈСЃР»РѕРІРёСЏРќР°СЃС‚СЂРѕР№РєРёРћС‚Р±РѕСЂРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="57"/>
+							<ExtendedTooltip name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРЈСЃР»РѕРІРёСЏРќР°СЃС‚СЂРѕР№РєРёРћС‚Р±РѕСЂР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="58"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±СЉРµРєС‚" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.РџРµСЂРµРЅРѕСЃР¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Р”РµР№СЃС‚РІРёРµ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РµР№СЃС‚РІРёРµ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРµСЂРµРЅРѕСЃРёС‚СЊР’РўРѕРј" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµРЅРѕСЃРёС‚СЊ РІ С‚РѕРј</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РўРѕРјРҐСЂР°РЅРµРЅРёСЏРџСЂРёРµРјРЅРёРє" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўРѕРј С…СЂР°РЅРµРЅРёСЏ РїСЂРёРµРјРЅРёРє</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.РўРѕРјР°РҐСЂР°РЅРµРЅРёСЏР¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРµСЂРµРЅРѕСЃРёС‚СЊРР·РўРѕРјР°" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµРЅРѕСЃРёС‚СЊ РёР· С‚РѕРјР°</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РўРѕРјРҐСЂР°РЅРµРЅРёСЏРСЃС‚РѕС‡РЅРёРє" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўРѕРј С…СЂР°РЅРµРЅРёСЏ РёСЃС‚РѕС‡РЅРёРє</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.РўРѕРјР°РҐСЂР°РЅРµРЅРёСЏР¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРµСЂРµРЅРѕСЃРёС‚СЊР¤Р°Р№Р»С‹Р’Р»Р°РґРµР»СЊС†Р°" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµРЅРѕСЃРёС‚СЊ С„Р°Р№Р»С‹ РІР»Р°РґРµР»СЊС†Р°</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р’Р»Р°РґРµР»РµС†Р¤Р°Р№Р»РѕРІ" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’Р»Р°РґРµР»РµС† С„Р°Р№Р»РѕРІ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>250</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР”Р°С‚РµРЎРѕР·РґР°РЅРёСЏ" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµРЅРѕСЃРёС‚СЊ РїРѕ РґР°С‚Рµ СЃРѕР·РґР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р”Р°С‚Р°РЎРѕР·РґР°РЅРёСЏ" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РЈС‚РѕС‡РЅРµРЅРёРµР”Р°С‚С‹РЎРѕР·РґР°РЅРёСЏ" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈС‚РѕС‡РЅРµРЅРёРµ РґР°С‚С‹ СЃРѕР·РґР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕР Р°СЃС€РёСЂРµРЅРёСЋ" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµРЅРѕСЃРёС‚СЊ РїРѕ СЂР°СЃС€РёСЂРµРЅРёСЋ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р Р°СЃС€РёСЂРµРЅРёСЏР¤Р°Р№Р»РѕРІ" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°СЃС€РёСЂРµРЅРёСЏ С„Р°Р№Р»РѕРІ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРµСЂРµРЅРѕСЃРёС‚СЊРџРѕРЈСЃР»РѕРІРёСЋ" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµРЅРѕСЃРёС‚СЊ РїРѕ СѓСЃР»РѕРІРёСЋ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРЈСЃР»РѕРІРёСЏ" id="15">
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РљРѕР»РёС‡РµСЃС‚РІРѕРўРѕРјРѕРІРҐСЂР°РЅРµРЅРёСЏ" id="16">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РҐСЂР°РЅРёС‚СЊР¤Р°Р№Р»С‹Р’РўРѕРјР°С…РќР°Р”РёСЃРєРµ" id="17">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤Р°Р№Р»РѕРІРљРџРµСЂРµРЅРѕСЃСѓ" id="20">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Р’С‹РїРѕР»РЅРёС‚СЊРџРµСЂРµРЅРѕСЃ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµРЅРµСЃС‚Рё</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅРёС‚СЊ РїРµСЂРµРЅРѕСЃ С„Р°Р№Р»РѕРІ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р’С‹РїРѕР»РЅРёС‚СЊРџРµСЂРµРЅРѕСЃ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

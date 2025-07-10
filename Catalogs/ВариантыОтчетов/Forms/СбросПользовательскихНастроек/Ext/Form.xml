@@ -1,1 +1,86 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<CommandBarLocation>Bottom</CommandBarLocation>	<CommandSet>		<ExcludedCommand>CustomizeForm</ExcludedCommand>		<ExcludedCommand>Help</ExcludedCommand>	</CommandSet>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<HorizontalAlign>Right</HorizontalAlign>		<ChildItems>			<Button name="ФормаКомандаСбросить" id="6">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.КомандаСбросить</CommandName>				<ExtendedTooltip name="ФормаКомандаСброситьРасширеннаяПодсказка" id="7"/>			</Button>			<Button name="ФормаОтмена" id="4">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<DefaultItem>true</DefaultItem>				<CommandName>Form.StandardCommand.Cancel</CommandName>				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="5"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<LabelDecoration name="Надпись2" id="11">			<AutoMaxWidth>false</AutoMaxWidth>			<Title formatted="true">				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сбросить пользовательские настройки быстрого доступа и видимости выбранных вариантов отчетов?</v8:content>				</v8:item>			</Title>			<ContextMenu name="Надпись2КонтекстноеМеню" id="12"/>			<ExtendedTooltip name="Надпись2РасширеннаяПодсказка" id="13"/>		</LabelDecoration>		<LabelDecoration name="Надпись1" id="1">			<AutoMaxWidth>false</AutoMaxWidth>			<Title formatted="true">				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Внимание, операция "&lt;b&gt;Сбросить настройки пользователей&lt;/&gt;" необратима.</v8:content>				</v8:item>			</Title>			<ContextMenu name="Надпись1КонтекстноеМеню" id="2"/>			<ExtendedTooltip name="Надпись1РасширеннаяПодсказка" id="3"/>		</LabelDecoration>	</ChildItems>	<Attributes>		<Attribute name="ИзменяемыеВарианты" id="1">			<Type>				<v8:Type>v8:ValueListType</v8:Type>			</Type>			<Settings xsi:type="v8:TypeDescription">				<v8:Type>cfg:CatalogRef.ВариантыОтчетов</v8:Type>			</Settings>		</Attribute>		<Attribute name="ТекстОшибки" id="2">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="КомандаСбросить" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сбросить пользовательские настройки</v8:content>				</v8:item>			</Title>			<Action>КомандаСбросить</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґР°РЎР±СЂРѕСЃРёС‚СЊ" id="6">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.РљРѕРјР°РЅРґР°РЎР±СЂРѕСЃРёС‚СЊ</CommandName>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґР°РЎР±СЂРѕСЃРёС‚СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="7"/>
+			</Button>
+			<Button name="Р¤РѕСЂРјР°РћС‚РјРµРЅР°" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°РћС‚РјРµРЅР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="5"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="РќР°РґРїРёСЃСЊ2" id="11">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Title formatted="true">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎР±СЂРѕСЃРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РЅР°СЃС‚СЂРѕР№РєРё Р±С‹СЃС‚СЂРѕРіРѕ РґРѕСЃС‚СѓРїР° Рё РІРёРґРёРјРѕСЃС‚Рё 
+РІС‹Р±СЂР°РЅРЅС‹С… РІР°СЂРёР°РЅС‚РѕРІ РѕС‚С‡РµС‚РѕРІ?</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="РќР°РґРїРёСЃСЊ2РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="12"/>
+			<ExtendedTooltip name="РќР°РґРїРёСЃСЊ2Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="13"/>
+		</LabelDecoration>
+		<LabelDecoration name="РќР°РґРїРёСЃСЊ1" id="1">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Title formatted="true">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РЅРёРјР°РЅРёРµ, РѕРїРµСЂР°С†РёСЏ "&lt;b&gt;РЎР±СЂРѕСЃРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№&lt;/&gt;" РЅРµРѕР±СЂР°С‚РёРјР°.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="РќР°РґРїРёСЃСЊ1РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+			<ExtendedTooltip name="РќР°РґРїРёСЃСЊ1Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="3"/>
+		</LabelDecoration>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РР·РјРµРЅСЏРµРјС‹РµР’Р°СЂРёР°РЅС‚С‹" id="1">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.Р’Р°СЂРёР°РЅС‚С‹РћС‚С‡РµС‚РѕРІ</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="РўРµРєСЃС‚РћС€РёР±РєРё" id="2">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РљРѕРјР°РЅРґР°РЎР±СЂРѕСЃРёС‚СЊ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎР±СЂРѕСЃРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РЅР°СЃС‚СЂРѕР№РєРё</v8:content>
+				</v8:item>
+			</Title>
+			<Action>РљРѕРјР°РЅРґР°РЎР±СЂРѕСЃРёС‚СЊ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

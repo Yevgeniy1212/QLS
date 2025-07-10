@@ -1,1 +1,786 @@
-<?xml version="1.0" encoding="UTF-8"?><MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<HTTPService uuid="76418aee-b619-4d34-a0a2-123f798e4b2d">		<Properties>			<Name>Workstation_2_0</Name>			<Synonym>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Workstation 2.0</v8:content>				</v8:item>			</Synonym>			<Comment/>			<RootURL>Workstation_2_0</RootURL>			<ReuseSessions>AutoUse</ReuseSessions>			<SessionMaxAge>20</SessionMaxAge>		</Properties>		<ChildObjects>			<URLTemplate uuid="0235b89e-3bb1-4e32-aed6-ca1f054491d5">				<Properties>					<Name>GetWorkstationsList</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>WorkPlace List</v8:content>						</v8:item>					</Synonym>					<Comment>Возвращает список рабочих мест</Comment>					<Template>/icommon/workstations/{ver}</Template>				</Properties>				<ChildObjects>					<Method uuid="b20558e7-da95-4f20-ae66-3e1f960dbee6">						<Properties>							<Name>GET</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>GET</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetWorkstationsListGET</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="815c14f2-5f1b-4263-8cde-0d55d385f8cc">				<Properties>					<Name>GetWorkstation</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get workstation</v8:content>						</v8:item>					</Synonym>					<Comment>Возвращает заданное рабочее место</Comment>					<Template>/icommon/workstations/{ver}/{workstationId}</Template>				</Properties>				<ChildObjects>					<Method uuid="be3cc462-7e66-4574-89ff-45f6674d0ea2">						<Properties>							<Name>GET</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>GET</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetWorkstationGET</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="db52c0fe-ef1a-47c2-a791-7d8eb603234f">				<Properties>					<Name>GetOrderByBarcode</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get order by barcode</v8:content>						</v8:item>					</Synonym>					<Comment>Получает заказ по отсканированному значению</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/by-barcode/{barcode}</Template>				</Properties>				<ChildObjects>					<Method uuid="c048c85c-5d06-4d9e-8d73-3a1932ecc3eb">						<Properties>							<Name>GET</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>GET</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetOrderByBarcodeGET</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="e7faf971-055f-4df3-861a-173083646b61">				<Properties>					<Name>GetInspectionItemsList</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get inspection items list</v8:content>						</v8:item>					</Synonym>					<Comment>Возвращает список инспекционных элементов</Comment>					<Template>/icommon/inspection-items/{ver}</Template>				</Properties>				<ChildObjects>					<Method uuid="924b07c7-3259-48c3-8ceb-71ab7cb0a097">						<Properties>							<Name>GET</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>GET</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetInspectionItemsListGET</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="4d64ff2c-d172-408f-b7f2-46fbee6f63b0">				<Properties>					<Name>RegisterOrderQualityStatus</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Register order quality status</v8:content>						</v8:item>					</Synonym>					<Comment>регистрирует статус качества заказа</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/register-quality-status</Template>				</Properties>				<ChildObjects>					<Method uuid="670e5444-5304-4889-a94f-97020bf3b46e">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RegisterOrderQualityStatusPOST</Handler>						</Properties>					</Method>					<Method uuid="d60d3e2a-177f-48f2-a8bb-92fa4c6e81b3">						<Properties>							<Name>Option</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Option</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>OPTIONS</HTTPMethod>							<Handler>RegisterOrderQualityStatusOption</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="ffbd0db5-ecdb-41a5-9a38-5ff688e861ab">				<Properties>					<Name>CompleteOrderInspection</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Complete order inspection</v8:content>						</v8:item>					</Synonym>					<Comment>Отправляет сигнал на завершение инспекции заказа на РМ</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/complete-inspection</Template>				</Properties>				<ChildObjects>					<Method uuid="92aca168-ded9-4978-bbb7-1eb4c0871c6d">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>CompleteOrderInspectionPOST</Handler>						</Properties>					</Method>					<Method uuid="62ae8088-e5cb-4914-9186-b0707dc63026">						<Properties>							<Name>Option</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Option</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>OPTIONS</HTTPMethod>							<Handler>CompleteOrderInspectionOption</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="82d4bbba-a6e9-4da4-a2e6-034b92433b91">				<Properties>					<Name>GetConsernList</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get consern list</v8:content>						</v8:item>					</Synonym>					<Comment>Получает список консернов заказа</Comment>					<Template>/icommon/orders/{ver}/{orderId}/concerns</Template>				</Properties>				<ChildObjects>					<Method uuid="dd97c9bf-a733-463a-9193-7b3acee56efa">						<Properties>							<Name>Get</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Get</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetConsernListGet</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="52609ddb-bb31-4440-b7d1-05e1c05ccf3d">				<Properties>					<Name>GetDefectList</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get defect list</v8:content>						</v8:item>					</Synonym>					<Comment>Возвращает список дефектов для рабочего места</Comment>					<Template>/icommon/workstations/{ver}/{workstationId}/defects</Template>				</Properties>				<ChildObjects>					<Method uuid="46fd74e0-e03a-4b96-ad37-b0115f4d9f8c">						<Properties>							<Name>Get</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Get</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetDefectListGet</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="83e38a85-0f8c-450e-80e7-6d3cceccc688">				<Properties>					<Name>RepairerCompleteInspection</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Repairer Complete Inspection</v8:content>						</v8:item>					</Synonym>					<Comment>Завершение инспектировния заказа/VIN по станции repaire</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/repairer-complete-inspection</Template>				</Properties>				<ChildObjects>					<Method uuid="e7ad3857-7bc1-45ab-9846-03641592441b">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RepairerCompleteInspectionPOST</Handler>						</Properties>					</Method>					<Method uuid="8b4bba4f-ba03-496f-a410-f0396d5f5afd">						<Properties>							<Name>Option</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Option</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>OPTIONS</HTTPMethod>							<Handler>RepairerCompleteInspectionOption</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="b998e97b-5fcc-4385-a8b4-5d8e8594f6b3">				<Properties>					<Name>RepairerCloseDefect</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Repairer close defect</v8:content>						</v8:item>					</Synonym>					<Comment>регистрирует ремонт дефекта</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/repairer-close-defect</Template>				</Properties>				<ChildObjects>					<Method uuid="d146fcf2-4f52-40a4-ae7f-0da356adde26">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RepairerCloseDefectPOST</Handler>						</Properties>					</Method>					<Method uuid="99b078c8-f046-43e0-a6e2-94d9a53b1151">						<Properties>							<Name>Option</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Option</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>OPTIONS</HTTPMethod>							<Handler>RepairerCloseDefectOption</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="7a69e9df-37d5-47dc-97b4-dc8862573882">				<Properties>					<Name>RepairerGetData</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Repairer get data</v8:content>						</v8:item>					</Synonym>					<Comment>Получает данные для интерфейса ремонтника</Comment>					<Template>/icommon/orders/{ver}/{orderId}/repairer-get-data</Template>				</Properties>				<ChildObjects>					<Method uuid="2fa477cd-f7f6-4871-b6d8-f204bdac4944">						<Properties>							<Name>Get</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Get</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>RepairerGetDataGet</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="2df9181a-a2be-49f4-ba73-14dcaefc62ab">				<Properties>					<Name>RepairerCompleteTask</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Repairer complete task</v8:content>						</v8:item>					</Synonym>					<Comment>выполнить задачу</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/repairer-complete-task</Template>				</Properties>				<ChildObjects>					<Method uuid="0c73a36d-4a89-455a-bbd0-829e8f7c994d">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RepairerCompleteTaskPOST</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="34e67e89-a67e-4bcb-b2f6-d26e50054d32">				<Properties>					<Name>getCampaignsList</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get campaigns list</v8:content>						</v8:item>					</Synonym>					<Comment>Получает список кампаний</Comment>					<Template>/icommon/orders/{ver}/{orderId}/compaigns</Template>				</Properties>				<ChildObjects>					<Method uuid="473c7894-b630-49bd-86c9-cbe660e4ee5c">						<Properties>							<Name>Get</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Get</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>getCampaignsListGet</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="9238d91a-1d7b-4f14-a15a-f1461b47aac3">				<Properties>					<Name>GetCheckList</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get check list</v8:content>						</v8:item>					</Synonym>					<Comment>Получает список консернов для проверки</Comment>					<Template>/icommon/orders/{ver}/{orderId}/check-list</Template>				</Properties>				<ChildObjects>					<Method uuid="9303bd5c-18d6-4145-a6cc-78ae1a4227f9">						<Properties>							<Name>Get</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Get</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetCheckListGet</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="bd9dfb50-0bb2-4500-b8c6-22d1105bda1e">				<Properties>					<Name>CheckComplete</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Check complete</v8:content>						</v8:item>					</Synonym>					<Comment>регистрирует операцию по контролю</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/check-complete</Template>				</Properties>				<ChildObjects>					<Method uuid="3ce9e4e9-921e-4884-89a1-c860d04462ab">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>CheckCompletePOST</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="5afe0ce0-7439-4391-b5a7-80e38c0358de">				<Properties>					<Name>GetImage</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get image</v8:content>						</v8:item>					</Synonym>					<Comment/>					<Template>/icommon/images/{ver}/{imageId}</Template>				</Properties>				<ChildObjects>					<Method uuid="b18bfcaf-22db-4f52-a7ef-dc4e036f247e">						<Properties>							<Name>GET</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>GET</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetImageGET</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="691a81e1-49e2-4181-a6c6-cfbfdcbd3c39">				<Properties>					<Name>GetImageMap</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get image map</v8:content>						</v8:item>					</Synonym>					<Comment/>					<Template>/icommon/orders/{ver}/{orderId}/image-maps</Template>				</Properties>				<ChildObjects>					<Method uuid="103357b5-f8ab-4905-9c6b-cf7ec9666189">						<Properties>							<Name>GET</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>GET</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetImageMapGET</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="7103fd87-6315-4ba0-9ac6-ce70f0bba391">				<Properties>					<Name>RemoveOrderFromCampaign</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Remove order from campaign</v8:content>						</v8:item>					</Synonym>					<Comment>Снятие заказа с кампании</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{campaignId}/remove-from-campaign</Template>				</Properties>				<ChildObjects>					<Method uuid="2ac18ad0-ad08-4be5-85b5-8b3c42e7d9d9">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RemoveOrderFromCampaignPOST</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="447dbac0-d3ce-40cd-b413-90eb04b0bcff">				<Properties>					<Name>RegisterOrderQualityStatusFromDevice</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Register order quality status from device</v8:content>						</v8:item>					</Synonym>					<Comment>Регистрация статуса заказа. Событие от оборудования.</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/register-quality-status</Template>				</Properties>				<ChildObjects>					<Method uuid="ed351672-726c-4e62-9de3-b0c72977ffb2">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RegisterOrderQualityStatusFromDevicePOST</Handler>						</Properties>					</Method>					<Method uuid="309fd8ec-5a3d-4efb-9a73-d1ed476c2a5a">						<Properties>							<Name>Option</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Option</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>OPTIONS</HTTPMethod>							<Handler>RegisterOrderQualityStatusFromDeviceOption</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="c5d4ef46-602d-4b2d-9095-3a6faa864375">				<Properties>					<Name>RepairerCloseDefectFromDevice</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Repairer close defect from device</v8:content>						</v8:item>					</Synonym>					<Comment>Закрытие дефекта. Событие от оборудования.</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/repairer-close-defect</Template>				</Properties>				<ChildObjects>					<Method uuid="00891649-b261-4147-800b-90ca412d6618">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RepairerCloseDefectFromDevicePOST</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="0fd84922-bf47-49f3-b938-e422d5894fad">				<Properties>					<Name>RemoveOrderFromCampaignFromDevice</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Remove order from campaign from device</v8:content>						</v8:item>					</Synonym>					<Comment>Снятие заказа с кампании. Событие от оборудования.</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/{campaignId}/remove-from-campaign</Template>				</Properties>				<ChildObjects>					<Method uuid="61dce866-8ece-427d-b13f-b1c3db4fb70b">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RemoveOrderFromCampaignFromDevicePOST</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="f063ab18-1b62-4ee3-b059-6586052a0d1f">				<Properties>					<Name>CheckCompleteFromDevice</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Check complete from device</v8:content>						</v8:item>					</Synonym>					<Comment>Регистрация операции по контролю. СобытиеОтОборудования.</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/check-complete</Template>				</Properties>				<ChildObjects>					<Method uuid="9acf56a9-08e9-4a46-99d0-c84c2e36572a">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>CheckCompleteFromDevicePOST</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="15bea47c-4444-41d0-97b6-87925fbe0daa">				<Properties>					<Name>RegisterOrderForCampaignFromDevice</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Register order for campaign from device</v8:content>						</v8:item>					</Synonym>					<Comment>Регистрация заказа на кампанию. Событие от оборудования.</Comment>					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/{campaignId}/register-for-campaign</Template>				</Properties>				<ChildObjects>					<Method uuid="d87df760-ddb7-4a71-b621-bc04a694cd8d">						<Properties>							<Name>POST</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>POST</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>POST</HTTPMethod>							<Handler>RegisterOrderForCampaignFromDevicePOST</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>			<URLTemplate uuid="9cc3bd66-0970-4456-bccc-cc42288753a3">				<Properties>					<Name>GetResponsibleForInspectionItem</Name>					<Synonym>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Get responsible for inspection item</v8:content>						</v8:item>					</Synonym>					<Comment>Получение ответственного за инспектируемый элемент</Comment>					<Template>/icommon/inspection-items/{ver}/get-responsible/{workstationId}/{inspectionItemId}/{defectId}</Template>				</Properties>				<ChildObjects>					<Method uuid="10ec8ca3-8fb5-408b-906a-e15c486b9f43">						<Properties>							<Name>GET</Name>							<Synonym>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>GET</v8:content>								</v8:item>							</Synonym>							<Comment/>							<HTTPMethod>GET</HTTPMethod>							<Handler>GetResponsibleForInspectionItemGET</Handler>						</Properties>					</Method>				</ChildObjects>			</URLTemplate>		</ChildObjects>	</HTTPService></MetaDataObject>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<HTTPService uuid="76418aee-b619-4d34-a0a2-123f798e4b2d">
+		<Properties>
+			<Name>Workstation_2_0</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Workstation 2.0</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<RootURL>Workstation_2_0</RootURL>
+			<ReuseSessions>AutoUse</ReuseSessions>
+			<SessionMaxAge>20</SessionMaxAge>
+		</Properties>
+		<ChildObjects>
+			<URLTemplate uuid="0235b89e-3bb1-4e32-aed6-ca1f054491d5">
+				<Properties>
+					<Name>GetWorkstationsList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>WorkPlace List</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЂР°Р±РѕС‡РёС… РјРµСЃС‚</Comment>
+					<Template>/icommon/workstations/{ver}</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="b20558e7-da95-4f20-ae66-3e1f960dbee6">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetWorkstationsListGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="815c14f2-5f1b-4263-8cde-0d55d385f8cc">
+				<Properties>
+					<Name>GetWorkstation</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get workstation</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·Р°РґР°РЅРЅРѕРµ СЂР°Р±РѕС‡РµРµ РјРµСЃС‚Рѕ</Comment>
+					<Template>/icommon/workstations/{ver}/{workstationId}</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="be3cc462-7e66-4574-89ff-45f6674d0ea2">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetWorkstationGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="db52c0fe-ef1a-47c2-a791-7d8eb603234f">
+				<Properties>
+					<Name>GetOrderByBarcode</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get order by barcode</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РџРѕР»СѓС‡Р°РµС‚ Р·Р°РєР°Р· РїРѕ РѕС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅРѕРјСѓ Р·РЅР°С‡РµРЅРёСЋ</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/by-barcode/{barcode}</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="c048c85c-5d06-4d9e-8d73-3a1932ecc3eb">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetOrderByBarcodeGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="e7faf971-055f-4df3-861a-173083646b61">
+				<Properties>
+					<Name>GetInspectionItemsList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get inspection items list</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє РёРЅСЃРїРµРєС†РёРѕРЅРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ</Comment>
+					<Template>/icommon/inspection-items/{ver}</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="924b07c7-3259-48c3-8ceb-71ab7cb0a097">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetInspectionItemsListGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="4d64ff2c-d172-408f-b7f2-46fbee6f63b0">
+				<Properties>
+					<Name>RegisterOrderQualityStatus</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Register order quality status</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>СЂРµРіРёСЃС‚СЂРёСЂСѓРµС‚ СЃС‚Р°С‚СѓСЃ РєР°С‡РµСЃС‚РІР° Р·Р°РєР°Р·Р°</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/register-quality-status</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="670e5444-5304-4889-a94f-97020bf3b46e">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RegisterOrderQualityStatusPOST</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="d60d3e2a-177f-48f2-a8bb-92fa4c6e81b3">
+						<Properties>
+							<Name>Option</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Option</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>OPTIONS</HTTPMethod>
+							<Handler>RegisterOrderQualityStatusOption</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="ffbd0db5-ecdb-41a5-9a38-5ff688e861ab">
+				<Properties>
+					<Name>CompleteOrderInspection</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Complete order inspection</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РћС‚РїСЂР°РІР»СЏРµС‚ СЃРёРіРЅР°Р» РЅР° Р·Р°РІРµСЂС€РµРЅРёРµ РёРЅСЃРїРµРєС†РёРё Р·Р°РєР°Р·Р° РЅР° Р Рњ</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/complete-inspection</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="92aca168-ded9-4978-bbb7-1eb4c0871c6d">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>CompleteOrderInspectionPOST</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="62ae8088-e5cb-4914-9186-b0707dc63026">
+						<Properties>
+							<Name>Option</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Option</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>OPTIONS</HTTPMethod>
+							<Handler>CompleteOrderInspectionOption</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="82d4bbba-a6e9-4da4-a2e6-034b92433b91">
+				<Properties>
+					<Name>GetConsernList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get consern list</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РџРѕР»СѓС‡Р°РµС‚ СЃРїРёСЃРѕРє РєРѕРЅСЃРµСЂРЅРѕРІ Р·Р°РєР°Р·Р°</Comment>
+					<Template>/icommon/orders/{ver}/{orderId}/concerns</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="dd97c9bf-a733-463a-9193-7b3acee56efa">
+						<Properties>
+							<Name>Get</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Get</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetConsernListGet</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="52609ddb-bb31-4440-b7d1-05e1c05ccf3d">
+				<Properties>
+					<Name>GetDefectList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get defect list</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє РґРµС„РµРєС‚РѕРІ РґР»СЏ СЂР°Р±РѕС‡РµРіРѕ РјРµСЃС‚Р°</Comment>
+					<Template>/icommon/workstations/{ver}/{workstationId}/defects</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="46fd74e0-e03a-4b96-ad37-b0115f4d9f8c">
+						<Properties>
+							<Name>Get</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Get</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetDefectListGet</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="83e38a85-0f8c-450e-80e7-6d3cceccc688">
+				<Properties>
+					<Name>RepairerCompleteInspection</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Repairer Complete Inspection</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р—Р°РІРµСЂС€РµРЅРёРµ РёРЅСЃРїРµРєС‚РёСЂРѕРІРЅРёСЏ Р·Р°РєР°Р·Р°/VIN РїРѕ СЃС‚Р°РЅС†РёРё repaire</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/repairer-complete-inspection</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="e7ad3857-7bc1-45ab-9846-03641592441b">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RepairerCompleteInspectionPOST</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="8b4bba4f-ba03-496f-a410-f0396d5f5afd">
+						<Properties>
+							<Name>Option</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Option</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>OPTIONS</HTTPMethod>
+							<Handler>RepairerCompleteInspectionOption</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="b998e97b-5fcc-4385-a8b4-5d8e8594f6b3">
+				<Properties>
+					<Name>RepairerCloseDefect</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Repairer close defect</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>СЂРµРіРёСЃС‚СЂРёСЂСѓРµС‚ СЂРµРјРѕРЅС‚ РґРµС„РµРєС‚Р°</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/repairer-close-defect</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="d146fcf2-4f52-40a4-ae7f-0da356adde26">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RepairerCloseDefectPOST</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="99b078c8-f046-43e0-a6e2-94d9a53b1151">
+						<Properties>
+							<Name>Option</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Option</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>OPTIONS</HTTPMethod>
+							<Handler>RepairerCloseDefectOption</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="7a69e9df-37d5-47dc-97b4-dc8862573882">
+				<Properties>
+					<Name>RepairerGetData</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Repairer get data</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РџРѕР»СѓС‡Р°РµС‚ РґР°РЅРЅС‹Рµ РґР»СЏ РёРЅС‚РµСЂС„РµР№СЃР° СЂРµРјРѕРЅС‚РЅРёРєР°</Comment>
+					<Template>/icommon/orders/{ver}/{orderId}/repairer-get-data</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="2fa477cd-f7f6-4871-b6d8-f204bdac4944">
+						<Properties>
+							<Name>Get</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Get</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>RepairerGetDataGet</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="2df9181a-a2be-49f4-ba73-14dcaefc62ab">
+				<Properties>
+					<Name>RepairerCompleteTask</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Repairer complete task</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РІС‹РїРѕР»РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/repairer-complete-task</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="0c73a36d-4a89-455a-bbd0-829e8f7c994d">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RepairerCompleteTaskPOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="34e67e89-a67e-4bcb-b2f6-d26e50054d32">
+				<Properties>
+					<Name>getCampaignsList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get campaigns list</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РџРѕР»СѓС‡Р°РµС‚ СЃРїРёСЃРѕРє РєР°РјРїР°РЅРёР№</Comment>
+					<Template>/icommon/orders/{ver}/{orderId}/compaigns</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="473c7894-b630-49bd-86c9-cbe660e4ee5c">
+						<Properties>
+							<Name>Get</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Get</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>getCampaignsListGet</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="9238d91a-1d7b-4f14-a15a-f1461b47aac3">
+				<Properties>
+					<Name>GetCheckList</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get check list</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РџРѕР»СѓС‡Р°РµС‚ СЃРїРёСЃРѕРє РєРѕРЅСЃРµСЂРЅРѕРІ РґР»СЏ РїСЂРѕРІРµСЂРєРё</Comment>
+					<Template>/icommon/orders/{ver}/{orderId}/check-list</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="9303bd5c-18d6-4145-a6cc-78ae1a4227f9">
+						<Properties>
+							<Name>Get</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Get</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetCheckListGet</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="bd9dfb50-0bb2-4500-b8c6-22d1105bda1e">
+				<Properties>
+					<Name>CheckComplete</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Check complete</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>СЂРµРіРёСЃС‚СЂРёСЂСѓРµС‚ РѕРїРµСЂР°С†РёСЋ РїРѕ РєРѕРЅС‚СЂРѕР»СЋ</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/check-complete</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="3ce9e4e9-921e-4884-89a1-c860d04462ab">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>CheckCompletePOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="5afe0ce0-7439-4391-b5a7-80e38c0358de">
+				<Properties>
+					<Name>GetImage</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get image</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/icommon/images/{ver}/{imageId}</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="b18bfcaf-22db-4f52-a7ef-dc4e036f247e">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetImageGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="691a81e1-49e2-4181-a6c6-cfbfdcbd3c39">
+				<Properties>
+					<Name>GetImageMap</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get image map</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/icommon/orders/{ver}/{orderId}/image-maps</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="103357b5-f8ab-4905-9c6b-cf7ec9666189">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetImageMapGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="7103fd87-6315-4ba0-9ac6-ce70f0bba391">
+				<Properties>
+					<Name>RemoveOrderFromCampaign</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Remove order from campaign</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РЎРЅСЏС‚РёРµ Р·Р°РєР°Р·Р° СЃ РєР°РјРїР°РЅРёРё</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{campaignId}/remove-from-campaign</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="2ac18ad0-ad08-4be5-85b5-8b3c42e7d9d9">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RemoveOrderFromCampaignPOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="447dbac0-d3ce-40cd-b413-90eb04b0bcff">
+				<Properties>
+					<Name>RegisterOrderQualityStatusFromDevice</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Register order quality status from device</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р РµРіРёСЃС‚СЂР°С†РёСЏ СЃС‚Р°С‚СѓСЃР° Р·Р°РєР°Р·Р°. РЎРѕР±С‹С‚РёРµ РѕС‚ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ.</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/register-quality-status</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="ed351672-726c-4e62-9de3-b0c72977ffb2">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RegisterOrderQualityStatusFromDevicePOST</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="309fd8ec-5a3d-4efb-9a73-d1ed476c2a5a">
+						<Properties>
+							<Name>Option</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Option</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>OPTIONS</HTTPMethod>
+							<Handler>RegisterOrderQualityStatusFromDeviceOption</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="c5d4ef46-602d-4b2d-9095-3a6faa864375">
+				<Properties>
+					<Name>RepairerCloseDefectFromDevice</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Repairer close defect from device</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р—Р°РєСЂС‹С‚РёРµ РґРµС„РµРєС‚Р°. РЎРѕР±С‹С‚РёРµ РѕС‚ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ.</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/repairer-close-defect</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="00891649-b261-4147-800b-90ca412d6618">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RepairerCloseDefectFromDevicePOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="0fd84922-bf47-49f3-b938-e422d5894fad">
+				<Properties>
+					<Name>RemoveOrderFromCampaignFromDevice</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Remove order from campaign from device</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РЎРЅСЏС‚РёРµ Р·Р°РєР°Р·Р° СЃ РєР°РјРїР°РЅРёРё. РЎРѕР±С‹С‚РёРµ РѕС‚ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ.</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/{campaignId}/remove-from-campaign</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="61dce866-8ece-427d-b13f-b1c3db4fb70b">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RemoveOrderFromCampaignFromDevicePOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="f063ab18-1b62-4ee3-b059-6586052a0d1f">
+				<Properties>
+					<Name>CheckCompleteFromDevice</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Check complete from device</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р РµРіРёСЃС‚СЂР°С†РёСЏ РѕРїРµСЂР°С†РёРё РїРѕ РєРѕРЅС‚СЂРѕР»СЋ. РЎРѕР±С‹С‚РёРµРћС‚РћР±РѕСЂСѓРґРѕРІР°РЅРёСЏ.</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/check-complete</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="9acf56a9-08e9-4a46-99d0-c84c2e36572a">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>CheckCompleteFromDevicePOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="15bea47c-4444-41d0-97b6-87925fbe0daa">
+				<Properties>
+					<Name>RegisterOrderForCampaignFromDevice</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Register order for campaign from device</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Р РµРіРёСЃС‚СЂР°С†РёСЏ Р·Р°РєР°Р·Р° РЅР° РєР°РјРїР°РЅРёСЋ. РЎРѕР±С‹С‚РёРµ РѕС‚ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ.</Comment>
+					<Template>/icommon/{workstationId}/orders/{ver}/{orderId}/{typeOrderId}/{campaignId}/register-for-campaign</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="d87df760-ddb7-4a71-b621-bc04a694cd8d">
+						<Properties>
+							<Name>POST</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>POST</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>RegisterOrderForCampaignFromDevicePOST</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="9cc3bd66-0970-4456-bccc-cc42288753a3">
+				<Properties>
+					<Name>GetResponsibleForInspectionItem</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Get responsible for inspection item</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>РџРѕР»СѓС‡РµРЅРёРµ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕРіРѕ Р·Р° РёРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№ СЌР»РµРјРµРЅС‚</Comment>
+					<Template>/icommon/inspection-items/{ver}/get-responsible/{workstationId}/{inspectionItemId}/{defectId}</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="10ec8ca3-8fb5-408b-906a-e15c486b9f43">
+						<Properties>
+							<Name>GET</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>GET</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>GetResponsibleForInspectionItemGET</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+		</ChildObjects>
+	</HTTPService>
+</MetaDataObject>

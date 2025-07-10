@@ -1,1 +1,142 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<CommandBarLocation>None</CommandBarLocation>	<VerticalScroll>useIfNecessary</VerticalScroll>	<ReportFormType>Main</ReportFormType>	<AutoShowState>Auto</AutoShowState>	<ReportResultViewMode>Auto</ReportResultViewMode>	<ViewModeApplicationOnSetReportResult>Auto</ViewModeApplicationOnSetReportResult>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<Autofill>false</Autofill>	</AutoCommandBar>	<ChildItems>		<UsualGroup name="ГруппаШапка" id="5">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Группа шапка</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Header group</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Группа шапка</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Header group</v8:content>				</v8:item>			</ToolTip>			<Group>Horizontal</Group>			<Behavior>Usual</Behavior>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="11"/>			<ChildItems>				<Button name="ФормаСформироватьОтчет" id="8">					<Type>UsualButton</Type>					<Height>1</Height>					<CommandName>Form.Command.СформироватьОтчет</CommandName>					<ExtendedTooltip name="ФормаСформироватьОтчетРасширеннаяПодсказка" id="12"/>				</Button>				<InputField name="ВариантОтчета" id="3">					<DataPath>Отчет.ВариантОтчета</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Вариант отчета</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Variant of report</v8:content>						</v8:item>					</Title>					<ContextMenu name="ВариантОтчетаКонтекстноеМеню" id="4"/>					<ExtendedTooltip name="ВариантОтчетаРасширеннаяПодсказка" id="13"/>				</InputField>				<InputField name="ДатаОтчета" id="1">					<DataPath>ДатаОтчета</DataPath>					<ContextMenu name="ДатаОтчетаКонтекстноеМеню" id="2"/>					<ExtendedTooltip name="ДатаОтчетаРасширеннаяПодсказка" id="14"/>				</InputField>			</ChildItems>		</UsualGroup>		<SpreadSheetDocumentField name="Результат" id="9">			<DataPath>Результат</DataPath>			<TitleLocation>None</TitleLocation>			<VerticalScrollBar>true</VerticalScrollBar>			<HorizontalScrollBar>true</HorizontalScrollBar>			<ContextMenu name="РезультатКонтекстноеМеню" id="10"/>			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="15"/>		</SpreadSheetDocumentField>	</ChildItems>	<Attributes>		<Attribute name="Отчет" id="1">			<Type>				<v8:Type>cfg:ReportObject.ОтчетПоУровнюДефектности</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>		</Attribute>		<Attribute name="ДатаОтчета" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Дата отчета</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Date of report</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:dateTime</v8:Type>				<v8:DateQualifiers>					<v8:DateFractions>DateTime</v8:DateFractions>				</v8:DateQualifiers>			</Type>		</Attribute>		<Attribute name="Результат" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Результат</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Result</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="СформироватьОтчет" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сформировать отчет</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Generate report</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сформировать отчет</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Generate report</v8:content>				</v8:item>			</ToolTip>			<Action>СформироватьОтчет</Action>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ReportFormType>Main</ReportFormType>
+	<AutoShowState>Auto</AutoShowState>
+	<ReportResultViewMode>Auto</ReportResultViewMode>
+	<ViewModeApplicationOnSetReportResult>Auto</ViewModeApplicationOnSetReportResult>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РЁР°РїРєР°" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р“СЂСѓРїРїР° С€Р°РїРєР°</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р“СЂСѓРїРїР° С€Р°РїРєР°</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РЁР°РїРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="11"/>
+			<ChildItems>
+				<Button name="Р¤РѕСЂРјР°РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊРћС‚С‡РµС‚" id="8">
+					<Type>UsualButton</Type>
+					<Height>1</Height>
+					<CommandName>Form.Command.РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊРћС‚С‡РµС‚</CommandName>
+					<ExtendedTooltip name="Р¤РѕСЂРјР°РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊРћС‚С‡РµС‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="12"/>
+				</Button>
+				<InputField name="Р’Р°СЂРёР°РЅС‚РћС‚С‡РµС‚Р°" id="3">
+					<DataPath>РћС‚С‡РµС‚.Р’Р°СЂРёР°РЅС‚РћС‚С‡РµС‚Р°</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р’Р°СЂРёР°РЅС‚ РѕС‚С‡РµС‚Р°</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Variant of report</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Р’Р°СЂРёР°РЅС‚РћС‚С‡РµС‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="4"/>
+					<ExtendedTooltip name="Р’Р°СЂРёР°РЅС‚РћС‚С‡РµС‚Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="13"/>
+				</InputField>
+				<InputField name="Р”Р°С‚Р°РћС‚С‡РµС‚Р°" id="1">
+					<DataPath>Р”Р°С‚Р°РћС‚С‡РµС‚Р°</DataPath>
+					<ContextMenu name="Р”Р°С‚Р°РћС‚С‡РµС‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+					<ExtendedTooltip name="Р”Р°С‚Р°РћС‚С‡РµС‚Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="14"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<SpreadSheetDocumentField name="Р РµР·СѓР»СЊС‚Р°С‚" id="9">
+			<DataPath>Р РµР·СѓР»СЊС‚Р°С‚</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<VerticalScrollBar>true</VerticalScrollBar>
+			<HorizontalScrollBar>true</HorizontalScrollBar>
+			<ContextMenu name="Р РµР·СѓР»СЊС‚Р°С‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="10"/>
+			<ExtendedTooltip name="Р РµР·СѓР»СЊС‚Р°С‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="15"/>
+		</SpreadSheetDocumentField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћС‚С‡РµС‚" id="1">
+			<Type>
+				<v8:Type>cfg:ReportObject.РћС‚С‡РµС‚РџРѕРЈСЂРѕРІРЅСЋР”РµС„РµРєС‚РЅРѕСЃС‚Рё</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Р”Р°С‚Р°РћС‚С‡РµС‚Р°" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”Р°С‚Р° РѕС‚С‡РµС‚Р°</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Date of report</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Р РµР·СѓР»СЊС‚Р°С‚" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р РµР·СѓР»СЊС‚Р°С‚</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Result</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊРћС‚С‡РµС‚" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РѕС‚С‡РµС‚</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate report</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РѕС‚С‡РµС‚</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate report</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊРћС‚С‡РµС‚</Action>
+		</Command>
+	</Commands>
+</Form>

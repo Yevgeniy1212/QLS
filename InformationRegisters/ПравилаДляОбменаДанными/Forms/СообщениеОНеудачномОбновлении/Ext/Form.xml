@@ -1,1 +1,300 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<Title>		<v8:item>			<v8:lang>ru</v8:lang>			<v8:content>Не удалось выполнить обновление</v8:content>		</v8:item>	</Title>	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoTitle>false</AutoTitle>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<Autofill>false</Autofill>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаНеудачнаяЗагрузка" id="24">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Неудачная загрузка</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<Representation>NormalSeparation</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаНеудачнаяЗагрузкаРасширеннаяПодсказка" id="25"/>			<ChildItems>				<PictureDecoration name="Значок" id="26">					<Title formatted="false">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Значок</v8:content>						</v8:item>					</Title>					<Picture>						<xr:Ref>CommonPicture.Ошибка32</xr:Ref>						<xr:LoadTransparent>false</xr:LoadTransparent>					</Picture>					<FileDragMode>AsFile</FileDragMode>					<ContextMenu name="ЗначокКонтекстноеМеню" id="27"/>					<ExtendedTooltip name="ЗначокРасширеннаяПодсказка" id="28"/>				</PictureDecoration>				<UsualGroup name="ГруппаНеудачнаяЗагрузкаТекст" id="39">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Неудачная загрузка текст</v8:content>						</v8:item>					</Title>					<Group>Vertical</Group>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="ГруппаНеудачнаяЗагрузкаТекстРасширеннаяПодсказка" id="40"/>					<ChildItems>						<LabelDecoration name="ТекстСообщенияОбОшибке" id="21">							<AutoMaxWidth>false</AutoMaxWidth>							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>При выполнении правил регистрации для программы&lt;b&gt;%1&lt;/b&gt;возникла ошибка:%2</v8:content>								</v8:item>							</Title>							<ContextMenu name="ТекстСообщенияОбОшибкеКонтекстноеМеню" id="22"/>							<ExtendedTooltip name="ТекстСообщенияОбОшибкеРасширеннаяПодсказка" id="23"/>						</LabelDecoration>						<Button name="ПерейтиВЖурналРегистрации" id="54">							<Type>Hyperlink</Type>							<CommandName>Form.Command.ПерейтиВЖурналРегистрации</CommandName>							<ExtendedTooltip name="ПерейтиВЖурналРегистрацииРасширеннаяПодсказка" id="55"/>						</Button>					</ChildItems>				</UsualGroup>			</ChildItems>		</UsualGroup>		<UsualGroup name="ГруппаЗагрузкиПравил" id="60">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Загрузки правил</v8:content>				</v8:item>			</Title>			<Group>Vertical</Group>			<Behavior>Usual</Behavior>			<Representation>NormalSeparation</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаЗагрузкиПравилРасширеннаяПодсказка" id="61"/>			<ChildItems>				<LabelDecoration name="ТекстПравилаИзФайла" id="41">					<AutoMaxWidth>false</AutoMaxWidth>					<Title formatted="false">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Для программы "%1"используются устаревшие правила %2, загруженные из файла. Рекомендуетсяиспользовать правила из конфигурации или загрузить новые правила из файла.</v8:content>						</v8:item>					</Title>					<ContextMenu name="ТекстПравилаИзФайлаКонтекстноеМеню" id="42"/>					<ExtendedTooltip name="ТекстПравилаИзФайлаРасширеннаяПодсказка" id="43"/>				</LabelDecoration>				<Button name="ЗагрузитьКомплектПравил" id="65">					<Type>Hyperlink</Type>					<CommandName>Form.Command.ЗагрузитьКомплектПравил</CommandName>					<Picture>						<xr:Ref>StdPicture.MoveRight</xr:Ref>						<xr:LoadTransparent>true</xr:LoadTransparent>					</Picture>					<ExtendedTooltip name="ЗагрузитьКомплектПравилРасширеннаяПодсказка" id="66"/>				</Button>			</ChildItems>		</UsualGroup>		<CommandBar name="КоманднаяПанель" id="13">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Командная панель</v8:content>				</v8:item>			</Title>			<HorizontalLocation>Right</HorizontalLocation>			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="14"/>			<ChildItems>				<Button name="Перезапустить" id="17">					<Type>CommandBarButton</Type>					<DefaultButton>true</DefaultButton>					<CommandName>Form.Command.Перезапустить</CommandName>					<ExtendedTooltip name="ПерезапуститьРасширеннаяПодсказка" id="18"/>				</Button>				<Button name="ЗавершитьРаботу" id="15">					<Type>CommandBarButton</Type>					<CommandName>Form.Command.ЗавершитьРаботу</CommandName>					<ExtendedTooltip name="ЗавершитьРаботуРасширеннаяПодсказка" id="16"/>				</Button>			</ChildItems>		</CommandBar>	</ChildItems>	<Attributes>		<Attribute name="Объект" id="1">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<MainAttribute>true</MainAttribute>		</Attribute>		<Attribute name="ВремяНачалаОбновления" id="2">			<Type>				<v8:Type>xs:dateTime</v8:Type>				<v8:DateQualifiers>					<v8:DateFractions>DateTime</v8:DateFractions>				</v8:DateQualifiers>			</Type>		</Attribute>		<Attribute name="ВремяОкончанияОбновления" id="4">			<Type>				<v8:Type>xs:dateTime</v8:Type>				<v8:DateQualifiers>					<v8:DateFractions>DateTime</v8:DateFractions>				</v8:DateQualifiers>			</Type>		</Attribute>		<Attribute name="ИмяПланаОбмена" id="5">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ПравилаКонвертацииОбъектов" id="6">			<Type>				<v8:Type>cfg:EnumRef.ВидыПравилДляОбменаДанными</v8:Type>			</Type>		</Attribute>		<Attribute name="ПравилаРегистрацииОбъектов" id="7">			<Type>				<v8:Type>cfg:EnumRef.ВидыПравилДляОбменаДанными</v8:Type>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="Перезапустить" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перезапустить и продолжить</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перезапустить</v8:content>				</v8:item>			</ToolTip>			<Action>Перезапустить</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ЗавершитьРаботу" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Завершить работу</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Завершить работу</v8:content>				</v8:item>			</ToolTip>			<Action>ЗавершитьРаботу</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ПерейтиВЖурналРегистрации" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Техническая информация об ошибке</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перейти в журнал регистрации</v8:content>				</v8:item>			</ToolTip>			<Action>ПерейтиВЖурналРегистрации</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ЗагрузитьКомплектПравил" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Загрузить новые правила</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Загрузить комплект правил</v8:content>				</v8:item>			</ToolTip>			<Action>ЗагрузитьКомплектПравил</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands>	<Parameters>		<Parameter name="ИмяПланаОбмена">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>		<Parameter name="ПодробноеПредставлениеОшибки">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>		<Parameter name="КраткоеПредставлениеОшибки">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>		<Parameter name="ВремяНачалаОбновления">			<Type>				<v8:Type>xs:dateTime</v8:Type>				<v8:DateQualifiers>					<v8:DateFractions>DateTime</v8:DateFractions>				</v8:DateQualifiers>			</Type>		</Parameter>		<Parameter name="ВремяОкончанияОбновления">			<Type>				<v8:Type>xs:dateTime</v8:Type>				<v8:DateQualifiers>					<v8:DateFractions>DateTime</v8:DateFractions>				</v8:DateQualifiers>			</Type>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>РќРµ СѓРґР°Р»РѕСЃСЊ РІС‹РїРѕР»РЅРёС‚СЊ РѕР±РЅРѕРІР»РµРЅРёРµ</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РќРµСѓРґР°С‡РЅР°СЏР—Р°РіСЂСѓР·РєР°" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќРµСѓРґР°С‡РЅР°СЏ Р·Р°РіСЂСѓР·РєР°</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РќРµСѓРґР°С‡РЅР°СЏР—Р°РіСЂСѓР·РєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="25"/>
+			<ChildItems>
+				<PictureDecoration name="Р—РЅР°С‡РѕРє" id="26">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р—РЅР°С‡РѕРє</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.РћС€РёР±РєР°32</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Р—РЅР°С‡РѕРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="27"/>
+					<ExtendedTooltip name="Р—РЅР°С‡РѕРєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="28"/>
+				</PictureDecoration>
+				<UsualGroup name="Р“СЂСѓРїРїР°РќРµСѓРґР°С‡РЅР°СЏР—Р°РіСЂСѓР·РєР°РўРµРєСЃС‚" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќРµСѓРґР°С‡РЅР°СЏ Р·Р°РіСЂСѓР·РєР° С‚РµРєСЃС‚</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РќРµСѓРґР°С‡РЅР°СЏР—Р°РіСЂСѓР·РєР°РўРµРєСЃС‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="40"/>
+					<ChildItems>
+						<LabelDecoration name="РўРµРєСЃС‚РЎРѕРѕР±С‰РµРЅРёСЏРћР±РћС€РёР±РєРµ" id="21">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РџСЂРё РІС‹РїРѕР»РЅРµРЅРёРё РїСЂР°РІРёР» СЂРµРіРёСЃС‚СЂР°С†РёРё РґР»СЏ РїСЂРѕРіСЂР°РјРјС‹
+&lt;b&gt;%1&lt;/b&gt;
+РІРѕР·РЅРёРєР»Р° РѕС€РёР±РєР°:
+%2</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="РўРµРєСЃС‚РЎРѕРѕР±С‰РµРЅРёСЏРћР±РћС€РёР±РєРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="22"/>
+							<ExtendedTooltip name="РўРµРєСЃС‚РЎРѕРѕР±С‰РµРЅРёСЏРћР±РћС€РёР±РєРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="23"/>
+						</LabelDecoration>
+						<Button name="РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё" id="54">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё</CommandName>
+							<ExtendedTooltip name="РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="55"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°Р—Р°РіСЂСѓР·РєРёРџСЂР°РІРёР»" id="60">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р—Р°РіСЂСѓР·РєРё РїСЂР°РІРёР»</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°Р—Р°РіСЂСѓР·РєРёРџСЂР°РІРёР»Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="61"/>
+			<ChildItems>
+				<LabelDecoration name="РўРµРєСЃС‚РџСЂР°РІРёР»Р°РР·Р¤Р°Р№Р»Р°" id="41">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”Р»СЏ РїСЂРѕРіСЂР°РјРјС‹ "%1"
+РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ СѓСЃС‚Р°СЂРµРІС€РёРµ РїСЂР°РІРёР»Р° %2, Р·Р°РіСЂСѓР¶РµРЅРЅС‹Рµ РёР· С„Р°Р№Р»Р°. Р РµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ
+РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂР°РІРёР»Р° РёР· РєРѕРЅС„РёРіСѓСЂР°С†РёРё РёР»Рё Р·Р°РіСЂСѓР·РёС‚СЊ РЅРѕРІС‹Рµ РїСЂР°РІРёР»Р° РёР· С„Р°Р№Р»Р°.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РўРµРєСЃС‚РџСЂР°РІРёР»Р°РР·Р¤Р°Р№Р»Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="42"/>
+					<ExtendedTooltip name="РўРµРєСЃС‚РџСЂР°РІРёР»Р°РР·Р¤Р°Р№Р»Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="43"/>
+				</LabelDecoration>
+				<Button name="Р—Р°РіСЂСѓР·РёС‚СЊРљРѕРјРїР»РµРєС‚РџСЂР°РІРёР»" id="65">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.Р—Р°РіСЂСѓР·РёС‚СЊРљРѕРјРїР»РµРєС‚РџСЂР°РІРёР»</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.MoveRight</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="Р—Р°РіСЂСѓР·РёС‚СЊРљРѕРјРїР»РµРєС‚РџСЂР°РІРёР»Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="66"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<CommandBar name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљРѕРјР°РЅРґРЅР°СЏ РїР°РЅРµР»СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="14"/>
+			<ChildItems>
+				<Button name="РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ" id="17">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ</CommandName>
+					<ExtendedTooltip name="РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="18"/>
+				</Button>
+				<Button name="Р—Р°РІРµСЂС€РёС‚СЊР Р°Р±РѕС‚Сѓ" id="15">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Р—Р°РІРµСЂС€РёС‚СЊР Р°Р±РѕС‚Сѓ</CommandName>
+					<ExtendedTooltip name="Р—Р°РІРµСЂС€РёС‚СЊР Р°Р±РѕС‚СѓР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="16"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±СЉРµРєС‚" id="1">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Р’СЂРµРјСЏРќР°С‡Р°Р»Р°РћР±РЅРѕРІР»РµРЅРёСЏ" id="2">
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Р’СЂРµРјСЏРћРєРѕРЅС‡Р°РЅРёСЏРћР±РЅРѕРІР»РµРЅРёСЏ" id="4">
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РРјСЏРџР»Р°РЅР°РћР±РјРµРЅР°" id="5">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РџСЂР°РІРёР»Р°РљРѕРЅРІРµСЂС‚Р°С†РёРёРћР±СЉРµРєС‚РѕРІ" id="6">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р’РёРґС‹РџСЂР°РІРёР»Р”Р»СЏРћР±РјРµРЅР°Р”Р°РЅРЅС‹РјРё</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РџСЂР°РІРёР»Р°Р РµРіРёСЃС‚СЂР°С†РёРёРћР±СЉРµРєС‚РѕРІ" id="7">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р’РёРґС‹РџСЂР°РІРёР»Р”Р»СЏРћР±РјРµРЅР°Р”Р°РЅРЅС‹РјРё</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ Рё РїСЂРѕРґРѕР»Р¶РёС‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Р—Р°РІРµСЂС€РёС‚СЊР Р°Р±РѕС‚Сѓ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р—Р°РІРµСЂС€РёС‚СЊ СЂР°Р±РѕС‚Сѓ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р—Р°РІРµСЂС€РёС‚СЊ СЂР°Р±РѕС‚Сѓ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р—Р°РІРµСЂС€РёС‚СЊР Р°Р±РѕС‚Сѓ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўРµС…РЅРёС‡РµСЃРєР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕС€РёР±РєРµ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµР№С‚Рё РІ Р¶СѓСЂРЅР°Р» СЂРµРіРёСЃС‚СЂР°С†РёРё</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Р—Р°РіСЂСѓР·РёС‚СЊРљРѕРјРїР»РµРєС‚РџСЂР°РІРёР»" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р—Р°РіСЂСѓР·РёС‚СЊ РЅРѕРІС‹Рµ РїСЂР°РІРёР»Р°</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р—Р°РіСЂСѓР·РёС‚СЊ РєРѕРјРїР»РµРєС‚ РїСЂР°РІРёР»</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р—Р°РіСЂСѓР·РёС‚СЊРљРѕРјРїР»РµРєС‚РџСЂР°РІРёР»</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="РРјСЏРџР»Р°РЅР°РћР±РјРµРЅР°">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="РџРѕРґСЂРѕР±РЅРѕРµРџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµРћС€РёР±РєРё">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="РљСЂР°С‚РєРѕРµРџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµРћС€РёР±РєРё">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="Р’СЂРµРјСЏРќР°С‡Р°Р»Р°РћР±РЅРѕРІР»РµРЅРёСЏ">
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="Р’СЂРµРјСЏРћРєРѕРЅС‡Р°РЅРёСЏРћР±РЅРѕРІР»РµРЅРёСЏ">
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

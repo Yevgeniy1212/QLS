@@ -1,1 +1,1646 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>	<AutoTitle>false</AutoTitle>	<CommandBarLocation>None</CommandBarLocation>	<VerticalScroll>useIfNecessary</VerticalScroll>	<MobileDeviceCommandBarContent>		<xr:Item>			<xr:Presentation/>			<xr:CheckState>0</xr:CheckState>			<xr:Value xsi:type="xs:string">КоманднаяПанельЕще</xr:Value>		</xr:Item>		<xr:Item>			<xr:Presentation/>			<xr:CheckState>0</xr:CheckState>			<xr:Value xsi:type="xs:string">Язык</xr:Value>		</xr:Item>	</MobileDeviceCommandBarContent>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>	<Events>		<Event name="OnSaveDataInSettingsAtServer">ПриСохраненииДанныхВНастройкахНаСервере</Event>		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>		<Event name="NotificationProcessing">ОбработкаОповещения</Event>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаКоманднаяПанель" id="116" DisplayImportance="VeryHigh">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Копий и автосумма</v8:content>				</v8:item>			</Title>			<Group>AlwaysHorizontal</Group>			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="143"/>			<ChildItems>				<CommandBar name="КоманднаяПанельЛеваяЧасть" id="114">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Командная панель левая часть</v8:content>						</v8:item>					</Title>					<HorizontalStretch>false</HorizontalStretch>					<ExtendedTooltip name="КоманднаяПанельЛеваяЧастьExtendedTooltip" id="144"/>					<ChildItems>						<Button name="КнопкаПечатьКоманднаяПанель" id="38">							<Type>CommandBarButton</Type>							<DefaultButton>true</DefaultButton>							<SkipOnInput>false</SkipOnInput>							<CommandName>Form.Command.Печать</CommandName>							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>							<ExtendedTooltip name="КнопкаПечатьКоманднаяПанельExtendedTooltip" id="145"/>						</Button>						<Button name="КнопкаПредварительныйПросмотр" id="214">							<Type>CommandBarButton</Type>							<Representation>Picture</Representation>							<CommandName>Form.Item.ТекущаяПечатнаяФорма.StandardCommand.Preview</CommandName>							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>							<ExtendedTooltip name="КнопкаПредварительныйПросмотрРасширеннаяПодсказка" id="215"/>						</Button>					</ChildItems>				</CommandBar>				<UsualGroup name="НастройкаКоличестваКопий" id="275" DisplayImportance="VeryHigh">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройка количества копий</v8:content>						</v8:item>					</Title>					<Group>AlwaysHorizontal</Group>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="НастройкаКоличестваКопийРасширеннаяПодсказка" id="276"/>					<ChildItems>						<InputField name="Копий" id="117" DisplayImportance="VeryHigh">							<DataPath>Копий</DataPath>							<TitleLocation>Left</TitleLocation>							<ToolTip>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Количество копий</v8:content>								</v8:item>							</ToolTip>							<Width>4</Width>							<SpinButton>true</SpinButton>							<MinValue xsi:type="xs:decimal">1</MinValue>							<MaxValue xsi:type="xs:decimal">999</MaxValue>							<ContextMenu name="КопийКонтекстноеМеню" id="118"/>							<ExtendedTooltip name="КопийExtendedTooltip" id="146"/>							<Events>								<Event name="OnChange">КопийПриИзменении</Event>							</Events>						</InputField>						<CheckBoxField name="ФлажокПодписьИПечать" id="281" DisplayImportance="VeryHigh">							<DataPath>ПодписьИПечать</DataPath>							<TitleLocation>Right</TitleLocation>							<ToolTipRepresentation>Button</ToolTipRepresentation>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="ФлажокПодписьИПечатьКонтекстноеМеню" id="282"/>							<ExtendedTooltip name="ФлажокПодписьИПечатьРасширеннаяПодсказка" id="283">								<Title formatted="true">									<v8:item>										<v8:lang>ru</v8:lang>										<v8:content>Добавить факсимильную подпись и печать в печатную форму</v8:content>									</v8:item>								</Title>							</ExtendedTooltip>							<Events>								<Event name="OnChange">ФлажокПодписьИПечатьПриИзменении</Event>							</Events>						</CheckBoxField>					</ChildItems>				</UsualGroup>				<CommandBar name="КоманднаяПанельПраваяЧасть" id="115">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Командная панель правая часть</v8:content>						</v8:item>					</Title>					<HorizontalStretch>false</HorizontalStretch>					<ExtendedTooltip name="КоманднаяПанельПраваяЧастьExtendedTooltip" id="147"/>					<ChildItems>						<Button name="КнопкаПоказатьСкрытьНастройкуКомплекта" id="101">							<Type>CommandBarButton</Type>							<CommandName>Form.Command.ПоказатьСкрытьНастройкуКоличестваКопий</CommandName>							<ExtendedTooltip name="КнопкаПоказатьСкрытьНастройкуКомплектаExtendedTooltip" id="149"/>						</Button>						<ButtonGroup name="ГруппаРедактированиеПечатнойФормы" id="142">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Редактирование печатной формы</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="ГруппаРедактированиеПечатнойФормыExtendedTooltip" id="156"/>							<ChildItems>								<Button name="КнопкаРедактирование" id="141">									<Type>CommandBarButton</Type>									<CommandName>Form.Command.ПереключитьРедактирование</CommandName>									<ExtendedTooltip name="КнопкаРедактированиеExtendedTooltip" id="157"/>								</Button>								<Popup name="Язык" id="284">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Язык</v8:content>										</v8:item>									</Title>									<ExtendedTooltip name="ЯзыкРасширеннаяПодсказка" id="285"/>								</Popup>							</ChildItems>						</ButtonGroup>						<ButtonGroup name="ГруппаСохранитьОтправить" id="108">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Сохранить отправить</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="ГруппаСохранитьОтправитьExtendedTooltip" id="158"/>							<ChildItems>								<Button name="КнопкаСохранить" id="102">									<Type>CommandBarButton</Type>									<CommandName>Form.Command.Сохранить</CommandName>									<ExtendedTooltip name="КнопкаСохранитьExtendedTooltip" id="159"/>								</Button>								<Button name="КнопкаОтправить" id="103">									<Type>CommandBarButton</Type>									<CommandName>Form.Command.Отправить</CommandName>									<ExtendedTooltip name="КнопкаОтправитьExtendedTooltip" id="160"/>								</Button>							</ChildItems>						</ButtonGroup>						<ButtonGroup name="ГруппаНавигация" id="109">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Навигация</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="ГруппаНавигацияExtendedTooltip" id="161"/>							<ChildItems>								<Button name="КнопкаПерейтиКДокументу" id="64">									<Type>CommandBarButton</Type>									<SkipOnInput>false</SkipOnInput>									<CommandName>Form.Command.ПерейтиКДокументу</CommandName>									<ExtendedTooltip name="КнопкаПерейтиКДокументуExtendedTooltip" id="162"/>								</Button>							</ChildItems>						</ButtonGroup>					</ChildItems>				</CommandBar>				<UsualGroup name="ГруппаПоказатель" id="252">					<EnableContentChange>true</EnableContentChange>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Показатель</v8:content>						</v8:item>					</Title>					<HorizontalStretch>false</HorizontalStretch>					<Group>AlwaysHorizontal</Group>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="ГруппаПоказательРасширеннаяПодсказка" id="253"/>					<ChildItems>						<InputField name="Показатель" id="254">							<DataPath>Показатель</DataPath>							<ReadOnly>true</ReadOnly>							<TitleLocation>None</TitleLocation>							<Width>10</Width>							<HorizontalStretch>false</HorizontalStretch>							<ContextMenu name="ПоказательКонтекстноеМеню" id="255"/>							<ExtendedTooltip name="ПоказательРасширеннаяПодсказка" id="256"/>						</InputField>						<CommandBar name="КомандыПоказателей" id="257">							<EnableContentChange>true</EnableContentChange>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Показатели</v8:content>								</v8:item>							</Title>							<ToolTip>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Выполняет расчет определенного или всех показателей выделенных ячеек</v8:content>								</v8:item>							</ToolTip>							<ExtendedTooltip name="КомандыПоказателейРасширеннаяПодсказка" id="258"/>							<ChildItems>								<Popup name="КомандыВидовПоказателей" id="259">									<EnableContentChange>true</EnableContentChange>									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Виды показателей</v8:content>										</v8:item>									</Title>									<Picture>										<xr:Ref>CommonPicture.Сумма</xr:Ref>										<xr:LoadTransparent>false</xr:LoadTransparent>									</Picture>									<Representation>Picture</Representation>									<ExtendedTooltip name="КомандыВидовПоказателейРасширеннаяПодсказка" id="260"/>									<ChildItems>										<Button name="РассчитатьСумму" id="261">											<Type>CommandBarButton</Type>											<CommandName>Form.Command.РассчитатьСумму</CommandName>											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Сумма</v8:content>												</v8:item>											</Title>											<ExtendedTooltip name="РассчитатьСуммуРасширеннаяПодсказка" id="262"/>										</Button>										<Button name="РассчитатьКоличество" id="263">											<Type>CommandBarButton</Type>											<CommandName>Form.Command.РассчитатьКоличество</CommandName>											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Количество</v8:content>												</v8:item>											</Title>											<ExtendedTooltip name="РассчитатьКоличествоРасширеннаяПодсказка" id="264"/>										</Button>										<Button name="РассчитатьСреднее" id="265">											<Type>CommandBarButton</Type>											<CommandName>Form.Command.РассчитатьСреднее</CommandName>											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Среднее</v8:content>												</v8:item>											</Title>											<ExtendedTooltip name="РассчитатьСреднееРасширеннаяПодсказка" id="266"/>										</Button>										<Button name="РассчитатьМинимум" id="267">											<Type>CommandBarButton</Type>											<CommandName>Form.Command.РассчитатьМинимум</CommandName>											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Минимум</v8:content>												</v8:item>											</Title>											<ExtendedTooltip name="РассчитатьМинимумРасширеннаяПодсказка" id="268"/>										</Button>										<Button name="РассчитатьМаксимум" id="269">											<Type>CommandBarButton</Type>											<CommandName>Form.Command.РассчитатьМаксимум</CommandName>											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Максимум</v8:content>												</v8:item>											</Title>											<ExtendedTooltip name="РассчитатьМаксимумРасширеннаяПодсказка" id="270"/>										</Button>										<ButtonGroup name="ВсеПоказатели" id="271">											<EnableContentChange>true</EnableContentChange>											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Все показатели</v8:content>												</v8:item>											</Title>											<ExtendedTooltip name="ВсеПоказателиРасширеннаяПодсказка" id="272"/>											<ChildItems>												<Button name="РассчитатьВсеПоказатели" id="273">													<Type>CommandBarButton</Type>													<CommandName>Form.Command.РассчитатьВсеПоказатели</CommandName>													<Title>														<v8:item>															<v8:lang>ru</v8:lang>															<v8:content>Все показатели</v8:content>														</v8:item>													</Title>													<ExtendedTooltip name="РассчитатьВсеПоказателиРасширеннаяПодсказка" id="274"/>												</Button>											</ChildItems>										</ButtonGroup>									</ChildItems>								</Popup>							</ChildItems>						</CommandBar>					</ChildItems>				</UsualGroup>				<CommandBar name="КоманднаяПанельЕще" id="192">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Командная панель еще</v8:content>						</v8:item>					</Title>					<CommandSource>Form</CommandSource>					<ExtendedTooltip name="КоманднаяПанельЕщеРасширеннаяПодсказка" id="193"/>					<ChildItems>						<Button name="КнопкаПечатьВсеДействия" id="120">							<Type>CommandBarButton</Type>							<SkipOnInput>false</SkipOnInput>							<CommandName>Form.Command.Печать</CommandName>							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>							<ExtendedTooltip name="КнопкаПечатьВсеДействияExtendedTooltip" id="148"/>						</Button>						<Button name="КнопкаПредварительныйПросмотрВсеДействия" id="216">							<Type>CommandBarButton</Type>							<CommandName>Form.Item.ТекущаяПечатнаяФорма.StandardCommand.Preview</CommandName>							<ExtendedTooltip name="КнопкаПредварительныйПросмотрВсеДействияРасширеннаяПодсказка" id="217"/>						</Button>						<Button name="КнопкаПараметрыСтраницыВсеДействия" id="218">							<Type>CommandBarButton</Type>							<CommandName>Form.Item.ТекущаяПечатнаяФорма.StandardCommand.PageSetup</CommandName>							<ExtendedTooltip name="КнопкаПараметрыСтраницыВсеДействияРасширеннаяПодсказка" id="219"/>						</Button>						<ButtonGroup name="ГруппаСохранитьОтправитьВсеДействия" id="194">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Группа сохранить отправить</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="ГруппаСохранитьОтправитьВсеДействияРасширеннаяПодсказка" id="195"/>							<ChildItems>								<Button name="КнопкаСохранитьВсеДействия" id="196">									<Type>CommandBarButton</Type>									<CommandName>Form.Command.Сохранить</CommandName>									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>									<ExtendedTooltip name="КнопкаСохранитьВсеДействияРасширеннаяПодсказка" id="197"/>								</Button>								<Button name="КнопкаОтправитьВсеДействия" id="198">									<Type>CommandBarButton</Type>									<CommandName>Form.Command.Отправить</CommandName>									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>									<ExtendedTooltip name="КнопкаОтправитьВсеДействияРасширеннаяПодсказка" id="199"/>								</Button>							</ChildItems>						</ButtonGroup>						<ButtonGroup name="ГруппаРедактированиеМакета" id="137">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Редактирование макета</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="ГруппаРедактированиеМакетаExtendedTooltip" id="163"/>							<ChildItems>								<Button name="КнопкаИзменитьМакет" id="138">									<Type>CommandBarButton</Type>									<CommandName>Form.Command.ИзменитьМакет</CommandName>									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>									<ExtendedTooltip name="КнопкаИзменитьМакетExtendedTooltip" id="164"/>								</Button>								<Button name="КнопкаПерейтиКУправлениюМакетами" id="81">									<Type>CommandBarButton</Type>									<SkipOnInput>false</SkipOnInput>									<CommandName>Form.Command.ПерейтиКУправлениюМакетами</CommandName>									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>									<ExtendedTooltip name="КнопкаПерейтиКУправлениюМакетамиExtendedTooltip" id="165"/>								</Button>							</ChildItems>						</ButtonGroup>						<Button name="Справка" id="277">							<Type>CommandBarButton</Type>							<Representation>Picture</Representation>							<CommandName>Form.StandardCommand.Help</CommandName>							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="278"/>						</Button>					</ChildItems>				</CommandBar>			</ChildItems>		</UsualGroup>		<UsualGroup name="ГруппаДополнительнаяИнформация" id="226">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Дополнительная информация</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаДополнительнаяИнформацияРасширеннаяПодсказка" id="227"/>			<ChildItems>				<PictureDecoration name="КартинкаИнформации" id="223">					<Title formatted="false">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Картинка информации</v8:content>						</v8:item>					</Title>					<Picture>						<xr:Ref>StdPicture.Information</xr:Ref>						<xr:LoadTransparent>true</xr:LoadTransparent>					</Picture>					<FileDragMode>AsFile</FileDragMode>					<ContextMenu name="КартинкаИнформацииКонтекстноеМеню" id="224"/>					<ExtendedTooltip name="КартинкаИнформацииРасширеннаяПодсказка" id="225"/>				</PictureDecoration>				<LabelDecoration name="ДополнительнаяИнформация" id="220">					<AutoMaxWidth>false</AutoMaxWidth>					<HorizontalStretch>true</HorizontalStretch>					<Title formatted="true">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>С этим контрагентом возможен электронный документооборот. &lt;link ПерейтиКНастройкамЭлектронногоДокументооборота&gt;Перейти к настройкам&lt;/&gt;</v8:content>						</v8:item>					</Title>					<VerticalAlign>Center</VerticalAlign>					<ContextMenu name="ДополнительнаяИнформацияКонтекстноеМеню" id="221"/>					<ExtendedTooltip name="ДополнительнаяИнформацияРасширеннаяПодсказка" id="222"/>					<Events>						<Event name="URLProcessing">ДополнительнаяИнформацияОбработкаНавигационнойСсылки</Event>					</Events>				</LabelDecoration>			</ChildItems>		</UsualGroup>		<UsualGroup name="ГруппаПечатныеФормы" id="119">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Печатные формы</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ChildItemsWidth>LeftNarrowest</ChildItemsWidth>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаПечатныеФормыExtendedTooltip" id="166"/>			<ChildItems>				<Table name="НастройкиПечатныхФорм" id="86" DisplayImportance="VeryLow">					<Representation>List</Representation>					<ChangeRowSet>false</ChangeRowSet>					<Width>30</Width>					<AutoMaxWidth>false</AutoMaxWidth>					<MaxWidth>50</MaxWidth>					<FooterHeight>3</FooterHeight>					<AutoInsertNewRow>true</AutoInsertNewRow>					<EnableStartDrag>true</EnableStartDrag>					<EnableDrag>true</EnableDrag>					<FileDragMode>AsFile</FileDragMode>					<DataPath>НастройкиПечатныхФорм</DataPath>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Настройки печатных форм</v8:content>						</v8:item>					</Title>					<CommandSet>						<ExcludedCommand>Add</ExcludedCommand>						<ExcludedCommand>CancelSearch</ExcludedCommand>						<ExcludedCommand>Change</ExcludedCommand>						<ExcludedCommand>Copy</ExcludedCommand>						<ExcludedCommand>Delete</ExcludedCommand>						<ExcludedCommand>EndEdit</ExcludedCommand>						<ExcludedCommand>Find</ExcludedCommand>						<ExcludedCommand>OutputList</ExcludedCommand>						<ExcludedCommand>SelectAll</ExcludedCommand>						<ExcludedCommand>SortListAsc</ExcludedCommand>						<ExcludedCommand>SortListDesc</ExcludedCommand>					</CommandSet>					<RowFilter xsi:nil="true"/>					<ContextMenu name="НастройкиПечатныхФормКонтекстноеМеню" id="87">						<ChildItems>							<ButtonGroup name="ГруппаНастройкаКомплектаКонтекстноеМеню" id="107">								<Title>									<v8:item>										<v8:lang>ru</v8:lang>										<v8:content>Настройка комплекта контекстное меню</v8:content>									</v8:item>								</Title>								<ExtendedTooltip name="ГруппаНастройкаКомплектаКонтекстноеМенюExtendedTooltip" id="167"/>								<ChildItems>									<Button name="КнопкаУстановитьФлажкиКонтекстноеМеню" id="99">										<Type>CommandBarButton</Type>										<CommandName>Form.Command.УстановитьФлажки</CommandName>										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаУстановитьФлажкиКонтекстноеМенюExtendedTooltip" id="168"/>									</Button>									<Button name="КнопкаСнятьФлажкиКонтекстноеМеню" id="100">										<Type>CommandBarButton</Type>										<CommandName>Form.Command.СнятьФлажки</CommandName>										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаСнятьФлажкиКонтекстноеМенюExtendedTooltip" id="169"/>									</Button>									<Button name="КнопкаПереместитьВверхКонтекстноеМеню" id="110">										<Type>CommandBarButton</Type>										<CommandName>Form.Item.НастройкиПечатныхФорм.StandardCommand.MoveUp</CommandName>										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаПереместитьВверхКонтекстноеМенюExtendedTooltip" id="170"/>									</Button>									<Button name="КнопкаПереместитьВнизКонтекстноеМеню" id="111">										<Type>CommandBarButton</Type>										<CommandName>Form.Item.НастройкиПечатныхФорм.StandardCommand.MoveDown</CommandName>										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаПереместитьВнизКонтекстноеМенюExtendedTooltip" id="171"/>									</Button>									<Button name="КнопкаСброситьНастройкиКонтекстноеМеню" id="128">										<Type>CommandBarButton</Type>										<CommandName>Form.Command.СброситьНастройки</CommandName>										<ExtendedTooltip name="КнопкаСброситьНастройкиКонтекстноеМенюExtendedTooltip" id="172"/>									</Button>								</ChildItems>							</ButtonGroup>							<Button name="НастройкиПечатныхФормКонтекстноеМенюКопироватьВБуферОбмена" id="127">								<Type>CommandBarButton</Type>								<CommandName>Form.Item.НастройкиПечатныхФорм.StandardCommand.CopyToClipboard</CommandName>								<ExtendedTooltip name="НастройкиПечатныхФормКонтекстноеМенюКопироватьВБуферОбменаExtendedTooltip" id="173"/>							</Button>						</ChildItems>					</ContextMenu>					<AutoCommandBar name="НастройкиПечатныхФормКоманднаяПанель" id="88">						<Autofill>false</Autofill>						<ChildItems>							<ButtonGroup name="ГруппаНастройкаКомплектаКоманднаяПанель" id="121">								<Title>									<v8:item>										<v8:lang>ru</v8:lang>										<v8:content>Настройка комплекта</v8:content>									</v8:item>								</Title>								<ExtendedTooltip name="ГруппаНастройкаКомплектаКоманднаяПанельРасширеннаяПодсказка" id="150"/>								<ChildItems>									<Button name="КнопкаУстановитьФлажкиПодменю" id="122">										<Type>CommandBarButton</Type>										<CommandName>Form.Command.УстановитьФлажки</CommandName>										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаУстановитьФлажкиПодменюExtendedTooltip" id="151"/>									</Button>									<Button name="КнопкаСнятьФлажкиПодменю" id="123">										<Type>CommandBarButton</Type>										<CommandName>Form.Command.СнятьФлажки</CommandName>										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаСнятьФлажкиПодменюExtendedTooltip" id="152"/>									</Button>									<Button name="КнопкаПереместитьВверхПодменю" id="124">										<Type>CommandBarButton</Type>										<CommandName>Form.Item.НастройкиПечатныхФорм.StandardCommand.MoveUp</CommandName>										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаПереместитьВверхПодменюExtendedTooltip" id="153"/>									</Button>									<Button name="КнопкаПереместитьВнизПодменю" id="125">										<Type>CommandBarButton</Type>										<CommandName>Form.Item.НастройкиПечатныхФорм.StandardCommand.MoveDown</CommandName>										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаПереместитьВнизПодменюExtendedTooltip" id="154"/>									</Button>									<Button name="КнопкаСброситьНастройкиПодменю" id="126">										<Type>CommandBarButton</Type>										<CommandName>Form.Command.СброситьНастройки</CommandName>										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>										<ExtendedTooltip name="КнопкаСброситьНастройкиПодменюExtendedTooltip" id="155"/>									</Button>								</ChildItems>							</ButtonGroup>						</ChildItems>					</AutoCommandBar>					<ExtendedTooltip name="НастройкиПечатныхФормExtendedTooltip" id="174"/>					<SearchStringAddition name="НастройкиПечатныхФормСтрокаПоиска" id="200">						<AdditionSource>							<Item>НастройкиПечатныхФорм</Item>							<Type>SearchStringRepresentation</Type>						</AdditionSource>						<ContextMenu name="НастройкиПечатныхФормСтрокаПоискаКонтекстноеМеню" id="201"/>						<ExtendedTooltip name="НастройкиПечатныхФормСтрокаПоискаРасширеннаяПодсказка" id="202"/>					</SearchStringAddition>					<ViewStatusAddition name="НастройкиПечатныхФормСостояниеПросмотра" id="203">						<AdditionSource>							<Item>НастройкиПечатныхФорм</Item>							<Type>ViewStatusRepresentation</Type>						</AdditionSource>						<ContextMenu name="НастройкиПечатныхФормСостояниеПросмотраКонтекстноеМеню" id="204"/>						<ExtendedTooltip name="НастройкиПечатныхФормСостояниеПросмотраРасширеннаяПодсказка" id="205"/>					</ViewStatusAddition>					<SearchControlAddition name="НастройкиПечатныхФормУправлениеПоиском" id="206">						<AdditionSource>							<Item>НастройкиПечатныхФорм</Item>							<Type>SearchControl</Type>						</AdditionSource>						<ContextMenu name="НастройкиПечатныхФормУправлениеПоискомКонтекстноеМеню" id="207"/>						<ExtendedTooltip name="НастройкиПечатныхФормУправлениеПоискомРасширеннаяПодсказка" id="208"/>					</SearchControlAddition>					<Events>						<Event name="BeforeAddRow">НастройкиПечатныхФормПередНачаломДобавления</Event>						<Event name="OnActivateRow">НастройкиПечатныхФормПриАктивизацииСтроки</Event>						<Event name="OnChange">НастройкиПечатныхФормПриИзменении</Event>					</Events>					<ChildItems>						<CheckBoxField name="НастройкиПечатныхФормПечатать" id="93">							<DataPath>НастройкиПечатныхФорм.Печатать</DataPath>							<TitleLocation>None</TitleLocation>							<EditMode>EnterOnInput</EditMode>							<HeaderPicture>								<xr:Ref>StdPicture.Print</xr:Ref>								<xr:LoadTransparent>true</xr:LoadTransparent>							</HeaderPicture>							<CheckBoxType>Auto</CheckBoxType>							<ContextMenu name="НастройкиПечатныхФормПечататьКонтекстноеМеню" id="94"/>							<ExtendedTooltip name="НастройкиПечатныхФормПечататьExtendedTooltip" id="175"/>							<Events>								<Event name="OnChange">НастройкиПечатныхФормПечататьПриИзменении</Event>							</Events>						</CheckBoxField>						<InputField name="НастройкиПечатныхФормПредставление" id="89">							<DataPath>НастройкиПечатныхФорм.Представление</DataPath>							<ReadOnly>true</ReadOnly>							<EditMode>EnterOnInput</EditMode>							<ContextMenu name="НастройкиПечатныхФормПредставлениеКонтекстноеМеню" id="90"/>							<ExtendedTooltip name="НастройкиПечатныхФормПредставлениеExtendedTooltip" id="176"/>						</InputField>						<InputField name="НастройкиПечатныхФормКоличество" id="91">							<DataPath>НастройкиПечатныхФорм.Количество</DataPath>							<EditMode>Directly</EditMode>							<Width>6</Width>							<SpinButton>true</SpinButton>							<MinValue xsi:type="xs:decimal">0</MinValue>							<ContextMenu name="НастройкиПечатныхФормКоличествоКонтекстноеМеню" id="92"/>							<ExtendedTooltip name="НастройкиПечатныхФормКоличествоExtendedTooltip" id="177"/>							<Events>								<Event name="Tuning">НастройкиПечатныхФормКоличествоРегулирование</Event>							</Events>						</InputField>					</ChildItems>				</Table>				<Pages name="Страницы" id="9" DisplayImportance="VeryHigh">					<EnableContentChange>true</EnableContentChange>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Страницы</v8:content>						</v8:item>					</Title>					<PagesRepresentation>None</PagesRepresentation>					<ExtendedTooltip name="СтраницыExtendedTooltip" id="178"/>					<ChildItems>						<Page name="СтраницаТекущаяПечатнаяФорма" id="209">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Страница текущая печатная форма</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="СтраницаТекущаяПечатнаяФормаРасширеннаяПодсказка" id="210"/>							<ChildItems>								<SpreadSheetDocumentField name="ТекущаяПечатнаяФорма" id="211">									<DataPath>ТекущаяПечатнаяФорма</DataPath>									<TitleLocation>None</TitleLocation>									<Width>30</Width>									<Height>15</Height>									<VerticalScrollBar>true</VerticalScrollBar>									<HorizontalScrollBar>true</HorizontalScrollBar>									<ContextMenu name="ТекущаяПечатнаяФормаКонтекстноеМеню" id="212"/>									<ExtendedTooltip name="ТекущаяПечатнаяФормаРасширеннаяПодсказка" id="213"/>									<Events>										<Event name="OnActivate">ТекущаяПечатнаяФормаПриАктивизации</Event>									</Events>								</SpreadSheetDocumentField>							</ChildItems>						</Page>						<Page name="СтраницаПечатнаяФормаНедоступна" id="129">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Страница печатная форма недоступна</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="СтраницаПечатнаяФормаНедоступнаExtendedTooltip" id="181"/>							<ChildItems>								<UsualGroup name="ГруппаПечатнаяФормаНедоступна" id="132">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Печатная форма недоступна</v8:content>										</v8:item>									</Title>									<Behavior>Usual</Behavior>									<Representation>None</Representation>									<ShowTitle>false</ShowTitle>									<ExtendedTooltip name="ГруппаПечатнаяФормаНедоступнаExtendedTooltip" id="182"/>									<ChildItems>										<PictureDecoration name="КартинкаПечатнаяФормаНедоступна" id="130">											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Картинка печатная форма недоступна</v8:content>												</v8:item>											</Title>											<Picture>												<xr:Ref>CommonPicture.Информация32</xr:Ref>												<xr:LoadTransparent>false</xr:LoadTransparent>											</Picture>											<FileDragMode>AsFile</FileDragMode>											<ContextMenu name="КартинкаПечатнаяФормаНедоступнаКонтекстноеМеню" id="131"/>											<ExtendedTooltip name="КартинкаПечатнаяФормаНедоступнаExtendedTooltip" id="183"/>										</PictureDecoration>										<LabelDecoration name="НадписьПечатнаяФормаНедоступна" id="133">											<AutoMaxWidth>false</AutoMaxWidth>											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Печатная форма недоступна.</v8:content>												</v8:item>											</Title>											<GroupVerticalAlign>Center</GroupVerticalAlign>											<ContextMenu name="НадписьПечатнаяФормаНедоступнаКонтекстноеМеню" id="134"/>											<ExtendedTooltip name="НадписьПечатнаяФормаНедоступнаExtendedTooltip" id="184"/>										</LabelDecoration>									</ChildItems>								</UsualGroup>							</ChildItems>						</Page>					</ChildItems>				</Pages>			</ChildItems>		</UsualGroup>		<UsualGroup name="ОбластьПоказателей" id="228">			<Visible>false</Visible>			<EnableContentChange>true</EnableContentChange>			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Показатели</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Показатели выделенных ячеек отчета</v8:content>				</v8:item>			</ToolTip>			<HorizontalStretch>true</HorizontalStretch>			<Group>AlwaysHorizontal</Group>			<HorizontalAlign>Right</HorizontalAlign>			<Behavior>Usual</Behavior>			<ControlRepresentation>Picture</ControlRepresentation>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ОбластьПоказателейРасширеннаяПодсказка" id="229"/>			<ChildItems>				<LabelDecoration name="ОтступПоказатели" id="230">					<HorizontalStretch>true</HorizontalStretch>					<ContextMenu name="ОтступПоказателиКонтекстноеМеню" id="231"/>					<ExtendedTooltip name="ОтступПоказателиРасширеннаяПодсказка" id="232"/>				</LabelDecoration>				<UsualGroup name="ВидыПоказателей" id="233">					<EnableContentChange>true</EnableContentChange>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Виды показателей</v8:content>						</v8:item>					</Title>					<HorizontalStretch>false</HorizontalStretch>					<Group>AlwaysHorizontal</Group>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<BackColor>style:ИтогиФонГруппы</BackColor>					<ExtendedTooltip name="ВидыПоказателейРасширеннаяПодсказка" id="234"/>					<ChildItems>						<InputField name="Сумма" id="235">							<DataPath>Сумма</DataPath>							<ReadOnly>true</ReadOnly>							<TitleLocation>Left</TitleLocation>							<Width>10</Width>							<HorizontalStretch>false</HorizontalStretch>							<ContextMenu name="СуммаКонтекстноеМеню" id="236"/>							<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="237"/>						</InputField>						<InputField name="Количество" id="238">							<DataPath>Количество</DataPath>							<ReadOnly>true</ReadOnly>							<TitleLocation>Left</TitleLocation>							<Width>10</Width>							<HorizontalStretch>false</HorizontalStretch>							<ContextMenu name="КоличествоКонтекстноеМеню" id="239"/>							<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="240"/>						</InputField>						<InputField name="Среднее" id="241">							<DataPath>Среднее</DataPath>							<ReadOnly>true</ReadOnly>							<TitleLocation>Left</TitleLocation>							<Width>10</Width>							<HorizontalStretch>false</HorizontalStretch>							<ContextMenu name="СреднееКонтекстноеМеню" id="242"/>							<ExtendedTooltip name="СреднееРасширеннаяПодсказка" id="243"/>						</InputField>						<InputField name="Минимум" id="244">							<DataPath>Минимум</DataPath>							<ReadOnly>true</ReadOnly>							<TitleLocation>Left</TitleLocation>							<Width>10</Width>							<HorizontalStretch>false</HorizontalStretch>							<ContextMenu name="МинимумКонтекстноеМеню" id="245"/>							<ExtendedTooltip name="МинимумРасширеннаяПодсказка" id="246"/>						</InputField>						<InputField name="Максимум" id="247">							<DataPath>Максимум</DataPath>							<ReadOnly>true</ReadOnly>							<TitleLocation>Left</TitleLocation>							<Width>10</Width>							<HorizontalStretch>false</HorizontalStretch>							<ContextMenu name="МаксимумКонтекстноеМеню" id="248"/>							<ExtendedTooltip name="МаксимумРасширеннаяПодсказка" id="249"/>						</InputField>					</ChildItems>				</UsualGroup>				<Button name="СвернутьПоказатели" id="250">					<Type>Hyperlink</Type>					<CommandName>Form.Command.СвернутьПоказатели</CommandName>					<ExtendedTooltip name="СвернутьПоказателиРасширеннаяПодсказка" id="251"/>				</Button>			</ChildItems>		</UsualGroup>	</ChildItems>	<Attributes>		<Attribute name="ОбъектыПечати" id="14">			<Type>				<v8:Type>v8:ValueListType</v8:Type>			</Type>			<Settings xsi:type="v8:TypeDescription"/>		</Attribute>		<Attribute name="КлючНастроек" id="17">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="НастройкиПечатныхФорм" id="16">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настройки печатных форм</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>v8:ValueTable</v8:Type>			</Type>			<Columns>				<Column name="Представление" id="1">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Печатная форма</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="Количество" id="2">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Копий</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:decimal</v8:Type>						<v8:NumberQualifiers>							<v8:Digits>3</v8:Digits>							<v8:FractionDigits>0</v8:FractionDigits>							<v8:AllowedSign>Nonnegative</v8:AllowedSign>						</v8:NumberQualifiers>					</Type>				</Column>				<Column name="Печатать" id="3">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Печатать</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:boolean</v8:Type>					</Type>				</Column>				<Column name="ИмяСтраницы" id="4">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ИмяРеквизита" id="5">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ИмяМакета" id="6">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ПозицияПоУмолчанию" id="7">					<Type>						<v8:Type>xs:decimal</v8:Type>						<v8:NumberQualifiers>							<v8:Digits>10</v8:Digits>							<v8:FractionDigits>0</v8:FractionDigits>							<v8:AllowedSign>Nonnegative</v8:AllowedSign>						</v8:NumberQualifiers>					</Type>				</Column>				<Column name="Название" id="8">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ПутьКМакету" id="9">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ИмяФайлаПечатнойФормы" id="10">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ОфисныеДокументы" id="11">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ПодписьИПечать" id="12">					<Type>						<v8:Type>xs:boolean</v8:Type>					</Type>				</Column>				<Column name="ДоступенВыводНаДругихЯзыках" id="13">					<Type>						<v8:Type>xs:boolean</v8:Type>					</Type>				</Column>				<Column name="ТекущийЯзык" id="14">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ДоступныеЯзыки" id="15">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>			</Columns>		</Attribute>		<Attribute name="ПечатнаяФормаОбразец" id="19">			<Type>				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>			</Type>		</Attribute>		<Attribute name="ПараметрыВывода" id="1">			<Type/>		</Attribute>		<Attribute name="НастройкиКомплектаПоУмолчанию" id="2">			<Type>				<v8:Type>v8:ValueTable</v8:Type>			</Type>			<Columns>				<Column name="ИмяМакета" id="1">					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>0</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="Количество" id="2">					<Type>						<v8:Type>xs:decimal</v8:Type>						<v8:NumberQualifiers>							<v8:Digits>10</v8:Digits>							<v8:FractionDigits>0</v8:FractionDigits>							<v8:AllowedSign>Any</v8:AllowedSign>						</v8:NumberQualifiers>					</Type>				</Column>				<Column name="ПозицияПоУмолчанию" id="3">					<Type>						<v8:Type>xs:decimal</v8:Type>						<v8:NumberQualifiers>							<v8:Digits>10</v8:Digits>							<v8:FractionDigits>0</v8:FractionDigits>							<v8:AllowedSign>Nonnegative</v8:AllowedSign>						</v8:NumberQualifiers>					</Type>				</Column>			</Columns>		</Attribute>		<Attribute name="ДоступнаНастройкаКомплекта" id="3">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="Копий" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Копий</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>3</v8:Digits>					<v8:FractionDigits>0</v8:FractionDigits>					<v8:AllowedSign>Nonnegative</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="НастройкиФорматаСохранения" id="5">			<Type/>		</Attribute>		<Attribute name="Сумма" id="6">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сумма</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>25</v8:Digits>					<v8:FractionDigits>5</v8:FractionDigits>					<v8:AllowedSign>Any</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="ТекущаяПечатнаяФорма" id="20">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Текущая печатная форма</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>			</Type>		</Attribute>		<Attribute name="Количество" id="21">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Количество</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>25</v8:Digits>					<v8:FractionDigits>5</v8:FractionDigits>					<v8:AllowedSign>Any</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="Среднее" id="22">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Среднее</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>25</v8:Digits>					<v8:FractionDigits>5</v8:FractionDigits>					<v8:AllowedSign>Any</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="Показатель" id="23">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Показатель</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>25</v8:Digits>					<v8:FractionDigits>5</v8:FractionDigits>					<v8:AllowedSign>Any</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="Максимум" id="24">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Максимум</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>25</v8:Digits>					<v8:FractionDigits>5</v8:FractionDigits>					<v8:AllowedSign>Any</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="Минимум" id="25">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Минимум</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>25</v8:Digits>					<v8:FractionDigits>5</v8:FractionDigits>					<v8:AllowedSign>Any</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="ПодписьИПечать" id="26">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Подпись и печать</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>			<Save>				<Field>ПодписьИПечать</Field>			</Save>		</Attribute>		<Attribute name="УникальныйИдентификаторХранилища" id="27">			<Type>				<v8:Type>v8:UUID</v8:Type>			</Type>		</Attribute>		<Attribute name="АдресХранилищаРисунков" id="7">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ОсновнойПоказатель" id="8">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>100</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<Save>				<Field>ОсновнойПоказатель</Field>			</Save>		</Attribute>		<Attribute name="РазвернутьОбластьПоказателей" id="9">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>			<Save>				<Field>РазвернутьОбластьПоказателей</Field>			</Save>		</Attribute>		<Attribute name="ТекущийЯзык" id="10">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="РасширениеДляРаботыСФайламиПодключено" id="11">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="Отправить" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Отправить...</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Отправить по почте</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>CommonPicture.ОтправитьЭлектронноеПисьмо</xr:Ref>				<xr:LoadTransparent>false</xr:LoadTransparent>			</Picture>			<Action>Отправить</Action>			<Representation>Picture</Representation>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="Печать" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Печать</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Напечатать на принтере</v8:content>				</v8:item>			</ToolTip>			<Shortcut>Ctrl+Shift+P</Shortcut>			<Picture>				<xr:Ref>StdPicture.PrintImmediately</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>Печать</Action>			<Representation>TextPicture</Representation>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ПерейтиКДокументу" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перейти к документу...</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перейти к документу...</v8:content>				</v8:item>			</ToolTip>			<Shortcut>F7</Shortcut>			<Picture>				<xr:Ref>StdPicture.FindInList</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>ПерейтиКДокументу</Action>			<Representation>Picture</Representation>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ПерейтиКУправлениюМакетами" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перейти к макетам печатных форм</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перейти к управлению макетами</v8:content>				</v8:item>			</ToolTip>			<Action>ПерейтиКУправлениюМакетами</Action>			<Representation>Picture</Representation>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="УстановитьФлажки" id="5">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Установить флажки</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Установить флажки</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>StdPicture.CheckAll</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>УстановитьФлажки</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="СнятьФлажки" id="6">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Снять флажки</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Снять флажки</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>StdPicture.UncheckAll</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>СнятьФлажки</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ПоказатьСкрытьНастройкуКоличестваКопий" id="7">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Показать / Скрыть настройку комплекта</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Показать / Скрыть настройку количества копий</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>CommonPicture.ИерархическийСписок</xr:Ref>				<xr:LoadTransparent>false</xr:LoadTransparent>			</Picture>			<Action>ПоказатьСкрытьНастройкуКоличестваКопий</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="Сохранить" id="8">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить...</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сохранить на диске или в качестве присоединенного файла к объекту</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>StdPicture.SaveFile</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>Сохранить</Action>			<Representation>Picture</Representation>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="СброситьНастройки" id="9">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сбросить настройки комплекта</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сбросить настройки</v8:content>				</v8:item>			</ToolTip>			<Action>СброситьНастройки</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ИзменитьМакет" id="10">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Изменить макет...</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Открыть макет для редактирования</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>CommonPicture.РедактироватьМакет</xr:Ref>				<xr:LoadTransparent>false</xr:LoadTransparent>			</Picture>			<Action>ИзменитьМакет</Action>			<Representation>Picture</Representation>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ПереключитьРедактирование" id="11">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Редактирование</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Включает или отключает режим редактирования печатной формы</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>StdPicture.SpreadsheetReadOnly</xr:Ref>				<xr:LoadTransparent>true</xr:LoadTransparent>			</Picture>			<Action>ПереключитьРедактирование</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="РассчитатьСумму" id="13">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Рассчитать сумму</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполняет расчет суммы выделенных ячеек</v8:content>				</v8:item>			</ToolTip>			<Action>РассчитатьСумму</Action>		</Command>		<Command name="РассчитатьКоличество" id="14">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Рассчитать количество</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполняет расчет количества выделенных ячеек</v8:content>				</v8:item>			</ToolTip>			<Action>РассчитатьКоличество</Action>		</Command>		<Command name="РассчитатьСреднее" id="15">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Рассчитать среднее</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполняет расчет среднего значения выделенных ячеек</v8:content>				</v8:item>			</ToolTip>			<Action>РассчитатьСреднее</Action>		</Command>		<Command name="РассчитатьМаксимум" id="16">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Рассчитать максимум</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполняет расчет максимального значения выделенных ячеек</v8:content>				</v8:item>			</ToolTip>			<Action>РассчитатьМаксимум</Action>		</Command>		<Command name="РассчитатьМинимум" id="17">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Рассчитать минимум</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполняет расчет минимального значения выделенных ячеек</v8:content>				</v8:item>			</ToolTip>			<Action>РассчитатьМинимум</Action>		</Command>		<Command name="РассчитатьВсеПоказатели" id="18">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Рассчитать все показатели</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выполняет расчет всех показателей выделенных ячеек</v8:content>				</v8:item>			</ToolTip>			<Action>РассчитатьВсеПоказатели</Action>		</Command>		<Command name="СвернутьПоказатели" id="19">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Свернуть</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Свернуть панель показателей</v8:content>				</v8:item>			</ToolTip>			<Picture>				<xr:Ref>CommonPicture.СтрелкаВнизЗеленая</xr:Ref>				<xr:LoadTransparent>false</xr:LoadTransparent>			</Picture>			<Action>СвернутьПоказатели</Action>			<Representation>Picture</Representation>		</Command>	</Commands>	<Parameters>		<Parameter name="ИмяМенеджераПечати">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="ИменаМакетов">			<Type/>		</Parameter>		<Parameter name="ПараметрКоманды">			<Type/>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="ПараметрыПечати">			<Type/>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="ИсточникДанных">			<Type/>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="ПараметрыИсточника">			<Type/>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="КоллекцияПечатныхФорм">			<Type/>		</Parameter>		<Parameter name="ОбъектыПечати">			<Type/>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<MobileDeviceCommandBarContent>
+		<xr:Item>
+			<xr:Presentation/>
+			<xr:CheckState>0</xr:CheckState>
+			<xr:Value xsi:type="xs:string">РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР•С‰Рµ</xr:Value>
+		</xr:Item>
+		<xr:Item>
+			<xr:Presentation/>
+			<xr:CheckState>0</xr:CheckState>
+			<xr:Value xsi:type="xs:string">РЇР·С‹Рє</xr:Value>
+		</xr:Item>
+	</MobileDeviceCommandBarContent>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1"/>
+	<Events>
+		<Event name="OnSaveDataInSettingsAtServer">РџСЂРёРЎРѕС…СЂР°РЅРµРЅРёРёР”Р°РЅРЅС‹С…Р’РќР°СЃС‚СЂРѕР№РєР°С…РќР°РЎРµСЂРІРµСЂРµ</Event>
+		<Event name="ChoiceProcessing">РћР±СЂР°Р±РѕС‚РєР°Р’С‹Р±РѕСЂР°</Event>
+		<Event name="NotificationProcessing">РћР±СЂР°Р±РѕС‚РєР°РћРїРѕРІРµС‰РµРЅРёСЏ</Event>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">РџСЂРёР—Р°РіСЂСѓР·РєРµР”Р°РЅРЅС‹С…РР·РќР°СЃС‚СЂРѕРµРєРќР°РЎРµСЂРІРµСЂРµ</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="116" DisplayImportance="VeryHigh">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљРѕРїРёР№ Рё Р°РІС‚РѕСЃСѓРјРјР°</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊExtendedTooltip" id="143"/>
+			<ChildItems>
+				<CommandBar name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР›РµРІР°СЏР§Р°СЃС‚СЊ" id="114">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РљРѕРјР°РЅРґРЅР°СЏ РїР°РЅРµР»СЊ Р»РµРІР°СЏ С‡Р°СЃС‚СЊ</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР›РµРІР°СЏР§Р°СЃС‚СЊExtendedTooltip" id="144"/>
+					<ChildItems>
+						<Button name="РљРЅРѕРїРєР°РџРµС‡Р°С‚СЊРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="38">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<SkipOnInput>false</SkipOnInput>
+							<CommandName>Form.Command.РџРµС‡Р°С‚СЊ</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="РљРЅРѕРїРєР°РџРµС‡Р°С‚СЊРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊExtendedTooltip" id="145"/>
+						</Button>
+						<Button name="РљРЅРѕРїРєР°РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№РџСЂРѕСЃРјРѕС‚СЂ" id="214">
+							<Type>CommandBarButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.Item.РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°.StandardCommand.Preview</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="РљРЅРѕРїРєР°РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№РџСЂРѕСЃРјРѕС‚СЂР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="215"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+				<UsualGroup name="РќР°СЃС‚СЂРѕР№РєР°РљРѕР»РёС‡РµСЃС‚РІР°РљРѕРїРёР№" id="275" DisplayImportance="VeryHigh">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєР° РєРѕР»РёС‡РµСЃС‚РІР° РєРѕРїРёР№</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєР°РљРѕР»РёС‡РµСЃС‚РІР°РљРѕРїРёР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="276"/>
+					<ChildItems>
+						<InputField name="РљРѕРїРёР№" id="117" DisplayImportance="VeryHigh">
+							<DataPath>РљРѕРїРёР№</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРїРёР№</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>4</Width>
+							<SpinButton>true</SpinButton>
+							<MinValue xsi:type="xs:decimal">1</MinValue>
+							<MaxValue xsi:type="xs:decimal">999</MaxValue>
+							<ContextMenu name="РљРѕРїРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="118"/>
+							<ExtendedTooltip name="РљРѕРїРёР№ExtendedTooltip" id="146"/>
+							<Events>
+								<Event name="OnChange">РљРѕРїРёР№РџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</InputField>
+						<CheckBoxField name="Р¤Р»Р°Р¶РѕРєРџРѕРґРїРёСЃСЊРРџРµС‡Р°С‚СЊ" id="281" DisplayImportance="VeryHigh">
+							<DataPath>РџРѕРґРїРёСЃСЊРРџРµС‡Р°С‚СЊ</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="Р¤Р»Р°Р¶РѕРєРџРѕРґРїРёСЃСЊРРџРµС‡Р°С‚СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="282"/>
+							<ExtendedTooltip name="Р¤Р»Р°Р¶РѕРєРџРѕРґРїРёСЃСЊРРџРµС‡Р°С‚СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="283">
+								<Title formatted="true">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Р”РѕР±Р°РІРёС‚СЊ С„Р°РєСЃРёРјРёР»СЊРЅСѓСЋ РїРѕРґРїРёСЃСЊ Рё РїРµС‡Р°С‚СЊ РІ РїРµС‡Р°С‚РЅСѓСЋ С„РѕСЂРјСѓ</v8:content>
+									</v8:item>
+								</Title>
+							</ExtendedTooltip>
+							<Events>
+								<Event name="OnChange">Р¤Р»Р°Р¶РѕРєРџРѕРґРїРёСЃСЊРРџРµС‡Р°С‚СЊРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<CommandBar name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊРџСЂР°РІР°СЏР§Р°СЃС‚СЊ" id="115">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РљРѕРјР°РЅРґРЅР°СЏ РїР°РЅРµР»СЊ РїСЂР°РІР°СЏ С‡Р°СЃС‚СЊ</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊРџСЂР°РІР°СЏР§Р°СЃС‚СЊExtendedTooltip" id="147"/>
+					<ChildItems>
+						<Button name="РљРЅРѕРїРєР°РџРѕРєР°Р·Р°С‚СЊРЎРєСЂС‹С‚СЊРќР°СЃС‚СЂРѕР№РєСѓРљРѕРјРїР»РµРєС‚Р°" id="101">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.РџРѕРєР°Р·Р°С‚СЊРЎРєСЂС‹С‚СЊРќР°СЃС‚СЂРѕР№РєСѓРљРѕР»РёС‡РµСЃС‚РІР°РљРѕРїРёР№</CommandName>
+							<ExtendedTooltip name="РљРЅРѕРїРєР°РџРѕРєР°Р·Р°С‚СЊРЎРєСЂС‹С‚СЊРќР°СЃС‚СЂРѕР№РєСѓРљРѕРјРїР»РµРєС‚Р°ExtendedTooltip" id="149"/>
+						</Button>
+						<ButtonGroup name="Р“СЂСѓРїРїР°Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµРџРµС‡Р°С‚РЅРѕР№Р¤РѕСЂРјС‹" id="142">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїРµС‡Р°С‚РЅРѕР№ С„РѕСЂРјС‹</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµРџРµС‡Р°С‚РЅРѕР№Р¤РѕСЂРјС‹ExtendedTooltip" id="156"/>
+							<ChildItems>
+								<Button name="РљРЅРѕРїРєР°Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ" id="141">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.РџРµСЂРµРєР»СЋС‡РёС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ</CommandName>
+									<ExtendedTooltip name="РљРЅРѕРїРєР°Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµExtendedTooltip" id="157"/>
+								</Button>
+								<Popup name="РЇР·С‹Рє" id="284">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РЇР·С‹Рє</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="РЇР·С‹РєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="285"/>
+								</Popup>
+							</ChildItems>
+						</ButtonGroup>
+						<ButtonGroup name="Р“СЂСѓРїРїР°РЎРѕС…СЂР°РЅРёС‚СЊРћС‚РїСЂР°РІРёС‚СЊ" id="108">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ РѕС‚РїСЂР°РІРёС‚СЊ</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РЎРѕС…СЂР°РЅРёС‚СЊРћС‚РїСЂР°РІРёС‚СЊExtendedTooltip" id="158"/>
+							<ChildItems>
+								<Button name="РљРЅРѕРїРєР°РЎРѕС…СЂР°РЅРёС‚СЊ" id="102">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.РЎРѕС…СЂР°РЅРёС‚СЊ</CommandName>
+									<ExtendedTooltip name="РљРЅРѕРїРєР°РЎРѕС…СЂР°РЅРёС‚СЊExtendedTooltip" id="159"/>
+								</Button>
+								<Button name="РљРЅРѕРїРєР°РћС‚РїСЂР°РІРёС‚СЊ" id="103">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.РћС‚РїСЂР°РІРёС‚СЊ</CommandName>
+									<ExtendedTooltip name="РљРЅРѕРїРєР°РћС‚РїСЂР°РІРёС‚СЊExtendedTooltip" id="160"/>
+								</Button>
+							</ChildItems>
+						</ButtonGroup>
+						<ButtonGroup name="Р“СЂСѓРїРїР°РќР°РІРёРіР°С†РёСЏ" id="109">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РќР°РІРёРіР°С†РёСЏ</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РќР°РІРёРіР°С†РёСЏExtendedTooltip" id="161"/>
+							<ChildItems>
+								<Button name="РљРЅРѕРїРєР°РџРµСЂРµР№С‚РёРљР”РѕРєСѓРјРµРЅС‚Сѓ" id="64">
+									<Type>CommandBarButton</Type>
+									<SkipOnInput>false</SkipOnInput>
+									<CommandName>Form.Command.РџРµСЂРµР№С‚РёРљР”РѕРєСѓРјРµРЅС‚Сѓ</CommandName>
+									<ExtendedTooltip name="РљРЅРѕРїРєР°РџРµСЂРµР№С‚РёРљР”РѕРєСѓРјРµРЅС‚СѓExtendedTooltip" id="162"/>
+								</Button>
+							</ChildItems>
+						</ButtonGroup>
+					</ChildItems>
+				</CommandBar>
+				<UsualGroup name="Р“СЂСѓРїРїР°РџРѕРєР°Р·Р°С‚РµР»СЊ" id="252">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџРѕРєР°Р·Р°С‚РµР»СЊ</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РџРѕРєР°Р·Р°С‚РµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="253"/>
+					<ChildItems>
+						<InputField name="РџРѕРєР°Р·Р°С‚РµР»СЊ" id="254">
+							<DataPath>РџРѕРєР°Р·Р°С‚РµР»СЊ</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РџРѕРєР°Р·Р°С‚РµР»СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="255"/>
+							<ExtendedTooltip name="РџРѕРєР°Р·Р°С‚РµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="256"/>
+						</InputField>
+						<CommandBar name="РљРѕРјР°РЅРґС‹РџРѕРєР°Р·Р°С‚РµР»РµР№" id="257">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РџРѕРєР°Р·Р°С‚РµР»Рё</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р’С‹РїРѕР»РЅСЏРµС‚ СЂР°СЃС‡РµС‚ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ РёР»Рё РІСЃРµС… РїРѕРєР°Р·Р°С‚РµР»РµР№ РІС‹РґРµР»РµРЅРЅС‹С… СЏС‡РµРµРє</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="РљРѕРјР°РЅРґС‹РџРѕРєР°Р·Р°С‚РµР»РµР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="258"/>
+							<ChildItems>
+								<Popup name="РљРѕРјР°РЅРґС‹Р’РёРґРѕРІРџРѕРєР°Р·Р°С‚РµР»РµР№" id="259">
+									<EnableContentChange>true</EnableContentChange>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р’РёРґС‹ РїРѕРєР°Р·Р°С‚РµР»РµР№</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.РЎСѓРјРјР°</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<Representation>Picture</Representation>
+									<ExtendedTooltip name="РљРѕРјР°РЅРґС‹Р’РёРґРѕРІРџРѕРєР°Р·Р°С‚РµР»РµР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="260"/>
+									<ChildItems>
+										<Button name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСѓРјРјСѓ" id="261">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСѓРјРјСѓ</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РЎСѓРјРјР°</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСѓРјРјСѓР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="262"/>
+										</Button>
+										<Button name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРљРѕР»РёС‡РµСЃС‚РІРѕ" id="263">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Р Р°СЃСЃС‡РёС‚Р°С‚СЊРљРѕР»РёС‡РµСЃС‚РІРѕ</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РљРѕР»РёС‡РµСЃС‚РІРѕ</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРљРѕР»РёС‡РµСЃС‚РІРѕР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="264"/>
+										</Button>
+										<Button name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСЂРµРґРЅРµРµ" id="265">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСЂРµРґРЅРµРµ</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РЎСЂРµРґРЅРµРµ</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСЂРµРґРЅРµРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="266"/>
+										</Button>
+										<Button name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњРёРЅРёРјСѓРј" id="267">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњРёРЅРёРјСѓРј</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РњРёРЅРёРјСѓРј</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњРёРЅРёРјСѓРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="268"/>
+										</Button>
+										<Button name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњР°РєСЃРёРјСѓРј" id="269">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњР°РєСЃРёРјСѓРј</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РњР°РєСЃРёРјСѓРј</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњР°РєСЃРёРјСѓРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="270"/>
+										</Button>
+										<ButtonGroup name="Р’СЃРµРџРѕРєР°Р·Р°С‚РµР»Рё" id="271">
+											<EnableContentChange>true</EnableContentChange>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Р’СЃРµ РїРѕРєР°Р·Р°С‚РµР»Рё</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="Р’СЃРµРџРѕРєР°Р·Р°С‚РµР»РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="272"/>
+											<ChildItems>
+												<Button name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊР’СЃРµРџРѕРєР°Р·Р°С‚РµР»Рё" id="273">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.Р Р°СЃСЃС‡РёС‚Р°С‚СЊР’СЃРµРџРѕРєР°Р·Р°С‚РµР»Рё</CommandName>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Р’СЃРµ РїРѕРєР°Р·Р°С‚РµР»Рё</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊР’СЃРµРџРѕРєР°Р·Р°С‚РµР»РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="274"/>
+												</Button>
+											</ChildItems>
+										</ButtonGroup>
+									</ChildItems>
+								</Popup>
+							</ChildItems>
+						</CommandBar>
+					</ChildItems>
+				</UsualGroup>
+				<CommandBar name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР•С‰Рµ" id="192">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РљРѕРјР°РЅРґРЅР°СЏ РїР°РЅРµР»СЊ РµС‰Рµ</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР•С‰РµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="193"/>
+					<ChildItems>
+						<Button name="РљРЅРѕРїРєР°РџРµС‡Р°С‚СЊР’СЃРµР”РµР№СЃС‚РІРёСЏ" id="120">
+							<Type>CommandBarButton</Type>
+							<SkipOnInput>false</SkipOnInput>
+							<CommandName>Form.Command.РџРµС‡Р°С‚СЊ</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="РљРЅРѕРїРєР°РџРµС‡Р°С‚СЊР’СЃРµР”РµР№СЃС‚РІРёСЏExtendedTooltip" id="148"/>
+						</Button>
+						<Button name="РљРЅРѕРїРєР°РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№РџСЂРѕСЃРјРѕС‚СЂР’СЃРµР”РµР№СЃС‚РІРёСЏ" id="216">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Item.РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°.StandardCommand.Preview</CommandName>
+							<ExtendedTooltip name="РљРЅРѕРїРєР°РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№РџСЂРѕСЃРјРѕС‚СЂР’СЃРµР”РµР№СЃС‚РІРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="217"/>
+						</Button>
+						<Button name="РљРЅРѕРїРєР°РџР°СЂР°РјРµС‚СЂС‹РЎС‚СЂР°РЅРёС†С‹Р’СЃРµР”РµР№СЃС‚РІРёСЏ" id="218">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Item.РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°.StandardCommand.PageSetup</CommandName>
+							<ExtendedTooltip name="РљРЅРѕРїРєР°РџР°СЂР°РјРµС‚СЂС‹РЎС‚СЂР°РЅРёС†С‹Р’СЃРµР”РµР№СЃС‚РІРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="219"/>
+						</Button>
+						<ButtonGroup name="Р“СЂСѓРїРїР°РЎРѕС…СЂР°РЅРёС‚СЊРћС‚РїСЂР°РІРёС‚СЊР’СЃРµР”РµР№СЃС‚РІРёСЏ" id="194">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р“СЂСѓРїРїР° СЃРѕС…СЂР°РЅРёС‚СЊ РѕС‚РїСЂР°РІРёС‚СЊ</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РЎРѕС…СЂР°РЅРёС‚СЊРћС‚РїСЂР°РІРёС‚СЊР’СЃРµР”РµР№СЃС‚РІРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="195"/>
+							<ChildItems>
+								<Button name="РљРЅРѕРїРєР°РЎРѕС…СЂР°РЅРёС‚СЊР’СЃРµР”РµР№СЃС‚РІРёСЏ" id="196">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.РЎРѕС…СЂР°РЅРёС‚СЊ</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="РљРЅРѕРїРєР°РЎРѕС…СЂР°РЅРёС‚СЊР’СЃРµР”РµР№СЃС‚РІРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="197"/>
+								</Button>
+								<Button name="РљРЅРѕРїРєР°РћС‚РїСЂР°РІРёС‚СЊР’СЃРµР”РµР№СЃС‚РІРёСЏ" id="198">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.РћС‚РїСЂР°РІРёС‚СЊ</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="РљРЅРѕРїРєР°РћС‚РїСЂР°РІРёС‚СЊР’СЃРµР”РµР№СЃС‚РІРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="199"/>
+								</Button>
+							</ChildItems>
+						</ButtonGroup>
+						<ButtonGroup name="Р“СЂСѓРїРїР°Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµРњР°РєРµС‚Р°" id="137">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РјР°РєРµС‚Р°</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµРњР°РєРµС‚Р°ExtendedTooltip" id="163"/>
+							<ChildItems>
+								<Button name="РљРЅРѕРїРєР°РР·РјРµРЅРёС‚СЊРњР°РєРµС‚" id="138">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.РР·РјРµРЅРёС‚СЊРњР°РєРµС‚</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="РљРЅРѕРїРєР°РР·РјРµРЅРёС‚СЊРњР°РєРµС‚ExtendedTooltip" id="164"/>
+								</Button>
+								<Button name="РљРЅРѕРїРєР°РџРµСЂРµР№С‚РёРљРЈРїСЂР°РІР»РµРЅРёСЋРњР°РєРµС‚Р°РјРё" id="81">
+									<Type>CommandBarButton</Type>
+									<SkipOnInput>false</SkipOnInput>
+									<CommandName>Form.Command.РџРµСЂРµР№С‚РёРљРЈРїСЂР°РІР»РµРЅРёСЋРњР°РєРµС‚Р°РјРё</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="РљРЅРѕРїРєР°РџРµСЂРµР№С‚РёРљРЈРїСЂР°РІР»РµРЅРёСЋРњР°РєРµС‚Р°РјРёExtendedTooltip" id="165"/>
+								</Button>
+							</ChildItems>
+						</ButtonGroup>
+						<Button name="РЎРїСЂР°РІРєР°" id="277">
+							<Type>CommandBarButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<ExtendedTooltip name="РЎРїСЂР°РІРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="278"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏРРЅС„РѕСЂРјР°С†РёСЏ" id="226">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏРРЅС„РѕСЂРјР°С†РёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="227"/>
+			<ChildItems>
+				<PictureDecoration name="РљР°СЂС‚РёРЅРєР°РРЅС„РѕСЂРјР°С†РёРё" id="223">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РљР°СЂС‚РёРЅРєР° РёРЅС„РѕСЂРјР°С†РёРё</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.Information</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="РљР°СЂС‚РёРЅРєР°РРЅС„РѕСЂРјР°С†РёРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="224"/>
+					<ExtendedTooltip name="РљР°СЂС‚РёРЅРєР°РРЅС„РѕСЂРјР°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="225"/>
+				</PictureDecoration>
+				<LabelDecoration name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏРРЅС„РѕСЂРјР°С†РёСЏ" id="220">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎ СЌС‚РёРј РєРѕРЅС‚СЂР°РіРµРЅС‚РѕРј РІРѕР·РјРѕР¶РµРЅ СЌР»РµРєС‚СЂРѕРЅРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚. &lt;link РџРµСЂРµР№С‚РёРљРќР°СЃС‚СЂРѕР№РєР°РјР­Р»РµРєС‚СЂРѕРЅРЅРѕРіРѕР”РѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р°&gt;РџРµСЂРµР№С‚Рё Рє РЅР°СЃС‚СЂРѕР№РєР°Рј&lt;/&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalAlign>Center</VerticalAlign>
+					<ContextMenu name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏРРЅС„РѕСЂРјР°С†РёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="221"/>
+					<ExtendedTooltip name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏРРЅС„РѕСЂРјР°С†РёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="222"/>
+					<Events>
+						<Event name="URLProcessing">Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏРРЅС„РѕСЂРјР°С†РёСЏРћР±СЂР°Р±РѕС‚РєР°РќР°РІРёРіР°С†РёРѕРЅРЅРѕР№РЎСЃС‹Р»РєРё</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°РџРµС‡Р°С‚РЅС‹РµР¤РѕСЂРјС‹" id="119">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµС‡Р°С‚РЅС‹Рµ С„РѕСЂРјС‹</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ChildItemsWidth>LeftNarrowest</ChildItemsWidth>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РџРµС‡Р°С‚РЅС‹РµР¤РѕСЂРјС‹ExtendedTooltip" id="166"/>
+			<ChildItems>
+				<Table name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј" id="86" DisplayImportance="VeryLow">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<Width>30</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>50</MaxWidth>
+					<FooterHeight>3</FooterHeight>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќР°СЃС‚СЂРѕР№РєРё РїРµС‡Р°С‚РЅС‹С… С„РѕСЂРј</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>CancelSearch</ExcludedCommand>
+						<ExcludedCommand>Change</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+						<ExcludedCommand>EndEdit</ExcludedCommand>
+						<ExcludedCommand>Find</ExcludedCommand>
+						<ExcludedCommand>OutputList</ExcludedCommand>
+						<ExcludedCommand>SelectAll</ExcludedCommand>
+						<ExcludedCommand>SortListAsc</ExcludedCommand>
+						<ExcludedCommand>SortListDesc</ExcludedCommand>
+					</CommandSet>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="87">
+						<ChildItems>
+							<ButtonGroup name="Р“СЂСѓРїРїР°РќР°СЃС‚СЂРѕР№РєР°РљРѕРјРїР»РµРєС‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="107">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>РќР°СЃС‚СЂРѕР№РєР° РєРѕРјРїР»РµРєС‚Р° РєРѕРЅС‚РµРєСЃС‚РЅРѕРµ РјРµРЅСЋ</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="Р“СЂСѓРїРїР°РќР°СЃС‚СЂРѕР№РєР°РљРѕРјРїР»РµРєС‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋExtendedTooltip" id="167"/>
+								<ChildItems>
+									<Button name="РљРЅРѕРїРєР°РЈСЃС‚Р°РЅРѕРІРёС‚СЊР¤Р»Р°Р¶РєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="99">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РЈСЃС‚Р°РЅРѕРІРёС‚СЊР¤Р»Р°Р¶РєРё</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РЈСЃС‚Р°РЅРѕРІРёС‚СЊР¤Р»Р°Р¶РєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋExtendedTooltip" id="168"/>
+									</Button>
+									<Button name="РљРЅРѕРїРєР°РЎРЅСЏС‚СЊР¤Р»Р°Р¶РєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="100">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РЎРЅСЏС‚СЊР¤Р»Р°Р¶РєРё</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РЎРЅСЏС‚СЊР¤Р»Р°Р¶РєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋExtendedTooltip" id="169"/>
+									</Button>
+									<Button name="РљРЅРѕРїРєР°РџРµСЂРµРјРµСЃС‚РёС‚СЊР’РІРµСЂС…РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="110">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј.StandardCommand.MoveUp</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РџРµСЂРµРјРµСЃС‚РёС‚СЊР’РІРµСЂС…РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋExtendedTooltip" id="170"/>
+									</Button>
+									<Button name="РљРЅРѕРїРєР°РџРµСЂРµРјРµСЃС‚РёС‚СЊР’РЅРёР·РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="111">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј.StandardCommand.MoveDown</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РџРµСЂРµРјРµСЃС‚РёС‚СЊР’РЅРёР·РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋExtendedTooltip" id="171"/>
+									</Button>
+									<Button name="РљРЅРѕРїРєР°РЎР±СЂРѕСЃРёС‚СЊРќР°СЃС‚СЂРѕР№РєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="128">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РЎР±СЂРѕСЃРёС‚СЊРќР°СЃС‚СЂРѕР№РєРё</CommandName>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РЎР±СЂРѕСЃРёС‚СЊРќР°СЃС‚СЂРѕР№РєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋExtendedTooltip" id="172"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+							<Button name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋРљРѕРїРёСЂРѕРІР°С‚СЊР’Р‘СѓС„РµСЂРћР±РјРµРЅР°" id="127">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј.StandardCommand.CopyToClipboard</CommandName>
+								<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋРљРѕРїРёСЂРѕРІР°С‚СЊР’Р‘СѓС„РµСЂРћР±РјРµРЅР°ExtendedTooltip" id="173"/>
+							</Button>
+						</ChildItems>
+					</ContextMenu>
+					<AutoCommandBar name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="88">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<ButtonGroup name="Р“СЂСѓРїРїР°РќР°СЃС‚СЂРѕР№РєР°РљРѕРјРїР»РµРєС‚Р°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="121">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>РќР°СЃС‚СЂРѕР№РєР° РєРѕРјРїР»РµРєС‚Р°</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="Р“СЂСѓРїРїР°РќР°СЃС‚СЂРѕР№РєР°РљРѕРјРїР»РµРєС‚Р°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="150"/>
+								<ChildItems>
+									<Button name="РљРЅРѕРїРєР°РЈСЃС‚Р°РЅРѕРІРёС‚СЊР¤Р»Р°Р¶РєРёРџРѕРґРјРµРЅСЋ" id="122">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РЈСЃС‚Р°РЅРѕРІРёС‚СЊР¤Р»Р°Р¶РєРё</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РЈСЃС‚Р°РЅРѕРІРёС‚СЊР¤Р»Р°Р¶РєРёРџРѕРґРјРµРЅСЋExtendedTooltip" id="151"/>
+									</Button>
+									<Button name="РљРЅРѕРїРєР°РЎРЅСЏС‚СЊР¤Р»Р°Р¶РєРёРџРѕРґРјРµРЅСЋ" id="123">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РЎРЅСЏС‚СЊР¤Р»Р°Р¶РєРё</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РЎРЅСЏС‚СЊР¤Р»Р°Р¶РєРёРџРѕРґРјРµРЅСЋExtendedTooltip" id="152"/>
+									</Button>
+									<Button name="РљРЅРѕРїРєР°РџРµСЂРµРјРµСЃС‚РёС‚СЊР’РІРµСЂС…РџРѕРґРјРµРЅСЋ" id="124">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј.StandardCommand.MoveUp</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РџРµСЂРµРјРµСЃС‚РёС‚СЊР’РІРµСЂС…РџРѕРґРјРµРЅСЋExtendedTooltip" id="153"/>
+									</Button>
+									<Button name="РљРЅРѕРїРєР°РџРµСЂРµРјРµСЃС‚РёС‚СЊР’РЅРёР·РџРѕРґРјРµРЅСЋ" id="125">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј.StandardCommand.MoveDown</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РџРµСЂРµРјРµСЃС‚РёС‚СЊР’РЅРёР·РџРѕРґРјРµРЅСЋExtendedTooltip" id="154"/>
+									</Button>
+									<Button name="РљРЅРѕРїРєР°РЎР±СЂРѕСЃРёС‚СЊРќР°СЃС‚СЂРѕР№РєРёРџРѕРґРјРµРЅСЋ" id="126">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РЎР±СЂРѕСЃРёС‚СЊРќР°СЃС‚СЂРѕР№РєРё</CommandName>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="РљРЅРѕРїРєР°РЎР±СЂРѕСЃРёС‚СЊРќР°СЃС‚СЂРѕР№РєРёРџРѕРґРјРµРЅСЋExtendedTooltip" id="155"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјExtendedTooltip" id="174"/>
+					<SearchStringAddition name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="200">
+						<AdditionSource>
+							<Item>РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="201"/>
+						<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="202"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="203">
+						<AdditionSource>
+							<Item>РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="204"/>
+						<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="205"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="206">
+						<AdditionSource>
+							<Item>РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="207"/>
+						<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="208"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="BeforeAddRow">РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџРµСЂРµРґРќР°С‡Р°Р»РѕРјР”РѕР±Р°РІР»РµРЅРёСЏ</Event>
+						<Event name="OnActivateRow">РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџСЂРёРђРєС‚РёРІРёР·Р°С†РёРёРЎС‚СЂРѕРєРё</Event>
+						<Event name="OnChange">РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+					</Events>
+					<ChildItems>
+						<CheckBoxField name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџРµС‡Р°С‚Р°С‚СЊ" id="93">
+							<DataPath>РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј.РџРµС‡Р°С‚Р°С‚СЊ</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<HeaderPicture>
+								<xr:Ref>StdPicture.Print</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</HeaderPicture>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџРµС‡Р°С‚Р°С‚СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="94"/>
+							<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџРµС‡Р°С‚Р°С‚СЊExtendedTooltip" id="175"/>
+							<Events>
+								<Event name="OnChange">РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџРµС‡Р°С‚Р°С‚СЊРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ" id="89">
+							<DataPath>РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј.РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="90"/>
+							<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµExtendedTooltip" id="176"/>
+						</InputField>
+						<InputField name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРљРѕР»РёС‡РµСЃС‚РІРѕ" id="91">
+							<DataPath>РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј.РљРѕР»РёС‡РµСЃС‚РІРѕ</DataPath>
+							<EditMode>Directly</EditMode>
+							<Width>6</Width>
+							<SpinButton>true</SpinButton>
+							<MinValue xsi:type="xs:decimal">0</MinValue>
+							<ContextMenu name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРљРѕР»РёС‡РµСЃС‚РІРѕРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="92"/>
+							<ExtendedTooltip name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРљРѕР»РёС‡РµСЃС‚РІРѕExtendedTooltip" id="177"/>
+							<Events>
+								<Event name="Tuning">РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРјРљРѕР»РёС‡РµСЃС‚РІРѕР РµРіСѓР»РёСЂРѕРІР°РЅРёРµ</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<Pages name="РЎС‚СЂР°РЅРёС†С‹" id="9" DisplayImportance="VeryHigh">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂР°РЅРёС†С‹</v8:content>
+						</v8:item>
+					</Title>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†С‹ExtendedTooltip" id="178"/>
+					<ChildItems>
+						<Page name="РЎС‚СЂР°РЅРёС†Р°РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°" id="209">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎС‚СЂР°РЅРёС†Р° С‚РµРєСѓС‰Р°СЏ РїРµС‡Р°С‚РЅР°СЏ С„РѕСЂРјР°</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="210"/>
+							<ChildItems>
+								<SpreadSheetDocumentField name="РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°" id="211">
+									<DataPath>РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>30</Width>
+									<Height>15</Height>
+									<VerticalScrollBar>true</VerticalScrollBar>
+									<HorizontalScrollBar>true</HorizontalScrollBar>
+									<ContextMenu name="РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="212"/>
+									<ExtendedTooltip name="РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="213"/>
+									<Events>
+										<Event name="OnActivate">РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РџСЂРёРђРєС‚РёРІРёР·Р°С†РёРё</Event>
+									</Events>
+								</SpreadSheetDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="РЎС‚СЂР°РЅРёС†Р°РџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°" id="129">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎС‚СЂР°РЅРёС†Р° РїРµС‡Р°С‚РЅР°СЏ С„РѕСЂРјР° РЅРµРґРѕСЃС‚СѓРїРЅР°</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°ExtendedTooltip" id="181"/>
+							<ChildItems>
+								<UsualGroup name="Р“СЂСѓРїРїР°РџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°" id="132">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РџРµС‡Р°С‚РЅР°СЏ С„РѕСЂРјР° РЅРµРґРѕСЃС‚СѓРїРЅР°</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Р“СЂСѓРїРїР°РџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°ExtendedTooltip" id="182"/>
+									<ChildItems>
+										<PictureDecoration name="РљР°СЂС‚РёРЅРєР°РџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°" id="130">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РљР°СЂС‚РёРЅРєР° РїРµС‡Р°С‚РЅР°СЏ С„РѕСЂРјР° РЅРµРґРѕСЃС‚СѓРїРЅР°</v8:content>
+												</v8:item>
+											</Title>
+											<Picture>
+												<xr:Ref>CommonPicture.РРЅС„РѕСЂРјР°С†РёСЏ32</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="РљР°СЂС‚РёРЅРєР°РџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="131"/>
+											<ExtendedTooltip name="РљР°СЂС‚РёРЅРєР°РџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°ExtendedTooltip" id="183"/>
+										</PictureDecoration>
+										<LabelDecoration name="РќР°РґРїРёСЃСЊРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°" id="133">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РџРµС‡Р°С‚РЅР°СЏ С„РѕСЂРјР° РЅРµРґРѕСЃС‚СѓРїРЅР°.</v8:content>
+												</v8:item>
+											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<ContextMenu name="РќР°РґРїРёСЃСЊРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="134"/>
+											<ExtendedTooltip name="РќР°РґРїРёСЃСЊРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РќРµРґРѕСЃС‚СѓРїРЅР°ExtendedTooltip" id="184"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="РћР±Р»Р°СЃС‚СЊРџРѕРєР°Р·Р°С‚РµР»РµР№" id="228">
+			<Visible>false</Visible>
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕРєР°Р·Р°С‚РµР»Рё</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕРєР°Р·Р°С‚РµР»Рё РІС‹РґРµР»РµРЅРЅС‹С… СЏС‡РµРµРє РѕС‚С‡РµС‚Р°</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>AlwaysHorizontal</Group>
+			<HorizontalAlign>Right</HorizontalAlign>
+			<Behavior>Usual</Behavior>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="РћР±Р»Р°СЃС‚СЊРџРѕРєР°Р·Р°С‚РµР»РµР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="229"/>
+			<ChildItems>
+				<LabelDecoration name="РћС‚СЃС‚СѓРїРџРѕРєР°Р·Р°С‚РµР»Рё" id="230">
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="РћС‚СЃС‚СѓРїРџРѕРєР°Р·Р°С‚РµР»РёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="231"/>
+					<ExtendedTooltip name="РћС‚СЃС‚СѓРїРџРѕРєР°Р·Р°С‚РµР»РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="232"/>
+				</LabelDecoration>
+				<UsualGroup name="Р’РёРґС‹РџРѕРєР°Р·Р°С‚РµР»РµР№" id="233">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р’РёРґС‹ РїРѕРєР°Р·Р°С‚РµР»РµР№</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:РС‚РѕРіРёР¤РѕРЅР“СЂСѓРїРїС‹</BackColor>
+					<ExtendedTooltip name="Р’РёРґС‹РџРѕРєР°Р·Р°С‚РµР»РµР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="234"/>
+					<ChildItems>
+						<InputField name="РЎСѓРјРјР°" id="235">
+							<DataPath>РЎСѓРјРјР°</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>Left</TitleLocation>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РЎСѓРјРјР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="236"/>
+							<ExtendedTooltip name="РЎСѓРјРјР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="237"/>
+						</InputField>
+						<InputField name="РљРѕР»РёС‡РµСЃС‚РІРѕ" id="238">
+							<DataPath>РљРѕР»РёС‡РµСЃС‚РІРѕ</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>Left</TitleLocation>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РљРѕР»РёС‡РµСЃС‚РІРѕРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="239"/>
+							<ExtendedTooltip name="РљРѕР»РёС‡РµСЃС‚РІРѕР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="240"/>
+						</InputField>
+						<InputField name="РЎСЂРµРґРЅРµРµ" id="241">
+							<DataPath>РЎСЂРµРґРЅРµРµ</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>Left</TitleLocation>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РЎСЂРµРґРЅРµРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="242"/>
+							<ExtendedTooltip name="РЎСЂРµРґРЅРµРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="243"/>
+						</InputField>
+						<InputField name="РњРёРЅРёРјСѓРј" id="244">
+							<DataPath>РњРёРЅРёРјСѓРј</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>Left</TitleLocation>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РњРёРЅРёРјСѓРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="245"/>
+							<ExtendedTooltip name="РњРёРЅРёРјСѓРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="246"/>
+						</InputField>
+						<InputField name="РњР°РєСЃРёРјСѓРј" id="247">
+							<DataPath>РњР°РєСЃРёРјСѓРј</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>Left</TitleLocation>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РњР°РєСЃРёРјСѓРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="248"/>
+							<ExtendedTooltip name="РњР°РєСЃРёРјСѓРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="249"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<Button name="РЎРІРµСЂРЅСѓС‚СЊРџРѕРєР°Р·Р°С‚РµР»Рё" id="250">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.РЎРІРµСЂРЅСѓС‚СЊРџРѕРєР°Р·Р°С‚РµР»Рё</CommandName>
+					<ExtendedTooltip name="РЎРІРµСЂРЅСѓС‚СЊРџРѕРєР°Р·Р°С‚РµР»РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="251"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±СЉРµРєС‚С‹РџРµС‡Р°С‚Рё" id="14">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="РљР»СЋС‡РќР°СЃС‚СЂРѕРµРє" id="17">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РќР°СЃС‚СЂРѕР№РєРёРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕР№РєРё РїРµС‡Р°С‚РЅС‹С… С„РѕСЂРј</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџРµС‡Р°С‚РЅР°СЏ С„РѕСЂРјР°</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РљРѕР»РёС‡РµСЃС‚РІРѕ" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РљРѕРїРёР№</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>3</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="РџРµС‡Р°С‚Р°С‚СЊ" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџРµС‡Р°С‚Р°С‚СЊ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РРјСЏРЎС‚СЂР°РЅРёС†С‹" id="4">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РРјСЏР РµРєРІРёР·РёС‚Р°" id="5">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РРјСЏРњР°РєРµС‚Р°" id="6">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РџРѕР·РёС†РёСЏРџРѕРЈРјРѕР»С‡Р°РЅРёСЋ" id="7">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="РќР°Р·РІР°РЅРёРµ" id="8">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РџСѓС‚СЊРљРњР°РєРµС‚Сѓ" id="9">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РРјСЏР¤Р°Р№Р»Р°РџРµС‡Р°С‚РЅРѕР№Р¤РѕСЂРјС‹" id="10">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РћС„РёСЃРЅС‹РµР”РѕРєСѓРјРµРЅС‚С‹" id="11">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РџРѕРґРїРёСЃСЊРРџРµС‡Р°С‚СЊ" id="12">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Р”РѕСЃС‚СѓРїРµРЅР’С‹РІРѕРґРќР°Р”СЂСѓРіРёС…РЇР·С‹РєР°С…" id="13">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РўРµРєСѓС‰РёР№РЇР·С‹Рє" id="14">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Р”РѕСЃС‚СѓРїРЅС‹РµРЇР·С‹РєРё" id="15">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="РџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°РћР±СЂР°Р·РµС†" id="19">
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РџР°СЂР°РјРµС‚СЂС‹Р’С‹РІРѕРґР°" id="1">
+			<Type/>
+		</Attribute>
+		<Attribute name="РќР°СЃС‚СЂРѕР№РєРёРљРѕРјРїР»РµРєС‚Р°РџРѕРЈРјРѕР»С‡Р°РЅРёСЋ" id="2">
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="РРјСЏРњР°РєРµС‚Р°" id="1">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РљРѕР»РёС‡РµСЃС‚РІРѕ" id="2">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="РџРѕР·РёС†РёСЏРџРѕРЈРјРѕР»С‡Р°РЅРёСЋ" id="3">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Р”РѕСЃС‚СѓРїРЅР°РќР°СЃС‚СЂРѕР№РєР°РљРѕРјРїР»РµРєС‚Р°" id="3">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РљРѕРїРёР№" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљРѕРїРёР№</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РќР°СЃС‚СЂРѕР№РєРёР¤РѕСЂРјР°С‚Р°РЎРѕС…СЂР°РЅРµРЅРёСЏ" id="5">
+			<Type/>
+		</Attribute>
+		<Attribute name="РЎСѓРјРјР°" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎСѓРјРјР°</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>25</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РўРµРєСѓС‰Р°СЏРџРµС‡Р°С‚РЅР°СЏР¤РѕСЂРјР°" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўРµРєСѓС‰Р°СЏ РїРµС‡Р°С‚РЅР°СЏ С„РѕСЂРјР°</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РљРѕР»РёС‡РµСЃС‚РІРѕ" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљРѕР»РёС‡РµСЃС‚РІРѕ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>25</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РЎСЂРµРґРЅРµРµ" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎСЂРµРґРЅРµРµ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>25</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРѕРєР°Р·Р°С‚РµР»СЊ" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕРєР°Р·Р°С‚РµР»СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>25</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РњР°РєСЃРёРјСѓРј" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РњР°РєСЃРёРјСѓРј</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>25</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РњРёРЅРёРјСѓРј" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РњРёРЅРёРјСѓРј</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>25</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРѕРґРїРёСЃСЊРРџРµС‡Р°С‚СЊ" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕРґРїРёСЃСЊ Рё РїРµС‡Р°С‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>РџРѕРґРїРёСЃСЊРРџРµС‡Р°С‚СЊ</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="РЈРЅРёРєР°Р»СЊРЅС‹Р№РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРҐСЂР°РЅРёР»РёС‰Р°" id="27">
+			<Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РђРґСЂРµСЃРҐСЂР°РЅРёР»РёС‰Р°Р РёСЃСѓРЅРєРѕРІ" id="7">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РћСЃРЅРѕРІРЅРѕР№РџРѕРєР°Р·Р°С‚РµР»СЊ" id="8">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>РћСЃРЅРѕРІРЅРѕР№РџРѕРєР°Р·Р°С‚РµР»СЊ</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Р Р°Р·РІРµСЂРЅСѓС‚СЊРћР±Р»Р°СЃС‚СЊРџРѕРєР°Р·Р°С‚РµР»РµР№" id="9">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>Р Р°Р·РІРµСЂРЅСѓС‚СЊРћР±Р»Р°СЃС‚СЊРџРѕРєР°Р·Р°С‚РµР»РµР№</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="РўРµРєСѓС‰РёР№РЇР·С‹Рє" id="10">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Р Р°СЃС€РёСЂРµРЅРёРµР”Р»СЏР Р°Р±РѕС‚С‹РЎР¤Р°Р№Р»Р°РјРёРџРѕРґРєР»СЋС‡РµРЅРѕ" id="11">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РћС‚РїСЂР°РІРёС‚СЊ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РїСЂР°РІРёС‚СЊ...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РїСЂР°РІРёС‚СЊ РїРѕ РїРѕС‡С‚Рµ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.РћС‚РїСЂР°РІРёС‚СЊР­Р»РµРєС‚СЂРѕРЅРЅРѕРµРџРёСЃСЊРјРѕ</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>РћС‚РїСЂР°РІРёС‚СЊ</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РџРµС‡Р°С‚СЊ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµС‡Р°С‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°РїРµС‡Р°С‚Р°С‚СЊ РЅР° РїСЂРёРЅС‚РµСЂРµ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+Shift+P</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.PrintImmediately</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РџРµС‡Р°С‚СЊ</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РџРµСЂРµР№С‚РёРљР”РѕРєСѓРјРµРЅС‚Сѓ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµР№С‚Рё Рє РґРѕРєСѓРјРµРЅС‚Сѓ...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµР№С‚Рё Рє РґРѕРєСѓРјРµРЅС‚Сѓ...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F7</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.FindInList</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РџРµСЂРµР№С‚РёРљР”РѕРєСѓРјРµРЅС‚Сѓ</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РџРµСЂРµР№С‚РёРљРЈРїСЂР°РІР»РµРЅРёСЋРњР°РєРµС‚Р°РјРё" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµР№С‚Рё Рє РјР°РєРµС‚Р°Рј РїРµС‡Р°С‚РЅС‹С… С„РѕСЂРј</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµР№С‚Рё Рє СѓРїСЂР°РІР»РµРЅРёСЋ РјР°РєРµС‚Р°РјРё</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РџРµСЂРµР№С‚РёРљРЈРїСЂР°РІР»РµРЅРёСЋРњР°РєРµС‚Р°РјРё</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊР¤Р»Р°Р¶РєРё" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С„Р»Р°Р¶РєРё</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С„Р»Р°Р¶РєРё</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РЈСЃС‚Р°РЅРѕРІРёС‚СЊР¤Р»Р°Р¶РєРё</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РЎРЅСЏС‚СЊР¤Р»Р°Р¶РєРё" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРЅСЏС‚СЊ С„Р»Р°Р¶РєРё</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРЅСЏС‚СЊ С„Р»Р°Р¶РєРё</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РЎРЅСЏС‚СЊР¤Р»Р°Р¶РєРё</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РџРѕРєР°Р·Р°С‚СЊРЎРєСЂС‹С‚СЊРќР°СЃС‚СЂРѕР№РєСѓРљРѕР»РёС‡РµСЃС‚РІР°РљРѕРїРёР№" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕРєР°Р·Р°С‚СЊ / РЎРєСЂС‹С‚СЊ РЅР°СЃС‚СЂРѕР№РєСѓ РєРѕРјРїР»РµРєС‚Р°</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕРєР°Р·Р°С‚СЊ / РЎРєСЂС‹С‚СЊ РЅР°СЃС‚СЂРѕР№РєСѓ РєРѕР»РёС‡РµСЃС‚РІР° РєРѕРїРёР№</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.РРµСЂР°СЂС…РёС‡РµСЃРєРёР№РЎРїРёСЃРѕРє</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>РџРѕРєР°Р·Р°С‚СЊРЎРєСЂС‹С‚СЊРќР°СЃС‚СЂРѕР№РєСѓРљРѕР»РёС‡РµСЃС‚РІР°РљРѕРїРёР№</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РЎРѕС…СЂР°РЅРёС‚СЊ" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРѕС…СЂР°РЅРёС‚СЊ РЅР° РґРёСЃРєРµ РёР»Рё РІ РєР°С‡РµСЃС‚РІРµ РїСЂРёСЃРѕРµРґРёРЅРµРЅРЅРѕРіРѕ С„Р°Р№Р»Р° Рє РѕР±СЉРµРєС‚Сѓ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РЎРѕС…СЂР°РЅРёС‚СЊ</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РЎР±СЂРѕСЃРёС‚СЊРќР°СЃС‚СЂРѕР№РєРё" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎР±СЂРѕСЃРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё РєРѕРјРїР»РµРєС‚Р°</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎР±СЂРѕСЃРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЎР±СЂРѕСЃРёС‚СЊРќР°СЃС‚СЂРѕР№РєРё</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РР·РјРµРЅРёС‚СЊРњР°РєРµС‚" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РР·РјРµРЅРёС‚СЊ РјР°РєРµС‚...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РєСЂС‹С‚СЊ РјР°РєРµС‚ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊРњР°РєРµС‚</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>РР·РјРµРЅРёС‚СЊРњР°РєРµС‚</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РџРµСЂРµРєР»СЋС‡РёС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’РєР»СЋС‡Р°РµС‚ РёР»Рё РѕС‚РєР»СЋС‡Р°РµС‚ СЂРµР¶РёРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РїРµС‡Р°С‚РЅРѕР№ С„РѕСЂРјС‹</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SpreadsheetReadOnly</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РџРµСЂРµРєР»СЋС‡РёС‚СЊР РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСѓРјРјСѓ" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°СЃСЃС‡РёС‚Р°С‚СЊ СЃСѓРјРјСѓ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏРµС‚ СЂР°СЃС‡РµС‚ СЃСѓРјРјС‹ РІС‹РґРµР»РµРЅРЅС‹С… СЏС‡РµРµРє</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСѓРјРјСѓ</Action>
+		</Command>
+		<Command name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРљРѕР»РёС‡РµСЃС‚РІРѕ" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°СЃСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏРµС‚ СЂР°СЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РІС‹РґРµР»РµРЅРЅС‹С… СЏС‡РµРµРє</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р Р°СЃСЃС‡РёС‚Р°С‚СЊРљРѕР»РёС‡РµСЃС‚РІРѕ</Action>
+		</Command>
+		<Command name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСЂРµРґРЅРµРµ" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°СЃСЃС‡РёС‚Р°С‚СЊ СЃСЂРµРґРЅРµРµ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏРµС‚ СЂР°СЃС‡РµС‚ СЃСЂРµРґРЅРµРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІС‹РґРµР»РµРЅРЅС‹С… СЏС‡РµРµРє</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р Р°СЃСЃС‡РёС‚Р°С‚СЊРЎСЂРµРґРЅРµРµ</Action>
+		</Command>
+		<Command name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњР°РєСЃРёРјСѓРј" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°СЃСЃС‡РёС‚Р°С‚СЊ РјР°РєСЃРёРјСѓРј</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏРµС‚ СЂР°СЃС‡РµС‚ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІС‹РґРµР»РµРЅРЅС‹С… СЏС‡РµРµРє</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњР°РєСЃРёРјСѓРј</Action>
+		</Command>
+		<Command name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњРёРЅРёРјСѓРј" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°СЃСЃС‡РёС‚Р°С‚СЊ РјРёРЅРёРјСѓРј</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏРµС‚ СЂР°СЃС‡РµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІС‹РґРµР»РµРЅРЅС‹С… СЏС‡РµРµРє</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р Р°СЃСЃС‡РёС‚Р°С‚СЊРњРёРЅРёРјСѓРј</Action>
+		</Command>
+		<Command name="Р Р°СЃСЃС‡РёС‚Р°С‚СЊР’СЃРµРџРѕРєР°Р·Р°С‚РµР»Рё" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°СЃСЃС‡РёС‚Р°С‚СЊ РІСЃРµ РїРѕРєР°Р·Р°С‚РµР»Рё</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹РїРѕР»РЅСЏРµС‚ СЂР°СЃС‡РµС‚ РІСЃРµС… РїРѕРєР°Р·Р°С‚РµР»РµР№ РІС‹РґРµР»РµРЅРЅС‹С… СЏС‡РµРµРє</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р Р°СЃСЃС‡РёС‚Р°С‚СЊР’СЃРµРџРѕРєР°Р·Р°С‚РµР»Рё</Action>
+		</Command>
+		<Command name="РЎРІРµСЂРЅСѓС‚СЊРџРѕРєР°Р·Р°С‚РµР»Рё" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРІРµСЂРЅСѓС‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРІРµСЂРЅСѓС‚СЊ РїР°РЅРµР»СЊ РїРѕРєР°Р·Р°С‚РµР»РµР№</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.РЎС‚СЂРµР»РєР°Р’РЅРёР·Р—РµР»РµРЅР°СЏ</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>РЎРІРµСЂРЅСѓС‚СЊРџРѕРєР°Р·Р°С‚РµР»Рё</Action>
+			<Representation>Picture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="РРјСЏРњРµРЅРµРґР¶РµСЂР°РџРµС‡Р°С‚Рё">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="РРјРµРЅР°РњР°РєРµС‚РѕРІ">
+			<Type/>
+		</Parameter>
+		<Parameter name="РџР°СЂР°РјРµС‚СЂРљРѕРјР°РЅРґС‹">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="РџР°СЂР°РјРµС‚СЂС‹РџРµС‡Р°С‚Рё">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="РСЃС‚РѕС‡РЅРёРєР”Р°РЅРЅС‹С…">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="РџР°СЂР°РјРµС‚СЂС‹РСЃС‚РѕС‡РЅРёРєР°">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="РљРѕР»Р»РµРєС†РёСЏРџРµС‡Р°С‚РЅС‹С…Р¤РѕСЂРј">
+			<Type/>
+		</Parameter>
+		<Parameter name="РћР±СЉРµРєС‚С‹РџРµС‡Р°С‚Рё">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>

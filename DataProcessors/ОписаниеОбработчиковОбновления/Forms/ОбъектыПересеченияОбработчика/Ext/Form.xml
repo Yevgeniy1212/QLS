@@ -1,1 +1,234 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<Title>		<v8:item>			<v8:lang>ru</v8:lang>			<v8:content>Объекты пересечения обработчика</v8:content>		</v8:item>	</Title>	<AutoTitle>false</AutoTitle>	<CommandBarLocation>None</CommandBarLocation>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<Autofill>false</Autofill>	</AutoCommandBar>	<Events>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<Table name="Пересечения" id="1">			<Representation>List</Representation>			<ChangeRowSet>false</ChangeRowSet>			<HeightControlVariant>UseContentHeight</HeightControlVariant>			<AutoInsertNewRow>true</AutoInsertNewRow>			<EnableStartDrag>true</EnableStartDrag>			<EnableDrag>true</EnableDrag>			<FileDragMode>AsFile</FileDragMode>			<DataPath>Пересечения</DataPath>			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Пересечения</v8:content>				</v8:item>			</Title>			<RowFilter xsi:nil="true"/>			<ContextMenu name="ПересеченияКонтекстноеМеню" id="2"/>			<AutoCommandBar name="ПересеченияКоманднаяПанель" id="3">				<Autofill>false</Autofill>			</AutoCommandBar>			<ExtendedTooltip name="ПересеченияРасширеннаяПодсказка" id="4"/>			<SearchStringAddition name="ПересеченияСтрокаПоиска" id="5">				<AdditionSource>					<Item>Пересечения</Item>					<Type>SearchStringRepresentation</Type>				</AdditionSource>				<ContextMenu name="ПересеченияСтрокаПоискаКонтекстноеМеню" id="6"/>				<ExtendedTooltip name="ПересеченияСтрокаПоискаРасширеннаяПодсказка" id="7"/>			</SearchStringAddition>			<ViewStatusAddition name="ПересеченияСостояниеПросмотра" id="8">				<AdditionSource>					<Item>Пересечения</Item>					<Type>ViewStatusRepresentation</Type>				</AdditionSource>				<ContextMenu name="ПересеченияСостояниеПросмотраКонтекстноеМеню" id="9"/>				<ExtendedTooltip name="ПересеченияСостояниеПросмотраРасширеннаяПодсказка" id="10"/>			</ViewStatusAddition>			<SearchControlAddition name="ПересеченияУправлениеПоиском" id="11">				<AdditionSource>					<Item>Пересечения</Item>					<Type>SearchControl</Type>				</AdditionSource>				<ContextMenu name="ПересеченияУправлениеПоискомКонтекстноеМеню" id="12"/>				<ExtendedTooltip name="ПересеченияУправлениеПоискомРасширеннаяПодсказка" id="13"/>			</SearchControlAddition>			<ChildItems>				<CheckBoxField name="ПересеченияЗаписьЧитаемых" id="23">					<DataPath>Пересечения.ЗаписьЧитаемых</DataPath>					<ReadOnly>true</ReadOnly>					<TitleLocation>None</TitleLocation>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Текущий обработчик изменяет объекты, которые читаются другими обработчикамиили другие обработчики изменяют объекты, которые читает текущий обработчик.</v8:content>						</v8:item>					</ToolTip>					<EditMode>EnterOnInput</EditMode>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ПересеченияЗаписьЧитаемыхКонтекстноеМеню" id="24"/>					<ExtendedTooltip name="ПересеченияЗаписьЧитаемыхРасширеннаяПодсказка" id="25"/>				</CheckBoxField>				<CheckBoxField name="ПересеченияПовторнаяЗапись" id="26">					<DataPath>Пересечения.ПовторнаяЗапись</DataPath>					<ReadOnly>true</ReadOnly>					<TitleLocation>None</TitleLocation>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Повторная запись изменяемых объектов другими обработчиками.</v8:content>						</v8:item>					</ToolTip>					<EditMode>EnterOnInput</EditMode>					<HeaderPicture>						<xr:Ref>CommonPicture.Предупреждение</xr:Ref>						<xr:LoadTransparent>false</xr:LoadTransparent>					</HeaderPicture>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ПересеченияПовторнаяЗаписьКонтекстноеМеню" id="27"/>					<ExtendedTooltip name="ПересеченияПовторнаяЗаписьРасширеннаяПодсказка" id="28"/>				</CheckBoxField>				<InputField name="ПересеченияОбъектМетаданных" id="20">					<DataPath>Пересечения.ОбъектМетаданных</DataPath>					<ReadOnly>true</ReadOnly>					<EditMode>EnterOnInput</EditMode>					<ContextMenu name="ПересеченияОбъектМетаданныхКонтекстноеМеню" id="21"/>					<ExtendedTooltip name="ПересеченияОбъектМетаданныхРасширеннаяПодсказка" id="22"/>				</InputField>				<InputField name="ПересеченияПроцедураПисатель" id="14">					<DataPath>Пересечения.ПроцедураПисатель</DataPath>					<ReadOnly>true</ReadOnly>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Обработчик писатель</v8:content>						</v8:item>					</Title>					<EditMode>EnterOnInput</EditMode>					<ContextMenu name="ПересеченияПроцедураПисательКонтекстноеМеню" id="15"/>					<ExtendedTooltip name="ПересеченияПроцедураПисательРасширеннаяПодсказка" id="16"/>				</InputField>				<InputField name="ПересеченияПроцедураЧитательИлиПисатель2" id="17">					<DataPath>Пересечения.ПроцедураЧитательИлиПисатель2</DataPath>					<ReadOnly>true</ReadOnly>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Обработчик читатель (или писатель 2)</v8:content>						</v8:item>					</Title>					<EditMode>EnterOnInput</EditMode>					<ContextMenu name="ПересеченияПроцедураЧитательИлиПисатель2КонтекстноеМеню" id="18"/>					<ExtendedTooltip name="ПересеченияПроцедураЧитательИлиПисатель2РасширеннаяПодсказка" id="19"/>				</InputField>			</ChildItems>		</Table>	</ChildItems>	<Attributes>		<Attribute name="Объект" id="1">			<Type>				<v8:Type>cfg:DataProcessorObject.ОписаниеОбработчиковОбновления</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>		</Attribute>		<Attribute name="Пересечения" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Пересечения</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>v8:ValueTable</v8:Type>			</Type>			<Columns>				<Column name="ПроцедураПисатель" id="1">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Обработчик1</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>350</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ПроцедураЧитательИлиПисатель2" id="2">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Обработчик2</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>350</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ОбъектМетаданных" id="3">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Объект метаданных</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:string</v8:Type>						<v8:StringQualifiers>							<v8:Length>300</v8:Length>							<v8:AllowedLength>Variable</v8:AllowedLength>						</v8:StringQualifiers>					</Type>				</Column>				<Column name="ЗаписьЧитаемых" id="4">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Запись читаемых</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:boolean</v8:Type>					</Type>				</Column>				<Column name="ПовторнаяЗапись" id="5">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Повторная запись</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:boolean</v8:Type>					</Type>				</Column>			</Columns>		</Attribute>	</Attributes>	<Parameters>		<Parameter name="АдресДанных">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>100</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>РћР±СЉРµРєС‚С‹ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РѕР±СЂР°Р±РѕС‚С‡РёРєР°</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<Table name="РџРµСЂРµСЃРµС‡РµРЅРёСЏ" id="1">
+			<Representation>List</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<HeightControlVariant>UseContentHeight</HeightControlVariant>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>РџРµСЂРµСЃРµС‡РµРЅРёСЏ</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµСЃРµС‡РµРЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+			<AutoCommandBar name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="4"/>
+			<SearchStringAddition name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="5">
+				<AdditionSource>
+					<Item>РџРµСЂРµСЃРµС‡РµРЅРёСЏ</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="6"/>
+				<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="8">
+				<AdditionSource>
+					<Item>РџРµСЂРµСЃРµС‡РµРЅРёСЏ</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="9"/>
+				<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="11">
+				<AdditionSource>
+					<Item>РџРµСЂРµСЃРµС‡РµРЅРёСЏ</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="12"/>
+				<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<CheckBoxField name="РџРµСЂРµСЃРµС‡РµРЅРёСЏР—Р°РїРёСЃСЊР§РёС‚Р°РµРјС‹С…" id="23">
+					<DataPath>РџРµСЂРµСЃРµС‡РµРЅРёСЏ.Р—Р°РїРёСЃСЊР§РёС‚Р°РµРјС‹С…</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РўРµРєСѓС‰РёР№ РѕР±СЂР°Р±РѕС‚С‡РёРє РёР·РјРµРЅСЏРµС‚ РѕР±СЉРµРєС‚С‹, РєРѕС‚РѕСЂС‹Рµ С‡РёС‚Р°СЋС‚СЃСЏ РґСЂСѓРіРёРјРё РѕР±СЂР°Р±РѕС‚С‡РёРєР°РјРё
+РёР»Рё РґСЂСѓРіРёРµ РѕР±СЂР°Р±РѕС‚С‡РёРєРё РёР·РјРµРЅСЏСЋС‚ РѕР±СЉРµРєС‚С‹, РєРѕС‚РѕСЂС‹Рµ С‡РёС‚Р°РµС‚ С‚РµРєСѓС‰РёР№ РѕР±СЂР°Р±РѕС‚С‡РёРє.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏР—Р°РїРёСЃСЊР§РёС‚Р°РµРјС‹С…РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="24"/>
+					<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏР—Р°РїРёСЃСЊР§РёС‚Р°РµРјС‹С…Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="25"/>
+				</CheckBoxField>
+				<CheckBoxField name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџРѕРІС‚РѕСЂРЅР°СЏР—Р°РїРёСЃСЊ" id="26">
+					<DataPath>РџРµСЂРµСЃРµС‡РµРЅРёСЏ.РџРѕРІС‚РѕСЂРЅР°СЏР—Р°РїРёСЃСЊ</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџРѕРІС‚РѕСЂРЅР°СЏ Р·Р°РїРёСЃСЊ РёР·РјРµРЅСЏРµРјС‹С… РѕР±СЉРµРєС‚РѕРІ РґСЂСѓРіРёРјРё РѕР±СЂР°Р±РѕС‚С‡РёРєР°РјРё.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</HeaderPicture>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџРѕРІС‚РѕСЂРЅР°СЏР—Р°РїРёСЃСЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="27"/>
+					<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџРѕРІС‚РѕСЂРЅР°СЏР—Р°РїРёСЃСЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="28"/>
+				</CheckBoxField>
+				<InputField name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРћР±СЉРµРєС‚РњРµС‚Р°РґР°РЅРЅС‹С…" id="20">
+					<DataPath>РџРµСЂРµСЃРµС‡РµРЅРёСЏ.РћР±СЉРµРєС‚РњРµС‚Р°РґР°РЅРЅС‹С…</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРћР±СЉРµРєС‚РњРµС‚Р°РґР°РЅРЅС‹С…РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="21"/>
+					<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРћР±СЉРµРєС‚РњРµС‚Р°РґР°РЅРЅС‹С…Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="22"/>
+				</InputField>
+				<InputField name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџСЂРѕС†РµРґСѓСЂР°РџРёСЃР°С‚РµР»СЊ" id="14">
+					<DataPath>РџРµСЂРµСЃРµС‡РµРЅРёСЏ.РџСЂРѕС†РµРґСѓСЂР°РџРёСЃР°С‚РµР»СЊ</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћР±СЂР°Р±РѕС‚С‡РёРє РїРёСЃР°С‚РµР»СЊ</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџСЂРѕС†РµРґСѓСЂР°РџРёСЃР°С‚РµР»СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="15"/>
+					<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџСЂРѕС†РµРґСѓСЂР°РџРёСЃР°С‚РµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="16"/>
+				</InputField>
+				<InputField name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџСЂРѕС†РµРґСѓСЂР°Р§РёС‚Р°С‚РµР»СЊРР»РёРџРёСЃР°С‚РµР»СЊ2" id="17">
+					<DataPath>РџРµСЂРµСЃРµС‡РµРЅРёСЏ.РџСЂРѕС†РµРґСѓСЂР°Р§РёС‚Р°С‚РµР»СЊРР»РёРџРёСЃР°С‚РµР»СЊ2</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћР±СЂР°Р±РѕС‚С‡РёРє С‡РёС‚Р°С‚РµР»СЊ (РёР»Рё РїРёСЃР°С‚РµР»СЊ 2)</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџСЂРѕС†РµРґСѓСЂР°Р§РёС‚Р°С‚РµР»СЊРР»РёРџРёСЃР°С‚РµР»СЊ2РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="18"/>
+					<ExtendedTooltip name="РџРµСЂРµСЃРµС‡РµРЅРёСЏРџСЂРѕС†РµРґСѓСЂР°Р§РёС‚Р°С‚РµР»СЊРР»РёРџРёСЃР°С‚РµР»СЊ2Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="19"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±СЉРµРєС‚" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.РћРїРёСЃР°РЅРёРµРћР±СЂР°Р±РѕС‚С‡РёРєРѕРІРћР±РЅРѕРІР»РµРЅРёСЏ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="РџРµСЂРµСЃРµС‡РµРЅРёСЏ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµСЃРµС‡РµРЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="РџСЂРѕС†РµРґСѓСЂР°РџРёСЃР°С‚РµР»СЊ" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћР±СЂР°Р±РѕС‚С‡РёРє1</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>350</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РџСЂРѕС†РµРґСѓСЂР°Р§РёС‚Р°С‚РµР»СЊРР»РёРџРёСЃР°С‚РµР»СЊ2" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћР±СЂР°Р±РѕС‚С‡РёРє2</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>350</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РћР±СЉРµРєС‚РњРµС‚Р°РґР°РЅРЅС‹С…" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћР±СЉРµРєС‚ РјРµС‚Р°РґР°РЅРЅС‹С…</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>300</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Р—Р°РїРёСЃСЊР§РёС‚Р°РµРјС‹С…" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р—Р°РїРёСЃСЊ С‡РёС‚Р°РµРјС‹С…</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РџРѕРІС‚РѕСЂРЅР°СЏР—Р°РїРёСЃСЊ" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџРѕРІС‚РѕСЂРЅР°СЏ Р·Р°РїРёСЃСЊ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="РђРґСЂРµСЃР”Р°РЅРЅС‹С…">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

@@ -1,1 +1,566 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<Title>		<v8:item>			<v8:lang>ru</v8:lang>			<v8:content>Изменить настройку дополнительного реквизита</v8:content>		</v8:item>	</Title>	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoTitle>false</AutoTitle>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<Autofill>false</Autofill>		<ChildItems>			<Button name="ФормаЗаписатьИЗакрыть" id="41">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьExtendedTooltip" id="60"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="BeforeClose">ПередЗакрытием</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<Pages name="ТипыСвойства" id="40">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Типы свойства</v8:content>				</v8:item>			</Title>			<PagesRepresentation>None</PagesRepresentation>			<ExtendedTooltip name="ТипыСвойстваExtendedTooltip" id="61"/>			<ChildItems>				<Page name="ДополнительныйРеквизит" id="17">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Дополнительный реквизит</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="ДополнительныйРеквизитРасширеннаяПодсказка" id="62"/>					<ChildItems>						<UsualGroup name="РеквизитПредупреждение" id="52">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Реквизит предупреждение</v8:content>								</v8:item>							</Title>							<Behavior>Usual</Behavior>							<Representation>None</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="РеквизитПредупреждениеExtendedTooltip" id="63"/>							<ChildItems>								<PictureDecoration name="РеквизитПредупреждениеКартинка" id="48">									<Title formatted="false">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Реквизит предупреждение картинка</v8:content>										</v8:item>									</Title>									<Picture>										<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>										<xr:LoadTransparent>false</xr:LoadTransparent>									</Picture>									<FileDragMode>AsFile</FileDragMode>									<ContextMenu name="РеквизитПредупреждениеКартинкаКонтекстноеМеню" id="49"/>									<ExtendedTooltip name="РеквизитПредупреждениеКартинкаExtendedTooltip" id="64"/>								</PictureDecoration>								<LabelDecoration name="РеквизитПредупреждениеКомментарий" id="50">									<AutoMaxWidth>false</AutoMaxWidth>									<MaxWidth>80</MaxWidth>									<TextColor>style:ПоясняющийТекст</TextColor>									<Title formatted="false">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Перенастройка дополнительного реквизита необратима и может занять длительное время, в зависимости от числа документов, в которых заполнен этот реквизит. Вместо этого можно добавить новый реквизит со своим списком значений, и выполнить вручную постепенный переход от использования этого реквизита к новому (очистить значения этого реквизита и заполнить значения нового).</v8:content>										</v8:item>									</Title>									<VerticalAlign>Top</VerticalAlign>									<ContextMenu name="РеквизитПредупреждениеКомментарийКонтекстноеМеню" id="51"/>									<ExtendedTooltip name="РеквизитПредупреждениеКомментарийExtendedTooltip" id="65"/>								</LabelDecoration>							</ChildItems>						</UsualGroup>						<RadioButtonField name="ОтдельныеЗначенияРеквизита" id="8">							<DataPath>ОтдельноеСвойствоСОтдельнымСпискомЗначений</DataPath>							<TitleLocation>None</TitleLocation>							<RadioButtonType>Auto</RadioButtonType>							<ChoiceList>								<xr:Item>									<xr:Presentation/>									<xr:CheckState>0</xr:CheckState>									<xr:Value xsi:type="FormChoiceListDesTimeValue">										<Presentation>											<v8:item>												<v8:lang>ru</v8:lang>												<v8:content>Реквизит со своим списком значений</v8:content>											</v8:item>										</Presentation>										<Value xsi:type="xs:decimal">1</Value>									</xr:Value>								</xr:Item>							</ChoiceList>							<ContextMenu name="ОтдельныеЗначенияРеквизитаКонтекстноеМеню" id="9"/>							<ExtendedTooltip name="ОтдельныеЗначенияРеквизитаExtendedTooltip" id="66"/>							<Events>								<Event name="OnChange">ВидПриИзменении</Event>							</Events>						</RadioButtonField>						<LabelDecoration name="ОтдельныеЗначенияРеквизитаКомментарий" id="14">							<AutoMaxWidth>false</AutoMaxWidth>							<MaxWidth>80</MaxWidth>							<TextColor>style:ПоясняющийТекст</TextColor>							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Данный реквизит входит только в один набор %1, и у него свой собственный список значений.</v8:content>								</v8:item>							</Title>							<ContextMenu name="ОтдельныеЗначенияРеквизитаКомментарийКонтекстноеМеню" id="15"/>							<ExtendedTooltip name="ОтдельныеЗначенияРеквизитаКомментарийExtendedTooltip" id="67"/>						</LabelDecoration>						<Pages name="ВидыРеквизита" id="30">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Виды реквизита</v8:content>								</v8:item>							</Title>							<PagesRepresentation>None</PagesRepresentation>							<ExtendedTooltip name="ВидыРеквизитаExtendedTooltip" id="68"/>							<ChildItems>								<Page name="ВидОбщиеЗначенияРеквизитов" id="32">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Вид общие значения реквизитов</v8:content>										</v8:item>									</Title>									<ExtendedTooltip name="ВидОбщиеЗначенияРеквизитовExtendedTooltip" id="69"/>									<ChildItems>										<RadioButtonField name="ОбщиеЗначенияРеквизитов" id="6">											<DataPath>ОтдельноеСвойствоСОбщимСпискомЗначений</DataPath>											<TitleLocation>None</TitleLocation>											<RadioButtonType>Auto</RadioButtonType>											<ChoiceList>												<xr:Item>													<xr:Presentation/>													<xr:CheckState>0</xr:CheckState>													<xr:Value xsi:type="FormChoiceListDesTimeValue">														<Presentation>															<v8:item>																<v8:lang>ru</v8:lang>																<v8:content>Реквизит с общим списком значений</v8:content>															</v8:item>														</Presentation>														<Value xsi:type="xs:decimal">1</Value>													</xr:Value>												</xr:Item>											</ChoiceList>											<ContextMenu name="ОбщиеЗначенияРеквизитовКонтекстноеМеню" id="7"/>											<ExtendedTooltip name="ОбщиеЗначенияРеквизитовExtendedTooltip" id="70"/>											<Events>												<Event name="OnChange">ВидПриИзменении</Event>											</Events>										</RadioButtonField>										<LabelDecoration name="ОбщиеЗначенияРеквизитовКомментарий" id="12">											<AutoMaxWidth>false</AutoMaxWidth>											<MaxWidth>80</MaxWidth>											<TextColor>style:ПоясняющийТекст</TextColor>											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>У данного реквизита общий список значений с другими реквизитами, добавленными по образцу. С помощью этого варианта удобно выполнять централизованную настройку списка значений сразу для нескольких однотипных реквизитов (например, "Цвет одежды", "Цвет обуви" и пр.).</v8:content>												</v8:item>											</Title>											<ContextMenu name="ОбщиеЗначенияРеквизитовКомментарийКонтекстноеМеню" id="13"/>											<ExtendedTooltip name="ОбщиеЗначенияРеквизитовКомментарийExtendedTooltip" id="71"/>										</LabelDecoration>									</ChildItems>								</Page>								<Page name="ВидОбщийРеквизит" id="31">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Вид общий реквизит</v8:content>										</v8:item>									</Title>									<ExtendedTooltip name="ВидОбщийРеквизитExtendedTooltip" id="72"/>									<ChildItems>										<RadioButtonField name="ОбщийРеквизит" id="4">											<DataPath>ОбщееСвойство</DataPath>											<TitleLocation>None</TitleLocation>											<RadioButtonType>Auto</RadioButtonType>											<ChoiceList>												<xr:Item>													<xr:Presentation/>													<xr:CheckState>0</xr:CheckState>													<xr:Value xsi:type="FormChoiceListDesTimeValue">														<Presentation>															<v8:item>																<v8:lang>ru</v8:lang>																<v8:content>Общий реквизит</v8:content>															</v8:item>														</Presentation>														<Value xsi:type="xs:decimal">1</Value>													</xr:Value>												</xr:Item>											</ChoiceList>											<ContextMenu name="ОбщийРеквизитКонтекстноеМеню" id="5"/>											<ExtendedTooltip name="ОбщийРеквизитExtendedTooltip" id="73"/>											<Events>												<Event name="OnChange">ВидПриИзменении</Event>											</Events>										</RadioButtonField>										<LabelDecoration name="ОбщийРеквизитКомментарий" id="10">											<AutoMaxWidth>false</AutoMaxWidth>											<MaxWidth>80</MaxWidth>											<TextColor>style:ПоясняющийТекст</TextColor>											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Данный реквизит входит сразу в несколько наборов. Этот вариант подходит для тех случаев, когда общимдолжен быть не только список значений, но и сам реквизит. В списках и отчетах по элементам различныхсправочников и документов, общие реквизиты группируются и выводятся как один реквизит, в одной колонке или поле.Например, с помощью общего реквизита "Цвет" можно быстро отобрать всю желтую одежду и обувь.</v8:content>												</v8:item>											</Title>											<ContextMenu name="ОбщийРеквизитКомментарийКонтекстноеМеню" id="11"/>											<ExtendedTooltip name="ОбщийРеквизитКомментарийExtendedTooltip" id="74"/>										</LabelDecoration>									</ChildItems>								</Page>							</ChildItems>						</Pages>					</ChildItems>				</Page>				<Page name="ДополнительноеСведение" id="16">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Дополнительное сведение</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="ДополнительноеСведениеРасширеннаяПодсказка" id="75"/>					<ChildItems>						<UsualGroup name="СведениеПредупреждение" id="54">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Сведение предупреждение</v8:content>								</v8:item>							</Title>							<Behavior>Usual</Behavior>							<Representation>None</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="СведениеПредупреждениеExtendedTooltip" id="76"/>							<ChildItems>								<PictureDecoration name="СведениеПредупреждениеКартинка" id="56">									<Title formatted="false">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Сведение предупреждение картинка</v8:content>										</v8:item>									</Title>									<Picture>										<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>										<xr:LoadTransparent>false</xr:LoadTransparent>									</Picture>									<FileDragMode>AsFile</FileDragMode>									<ContextMenu name="СведениеПредупреждениеКартинкаКонтекстноеМеню" id="57"/>									<ExtendedTooltip name="СведениеПредупреждениеКартинкаExtendedTooltip" id="77"/>								</PictureDecoration>								<LabelDecoration name="СведениеПредупреждениеКомментарий" id="58">									<AutoMaxWidth>false</AutoMaxWidth>									<MaxWidth>80</MaxWidth>									<TextColor>style:ПоясняющийТекст</TextColor>									<Title formatted="false">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Перенастройка дополнительного сведения необратима и может занять длительное время, в зависимости от числа документов, в которых заполнено это сведение.Вместо этого можно добавить новое сведение со своим списком значений, и выполнить вручную постепенный переход от использования этого сведения к новому (очистить значения этого сведения и заполнить значения нового).</v8:content>										</v8:item>									</Title>									<VerticalAlign>Top</VerticalAlign>									<ContextMenu name="СведениеПредупреждениеКомментарийКонтекстноеМеню" id="59"/>									<ExtendedTooltip name="СведениеПредупреждениеКомментарийExtendedTooltip" id="78"/>								</LabelDecoration>							</ChildItems>						</UsualGroup>						<RadioButtonField name="ОтдельныеЗначенияСведения" id="26">							<DataPath>ОтдельноеСвойствоСОтдельнымСпискомЗначений</DataPath>							<TitleLocation>None</TitleLocation>							<RadioButtonType>Auto</RadioButtonType>							<ChoiceList>								<xr:Item>									<xr:Presentation/>									<xr:CheckState>0</xr:CheckState>									<xr:Value xsi:type="FormChoiceListDesTimeValue">										<Presentation>											<v8:item>												<v8:lang>ru</v8:lang>												<v8:content>Сведение со своим списком значений</v8:content>											</v8:item>										</Presentation>										<Value xsi:type="xs:decimal">1</Value>									</xr:Value>								</xr:Item>							</ChoiceList>							<ContextMenu name="ОтдельныеЗначенияСведенияКонтекстноеМеню" id="27"/>							<ExtendedTooltip name="ОтдельныеЗначенияСведенияExtendedTooltip" id="79"/>							<Events>								<Event name="OnChange">ВидПриИзменении</Event>							</Events>						</RadioButtonField>						<LabelDecoration name="ОтдельныеЗначенияСведенияКомментарий" id="28">							<AutoMaxWidth>false</AutoMaxWidth>							<MaxWidth>80</MaxWidth>							<TextColor>style:ПоясняющийТекст</TextColor>							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Данное сведение входит только в один набор %1, и у него свой собственный список значений.</v8:content>								</v8:item>							</Title>							<ContextMenu name="ОтдельныеЗначенияСведенияКомментарийКонтекстноеМеню" id="29"/>							<ExtendedTooltip name="ОтдельныеЗначенияСведенияКомментарийExtendedTooltip" id="80"/>						</LabelDecoration>						<Pages name="ВидыСведения" id="33">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Виды сведения</v8:content>								</v8:item>							</Title>							<PagesRepresentation>None</PagesRepresentation>							<ExtendedTooltip name="ВидыСведенияExtendedTooltip" id="81"/>							<ChildItems>								<Page name="ВидОбщиеЗначенияСведений" id="39">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Вид общие значения сведений</v8:content>										</v8:item>									</Title>									<ExtendedTooltip name="ВидОбщиеЗначенияСведенийExtendedTooltip" id="82"/>									<ChildItems>										<RadioButtonField name="ОбщиеЗначенияСведений" id="22">											<DataPath>ОтдельноеСвойствоСОбщимСпискомЗначений</DataPath>											<TitleLocation>None</TitleLocation>											<RadioButtonType>Auto</RadioButtonType>											<ChoiceList>												<xr:Item>													<xr:Presentation/>													<xr:CheckState>0</xr:CheckState>													<xr:Value xsi:type="FormChoiceListDesTimeValue">														<Presentation>															<v8:item>																<v8:lang>ru</v8:lang>																<v8:content>Сведение с общим списком значений</v8:content>															</v8:item>														</Presentation>														<Value xsi:type="xs:decimal">1</Value>													</xr:Value>												</xr:Item>											</ChoiceList>											<ContextMenu name="ОбщиеЗначенияСведенийКонтекстноеМеню" id="23"/>											<ExtendedTooltip name="ОбщиеЗначенияСведенийExtendedTooltip" id="83"/>											<Events>												<Event name="OnChange">ВидПриИзменении</Event>											</Events>										</RadioButtonField>										<LabelDecoration name="ОбщиеЗначенияСведенийКомментарий" id="24">											<AutoMaxWidth>false</AutoMaxWidth>											<MaxWidth>80</MaxWidth>											<TextColor>style:ПоясняющийТекст</TextColor>											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>У этого сведения общий список значений с другими сведениями, добавленными по образцу. С помощью этого варианта удобно выполнять централизованную настройку списка значений сразу для нескольких однотипных сведений (например, "Цвет одежды", "Цвет обуви" и пр.).</v8:content>												</v8:item>											</Title>											<ContextMenu name="ОбщиеЗначенияСведенийКомментарийКонтекстноеМеню" id="25"/>											<ExtendedTooltip name="ОбщиеЗначенияСведенийКомментарийExtendedTooltip" id="84"/>										</LabelDecoration>									</ChildItems>								</Page>								<Page name="ВидОбщееСведение" id="34">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Вид общее сведение</v8:content>										</v8:item>									</Title>									<ExtendedTooltip name="ВидОбщееСведениеExtendedTooltip" id="85"/>									<ChildItems>										<RadioButtonField name="ОбщееСведение" id="18">											<DataPath>ОбщееСвойство</DataPath>											<TitleLocation>None</TitleLocation>											<RadioButtonType>Auto</RadioButtonType>											<ChoiceList>												<xr:Item>													<xr:Presentation/>													<xr:CheckState>0</xr:CheckState>													<xr:Value xsi:type="FormChoiceListDesTimeValue">														<Presentation>															<v8:item>																<v8:lang>ru</v8:lang>																<v8:content>Общее сведение</v8:content>															</v8:item>														</Presentation>														<Value xsi:type="xs:decimal">1</Value>													</xr:Value>												</xr:Item>											</ChoiceList>											<ContextMenu name="ОбщееСведениеКонтекстноеМеню" id="19"/>											<ExtendedTooltip name="ОбщееСведениеExtendedTooltip" id="86"/>											<Events>												<Event name="OnChange">ВидПриИзменении</Event>											</Events>										</RadioButtonField>										<LabelDecoration name="ОбщееСведениеКомментарий" id="20">											<AutoMaxWidth>false</AutoMaxWidth>											<MaxWidth>80</MaxWidth>											<TextColor>style:ПоясняющийТекст</TextColor>											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Данное сведение входит сразу в несколько наборов. Этот вариант подходит для тех случаев, когда общимдолжен быть не только список значений, но и само сведение. В списках и отчетах по элементам различныхсправочников и документов, общие сведения группируются и выводятся как одно сведение, в одной колонке или поле.Например, с помощью общего сведения "Цвет" можно быстро отобрать всю желтую одежду и обувь.</v8:content>												</v8:item>											</Title>											<ContextMenu name="ОбщееСведениеКомментарийКонтекстноеМеню" id="21"/>											<ExtendedTooltip name="ОбщееСведениеКомментарийExtendedTooltip" id="87"/>										</LabelDecoration>									</ChildItems>								</Page>							</ChildItems>						</Pages>					</ChildItems>				</Page>			</ChildItems>		</Pages>	</ChildItems>	<Attributes>		<Attribute name="ОбщееСвойство" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Общее свойство</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>1</v8:Digits>					<v8:FractionDigits>0</v8:FractionDigits>					<v8:AllowedSign>Nonnegative</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>			<SavedData>true</SavedData>		</Attribute>		<Attribute name="ОтдельноеСвойствоСОбщимСпискомЗначений" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Отдельное свойство с общим списком значений</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>1</v8:Digits>					<v8:FractionDigits>0</v8:FractionDigits>					<v8:AllowedSign>Nonnegative</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>			<SavedData>true</SavedData>		</Attribute>		<Attribute name="ОтдельноеСвойствоСОтдельнымСпискомЗначений" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Отдельное свойство с отдельным списком значений</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>1</v8:Digits>					<v8:FractionDigits>0</v8:FractionDigits>					<v8:AllowedSign>Nonnegative</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>			<SavedData>true</SavedData>		</Attribute>		<Attribute name="Свойство" id="4">			<Type>				<v8:Type>cfg:ChartOfCharacteristicTypesRef.ДополнительныеРеквизитыИСведения</v8:Type>			</Type>		</Attribute>		<Attribute name="ЭтоДополнительноеСведение" id="5">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ТекущийНаборСвойств" id="6">			<Type>				<v8:Type>cfg:CatalogRef.НаборыДополнительныхРеквизитовИСведений</v8:Type>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="ЗаписатьИЗакрыть" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Записать и закрыть</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Записать и закрыть</v8:content>				</v8:item>			</ToolTip>			<Action>ЗаписатьИЗакрыть</Action>			<Representation>TextPicture</Representation>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands>	<Parameters>		<Parameter name="ЭтоДополнительноеСведение">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Parameter>		<Parameter name="ВладелецДополнительныхЗначений">			<Type>				<v8:Type>cfg:ChartOfCharacteristicTypesRef.ДополнительныеРеквизитыИСведения</v8:Type>			</Type>		</Parameter>		<Parameter name="НаборСвойств">			<Type>				<v8:Type>cfg:CatalogRef.НаборыДополнительныхРеквизитовИСведений</v8:Type>			</Type>		</Parameter>		<Parameter name="Свойство">			<Type>				<v8:Type>cfg:ChartOfCharacteristicTypesRef.ДополнительныеРеквизитыИСведения</v8:Type>			</Type>		</Parameter>		<Parameter name="ТекущийНаборСвойств">			<Type>				<v8:Type>cfg:CatalogRef.НаборыДополнительныхРеквизитовИСведений</v8:Type>			</Type>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>РР·РјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєСѓ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ СЂРµРєРІРёР·РёС‚Р°</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Р¤РѕСЂРјР°Р—Р°РїРёСЃР°С‚СЊРР—Р°РєСЂС‹С‚СЊ" id="41">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Р—Р°РїРёСЃР°С‚СЊРР—Р°РєСЂС‹С‚СЊ</CommandName>
+				<ExtendedTooltip name="Р¤РѕСЂРјР°Р—Р°РїРёСЃР°С‚СЊРР—Р°РєСЂС‹С‚СЊExtendedTooltip" id="60"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">РџРµСЂРµРґР—Р°РєСЂС‹С‚РёРµРј</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="РўРёРїС‹РЎРІРѕР№СЃС‚РІР°" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўРёРїС‹ СЃРІРѕР№СЃС‚РІР°</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="РўРёРїС‹РЎРІРѕР№СЃС‚РІР°ExtendedTooltip" id="61"/>
+			<ChildItems>
+				<Page name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№Р РµРєРІРёР·РёС‚" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЂРµРєРІРёР·РёС‚</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№Р РµРєРІРёР·РёС‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="62"/>
+					<ChildItems>
+						<UsualGroup name="Р РµРєРІРёР·РёС‚РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ" id="52">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р РµРєРІРёР·РёС‚ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Р РµРєРІРёР·РёС‚РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµExtendedTooltip" id="63"/>
+							<ChildItems>
+								<PictureDecoration name="Р РµРєРІРёР·РёС‚РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљР°СЂС‚РёРЅРєР°" id="48">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р РµРєРІРёР·РёС‚ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ РєР°СЂС‚РёРЅРєР°</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="Р РµРєРІРёР·РёС‚РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљР°СЂС‚РёРЅРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="49"/>
+									<ExtendedTooltip name="Р РµРєРІРёР·РёС‚РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљР°СЂС‚РёРЅРєР°ExtendedTooltip" id="64"/>
+								</PictureDecoration>
+								<LabelDecoration name="Р РµРєРІРёР·РёС‚РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№" id="50">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>80</MaxWidth>
+									<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РџРµСЂРµРЅР°СЃС‚СЂРѕР№РєР° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ СЂРµРєРІРёР·РёС‚Р° РЅРµРѕР±СЂР°С‚РёРјР° Рё РјРѕР¶РµС‚ Р·Р°РЅСЏС‚СЊ РґР»РёС‚РµР»СЊРЅРѕРµ РІСЂРµРјСЏ, РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ С‡РёСЃР»Р° РґРѕРєСѓРјРµРЅС‚РѕРІ, РІ РєРѕС‚РѕСЂС‹С… Р·Р°РїРѕР»РЅРµРЅ СЌС‚РѕС‚ СЂРµРєРІРёР·РёС‚. 
+Р’РјРµСЃС‚Рѕ СЌС‚РѕРіРѕ РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЂРµРєРІРёР·РёС‚ СЃРѕ СЃРІРѕРёРј СЃРїРёСЃРєРѕРј Р·РЅР°С‡РµРЅРёР№, Рё РІС‹РїРѕР»РЅРёС‚СЊ РІСЂСѓС‡РЅСѓСЋ РїРѕСЃС‚РµРїРµРЅРЅС‹Р№ РїРµСЂРµС…РѕРґ РѕС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕРіРѕ СЂРµРєРІРёР·РёС‚Р° Рє РЅРѕРІРѕРјСѓ (РѕС‡РёСЃС‚РёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ СЌС‚РѕРіРѕ СЂРµРєРІРёР·РёС‚Р° Рё Р·Р°РїРѕР»РЅРёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ РЅРѕРІРѕРіРѕ).</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Top</VerticalAlign>
+									<ContextMenu name="Р РµРєРІРёР·РёС‚РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="51"/>
+									<ExtendedTooltip name="Р РµРєРІРёР·РёС‚РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№ExtendedTooltip" id="65"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<RadioButtonField name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚Р°" id="8">
+							<DataPath>РћС‚РґРµР»СЊРЅРѕРµРЎРІРѕР№СЃС‚РІРѕРЎРћС‚РґРµР»СЊРЅС‹РјРЎРїРёСЃРєРѕРјР—РЅР°С‡РµРЅРёР№</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Р РµРєРІРёР·РёС‚ СЃРѕ СЃРІРѕРёРј СЃРїРёСЃРєРѕРј Р·РЅР°С‡РµРЅРёР№</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="9"/>
+							<ExtendedTooltip name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚Р°ExtendedTooltip" id="66"/>
+							<Events>
+								<Event name="OnChange">Р’РёРґРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</RadioButtonField>
+						<LabelDecoration name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚Р°РљРѕРјРјРµРЅС‚Р°СЂРёР№" id="14">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>80</MaxWidth>
+							<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р”Р°РЅРЅС‹Р№ СЂРµРєРІРёР·РёС‚ РІС…РѕРґРёС‚ С‚РѕР»СЊРєРѕ РІ РѕРґРёРЅ РЅР°Р±РѕСЂ %1, Рё Сѓ РЅРµРіРѕ СЃРІРѕР№ СЃРѕР±СЃС‚РІРµРЅРЅС‹Р№ СЃРїРёСЃРѕРє Р·РЅР°С‡РµРЅРёР№.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚Р°РљРѕРјРјРµРЅС‚Р°СЂРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="15"/>
+							<ExtendedTooltip name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚Р°РљРѕРјРјРµРЅС‚Р°СЂРёР№ExtendedTooltip" id="67"/>
+						</LabelDecoration>
+						<Pages name="Р’РёРґС‹Р РµРєРІРёР·РёС‚Р°" id="30">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р’РёРґС‹ СЂРµРєРІРёР·РёС‚Р°</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="Р’РёРґС‹Р РµРєРІРёР·РёС‚Р°ExtendedTooltip" id="68"/>
+							<ChildItems>
+								<Page name="Р’РёРґРћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚РѕРІ" id="32">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р’РёРґ РѕР±С‰РёРµ Р·РЅР°С‡РµРЅРёСЏ СЂРµРєРІРёР·РёС‚РѕРІ</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="Р’РёРґРћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚РѕРІExtendedTooltip" id="69"/>
+									<ChildItems>
+										<RadioButtonField name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚РѕРІ" id="6">
+											<DataPath>РћС‚РґРµР»СЊРЅРѕРµРЎРІРѕР№СЃС‚РІРѕРЎРћР±С‰РёРјРЎРїРёСЃРєРѕРјР—РЅР°С‡РµРЅРёР№</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<RadioButtonType>Auto</RadioButtonType>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Р РµРєРІРёР·РёС‚ СЃ РѕР±С‰РёРј СЃРїРёСЃРєРѕРј Р·РЅР°С‡РµРЅРёР№</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="7"/>
+											<ExtendedTooltip name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚РѕРІExtendedTooltip" id="70"/>
+											<Events>
+												<Event name="OnChange">Р’РёРґРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+											</Events>
+										</RadioButtonField>
+										<LabelDecoration name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚РѕРІРљРѕРјРјРµРЅС‚Р°СЂРёР№" id="12">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
+											<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РЈ РґР°РЅРЅРѕРіРѕ СЂРµРєРІРёР·РёС‚Р° РѕР±С‰РёР№ СЃРїРёСЃРѕРє Р·РЅР°С‡РµРЅРёР№ СЃ РґСЂСѓРіРёРјРё СЂРµРєРІРёР·РёС‚Р°РјРё, РґРѕР±Р°РІР»РµРЅРЅС‹РјРё РїРѕ РѕР±СЂР°Р·С†Сѓ. РЎ РїРѕРјРѕС‰СЊСЋ СЌС‚РѕРіРѕ РІР°СЂРёР°РЅС‚Р° СѓРґРѕР±РЅРѕ РІС‹РїРѕР»РЅСЏС‚СЊ С†РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅСѓСЋ РЅР°СЃС‚СЂРѕР№РєСѓ СЃРїРёСЃРєР° Р·РЅР°С‡РµРЅРёР№ СЃСЂР°Р·Сѓ РґР»СЏ РЅРµСЃРєРѕР»СЊРєРёС… РѕРґРЅРѕС‚РёРїРЅС‹С… СЂРµРєРІРёР·РёС‚РѕРІ (РЅР°РїСЂРёРјРµСЂ, "Р¦РІРµС‚ РѕРґРµР¶РґС‹", "Р¦РІРµС‚ РѕР±СѓРІРё" Рё РїСЂ.).</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚РѕРІРљРѕРјРјРµРЅС‚Р°СЂРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="13"/>
+											<ExtendedTooltip name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏР РµРєРІРёР·РёС‚РѕРІРљРѕРјРјРµРЅС‚Р°СЂРёР№ExtendedTooltip" id="71"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="Р’РёРґРћР±С‰РёР№Р РµРєРІРёР·РёС‚" id="31">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р’РёРґ РѕР±С‰РёР№ СЂРµРєРІРёР·РёС‚</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="Р’РёРґРћР±С‰РёР№Р РµРєРІРёР·РёС‚ExtendedTooltip" id="72"/>
+									<ChildItems>
+										<RadioButtonField name="РћР±С‰РёР№Р РµРєРІРёР·РёС‚" id="4">
+											<DataPath>РћР±С‰РµРµРЎРІРѕР№СЃС‚РІРѕ</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<RadioButtonType>Auto</RadioButtonType>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>РћР±С‰РёР№ СЂРµРєРІРёР·РёС‚</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="РћР±С‰РёР№Р РµРєРІРёР·РёС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="5"/>
+											<ExtendedTooltip name="РћР±С‰РёР№Р РµРєРІРёР·РёС‚ExtendedTooltip" id="73"/>
+											<Events>
+												<Event name="OnChange">Р’РёРґРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+											</Events>
+										</RadioButtonField>
+										<LabelDecoration name="РћР±С‰РёР№Р РµРєРІРёР·РёС‚РљРѕРјРјРµРЅС‚Р°СЂРёР№" id="10">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
+											<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Р”Р°РЅРЅС‹Р№ СЂРµРєРІРёР·РёС‚ РІС…РѕРґРёС‚ СЃСЂР°Р·Сѓ РІ РЅРµСЃРєРѕР»СЊРєРѕ РЅР°Р±РѕСЂРѕРІ. Р­С‚РѕС‚ РІР°СЂРёР°РЅС‚ РїРѕРґС…РѕРґРёС‚ РґР»СЏ С‚РµС… СЃР»СѓС‡Р°РµРІ, РєРѕРіРґР° РѕР±С‰РёРј
+РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅРµ С‚РѕР»СЊРєРѕ СЃРїРёСЃРѕРє Р·РЅР°С‡РµРЅРёР№, РЅРѕ Рё СЃР°Рј СЂРµРєРІРёР·РёС‚. Р’ СЃРїРёСЃРєР°С… Рё РѕС‚С‡РµС‚Р°С… РїРѕ СЌР»РµРјРµРЅС‚Р°Рј СЂР°Р·Р»РёС‡РЅС‹С…
+СЃРїСЂР°РІРѕС‡РЅРёРєРѕРІ Рё РґРѕРєСѓРјРµРЅС‚РѕРІ, РѕР±С‰РёРµ СЂРµРєРІРёР·РёС‚С‹ РіСЂСѓРїРїРёСЂСѓСЋС‚СЃСЏ Рё РІС‹РІРѕРґСЏС‚СЃСЏ РєР°Рє РѕРґРёРЅ СЂРµРєРІРёР·РёС‚, РІ РѕРґРЅРѕР№ РєРѕР»РѕРЅРєРµ РёР»Рё РїРѕР»Рµ.
+РќР°РїСЂРёРјРµСЂ, СЃ РїРѕРјРѕС‰СЊСЋ РѕР±С‰РµРіРѕ СЂРµРєРІРёР·РёС‚Р° "Р¦РІРµС‚" РјРѕР¶РЅРѕ Р±С‹СЃС‚СЂРѕ РѕС‚РѕР±СЂР°С‚СЊ РІСЃСЋ Р¶РµР»С‚СѓСЋ РѕРґРµР¶РґСѓ Рё РѕР±СѓРІСЊ.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="РћР±С‰РёР№Р РµРєРІРёР·РёС‚РљРѕРјРјРµРЅС‚Р°СЂРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="11"/>
+											<ExtendedTooltip name="РћР±С‰РёР№Р РµРєРІРёР·РёС‚РљРѕРјРјРµРЅС‚Р°СЂРёР№ExtendedTooltip" id="74"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµРЎРІРµРґРµРЅРёРµ" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ СЃРІРµРґРµРЅРёРµ</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµРЎРІРµРґРµРЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="75"/>
+					<ChildItems>
+						<UsualGroup name="РЎРІРµРґРµРЅРёРµРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ" id="54">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎРІРµРґРµРЅРёРµ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="РЎРІРµРґРµРЅРёРµРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµExtendedTooltip" id="76"/>
+							<ChildItems>
+								<PictureDecoration name="РЎРІРµРґРµРЅРёРµРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљР°СЂС‚РёРЅРєР°" id="56">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РЎРІРµРґРµРЅРёРµ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ РєР°СЂС‚РёРЅРєР°</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="РЎРІРµРґРµРЅРёРµРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљР°СЂС‚РёРЅРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="57"/>
+									<ExtendedTooltip name="РЎРІРµРґРµРЅРёРµРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљР°СЂС‚РёРЅРєР°ExtendedTooltip" id="77"/>
+								</PictureDecoration>
+								<LabelDecoration name="РЎРІРµРґРµРЅРёРµРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№" id="58">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>80</MaxWidth>
+									<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РџРµСЂРµРЅР°СЃС‚СЂРѕР№РєР° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ СЃРІРµРґРµРЅРёСЏ РЅРµРѕР±СЂР°С‚РёРјР° Рё РјРѕР¶РµС‚ Р·Р°РЅСЏС‚СЊ РґР»РёС‚РµР»СЊРЅРѕРµ РІСЂРµРјСЏ, РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ С‡РёСЃР»Р° РґРѕРєСѓРјРµРЅС‚РѕРІ, РІ РєРѕС‚РѕСЂС‹С… Р·Р°РїРѕР»РЅРµРЅРѕ СЌС‚Рѕ СЃРІРµРґРµРЅРёРµ.
+Р’РјРµСЃС‚Рѕ СЌС‚РѕРіРѕ РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ РЅРѕРІРѕРµ СЃРІРµРґРµРЅРёРµ СЃРѕ СЃРІРѕРёРј СЃРїРёСЃРєРѕРј Р·РЅР°С‡РµРЅРёР№, Рё РІС‹РїРѕР»РЅРёС‚СЊ РІСЂСѓС‡РЅСѓСЋ РїРѕСЃС‚РµРїРµРЅРЅС‹Р№ РїРµСЂРµС…РѕРґ РѕС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕРіРѕ СЃРІРµРґРµРЅРёСЏ Рє РЅРѕРІРѕРјСѓ (РѕС‡РёСЃС‚РёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ СЌС‚РѕРіРѕ СЃРІРµРґРµРЅРёСЏ Рё Р·Р°РїРѕР»РЅРёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ РЅРѕРІРѕРіРѕ).</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Top</VerticalAlign>
+									<ContextMenu name="РЎРІРµРґРµРЅРёРµРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="59"/>
+									<ExtendedTooltip name="РЎРІРµРґРµРЅРёРµРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№ExtendedTooltip" id="78"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<RadioButtonField name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёСЏ" id="26">
+							<DataPath>РћС‚РґРµР»СЊРЅРѕРµРЎРІРѕР№СЃС‚РІРѕРЎРћС‚РґРµР»СЊРЅС‹РјРЎРїРёСЃРєРѕРјР—РЅР°С‡РµРЅРёР№</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>РЎРІРµРґРµРЅРёРµ СЃРѕ СЃРІРѕРёРј СЃРїРёСЃРєРѕРј Р·РЅР°С‡РµРЅРёР№</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="27"/>
+							<ExtendedTooltip name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёСЏExtendedTooltip" id="79"/>
+							<Events>
+								<Event name="OnChange">Р’РёРґРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+							</Events>
+						</RadioButtonField>
+						<LabelDecoration name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёСЏРљРѕРјРјРµРЅС‚Р°СЂРёР№" id="28">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>80</MaxWidth>
+							<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р”Р°РЅРЅРѕРµ СЃРІРµРґРµРЅРёРµ РІС…РѕРґРёС‚ С‚РѕР»СЊРєРѕ РІ РѕРґРёРЅ РЅР°Р±РѕСЂ %1, Рё Сѓ РЅРµРіРѕ СЃРІРѕР№ СЃРѕР±СЃС‚РІРµРЅРЅС‹Р№ СЃРїРёСЃРѕРє Р·РЅР°С‡РµРЅРёР№.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёСЏРљРѕРјРјРµРЅС‚Р°СЂРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="29"/>
+							<ExtendedTooltip name="РћС‚РґРµР»СЊРЅС‹РµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёСЏРљРѕРјРјРµРЅС‚Р°СЂРёР№ExtendedTooltip" id="80"/>
+						</LabelDecoration>
+						<Pages name="Р’РёРґС‹РЎРІРµРґРµРЅРёСЏ" id="33">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р’РёРґС‹ СЃРІРµРґРµРЅРёСЏ</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="Р’РёРґС‹РЎРІРµРґРµРЅРёСЏExtendedTooltip" id="81"/>
+							<ChildItems>
+								<Page name="Р’РёРґРћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёР№" id="39">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р’РёРґ РѕР±С‰РёРµ Р·РЅР°С‡РµРЅРёСЏ СЃРІРµРґРµРЅРёР№</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="Р’РёРґРћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёР№ExtendedTooltip" id="82"/>
+									<ChildItems>
+										<RadioButtonField name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёР№" id="22">
+											<DataPath>РћС‚РґРµР»СЊРЅРѕРµРЎРІРѕР№СЃС‚РІРѕРЎРћР±С‰РёРјРЎРїРёСЃРєРѕРјР—РЅР°С‡РµРЅРёР№</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<RadioButtonType>Auto</RadioButtonType>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>РЎРІРµРґРµРЅРёРµ СЃ РѕР±С‰РёРј СЃРїРёСЃРєРѕРј Р·РЅР°С‡РµРЅРёР№</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="23"/>
+											<ExtendedTooltip name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёР№ExtendedTooltip" id="83"/>
+											<Events>
+												<Event name="OnChange">Р’РёРґРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+											</Events>
+										</RadioButtonField>
+										<LabelDecoration name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёР№РљРѕРјРјРµРЅС‚Р°СЂРёР№" id="24">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
+											<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РЈ СЌС‚РѕРіРѕ СЃРІРµРґРµРЅРёСЏ РѕР±С‰РёР№ СЃРїРёСЃРѕРє Р·РЅР°С‡РµРЅРёР№ СЃ РґСЂСѓРіРёРјРё СЃРІРµРґРµРЅРёСЏРјРё, РґРѕР±Р°РІР»РµРЅРЅС‹РјРё РїРѕ РѕР±СЂР°Р·С†Сѓ. РЎ РїРѕРјРѕС‰СЊСЋ СЌС‚РѕРіРѕ РІР°СЂРёР°РЅС‚Р° СѓРґРѕР±РЅРѕ РІС‹РїРѕР»РЅСЏС‚СЊ С†РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅСѓСЋ РЅР°СЃС‚СЂРѕР№РєСѓ СЃРїРёСЃРєР° Р·РЅР°С‡РµРЅРёР№ СЃСЂР°Р·Сѓ РґР»СЏ РЅРµСЃРєРѕР»СЊРєРёС… РѕРґРЅРѕС‚РёРїРЅС‹С… СЃРІРµРґРµРЅРёР№ (РЅР°РїСЂРёРјРµСЂ, "Р¦РІРµС‚ РѕРґРµР¶РґС‹", "Р¦РІРµС‚ РѕР±СѓРІРё" Рё РїСЂ.).</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёР№РљРѕРјРјРµРЅС‚Р°СЂРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="25"/>
+											<ExtendedTooltip name="РћР±С‰РёРµР—РЅР°С‡РµРЅРёСЏРЎРІРµРґРµРЅРёР№РљРѕРјРјРµРЅС‚Р°СЂРёР№ExtendedTooltip" id="84"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="Р’РёРґРћР±С‰РµРµРЎРІРµРґРµРЅРёРµ" id="34">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р’РёРґ РѕР±С‰РµРµ СЃРІРµРґРµРЅРёРµ</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="Р’РёРґРћР±С‰РµРµРЎРІРµРґРµРЅРёРµExtendedTooltip" id="85"/>
+									<ChildItems>
+										<RadioButtonField name="РћР±С‰РµРµРЎРІРµРґРµРЅРёРµ" id="18">
+											<DataPath>РћР±С‰РµРµРЎРІРѕР№СЃС‚РІРѕ</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<RadioButtonType>Auto</RadioButtonType>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>РћР±С‰РµРµ СЃРІРµРґРµРЅРёРµ</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="РћР±С‰РµРµРЎРІРµРґРµРЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="19"/>
+											<ExtendedTooltip name="РћР±С‰РµРµРЎРІРµРґРµРЅРёРµExtendedTooltip" id="86"/>
+											<Events>
+												<Event name="OnChange">Р’РёРґРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+											</Events>
+										</RadioButtonField>
+										<LabelDecoration name="РћР±С‰РµРµРЎРІРµРґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№" id="20">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>80</MaxWidth>
+											<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Р”Р°РЅРЅРѕРµ СЃРІРµРґРµРЅРёРµ РІС…РѕРґРёС‚ СЃСЂР°Р·Сѓ РІ РЅРµСЃРєРѕР»СЊРєРѕ РЅР°Р±РѕСЂРѕРІ. Р­С‚РѕС‚ РІР°СЂРёР°РЅС‚ РїРѕРґС…РѕРґРёС‚ РґР»СЏ С‚РµС… СЃР»СѓС‡Р°РµРІ, РєРѕРіРґР° РѕР±С‰РёРј
+РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅРµ С‚РѕР»СЊРєРѕ СЃРїРёСЃРѕРє Р·РЅР°С‡РµРЅРёР№, РЅРѕ Рё СЃР°РјРѕ СЃРІРµРґРµРЅРёРµ. Р’ СЃРїРёСЃРєР°С… Рё РѕС‚С‡РµС‚Р°С… РїРѕ СЌР»РµРјРµРЅС‚Р°Рј СЂР°Р·Р»РёС‡РЅС‹С…
+СЃРїСЂР°РІРѕС‡РЅРёРєРѕРІ Рё РґРѕРєСѓРјРµРЅС‚РѕРІ, РѕР±С‰РёРµ СЃРІРµРґРµРЅРёСЏ РіСЂСѓРїРїРёСЂСѓСЋС‚СЃСЏ Рё РІС‹РІРѕРґСЏС‚СЃСЏ РєР°Рє РѕРґРЅРѕ СЃРІРµРґРµРЅРёРµ, РІ РѕРґРЅРѕР№ РєРѕР»РѕРЅРєРµ РёР»Рё РїРѕР»Рµ.
+РќР°РїСЂРёРјРµСЂ, СЃ РїРѕРјРѕС‰СЊСЋ РѕР±С‰РµРіРѕ СЃРІРµРґРµРЅРёСЏ "Р¦РІРµС‚" РјРѕР¶РЅРѕ Р±С‹СЃС‚СЂРѕ РѕС‚РѕР±СЂР°С‚СЊ РІСЃСЋ Р¶РµР»С‚СѓСЋ РѕРґРµР¶РґСѓ Рё РѕР±СѓРІСЊ.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="РћР±С‰РµРµРЎРІРµРґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="21"/>
+											<ExtendedTooltip name="РћР±С‰РµРµРЎРІРµРґРµРЅРёРµРљРѕРјРјРµРЅС‚Р°СЂРёР№ExtendedTooltip" id="87"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±С‰РµРµРЎРІРѕР№СЃС‚РІРѕ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћР±С‰РµРµ СЃРІРѕР№СЃС‚РІРѕ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РћС‚РґРµР»СЊРЅРѕРµРЎРІРѕР№СЃС‚РІРѕРЎРћР±С‰РёРјРЎРїРёСЃРєРѕРјР—РЅР°С‡РµРЅРёР№" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РґРµР»СЊРЅРѕРµ СЃРІРѕР№СЃС‚РІРѕ СЃ РѕР±С‰РёРј СЃРїРёСЃРєРѕРј Р·РЅР°С‡РµРЅРёР№</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РћС‚РґРµР»СЊРЅРѕРµРЎРІРѕР№СЃС‚РІРѕРЎРћС‚РґРµР»СЊРЅС‹РјРЎРїРёСЃРєРѕРјР—РЅР°С‡РµРЅРёР№" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РґРµР»СЊРЅРѕРµ СЃРІРѕР№СЃС‚РІРѕ СЃ РѕС‚РґРµР»СЊРЅС‹Рј СЃРїРёСЃРєРѕРј Р·РЅР°С‡РµРЅРёР№</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РЎРІРѕР№СЃС‚РІРѕ" id="4">
+			<Type>
+				<v8:Type>cfg:ChartOfCharacteristicTypesRef.Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµР РµРєРІРёР·РёС‚С‹РРЎРІРµРґРµРЅРёСЏ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р­С‚РѕР”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµРЎРІРµРґРµРЅРёРµ" id="5">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РўРµРєСѓС‰РёР№РќР°Р±РѕСЂРЎРІРѕР№СЃС‚РІ" id="6">
+			<Type>
+				<v8:Type>cfg:CatalogRef.РќР°Р±РѕСЂС‹Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С…Р РµРєРІРёР·РёС‚РѕРІРРЎРІРµРґРµРЅРёР№</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Р—Р°РїРёСЃР°С‚СЊРР—Р°РєСЂС‹С‚СЊ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р—Р°РїРёСЃР°С‚СЊ Рё Р·Р°РєСЂС‹С‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р—Р°РїРёСЃР°С‚СЊ Рё Р·Р°РєСЂС‹С‚СЊ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р—Р°РїРёСЃР°С‚СЊРР—Р°РєСЂС‹С‚СЊ</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Р­С‚РѕР”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµРЎРІРµРґРµРЅРёРµ">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Р’Р»Р°РґРµР»РµС†Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С…Р—РЅР°С‡РµРЅРёР№">
+			<Type>
+				<v8:Type>cfg:ChartOfCharacteristicTypesRef.Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµР РµРєРІРёР·РёС‚С‹РРЎРІРµРґРµРЅРёСЏ</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="РќР°Р±РѕСЂРЎРІРѕР№СЃС‚РІ">
+			<Type>
+				<v8:Type>cfg:CatalogRef.РќР°Р±РѕСЂС‹Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С…Р РµРєРІРёР·РёС‚РѕРІРРЎРІРµРґРµРЅРёР№</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="РЎРІРѕР№СЃС‚РІРѕ">
+			<Type>
+				<v8:Type>cfg:ChartOfCharacteristicTypesRef.Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµР РµРєРІРёР·РёС‚С‹РРЎРІРµРґРµРЅРёСЏ</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="РўРµРєСѓС‰РёР№РќР°Р±РѕСЂРЎРІРѕР№СЃС‚РІ">
+			<Type>
+				<v8:Type>cfg:CatalogRef.РќР°Р±РѕСЂС‹Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С…Р РµРєРІРёР·РёС‚РѕРІРРЎРІРµРґРµРЅРёР№</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

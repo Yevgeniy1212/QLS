@@ -1,1 +1,616 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<Customizable>false</Customizable>	<CommandBarLocation>Bottom</CommandBarLocation>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<HorizontalAlign>Right</HorizontalAlign>		<ChildItems>			<Button name="ОК" id="7">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<SkipOnInput>false</SkipOnInput>				<CommandName>Form.Command.ОК</CommandName>				<ExtendedTooltip name="ОКExtendedTooltip" id="50"/>			</Button>			<Button name="Отмена" id="8">				<Type>CommandBarButton</Type>				<SkipOnInput>false</SkipOnInput>				<CommandName>Form.StandardCommand.Cancel</CommandName>				<ExtendedTooltip name="ОтменаExtendedTooltip" id="51"/>			</Button>			<Button name="Справка" id="9">				<Type>CommandBarButton</Type>				<SkipOnInput>false</SkipOnInput>				<CommandName>Form.StandardCommand.Help</CommandName>				<ExtendedTooltip name="СправкаExtendedTooltip" id="52"/>			</Button>			<Popup name="ГруппаЕще" id="94">				<Title>					<v8:item>						<v8:lang>ru</v8:lang>						<v8:content>Еще</v8:content>					</v8:item>				</Title>				<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="95"/>				<ChildItems>					<Button name="УстановитьСтандартныеНастройки" id="25">						<Type>CommandBarButton</Type>						<SkipOnInput>false</SkipOnInput>						<CommandName>Form.Command.УстановитьСтандартныеНастройки</CommandName>						<ExtendedTooltip name="УстановитьСтандартныеНастройкиExtendedTooltip" id="78"/>					</Button>				</ChildItems>			</Popup>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<UsualGroup name="ГруппаНастройки" id="24">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Настройки</v8:content>				</v8:item>			</Title>			<Behavior>Usual</Behavior>			<Representation>NormalSeparation</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаНастройкиExtendedTooltip" id="55"/>			<ChildItems>				<UsualGroup name="ГруппаОсновное" id="81">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Основное</v8:content>						</v8:item>					</Title>					<Group>Vertical</Group>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="82"/>					<ChildItems>						<InputField name="ИмяУстройства" id="4">							<DataPath>ИмяУстройства</DataPath>							<Width>35</Width>							<HorizontalStretch>false</HorizontalStretch>							<ContextMenu name="ИмяУстройстваКонтекстноеМеню" id="5"/>							<ExtendedTooltip name="ИмяУстройстваExtendedTooltip" id="56"/>							<Events>								<Event name="OnChange">ИмяУстройстваПриИзменении</Event>								<Event name="ChoiceProcessing">ИмяУстройстваОбработкаВыбора</Event>							</Events>						</InputField>						<UsualGroup name="ГруппаПараметрыСканирования" id="38">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Основное</v8:content>								</v8:item>							</Title>							<Group>Vertical</Group>							<Behavior>Usual</Behavior>							<ExtendedTooltip name="ГруппаПараметрыСканированияExtendedTooltip" id="71"/>							<ChildItems>								<InputField name="Разрешение" id="14">									<DataPath>Разрешение</DataPath>									<Width>13</Width>									<HorizontalStretch>false</HorizontalStretch>									<ContextMenu name="РазрешениеКонтекстноеМеню" id="15"/>									<ExtendedTooltip name="РазрешениеExtendedTooltip" id="72"/>								</InputField>								<InputField name="Цветность" id="16">									<DataPath>Цветность</DataPath>									<Width>13</Width>									<HorizontalStretch>false</HorizontalStretch>									<ContextMenu name="ЦветностьКонтекстноеМеню" id="17"/>									<ExtendedTooltip name="ЦветностьExtendedTooltip" id="73"/>								</InputField>								<InputField name="Поворот" id="20">									<DataPath>Поворот</DataPath>									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Поворот</v8:content>										</v8:item>									</Title>									<Width>13</Width>									<HorizontalStretch>false</HorizontalStretch>									<ContextMenu name="ПоворотКонтекстноеМеню" id="21"/>									<ExtendedTooltip name="ПоворотExtendedTooltip" id="74"/>								</InputField>								<InputField name="РазмерБумаги" id="22">									<DataPath>РазмерБумаги</DataPath>									<Width>13</Width>									<HorizontalStretch>false</HorizontalStretch>									<ContextMenu name="РазмерБумагиКонтекстноеМеню" id="23"/>									<ExtendedTooltip name="РазмерБумагиExtendedTooltip" id="75"/>								</InputField>								<CheckBoxField name="ДвустороннееСканирование" id="28">									<DataPath>ДвустороннееСканирование</DataPath>									<TitleLocation>Right</TitleLocation>									<CheckBoxType>Auto</CheckBoxType>									<ContextMenu name="ДвустороннееСканированиеКонтекстноеМеню" id="29"/>									<ExtendedTooltip name="ДвустороннееСканированиеExtendedTooltip" id="76"/>								</CheckBoxField>								<CheckBoxField name="ПоказыватьДиалогСканера" id="1">									<DataPath>ПоказыватьДиалогСканера</DataPath>									<TitleLocation>Right</TitleLocation>									<CheckBoxType>Auto</CheckBoxType>									<ContextMenu name="ПоказыватьДиалогСканераКонтекстноеМеню" id="2"/>									<ExtendedTooltip name="ПоказыватьДиалогСканераExtendedTooltip" id="77"/>								</CheckBoxField>							</ChildItems>						</UsualGroup>						<UsualGroup name="ГруппаPDF" id="36">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>PDF</v8:content>								</v8:item>							</Title>							<Group>Vertical</Group>							<Behavior>Usual</Behavior>							<Representation>None</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="ГруппаPDFExtendedTooltip" id="57"/>							<ChildItems>								<CheckBoxField name="ИспользоватьImageMagickДляПреобразованияВPDF" id="26">									<DataPath>ИспользоватьImageMagickДляПреобразованияВPDF</DataPath>									<TitleLocation>Right</TitleLocation>									<CheckBoxType>Auto</CheckBoxType>									<ContextMenu name="ИспользоватьImageMagickДляПреобразованияВPDFКонтекстноеМеню" id="27"/>									<ExtendedTooltip name="ИспользоватьImageMagickДляПреобразованияВPDFExtendedTooltip" id="58"/>									<Events>										<Event name="OnChange">ИспользоватьImageMagickДляПреобразованияВPDFПриИзменении</Event>									</Events>								</CheckBoxField>								<InputField name="ПутьКПрограммеКонвертации" id="34">									<DataPath>ПутьКПрограммеКонвертации</DataPath>									<TitleLocation>Top</TitleLocation>									<ChoiceButton>true</ChoiceButton>									<ContextMenu name="ПутьКПрограммеКонвертацииКонтекстноеМеню" id="35"/>									<ExtendedTooltip name="ПутьКПрограммеКонвертацииExtendedTooltip" id="59"/>									<Events>										<Event name="StartChoice">ПутьКПрограммеКонвертацииНачалоВыбора</Event>									</Events>								</InputField>							</ChildItems>						</UsualGroup>					</ChildItems>				</UsualGroup>				<UsualGroup name="ГруппаДополнительныеНастройки" id="83">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Дополнительные настройки</v8:content>						</v8:item>					</Title>					<Group>Vertical</Group>					<Behavior>Usual</Behavior>					<Representation>None</Representation>					<ShowTitle>false</ShowTitle>					<ExtendedTooltip name="ГруппаДополнительныеНастройкиРасширеннаяПодсказка" id="84"/>					<ChildItems>						<Button name="ОткрытьНомераОтсканированныхФайлов" id="79">							<Type>Hyperlink</Type>							<CommandName>Form.Command.ОткрытьНомераОтсканированныхФайлов</CommandName>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Номера отсканированных файлов</v8:content>								</v8:item>							</Title>							<ExtendedTooltip name="ОткрытьНомераОтсканированныхФайловРасширеннаяПодсказка" id="80"/>						</Button>						<UsualGroup name="ГруппаФорматХраненияОдиночный" id="37">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Для одностраничных изображений</v8:content>								</v8:item>							</Title>							<Group>Vertical</Group>							<Behavior>Usual</Behavior>							<ExtendedTooltip name="ГруппаФорматХраненияОдиночныйExtendedTooltip" id="60"/>							<ChildItems>								<UsualGroup name="ГруппаФорматаХранения" id="44">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Формата хранения</v8:content>										</v8:item>									</Title>									<Behavior>Usual</Behavior>									<Representation>None</Representation>									<ShowTitle>false</ShowTitle>									<ExtendedTooltip name="ГруппаФорматаХраненияExtendedTooltip" id="61"/>									<ChildItems>										<InputField name="ФорматХраненияОдностраничный" id="42">											<DataPath>ФорматХраненияОдностраничный</DataPath>											<Width>9</Width>											<HorizontalStretch>false</HorizontalStretch>											<DropListWidth>9</DropListWidth>											<ContextMenu name="ФорматХраненияОдностраничныйКонтекстноеМеню" id="43"/>											<ExtendedTooltip name="ФорматХраненияОдностраничныйExtendedTooltip" id="62"/>											<Events>												<Event name="OnChange">ФорматХраненияОдностраничныйПриИзменении</Event>											</Events>										</InputField>										<LabelDecoration name="ДекорацияФорматХраненияОдностраничный" id="45">											<AutoMaxWidth>false</AutoMaxWidth>											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>(для хранения)</v8:content>												</v8:item>											</Title>											<ContextMenu name="ДекорацияФорматХраненияОдностраничныйКонтекстноеМеню" id="46"/>											<ExtendedTooltip name="ДекорацияФорматХраненияОдностраничныйExtendedTooltip" id="63"/>										</LabelDecoration>									</ChildItems>								</UsualGroup>								<UsualGroup name="ГруппаФорматаСканирования" id="47">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Формата сканирования</v8:content>										</v8:item>									</Title>									<Behavior>Usual</Behavior>									<Representation>None</Representation>									<ShowTitle>false</ShowTitle>									<ExtendedTooltip name="ГруппаФорматаСканированияExtendedTooltip" id="64"/>									<ChildItems>										<InputField name="ФорматСканированногоИзображения" id="18">											<DataPath>ФорматСканированногоИзображения</DataPath>											<Width>9</Width>											<HorizontalStretch>false</HorizontalStretch>											<DropListWidth>9</DropListWidth>											<ContextMenu name="ФорматСканированногоИзображенияКонтекстноеМеню" id="19"/>											<ExtendedTooltip name="ФорматСканированногоИзображенияExtendedTooltip" id="65"/>											<Events>												<Event name="OnChange">ФорматСканированногоИзображенияПриИзменении</Event>											</Events>										</InputField>										<LabelDecoration name="ДекорацияФорматСканированногоИзображения" id="48">											<AutoMaxWidth>false</AutoMaxWidth>											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>(для сканирования)</v8:content>												</v8:item>											</Title>											<ContextMenu name="ДекорацияФорматСканированногоИзображенияКонтекстноеМеню" id="49"/>											<ExtendedTooltip name="ДекорацияФорматСканированногоИзображенияExtendedTooltip" id="66"/>										</LabelDecoration>									</ChildItems>								</UsualGroup>								<InputField name="КачествоJPG" id="30">									<DataPath>КачествоJPG</DataPath>									<Width>9</Width>									<HorizontalStretch>false</HorizontalStretch>									<ContextMenu name="КачествоJPGКонтекстноеМеню" id="31"/>									<ExtendedTooltip name="КачествоJPGExtendedTooltip" id="67"/>								</InputField>								<InputField name="СжатиеTIFF" id="32">									<DataPath>СжатиеTIFF</DataPath>									<Width>9</Width>									<HorizontalStretch>false</HorizontalStretch>									<DropListWidth>9</DropListWidth>									<ContextMenu name="СжатиеTIFFКонтекстноеМеню" id="33"/>									<ExtendedTooltip name="СжатиеTIFFExtendedTooltip" id="68"/>								</InputField>							</ChildItems>						</UsualGroup>						<UsualGroup name="ГруппаФорматХраненияМногостраничный" id="39">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Для многостраничных изображений</v8:content>								</v8:item>							</Title>							<Group>Vertical</Group>							<Behavior>Usual</Behavior>							<ExtendedTooltip name="ГруппаФорматХраненияМногостраничныйExtendedTooltip" id="69"/>							<ChildItems>								<InputField name="ФорматХраненияМногостраничный" id="40">									<DataPath>ФорматХраненияМногостраничный</DataPath>									<Width>9</Width>									<HorizontalStretch>false</HorizontalStretch>									<DropListWidth>9</DropListWidth>									<ContextMenu name="ФорматХраненияМногостраничныйКонтекстноеМеню" id="41"/>									<ExtendedTooltip name="ФорматХраненияМногостраничныйExtendedTooltip" id="70"/>								</InputField>							</ChildItems>						</UsualGroup>					</ChildItems>				</UsualGroup>			</ChildItems>		</UsualGroup>	</ChildItems>	<Attributes>		<Attribute name="ПоказыватьДиалогСканера" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Показывать диалог сканера перед сканированием</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ИмяУстройства" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сканер</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<FillCheck>ShowError</FillCheck>		</Attribute>		<Attribute name="ВерсияКомпонентыСканирования" id="4">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="Разрешение" id="5">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Разрешение</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:EnumRef.РазрешенияСканированногоИзображения</v8:Type>			</Type>			<FillCheck>ShowError</FillCheck>		</Attribute>		<Attribute name="Цветность" id="6">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Цветность</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:EnumRef.ЦветностиИзображения</v8:Type>			</Type>			<FillCheck>ShowError</FillCheck>		</Attribute>		<Attribute name="ФорматСканированногоИзображения" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Тип</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:EnumRef.ФорматыСканированногоИзображения</v8:Type>			</Type>		</Attribute>		<Attribute name="Поворот" id="7">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Поворот</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:EnumRef.СпособыПоворотаИзображения</v8:Type>			</Type>		</Attribute>		<Attribute name="РазмерБумаги" id="8">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Размер бумаги</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:EnumRef.РазмерыБумаги</v8:Type>			</Type>		</Attribute>		<Attribute name="ИспользоватьImageMagickДляПреобразованияВPDF" id="9">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Использовать ImageMagick для преобразования в PDF</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ДвустороннееСканирование" id="10">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Двустороннее сканирование</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="КачествоJPG" id="11">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Качество</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:decimal</v8:Type>				<v8:NumberQualifiers>					<v8:Digits>3</v8:Digits>					<v8:FractionDigits>0</v8:FractionDigits>					<v8:AllowedSign>Nonnegative</v8:AllowedSign>				</v8:NumberQualifiers>			</Type>		</Attribute>		<Attribute name="СжатиеTIFF" id="12">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Сжатие</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:EnumRef.ВариантыСжатияTIFF</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматJPG" id="13">			<Type>				<v8:Type>cfg:EnumRef.ФорматыСканированногоИзображения</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматTIF" id="14">			<Type>				<v8:Type>cfg:EnumRef.ФорматыСканированногоИзображения</v8:Type>			</Type>		</Attribute>		<Attribute name="ПутьКПрограммеКонвертации" id="15">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Путь к программе преобразования в PDF</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ФорматХраненияМногостраничный" id="16">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Формат</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:EnumRef.ФорматыХраненияМногостраничныхФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматХраненияОдностраничный" id="17">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Формат</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:EnumRef.ФорматыХраненияОдностраничныхФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматМногостраничныйTIF" id="18">			<Type>				<v8:Type>cfg:EnumRef.ФорматыХраненияМногостраничныхФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматОдностраничныйPDF" id="19">			<Type>				<v8:Type>cfg:EnumRef.ФорматыХраненияОдностраничныхФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматОдностраничныйTIF" id="20">			<Type>				<v8:Type>cfg:EnumRef.ФорматыХраненияОдностраничныхФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматОдностраничныйJPG" id="21">			<Type>				<v8:Type>cfg:EnumRef.ФорматыХраненияОдностраничныхФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматОдностраничныйPNG" id="22">			<Type>				<v8:Type>cfg:EnumRef.ФорматыХраненияОдностраничныхФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ФорматХраненияОдностраничныйПредыдущее" id="23">			<Type>				<v8:Type>cfg:EnumRef.ФорматыХраненияОдностраничныхФайлов</v8:Type>			</Type>		</Attribute>		<Attribute name="ВариантСохранения" id="24">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="ОК" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>ОК</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>ОК</v8:content>				</v8:item>			</ToolTip>			<Action>ОК</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="УстановитьСтандартныеНастройки" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Установить стандартные параметры</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Установить стандартные настройки</v8:content>				</v8:item>			</ToolTip>			<Action>УстановитьСтандартныеНастройки</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ОткрытьНомераОтсканированныхФайлов" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Открыть номера отсканированных файлов</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Открыть номера отсканированных файлов</v8:content>				</v8:item>			</ToolTip>			<Action>ОткрытьНомераОтсканированныхФайлов</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="РћРљ" id="7">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.РћРљ</CommandName>
+				<ExtendedTooltip name="РћРљExtendedTooltip" id="50"/>
+			</Button>
+			<Button name="РћС‚РјРµРЅР°" id="8">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="РћС‚РјРµРЅР°ExtendedTooltip" id="51"/>
+			</Button>
+			<Button name="РЎРїСЂР°РІРєР°" id="9">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="РЎРїСЂР°РІРєР°ExtendedTooltip" id="52"/>
+			</Button>
+			<Popup name="Р“СЂСѓРїРїР°Р•С‰Рµ" id="94">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Р•С‰Рµ</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="Р“СЂСѓРїРїР°Р•С‰РµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="95"/>
+				<ChildItems>
+					<Button name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎС‚Р°РЅРґР°СЂС‚РЅС‹РµРќР°СЃС‚СЂРѕР№РєРё" id="25">
+						<Type>CommandBarButton</Type>
+						<SkipOnInput>false</SkipOnInput>
+						<CommandName>Form.Command.РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎС‚Р°РЅРґР°СЂС‚РЅС‹РµРќР°СЃС‚СЂРѕР№РєРё</CommandName>
+						<ExtendedTooltip name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎС‚Р°РЅРґР°СЂС‚РЅС‹РµРќР°СЃС‚СЂРѕР№РєРёExtendedTooltip" id="78"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Р“СЂСѓРїРїР°РќР°СЃС‚СЂРѕР№РєРё" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќР°СЃС‚СЂРѕР№РєРё</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РќР°СЃС‚СЂРѕР№РєРёExtendedTooltip" id="55"/>
+			<ChildItems>
+				<UsualGroup name="Р“СЂСѓРїРїР°РћСЃРЅРѕРІРЅРѕРµ" id="81">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћСЃРЅРѕРІРЅРѕРµ</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РћСЃРЅРѕРІРЅРѕРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="82"/>
+					<ChildItems>
+						<InputField name="РРјСЏРЈСЃС‚СЂРѕР№СЃС‚РІР°" id="4">
+							<DataPath>РРјСЏРЈСЃС‚СЂРѕР№СЃС‚РІР°</DataPath>
+							<Width>35</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РРјСЏРЈСЃС‚СЂРѕР№СЃС‚РІР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="5"/>
+							<ExtendedTooltip name="РРјСЏРЈСЃС‚СЂРѕР№СЃС‚РІР°ExtendedTooltip" id="56"/>
+							<Events>
+								<Event name="OnChange">РРјСЏРЈСЃС‚СЂРѕР№СЃС‚РІР°РџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+								<Event name="ChoiceProcessing">РРјСЏРЈСЃС‚СЂРѕР№СЃС‚РІР°РћР±СЂР°Р±РѕС‚РєР°Р’С‹Р±РѕСЂР°</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="Р“СЂСѓРїРїР°РџР°СЂР°РјРµС‚СЂС‹РЎРєР°РЅРёСЂРѕРІР°РЅРёСЏ" id="38">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РћСЃРЅРѕРІРЅРѕРµ</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РџР°СЂР°РјРµС‚СЂС‹РЎРєР°РЅРёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="71"/>
+							<ChildItems>
+								<InputField name="Р Р°Р·СЂРµС€РµРЅРёРµ" id="14">
+									<DataPath>Р Р°Р·СЂРµС€РµРЅРёРµ</DataPath>
+									<Width>13</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="Р Р°Р·СЂРµС€РµРЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="15"/>
+									<ExtendedTooltip name="Р Р°Р·СЂРµС€РµРЅРёРµExtendedTooltip" id="72"/>
+								</InputField>
+								<InputField name="Р¦РІРµС‚РЅРѕСЃС‚СЊ" id="16">
+									<DataPath>Р¦РІРµС‚РЅРѕСЃС‚СЊ</DataPath>
+									<Width>13</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="Р¦РІРµС‚РЅРѕСЃС‚СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="17"/>
+									<ExtendedTooltip name="Р¦РІРµС‚РЅРѕСЃС‚СЊExtendedTooltip" id="73"/>
+								</InputField>
+								<InputField name="РџРѕРІРѕСЂРѕС‚" id="20">
+									<DataPath>РџРѕРІРѕСЂРѕС‚</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РџРѕРІРѕСЂРѕС‚</v8:content>
+										</v8:item>
+									</Title>
+									<Width>13</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="РџРѕРІРѕСЂРѕС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="21"/>
+									<ExtendedTooltip name="РџРѕРІРѕСЂРѕС‚ExtendedTooltip" id="74"/>
+								</InputField>
+								<InputField name="Р Р°Р·РјРµСЂР‘СѓРјР°РіРё" id="22">
+									<DataPath>Р Р°Р·РјРµСЂР‘СѓРјР°РіРё</DataPath>
+									<Width>13</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="Р Р°Р·РјРµСЂР‘СѓРјР°РіРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="23"/>
+									<ExtendedTooltip name="Р Р°Р·РјРµСЂР‘СѓРјР°РіРёExtendedTooltip" id="75"/>
+								</InputField>
+								<CheckBoxField name="Р”РІСѓСЃС‚РѕСЂРѕРЅРЅРµРµРЎРєР°РЅРёСЂРѕРІР°РЅРёРµ" id="28">
+									<DataPath>Р”РІСѓСЃС‚РѕСЂРѕРЅРЅРµРµРЎРєР°РЅРёСЂРѕРІР°РЅРёРµ</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="Р”РІСѓСЃС‚РѕСЂРѕРЅРЅРµРµРЎРєР°РЅРёСЂРѕРІР°РЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="29"/>
+									<ExtendedTooltip name="Р”РІСѓСЃС‚РѕСЂРѕРЅРЅРµРµРЎРєР°РЅРёСЂРѕРІР°РЅРёРµExtendedTooltip" id="76"/>
+								</CheckBoxField>
+								<CheckBoxField name="РџРѕРєР°Р·С‹РІР°С‚СЊР”РёР°Р»РѕРіРЎРєР°РЅРµСЂР°" id="1">
+									<DataPath>РџРѕРєР°Р·С‹РІР°С‚СЊР”РёР°Р»РѕРіРЎРєР°РЅРµСЂР°</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РџРѕРєР°Р·С‹РІР°С‚СЊР”РёР°Р»РѕРіРЎРєР°РЅРµСЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+									<ExtendedTooltip name="РџРѕРєР°Р·С‹РІР°С‚СЊР”РёР°Р»РѕРіРЎРєР°РЅРµСЂР°ExtendedTooltip" id="77"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Р“СЂСѓРїРїР°PDF" id="36">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>PDF</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°PDFExtendedTooltip" id="57"/>
+							<ChildItems>
+								<CheckBoxField name="РСЃРїРѕР»СЊР·РѕРІР°С‚СЊImageMagickР”Р»СЏРџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏР’PDF" id="26">
+									<DataPath>РСЃРїРѕР»СЊР·РѕРІР°С‚СЊImageMagickР”Р»СЏРџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏР’PDF</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РСЃРїРѕР»СЊР·РѕРІР°С‚СЊImageMagickР”Р»СЏРџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏР’PDFРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="27"/>
+									<ExtendedTooltip name="РСЃРїРѕР»СЊР·РѕРІР°С‚СЊImageMagickР”Р»СЏРџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏР’PDFExtendedTooltip" id="58"/>
+									<Events>
+										<Event name="OnChange">РСЃРїРѕР»СЊР·РѕРІР°С‚СЊImageMagickР”Р»СЏРџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏР’PDFРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="РџСѓС‚СЊРљРџСЂРѕРіСЂР°РјРјРµРљРѕРЅРІРµСЂС‚Р°С†РёРё" id="34">
+									<DataPath>РџСѓС‚СЊРљРџСЂРѕРіСЂР°РјРјРµРљРѕРЅРІРµСЂС‚Р°С†РёРё</DataPath>
+									<TitleLocation>Top</TitleLocation>
+									<ChoiceButton>true</ChoiceButton>
+									<ContextMenu name="РџСѓС‚СЊРљРџСЂРѕРіСЂР°РјРјРµРљРѕРЅРІРµСЂС‚Р°С†РёРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="35"/>
+									<ExtendedTooltip name="РџСѓС‚СЊРљРџСЂРѕРіСЂР°РјРјРµРљРѕРЅРІРµСЂС‚Р°С†РёРёExtendedTooltip" id="59"/>
+									<Events>
+										<Event name="StartChoice">РџСѓС‚СЊРљРџСЂРѕРіСЂР°РјРјРµРљРѕРЅРІРµСЂС‚Р°С†РёРёРќР°С‡Р°Р»РѕР’С‹Р±РѕСЂР°</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Р“СЂСѓРїРїР°Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРќР°СЃС‚СЂРѕР№РєРё" id="83">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РµРќР°СЃС‚СЂРѕР№РєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="84"/>
+					<ChildItems>
+						<Button name="РћС‚РєСЂС‹С‚СЊРќРѕРјРµСЂР°РћС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С…Р¤Р°Р№Р»РѕРІ" id="79">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.РћС‚РєСЂС‹С‚СЊРќРѕРјРµСЂР°РћС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С…Р¤Р°Р№Р»РѕРІ</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РќРѕРјРµСЂР° РѕС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="РћС‚РєСЂС‹С‚СЊРќРѕРјРµСЂР°РћС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С…Р¤Р°Р№Р»РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="80"/>
+						</Button>
+						<UsualGroup name="Р“СЂСѓРїРїР°Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРёРЅРѕС‡РЅС‹Р№" id="37">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р”Р»СЏ РѕРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹С… РёР·РѕР±СЂР°Р¶РµРЅРёР№</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРёРЅРѕС‡РЅС‹Р№ExtendedTooltip" id="60"/>
+							<ChildItems>
+								<UsualGroup name="Р“СЂСѓРїРїР°Р¤РѕСЂРјР°С‚Р°РҐСЂР°РЅРµРЅРёСЏ" id="44">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р¤РѕСЂРјР°С‚Р° С…СЂР°РЅРµРЅРёСЏ</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Р“СЂСѓРїРїР°Р¤РѕСЂРјР°С‚Р°РҐСЂР°РЅРµРЅРёСЏExtendedTooltip" id="61"/>
+									<ChildItems>
+										<InputField name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№" id="42">
+											<DataPath>Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№</DataPath>
+											<Width>9</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<DropListWidth>9</DropListWidth>
+											<ContextMenu name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="43"/>
+											<ExtendedTooltip name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№ExtendedTooltip" id="62"/>
+											<Events>
+												<Event name="OnChange">Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№РџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏР¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№" id="45">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>(РґР»СЏ С…СЂР°РЅРµРЅРёСЏ)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏР¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="46"/>
+											<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏР¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№ExtendedTooltip" id="63"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Р“СЂСѓРїРїР°Р¤РѕСЂРјР°С‚Р°РЎРєР°РЅРёСЂРѕРІР°РЅРёСЏ" id="47">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р¤РѕСЂРјР°С‚Р° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Р“СЂСѓРїРїР°Р¤РѕСЂРјР°С‚Р°РЎРєР°РЅРёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="64"/>
+									<ChildItems>
+										<InputField name="Р¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏ" id="18">
+											<DataPath>Р¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏ</DataPath>
+											<Width>9</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<DropListWidth>9</DropListWidth>
+											<ContextMenu name="Р¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="19"/>
+											<ExtendedTooltip name="Р¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏExtendedTooltip" id="65"/>
+											<Events>
+												<Event name="OnChange">Р¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏР¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏ" id="48">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>(РґР»СЏ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ)</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏР¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="49"/>
+											<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏР¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏExtendedTooltip" id="66"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="РљР°С‡РµСЃС‚РІРѕJPG" id="30">
+									<DataPath>РљР°С‡РµСЃС‚РІРѕJPG</DataPath>
+									<Width>9</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="РљР°С‡РµСЃС‚РІРѕJPGРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="31"/>
+									<ExtendedTooltip name="РљР°С‡РµСЃС‚РІРѕJPGExtendedTooltip" id="67"/>
+								</InputField>
+								<InputField name="РЎР¶Р°С‚РёРµTIFF" id="32">
+									<DataPath>РЎР¶Р°С‚РёРµTIFF</DataPath>
+									<Width>9</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<DropListWidth>9</DropListWidth>
+									<ContextMenu name="РЎР¶Р°С‚РёРµTIFFРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="33"/>
+									<ExtendedTooltip name="РЎР¶Р°С‚РёРµTIFFExtendedTooltip" id="68"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Р“СЂСѓРїРїР°Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№" id="39">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р”Р»СЏ РјРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹С… РёР·РѕР±СЂР°Р¶РµРЅРёР№</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№ExtendedTooltip" id="69"/>
+							<ChildItems>
+								<InputField name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№" id="40">
+									<DataPath>Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№</DataPath>
+									<Width>9</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<DropListWidth>9</DropListWidth>
+									<ContextMenu name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="41"/>
+									<ExtendedTooltip name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№ExtendedTooltip" id="70"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РџРѕРєР°Р·С‹РІР°С‚СЊР”РёР°Р»РѕРіРЎРєР°РЅРµСЂР°" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕРєР°Р·С‹РІР°С‚СЊ РґРёР°Р»РѕРі СЃРєР°РЅРµСЂР° РїРµСЂРµРґ СЃРєР°РЅРёСЂРѕРІР°РЅРёРµРј</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РРјСЏРЈСЃС‚СЂРѕР№СЃС‚РІР°" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРєР°РЅРµСЂ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="Р’РµСЂСЃРёСЏРљРѕРјРїРѕРЅРµРЅС‚С‹РЎРєР°РЅРёСЂРѕРІР°РЅРёСЏ" id="4">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Р Р°Р·СЂРµС€РµРЅРёРµ" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°Р·СЂРµС€РµРЅРёРµ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Р Р°Р·СЂРµС€РµРЅРёСЏРЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏ</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="Р¦РІРµС‚РЅРѕСЃС‚СЊ" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р¦РІРµС‚РЅРѕСЃС‚СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¦РІРµС‚РЅРѕСЃС‚РёРР·РѕР±СЂР°Р¶РµРЅРёСЏ</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўРёРї</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РџРѕРІРѕСЂРѕС‚" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРѕРІРѕСЂРѕС‚</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.РЎРїРѕСЃРѕР±С‹РџРѕРІРѕСЂРѕС‚Р°РР·РѕР±СЂР°Р¶РµРЅРёСЏ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р Р°Р·РјРµСЂР‘СѓРјР°РіРё" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р Р°Р·РјРµСЂ Р±СѓРјР°РіРё</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Р Р°Р·РјРµСЂС‹Р‘СѓРјР°РіРё</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РСЃРїРѕР»СЊР·РѕРІР°С‚СЊImageMagickР”Р»СЏРџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏР’PDF" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ ImageMagick РґР»СЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РІ PDF</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р”РІСѓСЃС‚РѕСЂРѕРЅРЅРµРµРЎРєР°РЅРёСЂРѕРІР°РЅРёРµ" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РІСѓСЃС‚РѕСЂРѕРЅРЅРµРµ СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РљР°С‡РµСЃС‚РІРѕJPG" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљР°С‡РµСЃС‚РІРѕ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РЎР¶Р°С‚РёРµTIFF" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎР¶Р°С‚РёРµ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Р’Р°СЂРёР°РЅС‚С‹РЎР¶Р°С‚РёСЏTIFF</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚JPG" id="13">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚TIF" id="14">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РЎРєР°РЅРёСЂРѕРІР°РЅРЅРѕРіРѕРР·РѕР±СЂР°Р¶РµРЅРёСЏ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РџСѓС‚СЊРљРџСЂРѕРіСЂР°РјРјРµРљРѕРЅРІРµСЂС‚Р°С†РёРё" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџСѓС‚СЊ Рє РїСЂРѕРіСЂР°РјРјРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РІ PDF</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р¤РѕСЂРјР°С‚</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹С…Р¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р¤РѕСЂРјР°С‚</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹С…Р¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№TIF" id="18">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РҐСЂР°РЅРµРЅРёСЏРњРЅРѕРіРѕСЃС‚СЂР°РЅРёС‡РЅС‹С…Р¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№PDF" id="19">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹С…Р¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№TIF" id="20">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹С…Р¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№JPG" id="21">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹С…Р¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№PNG" id="22">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹С…Р¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р¤РѕСЂРјР°С‚РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№РџСЂРµРґС‹РґСѓС‰РµРµ" id="23">
+			<Type>
+				<v8:Type>cfg:EnumRef.Р¤РѕСЂРјР°С‚С‹РҐСЂР°РЅРµРЅРёСЏРћРґРЅРѕСЃС‚СЂР°РЅРёС‡РЅС‹С…Р¤Р°Р№Р»РѕРІ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Р’Р°СЂРёР°РЅС‚РЎРѕС…СЂР°РЅРµРЅРёСЏ" id="24">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РћРљ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћРљ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћРљ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РћРљ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎС‚Р°РЅРґР°СЂС‚РЅС‹РµРќР°СЃС‚СЂРѕР№РєРё" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЈСЃС‚Р°РЅРѕРІРёС‚СЊРЎС‚Р°РЅРґР°СЂС‚РЅС‹РµРќР°СЃС‚СЂРѕР№РєРё</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РћС‚РєСЂС‹С‚СЊРќРѕРјРµСЂР°РћС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С…Р¤Р°Р№Р»РѕРІ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РєСЂС‹С‚СЊ РЅРѕРјРµСЂР° РѕС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РєСЂС‹С‚СЊ РЅРѕРјРµСЂР° РѕС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РћС‚РєСЂС‹С‚СЊРќРѕРјРµСЂР°РћС‚СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С…Р¤Р°Р№Р»РѕРІ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

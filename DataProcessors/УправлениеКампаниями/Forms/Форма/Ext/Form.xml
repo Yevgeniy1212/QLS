@@ -1,1 +1,772 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<VerticalScroll>useIfNecessary</VerticalScroll>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>	<Events>		<Event name="NotificationProcessing">ОбработкаОповещения</Event>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>	</Events>	<ChildItems>		<Pages name="Страницы" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Страницы</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Pages</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Страницы</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Pages</v8:content>				</v8:item>			</ToolTip>			<PagesRepresentation>TabsOnTop</PagesRepresentation>			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="54"/>			<ChildItems>				<Page name="стрВыбранныеЗаказы" id="2">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Выбранные заказы</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Chosen orders</v8:content>						</v8:item>					</Title>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Выбранные заказы</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Str chosen orders</v8:content>						</v8:item>					</ToolTip>					<ExtendedTooltip name="стрВыбранныеЗаказыРасширеннаяПодсказка" id="55"/>					<ChildItems>						<UsualGroup name="Группа1" id="14">							<Group>Horizontal</Group>							<Behavior>Usual</Behavior>							<Representation>None</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="56"/>							<ChildItems>								<InputField name="Кампания" id="12">									<DataPath>Кампания</DataPath>									<ContextMenu name="КампанияКонтекстноеМеню" id="13"/>									<ExtendedTooltip name="КампанияРасширеннаяПодсказка" id="57"/>									<Events>										<Event name="OnChange">КампанияПриИзменении</Event>										<Event name="Clearing">КампанияОчистка</Event>									</Events>								</InputField>								<Button name="УстановитьКампанию" id="15">									<Type>UsualButton</Type>									<CommandName>Form.Command.УстановитьКампанию</CommandName>									<ExtendedTooltip name="УстановитьКампаниюРасширеннаяПодсказка" id="58"/>								</Button>								<Button name="СнятьКампанию" id="16">									<Type>UsualButton</Type>									<CommandName>Form.Command.СнятьКампанию</CommandName>									<ExtendedTooltip name="СнятьКампаниюРасширеннаяПодсказка" id="59"/>								</Button>							</ChildItems>						</UsualGroup>						<Table name="ВыбранныеЗаказы" id="5">							<Representation>List</Representation>							<AutoInsertNewRow>true</AutoInsertNewRow>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<FileDragMode>AsFile</FileDragMode>							<DataPath>ВыбранныеЗаказы</DataPath>							<CommandSet>								<ExcludedCommand>Add</ExcludedCommand>								<ExcludedCommand>Change</ExcludedCommand>								<ExcludedCommand>Copy</ExcludedCommand>								<ExcludedCommand>CopyToClipboard</ExcludedCommand>								<ExcludedCommand>EndEdit</ExcludedCommand>								<ExcludedCommand>MoveDown</ExcludedCommand>								<ExcludedCommand>MoveUp</ExcludedCommand>								<ExcludedCommand>OutputList</ExcludedCommand>								<ExcludedCommand>SelectAll</ExcludedCommand>								<ExcludedCommand>SortListAsc</ExcludedCommand>								<ExcludedCommand>SortListDesc</ExcludedCommand>							</CommandSet>							<SearchStringLocation>None</SearchStringLocation>							<ViewStatusLocation>None</ViewStatusLocation>							<SearchControlLocation>None</SearchControlLocation>							<RowFilter xsi:nil="true"/>							<ContextMenu name="ВыбранныеЗаказыКонтекстноеМеню" id="6"/>							<AutoCommandBar name="ВыбранныеЗаказыКоманднаяПанель" id="7">								<ChildItems>									<Button name="ВыбранныеЗаказыДобавитьСпискомЗаказов" id="17">										<Type>CommandBarButton</Type>										<CommandName>Form.Command.ДобавитьСпискомЗаказов</CommandName>										<ExtendedTooltip name="ВыбранныеЗаказыДобавитьСпискомЗаказовРасширеннаяПодсказка" id="60"/>									</Button>								</ChildItems>							</AutoCommandBar>							<ExtendedTooltip name="ВыбранныеЗаказыРасширеннаяПодсказка" id="61"/>							<SearchStringAddition name="ВыбранныеЗаказыСтрокаПоиска" id="62">								<AdditionSource>									<Item>ВыбранныеЗаказы</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ВыбранныеЗаказыСтрокаПоискаКонтекстноеМеню" id="63"/>								<ExtendedTooltip name="ВыбранныеЗаказыСтрокаПоискаРасширеннаяПодсказка" id="64"/>							</SearchStringAddition>							<ViewStatusAddition name="ВыбранныеЗаказыСостояниеПросмотра" id="65">								<AdditionSource>									<Item>ВыбранныеЗаказы</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ВыбранныеЗаказыСостояниеПросмотраКонтекстноеМеню" id="66"/>								<ExtendedTooltip name="ВыбранныеЗаказыСостояниеПросмотраРасширеннаяПодсказка" id="67"/>							</ViewStatusAddition>							<SearchControlAddition name="ВыбранныеЗаказыУправлениеПоиском" id="68">								<AdditionSource>									<Item>ВыбранныеЗаказы</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ВыбранныеЗаказыУправлениеПоискомКонтекстноеМеню" id="69"/>								<ExtendedTooltip name="ВыбранныеЗаказыУправлениеПоискомРасширеннаяПодсказка" id="70"/>							</SearchControlAddition>							<ChildItems>								<InputField name="ВыбранныеЗаказыЗаказ" id="8">									<DataPath>ВыбранныеЗаказы.Заказ</DataPath>									<ReadOnly>true</ReadOnly>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ВыбранныеЗаказыЗаказКонтекстноеМеню" id="9"/>									<ExtendedTooltip name="ВыбранныеЗаказыЗаказРасширеннаяПодсказка" id="71"/>								</InputField>								<CheckBoxField name="ВыбранныеЗаказыКампанияУстановлена" id="10">									<DataPath>ВыбранныеЗаказы.КампанияУстановлена</DataPath>									<ReadOnly>true</ReadOnly>									<EditMode>EnterOnInput</EditMode>									<CheckBoxType>Auto</CheckBoxType>									<ContextMenu name="ВыбранныеЗаказыКампанияУстановленаКонтекстноеМеню" id="11"/>									<ExtendedTooltip name="ВыбранныеЗаказыКампанияУстановленаРасширеннаяПодсказка" id="72"/>								</CheckBoxField>							</ChildItems>						</Table>					</ChildItems>				</Page>				<Page name="СтрПодборПоОстаткамЗаказов" id="4">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Подбор по остаткам заказов</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Selection by balances of orders</v8:content>						</v8:item>					</Title>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Стр подбор по движениям заказов</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Str selectin by movings of orders</v8:content>						</v8:item>					</ToolTip>					<ExtendedTooltip name="СтрПодборПоОстаткамЗаказовРасширеннаяПодсказка" id="73"/>					<ChildItems>						<InputField name="ДатаПолученияОстатков" id="18">							<DataPath>ДатаПолученияОстатков</DataPath>							<ClearButton>true</ClearButton>							<ContextMenu name="ДатаПолученияОстатковКонтекстноеМеню" id="19"/>							<ExtendedTooltip name="ДатаПолученияОстатковРасширеннаяПодсказка" id="74"/>							<Events>								<Event name="OnChange">ДатаПолученияОстатковПриИзменении</Event>								<Event name="Clearing">ДатаПолученияОстатковОчистка</Event>							</Events>						</InputField>						<Table name="ОстаткиЗаказовОтбор" id="51">							<Representation>Tree</Representation>							<Autofill>true</Autofill>							<AutoMaxHeight>false</AutoMaxHeight>							<InitialTreeView>ExpandAllLevels</InitialTreeView>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<FileDragMode>AsFile</FileDragMode>							<DataPath>ОстаткиЗаказов.Filter</DataPath>							<SearchStringLocation>None</SearchStringLocation>							<ViewStatusLocation>None</ViewStatusLocation>							<SearchControlLocation>None</SearchControlLocation>							<ViewMode>All</ViewMode>							<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>							<ContextMenu name="ОстаткиЗаказовОтборКонтекстноеМеню" id="52"/>							<AutoCommandBar name="ОстаткиЗаказовОтборКоманднаяПанель" id="53"/>							<ExtendedTooltip name="ОстаткиЗаказовОтборРасширеннаяПодсказка" id="75"/>							<SearchStringAddition name="ОстаткиЗаказовОтборСтрокаПоиска" id="76">								<AdditionSource>									<Item>ОстаткиЗаказовОтбор</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ОстаткиЗаказовОтборСтрокаПоискаКонтекстноеМеню" id="77"/>								<ExtendedTooltip name="ОстаткиЗаказовОтборСтрокаПоискаРасширеннаяПодсказка" id="78"/>							</SearchStringAddition>							<ViewStatusAddition name="ОстаткиЗаказовОтборСостояниеПросмотра" id="79">								<AdditionSource>									<Item>ОстаткиЗаказовОтбор</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ОстаткиЗаказовОтборСостояниеПросмотраКонтекстноеМеню" id="80"/>								<ExtendedTooltip name="ОстаткиЗаказовОтборСостояниеПросмотраРасширеннаяПодсказка" id="81"/>							</ViewStatusAddition>							<SearchControlAddition name="ОстаткиЗаказовОтборУправлениеПоиском" id="82">								<AdditionSource>									<Item>ОстаткиЗаказовОтбор</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ОстаткиЗаказовОтборУправлениеПоискомКонтекстноеМеню" id="83"/>								<ExtendedTooltip name="ОстаткиЗаказовОтборУправлениеПоискомРасширеннаяПодсказка" id="84"/>							</SearchControlAddition>						</Table>						<Table name="ОстаткиЗаказов" id="40">							<AutoMaxHeight>false</AutoMaxHeight>							<ChoiceMode>true</ChoiceMode>							<MultipleChoice>true</MultipleChoice>							<UseAlternationRowColor>true</UseAlternationRowColor>							<EnableStartDrag>true</EnableStartDrag>							<FileDragMode>AsFile</FileDragMode>							<DataPath>ОстаткиЗаказов</DataPath>							<RowPictureDataPath>ОстаткиЗаказов.DefaultPicture</RowPictureDataPath>							<SearchStringLocation>None</SearchStringLocation>							<ViewStatusLocation>None</ViewStatusLocation>							<SearchControlLocation>None</SearchControlLocation>							<AutoRefresh>false</AutoRefresh>							<AutoRefreshPeriod>60</AutoRefreshPeriod>							<Period>								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>								<v8:startDate>0001-01-01T00:00:00</v8:startDate>								<v8:endDate>0001-01-01T00:00:00</v8:endDate>							</Period>							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>							<RestoreCurrentRow>false</RestoreCurrentRow>							<TopLevelParent xsi:nil="true"/>							<ShowRoot>true</ShowRoot>							<AllowRootChoice>false</AllowRootChoice>							<UpdateOnDataChange>Auto</UpdateOnDataChange>							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>							<ContextMenu name="ОстаткиЗаказовКонтекстноеМеню" id="41"/>							<AutoCommandBar name="ОстаткиЗаказовКоманднаяПанель" id="42"/>							<ExtendedTooltip name="ОстаткиЗаказовРасширеннаяПодсказка" id="85"/>							<SearchStringAddition name="ОстаткиЗаказовСтрокаПоиска" id="86">								<AdditionSource>									<Item>ОстаткиЗаказов</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ОстаткиЗаказовСтрокаПоискаКонтекстноеМеню" id="87"/>								<ExtendedTooltip name="ОстаткиЗаказовСтрокаПоискаРасширеннаяПодсказка" id="88"/>							</SearchStringAddition>							<ViewStatusAddition name="ОстаткиЗаказовСостояниеПросмотра" id="89">								<AdditionSource>									<Item>ОстаткиЗаказов</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ОстаткиЗаказовСостояниеПросмотраКонтекстноеМеню" id="90"/>								<ExtendedTooltip name="ОстаткиЗаказовСостояниеПросмотраРасширеннаяПодсказка" id="91"/>							</ViewStatusAddition>							<SearchControlAddition name="ОстаткиЗаказовУправлениеПоиском" id="92">								<AdditionSource>									<Item>ОстаткиЗаказов</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ОстаткиЗаказовУправлениеПоискомКонтекстноеМеню" id="93"/>								<ExtendedTooltip name="ОстаткиЗаказовУправлениеПоискомРасширеннаяПодсказка" id="94"/>							</SearchControlAddition>							<Events>								<Event name="ValueChoice">ОстаткиЗаказовВыборЗначения</Event>								<Event name="Selection">ОстаткиЗаказовВыбор</Event>							</Events>							<ChildItems>								<LabelField name="ОстаткиЗаказовЗаказ" id="43">									<DataPath>ОстаткиЗаказов.Заказ</DataPath>									<ContextMenu name="ОстаткиЗаказовЗаказКонтекстноеМеню" id="44"/>									<ExtendedTooltip name="ОстаткиЗаказовЗаказРасширеннаяПодсказка" id="95"/>								</LabelField>								<LabelField name="ОстаткиЗаказовКоличествоОстаток" id="45">									<DataPath>~ОстаткиЗаказов.КоличествоBalance</DataPath>									<ContextMenu name="ОстаткиЗаказовКоличествоОстатокКонтекстноеМеню" id="46"/>									<ExtendedTooltip name="ОстаткиЗаказовКоличествоОстатокРасширеннаяПодсказка" id="96"/>								</LabelField>								<LabelField name="ОстаткиЗаказовТочкаРегистрации" id="47">									<DataPath>ОстаткиЗаказов.ТочкаРегистрации</DataPath>									<ContextMenu name="ОстаткиЗаказовТочкаРегистрацииКонтекстноеМеню" id="48"/>									<ExtendedTooltip name="ОстаткиЗаказовТочкаРегистрацииРасширеннаяПодсказка" id="97"/>								</LabelField>								<CheckBoxField name="ОстаткиЗаказовКампанияУстановлена" id="49">									<DataPath>~ОстаткиЗаказов.КампанияУстановлена</DataPath>									<CheckBoxType>Auto</CheckBoxType>									<ContextMenu name="ОстаткиЗаказовКампанияУстановленаКонтекстноеМеню" id="50"/>									<ExtendedTooltip name="ОстаткиЗаказовКампанияУстановленаРасширеннаяПодсказка" id="98"/>								</CheckBoxField>							</ChildItems>						</Table>					</ChildItems>				</Page>				<Page name="СтрПодборПоДвижениямЗаказов" id="3">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Подбор по движениям заказов</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Selection by movings of orders</v8:content>						</v8:item>					</Title>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Стр подбор по движениям заказов</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Str selectin by movings of orders</v8:content>						</v8:item>					</ToolTip>					<ExtendedTooltip name="СтрПодборПоДвижениямЗаказовРасширеннаяПодсказка" id="99"/>					<ChildItems>						<Table name="ДвиженияЗаказовОтбор" id="37">							<Representation>Tree</Representation>							<Autofill>true</Autofill>							<InitialTreeView>ExpandAllLevels</InitialTreeView>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<FileDragMode>AsFile</FileDragMode>							<DataPath>ДвиженияЗаказов.Filter</DataPath>							<SearchStringLocation>None</SearchStringLocation>							<ViewStatusLocation>None</ViewStatusLocation>							<SearchControlLocation>None</SearchControlLocation>							<ViewMode>All</ViewMode>							<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>							<ContextMenu name="ДвиженияЗаказовОтборКонтекстноеМеню" id="38"/>							<AutoCommandBar name="ДвиженияЗаказовОтборКоманднаяПанель" id="39"/>							<ExtendedTooltip name="ДвиженияЗаказовОтборРасширеннаяПодсказка" id="100"/>							<SearchStringAddition name="ДвиженияЗаказовОтборСтрокаПоиска" id="101">								<AdditionSource>									<Item>ДвиженияЗаказовОтбор</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ДвиженияЗаказовОтборСтрокаПоискаКонтекстноеМеню" id="102"/>								<ExtendedTooltip name="ДвиженияЗаказовОтборСтрокаПоискаРасширеннаяПодсказка" id="103"/>							</SearchStringAddition>							<ViewStatusAddition name="ДвиженияЗаказовОтборСостояниеПросмотра" id="104">								<AdditionSource>									<Item>ДвиженияЗаказовОтбор</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ДвиженияЗаказовОтборСостояниеПросмотраКонтекстноеМеню" id="105"/>								<ExtendedTooltip name="ДвиженияЗаказовОтборСостояниеПросмотраРасширеннаяПодсказка" id="106"/>							</ViewStatusAddition>							<SearchControlAddition name="ДвиженияЗаказовОтборУправлениеПоиском" id="107">								<AdditionSource>									<Item>ДвиженияЗаказовОтбор</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ДвиженияЗаказовОтборУправлениеПоискомКонтекстноеМеню" id="108"/>								<ExtendedTooltip name="ДвиженияЗаказовОтборУправлениеПоискомРасширеннаяПодсказка" id="109"/>							</SearchControlAddition>						</Table>						<Table name="ДвиженияЗаказов" id="20">							<Representation>List</Representation>							<ChoiceMode>true</ChoiceMode>							<MultipleChoice>true</MultipleChoice>							<UseAlternationRowColor>true</UseAlternationRowColor>							<EnableStartDrag>true</EnableStartDrag>							<FileDragMode>AsFile</FileDragMode>							<DataPath>ДвиженияЗаказов</DataPath>							<RowPictureDataPath>ДвиженияЗаказов.DefaultPicture</RowPictureDataPath>							<SearchStringLocation>None</SearchStringLocation>							<ViewStatusLocation>None</ViewStatusLocation>							<SearchControlLocation>None</SearchControlLocation>							<AutoRefresh>false</AutoRefresh>							<AutoRefreshPeriod>60</AutoRefreshPeriod>							<Period>								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>								<v8:startDate>0001-01-01T00:00:00</v8:startDate>								<v8:endDate>0001-01-01T00:00:00</v8:endDate>							</Period>							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>							<RestoreCurrentRow>false</RestoreCurrentRow>							<TopLevelParent xsi:nil="true"/>							<ShowRoot>true</ShowRoot>							<AllowRootChoice>false</AllowRootChoice>							<UpdateOnDataChange>Auto</UpdateOnDataChange>							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>							<ContextMenu name="ДвиженияЗаказовКонтекстноеМеню" id="21"/>							<AutoCommandBar name="ДвиженияЗаказовКоманднаяПанель" id="22"/>							<ExtendedTooltip name="ДвиженияЗаказовРасширеннаяПодсказка" id="110"/>							<SearchStringAddition name="ДвиженияЗаказовСтрокаПоиска" id="111">								<AdditionSource>									<Item>ДвиженияЗаказов</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ДвиженияЗаказовСтрокаПоискаКонтекстноеМеню" id="112"/>								<ExtendedTooltip name="ДвиженияЗаказовСтрокаПоискаРасширеннаяПодсказка" id="113"/>							</SearchStringAddition>							<ViewStatusAddition name="ДвиженияЗаказовСостояниеПросмотра" id="114">								<AdditionSource>									<Item>ДвиженияЗаказов</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ДвиженияЗаказовСостояниеПросмотраКонтекстноеМеню" id="115"/>								<ExtendedTooltip name="ДвиженияЗаказовСостояниеПросмотраРасширеннаяПодсказка" id="116"/>							</ViewStatusAddition>							<SearchControlAddition name="ДвиженияЗаказовУправлениеПоиском" id="117">								<AdditionSource>									<Item>ДвиженияЗаказов</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ДвиженияЗаказовУправлениеПоискомКонтекстноеМеню" id="118"/>								<ExtendedTooltip name="ДвиженияЗаказовУправлениеПоискомРасширеннаяПодсказка" id="119"/>							</SearchControlAddition>							<Events>								<Event name="ValueChoice">ДвиженияЗаказовВыборЗначения</Event>								<Event name="Selection">ДвиженияЗаказовВыбор</Event>							</Events>							<ChildItems>								<LabelField name="ДвиженияЗаказовДата" id="23">									<DataPath>ДвиженияЗаказов.Дата</DataPath>									<Title>										<v8:item>											<v8:lang>en</v8:lang>											<v8:content>Date</v8:content>										</v8:item>									</Title>									<ContextMenu name="ДвиженияЗаказовДатаКонтекстноеМеню" id="24"/>									<ExtendedTooltip name="ДвиженияЗаказовДатаРасширеннаяПодсказка" id="120"/>								</LabelField>								<LabelField name="ДвиженияЗаказовЗаказ" id="27">									<DataPath>ДвиженияЗаказов.Заказ</DataPath>									<ContextMenu name="ДвиженияЗаказовЗаказКонтекстноеМеню" id="28"/>									<ExtendedTooltip name="ДвиженияЗаказовЗаказРасширеннаяПодсказка" id="121"/>								</LabelField>								<LabelField name="ДвиженияЗаказовТочкаРегистрации" id="33">									<DataPath>ДвиженияЗаказов.ТочкаРегистрации</DataPath>									<ContextMenu name="ДвиженияЗаказовТочкаРегистрацииКонтекстноеМеню" id="34"/>									<ExtendedTooltip name="ДвиженияЗаказовТочкаРегистрацииРасширеннаяПодсказка" id="122"/>								</LabelField>								<CheckBoxField name="ДвиженияЗаказовКампанияУстановлена" id="29">									<DataPath>ДвиженияЗаказов.КампанияУстановлена</DataPath>									<Title>										<v8:item>											<v8:lang>en</v8:lang>											<v8:content>Campaign was set</v8:content>										</v8:item>									</Title>									<CheckBoxType>Auto</CheckBoxType>									<ContextMenu name="ДвиженияЗаказовКампанияУстановленаКонтекстноеМеню" id="30"/>									<ExtendedTooltip name="ДвиженияЗаказовКампанияУстановленаРасширеннаяПодсказка" id="123"/>								</CheckBoxField>								<LabelField name="ДвиженияЗаказовСмена" id="31">									<DataPath>ДвиженияЗаказов.Смена</DataPath>									<ContextMenu name="ДвиженияЗаказовСменаКонтекстноеМеню" id="32"/>									<ExtendedTooltip name="ДвиженияЗаказовСменаРасширеннаяПодсказка" id="124"/>								</LabelField>								<LabelField name="ДвиженияЗаказовДатаСмены" id="25">									<DataPath>ДвиженияЗаказов.ДатаСмены</DataPath>									<ContextMenu name="ДвиженияЗаказовДатаСменыКонтекстноеМеню" id="26"/>									<ExtendedTooltip name="ДвиженияЗаказовДатаСменыРасширеннаяПодсказка" id="125"/>								</LabelField>							</ChildItems>						</Table>					</ChildItems>				</Page>			</ChildItems>		</Pages>	</ChildItems>	<Attributes>		<Attribute name="Объект" id="1">			<Type>				<v8:Type>cfg:DataProcessorObject.УправлениеКампаниями</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>		</Attribute>		<Attribute name="ВыбранныеЗаказы" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Выбранные заказы</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Chosen orders</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>v8:ValueTable</v8:Type>			</Type>			<Columns>				<Column name="Заказ" id="1">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Заказ</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Order</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>cfg:CatalogRef.Заказы</v8:Type>					</Type>				</Column>				<Column name="КампанияУстановлена" id="2">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Кампания установлена</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Campaign was set</v8:content>						</v8:item>					</Title>					<Type>						<v8:Type>xs:boolean</v8:Type>					</Type>				</Column>			</Columns>		</Attribute>		<Attribute name="Кампания" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Кампания</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Campaign</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:CatalogRef.Кампании</v8:Type>			</Type>		</Attribute>		<Attribute name="ОстаткиЗаказов" id="4">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Остатки заказов</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Balances of orders</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:DynamicList</v8:Type>			</Type>			<Settings xsi:type="DynamicList">				<ManualQuery>true</ManualQuery>				<DynamicDataRead>false</DynamicDataRead>				<QueryText>ВЫБРАТЬ	РегистрНакопленияДвижениеЗаказовОстатки.Заказ КАК Заказ,	РегистрНакопленияДвижениеЗаказовОстатки.ТочкаРегистрации КАК ТочкаРегистрацииИЗ	РегистрНакопления.ДвижениеЗаказов.Остатки(&amp;Дата, ) КАК РегистрНакопленияДвижениеЗаказовОстаткиГДЕ	РегистрНакопленияДвижениеЗаказовОстатки.КоличествоОстаток &gt; 0СГРУППИРОВАТЬ ПО	РегистрНакопленияДвижениеЗаказовОстатки.Заказ,	РегистрНакопленияДвижениеЗаказовОстатки.ТочкаРегистрации</QueryText>				<MainTable>AccumulationRegister.ДвижениеЗаказов.Balance</MainTable>				<ListSettings>					<dcsset:filter>						<dcsset:item xsi:type="dcsset:FilterItemComparison">							<dcsset:use>false</dcsset:use>							<dcsset:left xsi:type="dcscor:Field">ТочкаРегистрации</dcsset:left>							<dcsset:comparisonType>Equal</dcsset:comparisonType>						</dcsset:item>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>					</dcsset:filter>					<dcsset:order>						<dcsset:item xsi:type="dcsset:OrderItemField">							<dcsset:field>ТочкаРегистрации</dcsset:field>							<dcsset:orderType>Asc</dcsset:orderType>						</dcsset:item>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>					</dcsset:order>					<dcsset:conditionalAppearance>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>					</dcsset:conditionalAppearance>					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>				</ListSettings>			</Settings>		</Attribute>		<Attribute name="ДвиженияЗаказов" id="5">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Движения заказов</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Movings of orders</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>cfg:DynamicList</v8:Type>			</Type>			<Settings xsi:type="DynamicList">				<ManualQuery>true</ManualQuery>				<DynamicDataRead>true</DynamicDataRead>				<QueryText>ВЫБРАТЬ	РегистрНакопленияДвижениеЗаказов.Период КАК Дата,	РегистрНакопленияДвижениеЗаказов.ДатаСмены,	РегистрНакопленияДвижениеЗаказов.Смена,	РегистрНакопленияДвижениеЗаказов.Заказ,	РегистрНакопленияДвижениеЗаказов.ТочкаРегистрации,	ВЫБОР		КОГДА КампанииОстатки.КоличествоОстаток &gt; 0			ТОГДА ИСТИНА		ИНАЧЕ ЛОЖЬ	КОНЕЦ КАК КампанияУстановленаИЗ	РегистрНакопления.ДвижениеЗаказов КАК РегистрНакопленияДвижениеЗаказов		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.Кампании.Остатки(, Кампания = &amp;Кампания) КАК КампанииОстатки		ПО РегистрНакопленияДвижениеЗаказов.Заказ = КампанииОстатки.ЗаказГДЕ	РегистрНакопленияДвижениеЗаказов.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)</QueryText>				<MainTable>AccumulationRegister.ДвижениеЗаказов</MainTable>				<ListSettings>					<dcsset:filter>						<dcsset:item xsi:type="dcsset:FilterItemComparison">							<dcsset:use>false</dcsset:use>							<dcsset:left xsi:type="dcscor:Field">ТочкаРегистрации</dcsset:left>							<dcsset:comparisonType>Equal</dcsset:comparisonType>						</dcsset:item>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>					</dcsset:filter>					<dcsset:order>						<dcsset:item xsi:type="dcsset:OrderItemField">							<dcsset:field>Дата</dcsset:field>							<dcsset:orderType>Asc</dcsset:orderType>						</dcsset:item>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>					</dcsset:order>					<dcsset:conditionalAppearance>						<dcsset:viewMode>Normal</dcsset:viewMode>						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>					</dcsset:conditionalAppearance>					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>				</ListSettings>			</Settings>		</Attribute>		<Attribute name="ДатаПолученияОстатков" id="6">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Дата получения остатков</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Date of receiving of balances</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:dateTime</v8:Type>				<v8:DateQualifiers>					<v8:DateFractions>Date</v8:DateFractions>				</v8:DateQualifiers>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="УстановитьКампанию" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Установить кампанию</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Set a campaign</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Установить кампанию</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Set a campaign</v8:content>				</v8:item>			</ToolTip>			<Action>УстановитьКампанию</Action>		</Command>		<Command name="СнятьКампанию" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Снять кампанию</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Take off the campaign</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Снять кампанию</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Take off the campaign</v8:content>				</v8:item>			</ToolTip>			<Action>СнятьКампанию</Action>		</Command>		<Command name="ДобавитьСпискомЗаказов" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Добавить списком заказов</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Add by list of orders</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Добавить списком заказов</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Add by list of orders</v8:content>				</v8:item>			</ToolTip>			<Action>ДобавитьСпискомЗаказов</Action>		</Command>	</Commands></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">РћР±СЂР°Р±РѕС‚РєР°РћРїРѕРІРµС‰РµРЅРёСЏ</Event>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="РЎС‚СЂР°РЅРёС†С‹" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎС‚СЂР°РЅРёС†С‹</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎС‚СЂР°РЅРёС†С‹</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="54"/>
+			<ChildItems>
+				<Page name="СЃС‚СЂР’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р’С‹Р±СЂР°РЅРЅС‹Рµ Р·Р°РєР°Р·С‹</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Chosen orders</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р’С‹Р±СЂР°РЅРЅС‹Рµ Р·Р°РєР°Р·С‹</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Str chosen orders</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СЃС‚СЂР’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="55"/>
+					<ChildItems>
+						<UsualGroup name="Р“СЂСѓРїРїР°1" id="14">
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°1Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="56"/>
+							<ChildItems>
+								<InputField name="РљР°РјРїР°РЅРёСЏ" id="12">
+									<DataPath>РљР°РјРїР°РЅРёСЏ</DataPath>
+									<ContextMenu name="РљР°РјРїР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="13"/>
+									<ExtendedTooltip name="РљР°РјРїР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="57"/>
+									<Events>
+										<Event name="OnChange">РљР°РјРїР°РЅРёСЏРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+										<Event name="Clearing">РљР°РјРїР°РЅРёСЏРћС‡РёСЃС‚РєР°</Event>
+									</Events>
+								</InputField>
+								<Button name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРљР°РјРїР°РЅРёСЋ" id="15">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.РЈСЃС‚Р°РЅРѕРІРёС‚СЊРљР°РјРїР°РЅРёСЋ</CommandName>
+									<ExtendedTooltip name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРљР°РјРїР°РЅРёСЋР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="58"/>
+								</Button>
+								<Button name="РЎРЅСЏС‚СЊРљР°РјРїР°РЅРёСЋ" id="16">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.РЎРЅСЏС‚СЊРљР°РјРїР°РЅРёСЋ</CommandName>
+									<ExtendedTooltip name="РЎРЅСЏС‚СЊРљР°РјРїР°РЅРёСЋР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="59"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹" id="5">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="6"/>
+							<AutoCommandBar name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="7">
+								<ChildItems>
+									<Button name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹Р”РѕР±Р°РІРёС‚СЊРЎРїРёСЃРєРѕРјР—Р°РєР°Р·РѕРІ" id="17">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Р”РѕР±Р°РІРёС‚СЊРЎРїРёСЃРєРѕРјР—Р°РєР°Р·РѕРІ</CommandName>
+										<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹Р”РѕР±Р°РІРёС‚СЊРЎРїРёСЃРєРѕРјР—Р°РєР°Р·РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="60"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="61"/>
+							<SearchStringAddition name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="62">
+								<AdditionSource>
+									<Item>Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="63"/>
+								<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="64"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="65">
+								<AdditionSource>
+									<Item>Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="66"/>
+								<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="67"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="68">
+								<AdditionSource>
+									<Item>Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="69"/>
+								<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="70"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹Р—Р°РєР°Р·" id="8">
+									<DataPath>Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹.Р—Р°РєР°Р·</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹Р—Р°РєР°Р·РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="9"/>
+									<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹Р—Р°РєР°Р·Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="71"/>
+								</InputField>
+								<CheckBoxField name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°" id="10">
+									<DataPath>Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹.РљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="11"/>
+									<ExtendedTooltip name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹РљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="72"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="РЎС‚СЂРџРѕРґР±РѕСЂРџРѕРћСЃС‚Р°С‚РєР°РјР—Р°РєР°Р·РѕРІ" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџРѕРґР±РѕСЂ РїРѕ РѕСЃС‚Р°С‚РєР°Рј Р·Р°РєР°Р·РѕРІ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Selection by balances of orders</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂ РїРѕРґР±РѕСЂ РїРѕ РґРІРёР¶РµРЅРёСЏРј Р·Р°РєР°Р·РѕРІ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Str selectin by movings of orders</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="РЎС‚СЂРџРѕРґР±РѕСЂРџРѕРћСЃС‚Р°С‚РєР°РјР—Р°РєР°Р·РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="73"/>
+					<ChildItems>
+						<InputField name="Р”Р°С‚Р°РџРѕР»СѓС‡РµРЅРёСЏРћСЃС‚Р°С‚РєРѕРІ" id="18">
+							<DataPath>Р”Р°С‚Р°РџРѕР»СѓС‡РµРЅРёСЏРћСЃС‚Р°С‚РєРѕРІ</DataPath>
+							<ClearButton>true</ClearButton>
+							<ContextMenu name="Р”Р°С‚Р°РџРѕР»СѓС‡РµРЅРёСЏРћСЃС‚Р°С‚РєРѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="19"/>
+							<ExtendedTooltip name="Р”Р°С‚Р°РџРѕР»СѓС‡РµРЅРёСЏРћСЃС‚Р°С‚РєРѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="74"/>
+							<Events>
+								<Event name="OnChange">Р”Р°С‚Р°РџРѕР»СѓС‡РµРЅРёСЏРћСЃС‚Р°С‚РєРѕРІРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+								<Event name="Clearing">Р”Р°С‚Р°РџРѕР»СѓС‡РµРЅРёСЏРћСЃС‚Р°С‚РєРѕРІРћС‡РёСЃС‚РєР°</Event>
+							</Events>
+						</InputField>
+						<Table name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂ" id="51">
+							<Representation>Tree</Representation>
+							<Autofill>true</Autofill>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ.Filter</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ViewMode>All</ViewMode>
+							<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+							<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="52"/>
+							<AutoCommandBar name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="53"/>
+							<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="75"/>
+							<SearchStringAddition name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="76">
+								<AdditionSource>
+									<Item>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂ</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="77"/>
+								<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="78"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="79">
+								<AdditionSource>
+									<Item>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂ</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="80"/>
+								<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="81"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="82">
+								<AdditionSource>
+									<Item>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂ</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="83"/>
+								<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="84"/>
+							</SearchControlAddition>
+						</Table>
+						<Table name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ" id="40">
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<ChoiceMode>true</ChoiceMode>
+							<MultipleChoice>true</MultipleChoice>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ</DataPath>
+							<RowPictureDataPath>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="41"/>
+							<AutoCommandBar name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="42"/>
+							<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="85"/>
+							<SearchStringAddition name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="86">
+								<AdditionSource>
+									<Item>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="87"/>
+								<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="88"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="89">
+								<AdditionSource>
+									<Item>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="90"/>
+								<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="91"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="92">
+								<AdditionSource>
+									<Item>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="93"/>
+								<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="94"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="ValueChoice">РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІР’С‹Р±РѕСЂР—РЅР°С‡РµРЅРёСЏ</Event>
+								<Event name="Selection">РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІР’С‹Р±РѕСЂ</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІР—Р°РєР°Р·" id="43">
+									<DataPath>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ.Р—Р°РєР°Р·</DataPath>
+									<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІР—Р°РєР°Р·РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="44"/>
+									<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІР—Р°РєР°Р·Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="95"/>
+								</LabelField>
+								<LabelField name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРљРѕР»РёС‡РµСЃС‚РІРѕРћСЃС‚Р°С‚РѕРє" id="45">
+									<DataPath>~РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ.РљРѕР»РёС‡РµСЃС‚РІРѕBalance</DataPath>
+									<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРљРѕР»РёС‡РµСЃС‚РІРѕРћСЃС‚Р°С‚РѕРєРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="46"/>
+									<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРљРѕР»РёС‡РµСЃС‚РІРѕРћСЃС‚Р°С‚РѕРєР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="96"/>
+								</LabelField>
+								<LabelField name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё" id="47">
+									<DataPath>РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ.РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё</DataPath>
+									<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="48"/>
+									<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="97"/>
+								</LabelField>
+								<CheckBoxField name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°" id="49">
+									<DataPath>~РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ.РљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="50"/>
+									<ExtendedTooltip name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІРљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="98"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="РЎС‚СЂРџРѕРґР±РѕСЂРџРѕР”РІРёР¶РµРЅРёСЏРјР—Р°РєР°Р·РѕРІ" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџРѕРґР±РѕСЂ РїРѕ РґРІРёР¶РµРЅРёСЏРј Р·Р°РєР°Р·РѕРІ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Selection by movings of orders</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂ РїРѕРґР±РѕСЂ РїРѕ РґРІРёР¶РµРЅРёСЏРј Р·Р°РєР°Р·РѕРІ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Str selectin by movings of orders</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="РЎС‚СЂРџРѕРґР±РѕСЂРџРѕР”РІРёР¶РµРЅРёСЏРјР—Р°РєР°Р·РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="99"/>
+					<ChildItems>
+						<Table name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂ" id="37">
+							<Representation>Tree</Representation>
+							<Autofill>true</Autofill>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ.Filter</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ViewMode>All</ViewMode>
+							<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+							<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="38"/>
+							<AutoCommandBar name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="39"/>
+							<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="100"/>
+							<SearchStringAddition name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="101">
+								<AdditionSource>
+									<Item>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂ</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="102"/>
+								<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="103"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="104">
+								<AdditionSource>
+									<Item>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂ</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="105"/>
+								<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="106"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="107">
+								<AdditionSource>
+									<Item>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂ</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="108"/>
+								<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРћС‚Р±РѕСЂРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="109"/>
+							</SearchControlAddition>
+						</Table>
+						<Table name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ" id="20">
+							<Representation>List</Representation>
+							<ChoiceMode>true</ChoiceMode>
+							<MultipleChoice>true</MultipleChoice>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ</DataPath>
+							<RowPictureDataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="21"/>
+							<AutoCommandBar name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="22"/>
+							<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="110"/>
+							<SearchStringAddition name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="111">
+								<AdditionSource>
+									<Item>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="112"/>
+								<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="113"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="114">
+								<AdditionSource>
+									<Item>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="115"/>
+								<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="116"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="117">
+								<AdditionSource>
+									<Item>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="118"/>
+								<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="119"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="ValueChoice">Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР’С‹Р±РѕСЂР—РЅР°С‡РµРЅРёСЏ</Event>
+								<Event name="Selection">Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР’С‹Р±РѕСЂ</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР”Р°С‚Р°" id="23">
+									<DataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ.Р”Р°С‚Р°</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Date</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР”Р°С‚Р°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="24"/>
+									<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР”Р°С‚Р°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="120"/>
+								</LabelField>
+								<LabelField name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР—Р°РєР°Р·" id="27">
+									<DataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ.Р—Р°РєР°Р·</DataPath>
+									<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР—Р°РєР°Р·РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="28"/>
+									<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР—Р°РєР°Р·Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="121"/>
+								</LabelField>
+								<LabelField name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё" id="33">
+									<DataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ.РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё</DataPath>
+									<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="34"/>
+									<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="122"/>
+								</LabelField>
+								<CheckBoxField name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°" id="29">
+									<DataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ.РљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Campaign was set</v8:content>
+										</v8:item>
+									</Title>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="30"/>
+									<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="123"/>
+								</CheckBoxField>
+								<LabelField name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎРјРµРЅР°" id="31">
+									<DataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ.РЎРјРµРЅР°</DataPath>
+									<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎРјРµРЅР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="32"/>
+									<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІРЎРјРµРЅР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="124"/>
+								</LabelField>
+								<LabelField name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР”Р°С‚Р°РЎРјРµРЅС‹" id="25">
+									<DataPath>Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ.Р”Р°С‚Р°РЎРјРµРЅС‹</DataPath>
+									<ContextMenu name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР”Р°С‚Р°РЎРјРµРЅС‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="26"/>
+									<ExtendedTooltip name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІР”Р°С‚Р°РЎРјРµРЅС‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="125"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±СЉРµРєС‚" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.РЈРїСЂР°РІР»РµРЅРёРµРљР°РјРїР°РЅРёСЏРјРё</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Р’С‹Р±СЂР°РЅРЅС‹РµР—Р°РєР°Р·С‹" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р’С‹Р±СЂР°РЅРЅС‹Рµ Р·Р°РєР°Р·С‹</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Chosen orders</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Р—Р°РєР°Р·" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р—Р°РєР°Р·</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Order</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Р—Р°РєР°Р·С‹</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РљР°РјРїР°РЅРёСЏ СѓСЃС‚Р°РЅРѕРІР»РµРЅР°</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Campaign was set</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="РљР°РјРїР°РЅРёСЏ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РљР°РјРїР°РЅРёСЏ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Campaign</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.РљР°РјРїР°РЅРёРё</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РћСЃС‚Р°С‚РєРёР—Р°РєР°Р·РѕРІ" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћСЃС‚Р°С‚РєРё Р·Р°РєР°Р·РѕРІ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Balances of orders</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>Р’Р«Р‘Р РђРўР¬
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІРћСЃС‚Р°С‚РєРё.Р—Р°РєР°Р· РљРђРљ Р—Р°РєР°Р·,
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІРћСЃС‚Р°С‚РєРё.РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё РљРђРљ РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё
+РР—
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏ.Р”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.РћСЃС‚Р°С‚РєРё(&amp;Р”Р°С‚Р°, ) РљРђРљ Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІРћСЃС‚Р°С‚РєРё
+Р“Р”Р•
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІРћСЃС‚Р°С‚РєРё.РљРѕР»РёС‡РµСЃС‚РІРѕРћСЃС‚Р°С‚РѕРє &gt; 0
+
+РЎР“Р РЈРџРџРР РћР’РђРўР¬ РџРћ
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІРћСЃС‚Р°С‚РєРё.Р—Р°РєР°Р·,
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІРћСЃС‚Р°С‚РєРё.РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё</QueryText>
+				<MainTable>AccumulationRegister.Р”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.Balance</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Р”РІРёР¶РµРЅРёСЏР—Р°РєР°Р·РѕРІ" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РІРёР¶РµРЅРёСЏ Р·Р°РєР°Р·РѕРІ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Movings of orders</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>Р’Р«Р‘Р РђРўР¬
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.РџРµСЂРёРѕРґ РљРђРљ Р”Р°С‚Р°,
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.Р”Р°С‚Р°РЎРјРµРЅС‹,
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.РЎРјРµРЅР°,
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.Р—Р°РєР°Р·,
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё,
+	Р’Р«Р‘РћР 
+		РљРћР“Р”Рђ РљР°РјРїР°РЅРёРёРћСЃС‚Р°С‚РєРё.РљРѕР»РёС‡РµСЃС‚РІРѕРћСЃС‚Р°С‚РѕРє &gt; 0
+			РўРћР“Р”Рђ РРЎРўРРќРђ
+		РРќРђР§Р• Р›РћР–Р¬
+	РљРћРќР•Р¦ РљРђРљ РљР°РјРїР°РЅРёСЏРЈСЃС‚Р°РЅРѕРІР»РµРЅР°
+РР—
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏ.Р”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ РљРђРљ Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ
+		Р›Р•Р’РћР• РЎРћР•Р”РРќР•РќРР• Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏ.РљР°РјРїР°РЅРёРё.РћСЃС‚Р°С‚РєРё(, РљР°РјРїР°РЅРёСЏ = &amp;РљР°РјРїР°РЅРёСЏ) РљРђРљ РљР°РјРїР°РЅРёРёРћСЃС‚Р°С‚РєРё
+		РџРћ Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.Р—Р°РєР°Р· = РљР°РјРїР°РЅРёРёРћСЃС‚Р°С‚РєРё.Р—Р°РєР°Р·
+Р“Р”Р•
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏР”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ.Р’РёРґР”РІРёР¶РµРЅРёСЏ = Р—РќРђР§Р•РќРР•(Р’РёРґР”РІРёР¶РµРЅРёСЏРќР°РєРѕРїР»РµРЅРёСЏ.РџСЂРёС…РѕРґ)</QueryText>
+				<MainTable>AccumulationRegister.Р”РІРёР¶РµРЅРёРµР—Р°РєР°Р·РѕРІ</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Р”Р°С‚Р°</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Р”Р°С‚Р°РџРѕР»СѓС‡РµРЅРёСЏРћСЃС‚Р°С‚РєРѕРІ" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”Р°С‚Р° РїРѕР»СѓС‡РµРЅРёСЏ РѕСЃС‚Р°С‚РєРѕРІ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Date of receiving of balances</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РЈСЃС‚Р°РЅРѕРІРёС‚СЊРљР°РјРїР°РЅРёСЋ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РєР°РјРїР°РЅРёСЋ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set a campaign</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РєР°РјРїР°РЅРёСЋ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set a campaign</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЈСЃС‚Р°РЅРѕРІРёС‚СЊРљР°РјРїР°РЅРёСЋ</Action>
+		</Command>
+		<Command name="РЎРЅСЏС‚СЊРљР°РјРїР°РЅРёСЋ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРЅСЏС‚СЊ РєР°РјРїР°РЅРёСЋ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Take off the campaign</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎРЅСЏС‚СЊ РєР°РјРїР°РЅРёСЋ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Take off the campaign</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РЎРЅСЏС‚СЊРљР°РјРїР°РЅРёСЋ</Action>
+		</Command>
+		<Command name="Р”РѕР±Р°РІРёС‚СЊРЎРїРёСЃРєРѕРјР—Р°РєР°Р·РѕРІ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РѕР±Р°РІРёС‚СЊ СЃРїРёСЃРєРѕРј Р·Р°РєР°Р·РѕРІ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add by list of orders</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”РѕР±Р°РІРёС‚СЊ СЃРїРёСЃРєРѕРј Р·Р°РєР°Р·РѕРІ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add by list of orders</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р”РѕР±Р°РІРёС‚СЊРЎРїРёСЃРєРѕРјР—Р°РєР°Р·РѕРІ</Action>
+		</Command>
+	</Commands>
+</Form>

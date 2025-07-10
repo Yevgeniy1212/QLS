@@ -1,1 +1,249 @@
-<?xml version="1.0" encoding="UTF-8"?><DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">	<dataSource>		<name>ИсточникДанных1</name>		<dataSourceType>Local</dataSourceType>	</dataSource>	<dataSet xsi:type="DataSetQuery">		<name>ЗакрытыеКонсерны</name>		<field xsi:type="DataSetFieldField">			<dataPath>Заказ</dataPath>			<field>Заказ</field>			<role>				<dcscom:dimension>true</dcscom:dimension>			</role>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Консерн</dataPath>			<field>Консерн</field>			<role>				<dcscom:dimension>true</dcscom:dimension>			</role>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Дефект</dataPath>			<field>Дефект</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Зона</dataPath>			<field>Зона</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>ИнспектируемыйЭлемент</dataPath>			<field>ИнспектируемыйЭлемент</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Область</dataPath>			<field>Область</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>ПозицияB</dataPath>			<field>ПозицияB</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>ПозицияC</dataPath>			<field>ПозицияC</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>ПозицияА</dataPath>			<field>ПозицияА</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Смена</dataPath>			<field>Смена</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>ТипДефекта</dataPath>			<field>ТипДефекта</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>ТочкаПроверкиКачества</dataPath>			<field>ТочкаПроверкиКачества</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Количество</dataPath>			<field>Количество</field>		</field>		<field xsi:type="DataSetFieldField">			<dataPath>Бренд</dataPath>			<field>Бренд</field>			<title xsi:type="v8:LocalStringType">				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Бренд</v8:content>				</v8:item>			</title>		</field>		<dataSource>ИсточникДанных1</dataSource>		<query>ВЫБРАТЬ	КонсерныОбороты.КоличествоРасход КАК Количество,	КонсерныОбороты.Консерн.ИнспектируемыйЭлемент КАК ИнспектируемыйЭлемент,	КонсерныОбороты.Консерн.Дефект КАК Дефект,	КонсерныОбороты.Консерн.ТипДефекта КАК ТипДефекта,	КонсерныОбороты.Консерн.ПозицияА КАК ПозицияА,	КонсерныОбороты.Консерн.ПозицияB КАК ПозицияB,	КонсерныОбороты.Консерн.ПозицияC КАК ПозицияC,	КонсерныОбороты.Консерн.Смена КАК Смена,	КонсерныОбороты.Консерн.ТочкаПроверкиКачества.Область КАК Область,	КонсерныОбороты.Консерн.ТочкаПроверкиКачества.Зона КАК Зона,	КонсерныОбороты.Консерн.ТочкаПроверкиКачества КАК ТочкаПроверкиКачества,	КонсерныОбороты.Заказ,	КонсерныОбороты.Консерн,	КонсерныОбороты.Заказ.Бренд КАК БрендИЗ	РегистрНакопления.Консерны.Обороты(&amp;НачалоПериода, &amp;КонецПериода,,) КАК КонсерныОборотыГДЕ	КонсерныОбороты.КоличествоРасход &gt; 0</query>	</dataSet>	<parameter>		<name>НачалоПериода</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Начало периода</v8:content>			</v8:item>			<v8:item>				<v8:lang>en</v8:lang>				<v8:content>Beginning of period</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>		<useRestriction>true</useRestriction>		<expression>&amp;ПериодОтчета.ДатаНачала</expression>	</parameter>	<parameter>		<name>КонецПериода</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Конец периода</v8:content>			</v8:item>			<v8:item>				<v8:lang>en</v8:lang>				<v8:content>End of period</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>xs:dateTime</v8:Type>			<v8:DateQualifiers>				<v8:DateFractions>DateTime</v8:DateFractions>			</v8:DateQualifiers>		</valueType>		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>		<useRestriction>true</useRestriction>		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>	</parameter>	<parameter>		<name>ПериодОтчета</name>		<title xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Период отчета</v8:content>			</v8:item>			<v8:item>				<v8:lang>en</v8:lang>				<v8:content>Period</v8:content>			</v8:item>		</title>		<valueType>			<v8:Type>v8:StandardPeriod</v8:Type>		</valueType>		<value xsi:type="v8:StandardPeriod">			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>			<v8:startDate>0001-01-01T00:00:00</v8:startDate>			<v8:endDate>0001-01-01T00:00:00</v8:endDate>		</value>		<useRestriction>false</useRestriction>		<denyIncompleteValues>true</denyIncompleteValues>		<use>Always</use>	</parameter>	<settingsVariant>		<dcsset:name>Закрытие</dcsset:name>		<dcsset:presentation xsi:type="v8:LocalStringType">			<v8:item>				<v8:lang>ru</v8:lang>				<v8:content>Закрытие</v8:content>			</v8:item>			<v8:item>				<v8:lang>en</v8:lang>				<v8:content>Close</v8:content>			</v8:item>		</dcsset:presentation>		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">			<dcsset:selection>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Количество</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>ИнспектируемыйЭлемент</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Дефект</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>ТипДефекта</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>ПозицияА</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>ПозицияB</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>ПозицияC</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Смена</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Область</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>Зона</dcsset:field>				</dcsset:item>				<dcsset:item xsi:type="dcsset:SelectedItemField">					<dcsset:field>ТочкаПроверкиКачества</dcsset:field>				</dcsset:item>			</dcsset:selection>			<dcsset:filter>				<dcsset:item xsi:type="dcsset:FilterItemComparison">					<dcsset:use>false</dcsset:use>					<dcsset:left xsi:type="dcscor:Field">Бренд</dcsset:left>					<dcsset:comparisonType>InList</dcsset:comparisonType>					<dcsset:viewMode>Normal</dcsset:viewMode>					<dcsset:userSettingID>2a72f2ec-b707-4951-95b3-baebe94fb0d0</dcsset:userSettingID>				</dcsset:item>			</dcsset:filter>			<dcsset:dataParameters>				<dcscor:item xsi:type="dcsset:SettingsParameterValue">					<dcscor:parameter>ПериодОтчета</dcscor:parameter>					<dcscor:value xsi:type="v8:StandardPeriod">						<v8:variant xsi:type="v8:StandardPeriodVariant">Today</v8:variant>					</dcscor:value>					<dcsset:userSettingID>614488f1-c0f2-4279-907e-3b8a961536d5</dcsset:userSettingID>				</dcscor:item>			</dcsset:dataParameters>			<dcsset:outputParameters>				<dcscor:item xsi:type="dcsset:SettingsParameterValue">					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>				</dcscor:item>			</dcsset:outputParameters>			<dcsset:item xsi:type="dcsset:StructureItemGroup">				<dcsset:name>Данные</dcsset:name>				<dcsset:order>					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>				</dcsset:order>				<dcsset:selection>					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>				</dcsset:selection>			</dcsset:item>		</dcsset:settings>	</settingsVariant></DataCompositionSchema>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>РСЃС‚РѕС‡РЅРёРєР”Р°РЅРЅС‹С…1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Р—Р°РєСЂС‹С‚С‹РµРљРѕРЅСЃРµСЂРЅС‹</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Р—Р°РєР°Р·</dataPath>
+			<field>Р—Р°РєР°Р·</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РљРѕРЅСЃРµСЂРЅ</dataPath>
+			<field>РљРѕРЅСЃРµСЂРЅ</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Р”РµС„РµРєС‚</dataPath>
+			<field>Р”РµС„РµРєС‚</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Р—РѕРЅР°</dataPath>
+			<field>Р—РѕРЅР°</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚</dataPath>
+			<field>РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РћР±Р»Р°СЃС‚СЊ</dataPath>
+			<field>РћР±Р»Р°СЃС‚СЊ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РџРѕР·РёС†РёСЏB</dataPath>
+			<field>РџРѕР·РёС†РёСЏB</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РџРѕР·РёС†РёСЏC</dataPath>
+			<field>РџРѕР·РёС†РёСЏC</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РџРѕР·РёС†РёСЏРђ</dataPath>
+			<field>РџРѕР·РёС†РёСЏРђ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РЎРјРµРЅР°</dataPath>
+			<field>РЎРјРµРЅР°</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РўРёРїР”РµС„РµРєС‚Р°</dataPath>
+			<field>РўРёРїР”РµС„РµРєС‚Р°</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</dataPath>
+			<field>РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РљРѕР»РёС‡РµСЃС‚РІРѕ</dataPath>
+			<field>РљРѕР»РёС‡РµСЃС‚РІРѕ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Р‘СЂРµРЅРґ</dataPath>
+			<field>Р‘СЂРµРЅРґ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р‘СЂРµРЅРґ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>РСЃС‚РѕС‡РЅРёРєР”Р°РЅРЅС‹С…1</dataSource>
+		<query>Р’Р«Р‘Р РђРўР¬
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕР»РёС‡РµСЃС‚РІРѕР Р°СЃС…РѕРґ РљРђРљ РљРѕР»РёС‡РµСЃС‚РІРѕ,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚ РљРђРљ РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.Р”РµС„РµРєС‚ РљРђРљ Р”РµС„РµРєС‚,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РўРёРїР”РµС„РµРєС‚Р° РљРђРљ РўРёРїР”РµС„РµРєС‚Р°,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РџРѕР·РёС†РёСЏРђ РљРђРљ РџРѕР·РёС†РёСЏРђ,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РџРѕР·РёС†РёСЏB РљРђРљ РџРѕР·РёС†РёСЏB,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РџРѕР·РёС†РёСЏC РљРђРљ РџРѕР·РёС†РёСЏC,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РЎРјРµРЅР° РљРђРљ РЎРјРµРЅР°,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°.РћР±Р»Р°СЃС‚СЊ РљРђРљ РћР±Р»Р°СЃС‚СЊ,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°.Р—РѕРЅР° РљРђРљ Р—РѕРЅР°,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ.РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР° РљРђРљ РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.Р—Р°РєР°Р·,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕРЅСЃРµСЂРЅ,
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.Р—Р°РєР°Р·.Р‘СЂРµРЅРґ РљРђРљ Р‘СЂРµРЅРґ
+РР—
+	Р РµРіРёСЃС‚СЂРќР°РєРѕРїР»РµРЅРёСЏ.РљРѕРЅСЃРµСЂРЅС‹.РћР±РѕСЂРѕС‚С‹(&amp;РќР°С‡Р°Р»РѕРџРµСЂРёРѕРґР°, &amp;РљРѕРЅРµС†РџРµСЂРёРѕРґР°,,) РљРђРљ РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹
+Р“Р”Р•
+	РљРѕРЅСЃРµСЂРЅС‹РћР±РѕСЂРѕС‚С‹.РљРѕР»РёС‡РµСЃС‚РІРѕР Р°СЃС…РѕРґ &gt; 0</query>
+	</dataSet>
+	<parameter>
+		<name>РќР°С‡Р°Р»РѕРџРµСЂРёРѕРґР°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РќР°С‡Р°Р»Рѕ РїРµСЂРёРѕРґР°</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°.Р”Р°С‚Р°РќР°С‡Р°Р»Р°</expression>
+	</parameter>
+	<parameter>
+		<name>РљРѕРЅРµС†РџРµСЂРёРѕРґР°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РљРѕРЅРµС† РїРµСЂРёРѕРґР°</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°.Р”Р°С‚Р°РћРєРѕРЅС‡Р°РЅРёСЏ</expression>
+	</parameter>
+	<parameter>
+		<name>РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>РџРµСЂРёРѕРґ РѕС‚С‡РµС‚Р°</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Р—Р°РєСЂС‹С‚РёРµ</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Р—Р°РєСЂС‹С‚РёРµ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Close</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РљРѕР»РёС‡РµСЃС‚РІРѕ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Р”РµС„РµРєС‚</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РўРёРїР”РµС„РµРєС‚Р°</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РџРѕР·РёС†РёСЏРђ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РџРѕР·РёС†РёСЏB</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РџРѕР·РёС†РёСЏC</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РЎРјРµРЅР°</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РћР±Р»Р°СЃС‚СЊ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Р—РѕРЅР°</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Р‘СЂРµРЅРґ</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>2a72f2ec-b707-4951-95b3-baebe94fb0d0</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РџРµСЂРёРѕРґРћС‚С‡РµС‚Р°</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Today</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>614488f1-c0f2-4279-907e-3b8a961536d5</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РђРІС‚РѕРџРѕР·РёС†РёСЏР РµСЃСѓСЂСЃРѕРІ</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>Р”Р°РЅРЅС‹Рµ</dcsset:name>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

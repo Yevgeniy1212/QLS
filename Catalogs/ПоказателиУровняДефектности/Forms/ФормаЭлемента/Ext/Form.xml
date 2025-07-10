@@ -1,1 +1,602 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<VerticalScroll>useIfNecessary</VerticalScroll>	<UseForFoldersAndItems>Items</UseForFoldersAndItems>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>	<Events>		<Event name="BeforeWrite">ПередЗаписью</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>	</Events>	<ChildItems>		<InputField name="Код" id="1">			<DataPath>Объект.Code</DataPath>			<EditMode>EnterOnInput</EditMode>			<ContextMenu name="КодКонтекстноеМеню" id="2"/>			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="34"/>		</InputField>		<InputField name="Наименование" id="3">			<DataPath>Объект.Description</DataPath>			<EditMode>EnterOnInput</EditMode>			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="35"/>		</InputField>		<RadioButtonField name="ТипПоказателя" id="7">			<DataPath>Объект.ТипПоказателя</DataPath>			<Visible>false</Visible>			<EditMode>EnterOnInput</EditMode>			<RadioButtonType>Auto</RadioButtonType>			<ChoiceList>				<xr:Item>					<xr:Presentation/>					<xr:CheckState>0</xr:CheckState>					<xr:Value xsi:type="FormChoiceListDesTimeValue">						<Presentation>							<v8:item>								<v8:lang>ru</v8:lang>								<v8:content>простой</v8:content>							</v8:item>						</Presentation>						<Value xsi:type="xs:decimal">0</Value>					</xr:Value>				</xr:Item>				<xr:Item>					<xr:Presentation/>					<xr:CheckState>0</xr:CheckState>					<xr:Value xsi:type="FormChoiceListDesTimeValue">						<Presentation>							<v8:item>								<v8:lang>ru</v8:lang>								<v8:content>комплексный</v8:content>							</v8:item>						</Presentation>						<Value xsi:type="xs:decimal">1</Value>					</xr:Value>				</xr:Item>			</ChoiceList>			<ContextMenu name="ТипПоказателяКонтекстноеМеню" id="8"/>			<ExtendedTooltip name="ТипПоказателяРасширеннаяПодсказка" id="36"/>			<Events>				<Event name="OnChange">ТипПоказателяПриИзменении</Event>			</Events>		</RadioButtonField>		<InputField name="ВидПоказателя" id="5">			<DataPath>Объект.ВидПоказателя</DataPath>			<EditMode>EnterOnInput</EditMode>			<ContextMenu name="ВидПоказателяКонтекстноеМеню" id="6"/>			<ExtendedTooltip name="ВидПоказателяРасширеннаяПодсказка" id="37"/>		</InputField>		<InputField name="ПутьКФайламДляОтчетаПоказателиУровняДефектности" id="150">			<DataPath>Объект.ПутьКФайламДляОтчетаПоказателиУровняДефектности</DataPath>			<ContextMenu name="ПутьКФайламДляОтчетаПоказателиУровняДефектностиКонтекстноеМеню" id="151"/>			<ExtendedTooltip name="ПутьКФайламДляОтчетаПоказателиУровняДефектностиРасширеннаяПодсказка" id="152"/>		</InputField>		<UsualGroup name="ГруппаОнлайнОффлайн" id="134">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Группа онлайн оффлайн</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Группа онлайн оффлайн</v8:content>				</v8:item>			</ToolTip>			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="ГруппаОнлайнОффлайнРасширеннаяПодсказка" id="135"/>			<ChildItems>				<CheckBoxField name="ОнлайнДефекты" id="136">					<DataPath>Объект.ОнлайнДефекты</DataPath>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ОнлайнДефектыКонтекстноеМеню" id="137"/>					<ExtendedTooltip name="ОнлайнДефектыРасширеннаяПодсказка" id="138"/>				</CheckBoxField>				<CheckBoxField name="ОффлайнДефекиы" id="139">					<DataPath>Объект.ОффлайнДефекты</DataPath>					<CheckBoxType>Auto</CheckBoxType>					<ContextMenu name="ОффлайнДефекиыКонтекстноеМеню" id="140"/>					<ExtendedTooltip name="ОффлайнДефекиыРасширеннаяПодсказка" id="141"/>				</CheckBoxField>			</ChildItems>		</UsualGroup>		<UsualGroup name="ГруппаПериоды" id="132">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Периоды</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Группа периоды</v8:content>				</v8:item>			</ToolTip>			<Behavior>Collapsible</Behavior>			<Representation>None</Representation>			<ExtendedTooltip name="ГруппаПериодыРасширеннаяПодсказка" id="133"/>			<ChildItems>				<InputField name="КоличествоЛет" id="78">					<DataPath>Объект.КоличествоЛет</DataPath>					<ContextMenu name="КоличествоЛетКонтекстноеМеню" id="79"/>					<ExtendedTooltip name="КоличествоЛетРасширеннаяПодсказка" id="80"/>				</InputField>				<InputField name="КоличествоМесяцев" id="81">					<DataPath>Объект.КоличествоМесяцев</DataPath>					<ContextMenu name="КоличествоМесяцевКонтекстноеМеню" id="82"/>					<ExtendedTooltip name="КоличествоМесяцевРасширеннаяПодсказка" id="83"/>				</InputField>				<InputField name="КоличествоНедель" id="84">					<DataPath>Объект.КоличествоНедель</DataPath>					<ContextMenu name="КоличествоНедельКонтекстноеМеню" id="85"/>					<ExtendedTooltip name="КоличествоНедельРасширеннаяПодсказка" id="86"/>				</InputField>				<InputField name="КоличествоДней" id="87">					<DataPath>Объект.КоличествоДней</DataPath>					<ContextMenu name="КоличествоДнейКонтекстноеМеню" id="88"/>					<ExtendedTooltip name="КоличествоДнейРасширеннаяПодсказка" id="89"/>				</InputField>			</ChildItems>		</UsualGroup>		<UsualGroup name="Группа1" id="148">			<Behavior>Usual</Behavior>			<Representation>None</Representation>			<ShowTitle>false</ShowTitle>			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="149"/>			<ChildItems>				<InputField name="НомерКолонкиДляВыборкиТопДефектов" id="142">					<DataPath>Объект.НомерКолонкиДляВыборкиТопДефектов</DataPath>					<ContextMenu name="НомерКолонкиДляВыборкиТопДефектовКонтекстноеМеню" id="143"/>					<ExtendedTooltip name="НомерКолонкиДляВыборкиТопДефектовРасширеннаяПодсказка" id="144"/>				</InputField>				<LabelDecoration name="КомментарийНомерКолонкиТопДефектов" id="145">					<TextColor>style:FieldSelectionBackColor</TextColor>					<Title formatted="false">						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Нумерация колонок начинается с количества лет.</v8:content>						</v8:item>					</Title>					<ContextMenu name="КомментарийНомерКолонкиТопДефектовКонтекстноеМеню" id="146"/>					<ExtendedTooltip name="КомментарийНомерКолонкиТопДефектовРасширеннаяПодсказка" id="147"/>				</LabelDecoration>			</ChildItems>		</UsualGroup>		<InputField name="КоличествоТопДефектов" id="153">			<DataPath>Объект.КоличествоТопДефектов</DataPath>			<ContextMenu name="КоличествоТопДефектовКонтекстноеМеню" id="154"/>			<ExtendedTooltip name="КоличествоТопДефектовРасширеннаяПодсказка" id="155"/>		</InputField>		<Pages name="Страницы" id="9">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Страницы</v8:content>				</v8:item>				<v8:item>					<v8:lang>en</v8:lang>					<v8:content>Pages</v8:content>				</v8:item>			</Title>			<PagesRepresentation>TabsOnTop</PagesRepresentation>			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="38"/>			<ChildItems>				<Page name="ГруппаТочкиПроверкиКачества" id="10">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Точки проверки качества</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Checkpoints of quality</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="ГруппаТочкиПроверкиКачестваРасширеннаяПодсказка" id="39"/>					<ChildItems>						<Table name="ТочкиПроверкиКачества" id="11">							<Representation>List</Representation>							<AutoInsertNewRow>true</AutoInsertNewRow>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<FileDragMode>AsFile</FileDragMode>							<DataPath>Объект.ТочкиПроверкиКачества</DataPath>							<SearchStringLocation>None</SearchStringLocation>							<ViewStatusLocation>None</ViewStatusLocation>							<SearchControlLocation>None</SearchControlLocation>							<RowFilter xsi:nil="true"/>							<ContextMenu name="ТочкиПроверкиКачестваКонтекстноеМеню" id="12"/>							<AutoCommandBar name="ТочкиПроверкиКачестваКоманднаяПанель" id="13"/>							<ExtendedTooltip name="ТочкиПроверкиКачестваРасширеннаяПодсказка" id="40"/>							<SearchStringAddition name="ТочкиПроверкиКачестваСтрокаПоиска" id="41">								<AdditionSource>									<Item>ТочкиПроверкиКачества</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ТочкиПроверкиКачестваСтрокаПоискаКонтекстноеМеню" id="42"/>								<ExtendedTooltip name="ТочкиПроверкиКачестваСтрокаПоискаРасширеннаяПодсказка" id="43"/>							</SearchStringAddition>							<ViewStatusAddition name="ТочкиПроверкиКачестваСостояниеПросмотра" id="44">								<AdditionSource>									<Item>ТочкиПроверкиКачества</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ТочкиПроверкиКачестваСостояниеПросмотраКонтекстноеМеню" id="45"/>								<ExtendedTooltip name="ТочкиПроверкиКачестваСостояниеПросмотраРасширеннаяПодсказка" id="46"/>							</ViewStatusAddition>							<SearchControlAddition name="ТочкиПроверкиКачестваУправлениеПоиском" id="47">								<AdditionSource>									<Item>ТочкиПроверкиКачества</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ТочкиПроверкиКачестваУправлениеПоискомКонтекстноеМеню" id="48"/>								<ExtendedTooltip name="ТочкиПроверкиКачестваУправлениеПоискомРасширеннаяПодсказка" id="49"/>							</SearchControlAddition>							<ChildItems>								<LabelField name="ТочкиПроверкиКачестваНомерСтроки" id="14">									<DataPath>Объект.ТочкиПроверкиКачества.LineNumber</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ТочкиПроверкиКачестваНомерСтрокиКонтекстноеМеню" id="15"/>									<ExtendedTooltip name="ТочкиПроверкиКачестваНомерСтрокиРасширеннаяПодсказка" id="50"/>								</LabelField>								<InputField name="ТочкиПроверкиКачестваТочкаПроверкиКачества" id="16">									<DataPath>Объект.ТочкиПроверкиКачества.ТочкаПроверкиКачества</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ТочкиПроверкиКачестваТочкаПроверкиКачестваКонтекстноеМеню" id="17"/>									<ExtendedTooltip name="ТочкиПроверкиКачестваТочкаПроверкиКачестваРасширеннаяПодсказка" id="51"/>								</InputField>							</ChildItems>						</Table>					</ChildItems>				</Page>				<Page name="ГруппаТочкиРегистрации" id="18">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Точки регистрации</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Registration points</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="ГруппаТочкиРегистрацииРасширеннаяПодсказка" id="52"/>					<ChildItems>						<Table name="ТочкиРегистрации" id="19">							<Representation>List</Representation>							<AutoInsertNewRow>true</AutoInsertNewRow>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<FileDragMode>AsFile</FileDragMode>							<DataPath>Объект.ТочкиРегистрации</DataPath>							<SearchStringLocation>None</SearchStringLocation>							<ViewStatusLocation>None</ViewStatusLocation>							<SearchControlLocation>None</SearchControlLocation>							<RowFilter xsi:nil="true"/>							<ContextMenu name="ТочкиРегистрацииКонтекстноеМеню" id="20"/>							<AutoCommandBar name="ТочкиРегистрацииКоманднаяПанель" id="21"/>							<ExtendedTooltip name="ТочкиРегистрацииРасширеннаяПодсказка" id="53"/>							<SearchStringAddition name="ТочкиРегистрацииСтрокаПоиска" id="54">								<AdditionSource>									<Item>ТочкиРегистрации</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ТочкиРегистрацииСтрокаПоискаКонтекстноеМеню" id="55"/>								<ExtendedTooltip name="ТочкиРегистрацииСтрокаПоискаРасширеннаяПодсказка" id="56"/>							</SearchStringAddition>							<ViewStatusAddition name="ТочкиРегистрацииСостояниеПросмотра" id="57">								<AdditionSource>									<Item>ТочкиРегистрации</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ТочкиРегистрацииСостояниеПросмотраКонтекстноеМеню" id="58"/>								<ExtendedTooltip name="ТочкиРегистрацииСостояниеПросмотраРасширеннаяПодсказка" id="59"/>							</ViewStatusAddition>							<SearchControlAddition name="ТочкиРегистрацииУправлениеПоиском" id="60">								<AdditionSource>									<Item>ТочкиРегистрации</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ТочкиРегистрацииУправлениеПоискомКонтекстноеМеню" id="61"/>								<ExtendedTooltip name="ТочкиРегистрацииУправлениеПоискомРасширеннаяПодсказка" id="62"/>							</SearchControlAddition>							<ChildItems>								<LabelField name="ТочкиРегистрацииНомерСтроки" id="22">									<DataPath>Объект.ТочкиРегистрации.LineNumber</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ТочкиРегистрацииНомерСтрокиКонтекстноеМеню" id="23"/>									<ExtendedTooltip name="ТочкиРегистрацииНомерСтрокиРасширеннаяПодсказка" id="63"/>								</LabelField>								<InputField name="ТочкиРегистрацииТочкаРегистрации" id="24">									<DataPath>Объект.ТочкиРегистрации.ТочкаРегистрации</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ТочкиРегистрацииТочкаРегистрацииКонтекстноеМеню" id="25"/>									<ExtendedTooltip name="ТочкиРегистрацииТочкаРегистрацииРасширеннаяПодсказка" id="64"/>								</InputField>							</ChildItems>						</Table>					</ChildItems>				</Page>				<Page name="ГруппаОтветственные" id="90">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Ответственные</v8:content>						</v8:item>					</Title>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Группа ответственные</v8:content>						</v8:item>					</ToolTip>					<Group>HorizontalIfPossible</Group>					<ExtendedTooltip name="ГруппаОтветственныеРасширеннаяПодсказка" id="91"/>					<ChildItems>						<Table name="ОтветственныеЗаДефект" id="92">							<AutoInsertNewRow>true</AutoInsertNewRow>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<DataPath>Объект.ОтветственныеЗаДефект</DataPath>							<RowFilter xsi:nil="true"/>							<ContextMenu name="ОтветственныеЗаДефектКонтекстноеМеню" id="93"/>							<AutoCommandBar name="ОтветственныеЗаДефектКоманднаяПанель" id="94"/>							<ExtendedTooltip name="ОтветственныеЗаДефектРасширеннаяПодсказка" id="95"/>							<SearchStringAddition name="ОтветственныеЗаДефектСтрокаПоиска" id="96">								<AdditionSource>									<Item>ОтветственныеЗаДефект</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ОтветственныеЗаДефектСтрокаПоискаКонтекстноеМеню" id="97"/>								<ExtendedTooltip name="ОтветственныеЗаДефектСтрокаПоискаРасширеннаяПодсказка" id="98"/>							</SearchStringAddition>							<ViewStatusAddition name="ОтветственныеЗаДефектСостояниеПросмотра" id="99">								<AdditionSource>									<Item>ОтветственныеЗаДефект</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ОтветственныеЗаДефектСостояниеПросмотраКонтекстноеМеню" id="100"/>								<ExtendedTooltip name="ОтветственныеЗаДефектСостояниеПросмотраРасширеннаяПодсказка" id="101"/>							</ViewStatusAddition>							<SearchControlAddition name="ОтветственныеЗаДефектУправлениеПоиском" id="102">								<AdditionSource>									<Item>ОтветственныеЗаДефект</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ОтветственныеЗаДефектУправлениеПоискомКонтекстноеМеню" id="103"/>								<ExtendedTooltip name="ОтветственныеЗаДефектУправлениеПоискомРасширеннаяПодсказка" id="104"/>							</SearchControlAddition>							<ChildItems>								<LabelField name="ОтветственныеЗаДефектНомерСтроки" id="105">									<DataPath>Объект.ОтветственныеЗаДефект.LineNumber</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ОтветственныеЗаДефектНомерСтрокиКонтекстноеМеню" id="106"/>									<ExtendedTooltip name="ОтветственныеЗаДефектНомерСтрокиРасширеннаяПодсказка" id="107"/>								</LabelField>								<InputField name="ОтветственныеЗаДефектОтветственный" id="108">									<DataPath>Объект.ОтветственныеЗаДефект.Ответственный</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ОтветственныеЗаДефектОтветственныйКонтекстноеМеню" id="109"/>									<ExtendedTooltip name="ОтветственныеЗаДефектОтветственныйРасширеннаяПодсказка" id="110"/>								</InputField>							</ChildItems>						</Table>					</ChildItems>				</Page>				<Page name="ГруппаДефекты" id="111">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Дефекты</v8:content>						</v8:item>					</Title>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Группа дефекты</v8:content>						</v8:item>					</ToolTip>					<ExtendedTooltip name="ГруппаДефектыРасширеннаяПодсказка" id="112"/>					<ChildItems>						<Table name="Дефекты" id="113">							<AutoInsertNewRow>true</AutoInsertNewRow>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<DataPath>Объект.Дефекты</DataPath>							<RowFilter xsi:nil="true"/>							<ContextMenu name="ДефектыКонтекстноеМеню" id="114"/>							<AutoCommandBar name="ДефектыКоманднаяПанель" id="115"/>							<ExtendedTooltip name="ДефектыРасширеннаяПодсказка" id="116"/>							<SearchStringAddition name="ДефектыСтрокаПоиска" id="117">								<AdditionSource>									<Item>Дефекты</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ДефектыСтрокаПоискаКонтекстноеМеню" id="118"/>								<ExtendedTooltip name="ДефектыСтрокаПоискаРасширеннаяПодсказка" id="119"/>							</SearchStringAddition>							<ViewStatusAddition name="ДефектыСостояниеПросмотра" id="120">								<AdditionSource>									<Item>Дефекты</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ДефектыСостояниеПросмотраКонтекстноеМеню" id="121"/>								<ExtendedTooltip name="ДефектыСостояниеПросмотраРасширеннаяПодсказка" id="122"/>							</ViewStatusAddition>							<SearchControlAddition name="ДефектыУправлениеПоиском" id="123">								<AdditionSource>									<Item>Дефекты</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ДефектыУправлениеПоискомКонтекстноеМеню" id="124"/>								<ExtendedTooltip name="ДефектыУправлениеПоискомРасширеннаяПодсказка" id="125"/>							</SearchControlAddition>							<ChildItems>								<LabelField name="ДефектыНомерСтроки" id="126">									<DataPath>Объект.Дефекты.LineNumber</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ДефектыНомерСтрокиКонтекстноеМеню" id="127"/>									<ExtendedTooltip name="ДефектыНомерСтрокиРасширеннаяПодсказка" id="128"/>								</LabelField>								<InputField name="ДефектыДефект" id="129">									<DataPath>Объект.Дефекты.Дефект</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ДефектыДефектКонтекстноеМеню" id="130"/>									<ExtendedTooltip name="ДефектыДефектРасширеннаяПодсказка" id="131"/>								</InputField>							</ChildItems>						</Table>					</ChildItems>				</Page>				<Page name="ГруппаИнспектируемыеЭлементы" id="156">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Инспектируемые элементы</v8:content>						</v8:item>					</Title>					<ToolTip>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Группа инспектируемые элементы</v8:content>						</v8:item>					</ToolTip>					<ExtendedTooltip name="ГруппаИнспектируемыеЭлементыРасширеннаяПодсказка" id="157"/>					<ChildItems>						<Table name="ИнспектируемыеЭлементы" id="158">							<AutoInsertNewRow>true</AutoInsertNewRow>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<DataPath>Объект.ИнспектируемыеЭлементы</DataPath>							<RowFilter xsi:nil="true"/>							<ContextMenu name="ИнспектируемыеЭлементыКонтекстноеМеню" id="159"/>							<AutoCommandBar name="ИнспектируемыеЭлементыКоманднаяПанель" id="160"/>							<ExtendedTooltip name="ИнспектируемыеЭлементыРасширеннаяПодсказка" id="161"/>							<SearchStringAddition name="ИнспектируемыеЭлементыСтрокаПоиска" id="162">								<AdditionSource>									<Item>ИнспектируемыеЭлементы</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ИнспектируемыеЭлементыСтрокаПоискаКонтекстноеМеню" id="163"/>								<ExtendedTooltip name="ИнспектируемыеЭлементыСтрокаПоискаРасширеннаяПодсказка" id="164"/>							</SearchStringAddition>							<ViewStatusAddition name="ИнспектируемыеЭлементыСостояниеПросмотра" id="165">								<AdditionSource>									<Item>ИнспектируемыеЭлементы</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ИнспектируемыеЭлементыСостояниеПросмотраКонтекстноеМеню" id="166"/>								<ExtendedTooltip name="ИнспектируемыеЭлементыСостояниеПросмотраРасширеннаяПодсказка" id="167"/>							</ViewStatusAddition>							<SearchControlAddition name="ИнспектируемыеЭлементыУправлениеПоиском" id="168">								<AdditionSource>									<Item>ИнспектируемыеЭлементы</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ИнспектируемыеЭлементыУправлениеПоискомКонтекстноеМеню" id="169"/>								<ExtendedTooltip name="ИнспектируемыеЭлементыУправлениеПоискомРасширеннаяПодсказка" id="170"/>							</SearchControlAddition>							<ChildItems>								<LabelField name="ИнспектируемыеЭлементыНомерСтроки" id="171">									<DataPath>Объект.ИнспектируемыеЭлементы.LineNumber</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ИнспектируемыеЭлементыНомерСтрокиКонтекстноеМеню" id="172"/>									<ExtendedTooltip name="ИнспектируемыеЭлементыНомерСтрокиРасширеннаяПодсказка" id="173"/>								</LabelField>								<InputField name="ИнспектируемыеЭлементыИнспектируемыйЭлемент" id="174">									<DataPath>Объект.ИнспектируемыеЭлементы.ИнспектируемыйЭлемент</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ИнспектируемыеЭлементыИнспектируемыйЭлементКонтекстноеМеню" id="175"/>									<ExtendedTooltip name="ИнспектируемыеЭлементыИнспектируемыйЭлементРасширеннаяПодсказка" id="176"/>								</InputField>							</ChildItems>						</Table>					</ChildItems>				</Page>				<Page name="ГруппаПоказатели" id="26">					<Visible>false</Visible>					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Показатели</v8:content>						</v8:item>						<v8:item>							<v8:lang>en</v8:lang>							<v8:content>Indicators</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="ГруппаПоказателиРасширеннаяПодсказка" id="65"/>					<ChildItems>						<Table name="Показатели" id="27">							<Representation>List</Representation>							<AutoInsertNewRow>true</AutoInsertNewRow>							<EnableStartDrag>true</EnableStartDrag>							<EnableDrag>true</EnableDrag>							<FileDragMode>AsFile</FileDragMode>							<DataPath>Объект.Показатели</DataPath>							<SearchStringLocation>None</SearchStringLocation>							<ViewStatusLocation>None</ViewStatusLocation>							<SearchControlLocation>None</SearchControlLocation>							<RowFilter xsi:nil="true"/>							<ContextMenu name="ПоказателиКонтекстноеМеню" id="28"/>							<AutoCommandBar name="ПоказателиКоманднаяПанель" id="29"/>							<ExtendedTooltip name="ПоказателиРасширеннаяПодсказка" id="66"/>							<SearchStringAddition name="ПоказателиСтрокаПоиска" id="67">								<AdditionSource>									<Item>Показатели</Item>									<Type>SearchStringRepresentation</Type>								</AdditionSource>								<ContextMenu name="ПоказателиСтрокаПоискаКонтекстноеМеню" id="68"/>								<ExtendedTooltip name="ПоказателиСтрокаПоискаРасширеннаяПодсказка" id="69"/>							</SearchStringAddition>							<ViewStatusAddition name="ПоказателиСостояниеПросмотра" id="70">								<AdditionSource>									<Item>Показатели</Item>									<Type>ViewStatusRepresentation</Type>								</AdditionSource>								<ContextMenu name="ПоказателиСостояниеПросмотраКонтекстноеМеню" id="71"/>								<ExtendedTooltip name="ПоказателиСостояниеПросмотраРасширеннаяПодсказка" id="72"/>							</ViewStatusAddition>							<SearchControlAddition name="ПоказателиУправлениеПоиском" id="73">								<AdditionSource>									<Item>Показатели</Item>									<Type>SearchControl</Type>								</AdditionSource>								<ContextMenu name="ПоказателиУправлениеПоискомКонтекстноеМеню" id="74"/>								<ExtendedTooltip name="ПоказателиУправлениеПоискомРасширеннаяПодсказка" id="75"/>							</SearchControlAddition>							<ChildItems>								<LabelField name="ПоказателиНомерСтроки" id="30">									<DataPath>Объект.Показатели.LineNumber</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ПоказателиНомерСтрокиКонтекстноеМеню" id="31"/>									<ExtendedTooltip name="ПоказателиНомерСтрокиРасширеннаяПодсказка" id="76"/>								</LabelField>								<InputField name="ПоказателиПоказатель" id="32">									<DataPath>Объект.Показатели.Показатель</DataPath>									<EditMode>EnterOnInput</EditMode>									<ContextMenu name="ПоказателиПоказательКонтекстноеМеню" id="33"/>									<ExtendedTooltip name="ПоказателиПоказательРасширеннаяПодсказка" id="77"/>								</InputField>							</ChildItems>						</Table>					</ChildItems>				</Page>			</ChildItems>		</Pages>	</ChildItems>	<Attributes>		<Attribute name="Объект" id="1">			<Type>				<v8:Type>cfg:CatalogObject.ПоказателиУровняДефектности</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>			<SavedData>true</SavedData>		</Attribute>	</Attributes></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1"/>
+	<Events>
+		<Event name="BeforeWrite">РџРµСЂРµРґР—Р°РїРёСЃСЊСЋ</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+		<Event name="BeforeWriteAtServer">РџРµСЂРµРґР—Р°РїРёСЃСЊСЋРќР°РЎРµСЂРІРµСЂРµ</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="РљРѕРґ" id="1">
+			<DataPath>РћР±СЉРµРєС‚.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РљРѕРґРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="2"/>
+			<ExtendedTooltip name="РљРѕРґР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="34"/>
+		</InputField>
+		<InputField name="РќР°РёРјРµРЅРѕРІР°РЅРёРµ" id="3">
+			<DataPath>РћР±СЉРµРєС‚.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РќР°РёРјРµРЅРѕРІР°РЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="4"/>
+			<ExtendedTooltip name="РќР°РёРјРµРЅРѕРІР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="35"/>
+		</InputField>
+		<RadioButtonField name="РўРёРїРџРѕРєР°Р·Р°С‚РµР»СЏ" id="7">
+			<DataPath>РћР±СЉРµРєС‚.РўРёРїРџРѕРєР°Р·Р°С‚РµР»СЏ</DataPath>
+			<Visible>false</Visible>
+			<EditMode>EnterOnInput</EditMode>
+			<RadioButtonType>Auto</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>РїСЂРѕСЃС‚РѕР№</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">0</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>РєРѕРјРїР»РµРєСЃРЅС‹Р№</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">1</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="РўРёРїРџРѕРєР°Р·Р°С‚РµР»СЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="8"/>
+			<ExtendedTooltip name="РўРёРїРџРѕРєР°Р·Р°С‚РµР»СЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="36"/>
+			<Events>
+				<Event name="OnChange">РўРёРїРџРѕРєР°Р·Р°С‚РµР»СЏРџСЂРёРР·РјРµРЅРµРЅРёРё</Event>
+			</Events>
+		</RadioButtonField>
+		<InputField name="Р’РёРґРџРѕРєР°Р·Р°С‚РµР»СЏ" id="5">
+			<DataPath>РћР±СЉРµРєС‚.Р’РёРґРџРѕРєР°Р·Р°С‚РµР»СЏ</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="Р’РёРґРџРѕРєР°Р·Р°С‚РµР»СЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="6"/>
+			<ExtendedTooltip name="Р’РёРґРџРѕРєР°Р·Р°С‚РµР»СЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="37"/>
+		</InputField>
+		<InputField name="РџСѓС‚СЊРљР¤Р°Р№Р»Р°РјР”Р»СЏРћС‚С‡РµС‚Р°РџРѕРєР°Р·Р°С‚РµР»РёРЈСЂРѕРІРЅСЏР”РµС„РµРєС‚РЅРѕСЃС‚Рё" id="150">
+			<DataPath>РћР±СЉРµРєС‚.РџСѓС‚СЊРљР¤Р°Р№Р»Р°РјР”Р»СЏРћС‚С‡РµС‚Р°РџРѕРєР°Р·Р°С‚РµР»РёРЈСЂРѕРІРЅСЏР”РµС„РµРєС‚РЅРѕСЃС‚Рё</DataPath>
+			<ContextMenu name="РџСѓС‚СЊРљР¤Р°Р№Р»Р°РјР”Р»СЏРћС‚С‡РµС‚Р°РџРѕРєР°Р·Р°С‚РµР»РёРЈСЂРѕРІРЅСЏР”РµС„РµРєС‚РЅРѕСЃС‚РёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="151"/>
+			<ExtendedTooltip name="РџСѓС‚СЊРљР¤Р°Р№Р»Р°РјР”Р»СЏРћС‚С‡РµС‚Р°РџРѕРєР°Р·Р°С‚РµР»РёРЈСЂРѕРІРЅСЏР”РµС„РµРєС‚РЅРѕСЃС‚РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="152"/>
+		</InputField>
+		<UsualGroup name="Р“СЂСѓРїРїР°РћРЅР»Р°Р№РЅРћС„С„Р»Р°Р№РЅ" id="134">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р“СЂСѓРїРїР° РѕРЅР»Р°Р№РЅ РѕС„С„Р»Р°Р№РЅ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р“СЂСѓРїРїР° РѕРЅР»Р°Р№РЅ РѕС„С„Р»Р°Р№РЅ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РћРЅР»Р°Р№РЅРћС„С„Р»Р°Р№РЅР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="135"/>
+			<ChildItems>
+				<CheckBoxField name="РћРЅР»Р°Р№РЅР”РµС„РµРєС‚С‹" id="136">
+					<DataPath>РћР±СЉРµРєС‚.РћРЅР»Р°Р№РЅР”РµС„РµРєС‚С‹</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РћРЅР»Р°Р№РЅР”РµС„РµРєС‚С‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="137"/>
+					<ExtendedTooltip name="РћРЅР»Р°Р№РЅР”РµС„РµРєС‚С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="138"/>
+				</CheckBoxField>
+				<CheckBoxField name="РћС„С„Р»Р°Р№РЅР”РµС„РµРєРёС‹" id="139">
+					<DataPath>РћР±СЉРµРєС‚.РћС„С„Р»Р°Р№РЅР”РµС„РµРєС‚С‹</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РћС„С„Р»Р°Р№РЅР”РµС„РµРєРёС‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="140"/>
+					<ExtendedTooltip name="РћС„С„Р»Р°Р№РЅР”РµС„РµРєРёС‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="141"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°РџРµСЂРёРѕРґС‹" id="132">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРёРѕРґС‹</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р“СЂСѓРїРїР° РїРµСЂРёРѕРґС‹</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Collapsible</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°РџРµСЂРёРѕРґС‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="133"/>
+			<ChildItems>
+				<InputField name="РљРѕР»РёС‡РµСЃС‚РІРѕР›РµС‚" id="78">
+					<DataPath>РћР±СЉРµРєС‚.РљРѕР»РёС‡РµСЃС‚РІРѕР›РµС‚</DataPath>
+					<ContextMenu name="РљРѕР»РёС‡РµСЃС‚РІРѕР›РµС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="79"/>
+					<ExtendedTooltip name="РљРѕР»РёС‡РµСЃС‚РІРѕР›РµС‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="80"/>
+				</InputField>
+				<InputField name="РљРѕР»РёС‡РµСЃС‚РІРѕРњРµСЃСЏС†РµРІ" id="81">
+					<DataPath>РћР±СЉРµРєС‚.РљРѕР»РёС‡РµСЃС‚РІРѕРњРµСЃСЏС†РµРІ</DataPath>
+					<ContextMenu name="РљРѕР»РёС‡РµСЃС‚РІРѕРњРµСЃСЏС†РµРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="82"/>
+					<ExtendedTooltip name="РљРѕР»РёС‡РµСЃС‚РІРѕРњРµСЃСЏС†РµРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="83"/>
+				</InputField>
+				<InputField name="РљРѕР»РёС‡РµСЃС‚РІРѕРќРµРґРµР»СЊ" id="84">
+					<DataPath>РћР±СЉРµРєС‚.РљРѕР»РёС‡РµСЃС‚РІРѕРќРµРґРµР»СЊ</DataPath>
+					<ContextMenu name="РљРѕР»РёС‡РµСЃС‚РІРѕРќРµРґРµР»СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="85"/>
+					<ExtendedTooltip name="РљРѕР»РёС‡РµСЃС‚РІРѕРќРµРґРµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="86"/>
+				</InputField>
+				<InputField name="РљРѕР»РёС‡РµСЃС‚РІРѕР”РЅРµР№" id="87">
+					<DataPath>РћР±СЉРµРєС‚.РљРѕР»РёС‡РµСЃС‚РІРѕР”РЅРµР№</DataPath>
+					<ContextMenu name="РљРѕР»РёС‡РµСЃС‚РІРѕР”РЅРµР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="88"/>
+					<ExtendedTooltip name="РљРѕР»РёС‡РµСЃС‚РІРѕР”РЅРµР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="89"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Р“СЂСѓРїРїР°1" id="148">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Р“СЂСѓРїРїР°1Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="149"/>
+			<ChildItems>
+				<InputField name="РќРѕРјРµСЂРљРѕР»РѕРЅРєРёР”Р»СЏР’С‹Р±РѕСЂРєРёРўРѕРїР”РµС„РµРєС‚РѕРІ" id="142">
+					<DataPath>РћР±СЉРµРєС‚.РќРѕРјРµСЂРљРѕР»РѕРЅРєРёР”Р»СЏР’С‹Р±РѕСЂРєРёРўРѕРїР”РµС„РµРєС‚РѕРІ</DataPath>
+					<ContextMenu name="РќРѕРјРµСЂРљРѕР»РѕРЅРєРёР”Р»СЏР’С‹Р±РѕСЂРєРёРўРѕРїР”РµС„РµРєС‚РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="143"/>
+					<ExtendedTooltip name="РќРѕРјРµСЂРљРѕР»РѕРЅРєРёР”Р»СЏР’С‹Р±РѕСЂРєРёРўРѕРїР”РµС„РµРєС‚РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="144"/>
+				</InputField>
+				<LabelDecoration name="РљРѕРјРјРµРЅС‚Р°СЂРёР№РќРѕРјРµСЂРљРѕР»РѕРЅРєРёРўРѕРїР”РµС„РµРєС‚РѕРІ" id="145">
+					<TextColor>style:FieldSelectionBackColor</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РќСѓРјРµСЂР°С†РёСЏ РєРѕР»РѕРЅРѕРє РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ РєРѕР»РёС‡РµСЃС‚РІР° Р»РµС‚.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РљРѕРјРјРµРЅС‚Р°СЂРёР№РќРѕРјРµСЂРљРѕР»РѕРЅРєРёРўРѕРїР”РµС„РµРєС‚РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="146"/>
+					<ExtendedTooltip name="РљРѕРјРјРµРЅС‚Р°СЂРёР№РќРѕРјРµСЂРљРѕР»РѕРЅРєРёРўРѕРїР”РµС„РµРєС‚РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="147"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="РљРѕР»РёС‡РµСЃС‚РІРѕРўРѕРїР”РµС„РµРєС‚РѕРІ" id="153">
+			<DataPath>РћР±СЉРµРєС‚.РљРѕР»РёС‡РµСЃС‚РІРѕРўРѕРїР”РµС„РµРєС‚РѕРІ</DataPath>
+			<ContextMenu name="РљРѕР»РёС‡РµСЃС‚РІРѕРўРѕРїР”РµС„РµРєС‚РѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="154"/>
+			<ExtendedTooltip name="РљРѕР»РёС‡РµСЃС‚РІРѕРўРѕРїР”РµС„РµРєС‚РѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="155"/>
+		</InputField>
+		<Pages name="РЎС‚СЂР°РЅРёС†С‹" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎС‚СЂР°РЅРёС†С‹</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="38"/>
+			<ChildItems>
+				<Page name="Р“СЂСѓРїРїР°РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РўРѕС‡РєРё РїСЂРѕРІРµСЂРєРё РєР°С‡РµСЃС‚РІР°</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Checkpoints of quality</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="39"/>
+					<ChildItems>
+						<Table name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°" id="11">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РћР±СЉРµРєС‚.РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="12"/>
+							<AutoCommandBar name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="13"/>
+							<ExtendedTooltip name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="40"/>
+							<SearchStringAddition name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="41">
+								<AdditionSource>
+									<Item>РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="42"/>
+								<ExtendedTooltip name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="43"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="44">
+								<AdditionSource>
+									<Item>РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="45"/>
+								<ExtendedTooltip name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="46"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="47">
+								<AdditionSource>
+									<Item>РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="48"/>
+								<ExtendedTooltip name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="49"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РќРѕРјРµСЂРЎС‚СЂРѕРєРё" id="14">
+									<DataPath>РћР±СЉРµРєС‚.РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РќРѕРјРµСЂРЎС‚СЂРѕРєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="15"/>
+									<ExtendedTooltip name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РќРѕРјРµСЂРЎС‚СЂРѕРєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="50"/>
+								</LabelField>
+								<InputField name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°" id="16">
+									<DataPath>РћР±СЉРµРєС‚.РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°.РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="17"/>
+									<ExtendedTooltip name="РўРѕС‡РєРёРџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°РўРѕС‡РєР°РџСЂРѕРІРµСЂРєРёРљР°С‡РµСЃС‚РІР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="51"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Р“СЂСѓРїРїР°РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРё" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РўРѕС‡РєРё СЂРµРіРёСЃС‚СЂР°С†РёРё</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Registration points</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="52"/>
+					<ChildItems>
+						<Table name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРё" id="19">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РћР±СЉРµРєС‚.РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРё</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="20"/>
+							<AutoCommandBar name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="21"/>
+							<ExtendedTooltip name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="53"/>
+							<SearchStringAddition name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="54">
+								<AdditionSource>
+									<Item>РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРё</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="55"/>
+								<ExtendedTooltip name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="56"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="57">
+								<AdditionSource>
+									<Item>РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРё</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="58"/>
+								<ExtendedTooltip name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="59"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="60">
+								<AdditionSource>
+									<Item>РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРё</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="61"/>
+								<ExtendedTooltip name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="62"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРќРѕРјРµСЂРЎС‚СЂРѕРєРё" id="22">
+									<DataPath>РћР±СЉРµРєС‚.РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРё.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРќРѕРјРµСЂРЎС‚СЂРѕРєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="23"/>
+									<ExtendedTooltip name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРќРѕРјРµСЂРЎС‚СЂРѕРєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="63"/>
+								</LabelField>
+								<InputField name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё" id="24">
+									<DataPath>РћР±СЉРµРєС‚.РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРё.РўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРё</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="25"/>
+									<ExtendedTooltip name="РўРѕС‡РєРёР РµРіРёСЃС‚СЂР°С†РёРёРўРѕС‡РєР°Р РµРіРёСЃС‚СЂР°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="64"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Р“СЂСѓРїРїР°РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Рµ" id="90">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Рµ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р“СЂСѓРїРїР° РѕС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Рµ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="91"/>
+					<ChildItems>
+						<Table name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚" id="92">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>РћР±СЉРµРєС‚.РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="93"/>
+							<AutoCommandBar name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="94"/>
+							<ExtendedTooltip name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="95"/>
+							<SearchStringAddition name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="96">
+								<AdditionSource>
+									<Item>РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="97"/>
+								<ExtendedTooltip name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="98"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="99">
+								<AdditionSource>
+									<Item>РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="100"/>
+								<ExtendedTooltip name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="101"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="102">
+								<AdditionSource>
+									<Item>РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="103"/>
+								<ExtendedTooltip name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="104"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РќРѕРјРµСЂРЎС‚СЂРѕРєРё" id="105">
+									<DataPath>РћР±СЉРµРєС‚.РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РќРѕРјРµСЂРЎС‚СЂРѕРєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="106"/>
+									<ExtendedTooltip name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РќРѕРјРµСЂРЎС‚СЂРѕРєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="107"/>
+								</LabelField>
+								<InputField name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Р№" id="108">
+									<DataPath>РћР±СЉРµРєС‚.РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚.РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Р№</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Р№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="109"/>
+									<ExtendedTooltip name="РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹РµР—Р°Р”РµС„РµРєС‚РћС‚РІРµС‚СЃС‚РІРµРЅРЅС‹Р№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="110"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Р“СЂСѓРїРїР°Р”РµС„РµРєС‚С‹" id="111">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р”РµС„РµРєС‚С‹</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р“СЂСѓРїРїР° РґРµС„РµРєС‚С‹</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°Р”РµС„РµРєС‚С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="112"/>
+					<ChildItems>
+						<Table name="Р”РµС„РµРєС‚С‹" id="113">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>РћР±СЉРµРєС‚.Р”РµС„РµРєС‚С‹</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="Р”РµС„РµРєС‚С‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="114"/>
+							<AutoCommandBar name="Р”РµС„РµРєС‚С‹РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="115"/>
+							<ExtendedTooltip name="Р”РµС„РµРєС‚С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="116"/>
+							<SearchStringAddition name="Р”РµС„РµРєС‚С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="117">
+								<AdditionSource>
+									<Item>Р”РµС„РµРєС‚С‹</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РµС„РµРєС‚С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="118"/>
+								<ExtendedTooltip name="Р”РµС„РµРєС‚С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="119"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="Р”РµС„РµРєС‚С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="120">
+								<AdditionSource>
+									<Item>Р”РµС„РµРєС‚С‹</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РµС„РµРєС‚С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="121"/>
+								<ExtendedTooltip name="Р”РµС„РµРєС‚С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="122"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="Р”РµС„РµРєС‚С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="123">
+								<AdditionSource>
+									<Item>Р”РµС„РµРєС‚С‹</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="Р”РµС„РµРєС‚С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="124"/>
+								<ExtendedTooltip name="Р”РµС„РµРєС‚С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="125"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="Р”РµС„РµРєС‚С‹РќРѕРјРµСЂРЎС‚СЂРѕРєРё" id="126">
+									<DataPath>РћР±СЉРµРєС‚.Р”РµС„РµРєС‚С‹.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="Р”РµС„РµРєС‚С‹РќРѕРјРµСЂРЎС‚СЂРѕРєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="127"/>
+									<ExtendedTooltip name="Р”РµС„РµРєС‚С‹РќРѕРјРµСЂРЎС‚СЂРѕРєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="128"/>
+								</LabelField>
+								<InputField name="Р”РµС„РµРєС‚С‹Р”РµС„РµРєС‚" id="129">
+									<DataPath>РћР±СЉРµРєС‚.Р”РµС„РµРєС‚С‹.Р”РµС„РµРєС‚</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="Р”РµС„РµРєС‚С‹Р”РµС„РµРєС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="130"/>
+									<ExtendedTooltip name="Р”РµС„РµРєС‚С‹Р”РµС„РµРєС‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="131"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Р“СЂСѓРїРїР°РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹" id="156">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Рµ СЌР»РµРјРµРЅС‚С‹</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Р“СЂСѓРїРїР° РёРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Рµ СЌР»РµРјРµРЅС‚С‹</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="157"/>
+					<ChildItems>
+						<Table name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹" id="158">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>РћР±СЉРµРєС‚.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="159"/>
+							<AutoCommandBar name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="160"/>
+							<ExtendedTooltip name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="161"/>
+							<SearchStringAddition name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="162">
+								<AdditionSource>
+									<Item>РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="163"/>
+								<ExtendedTooltip name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="164"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="165">
+								<AdditionSource>
+									<Item>РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="166"/>
+								<ExtendedTooltip name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="167"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="168">
+								<AdditionSource>
+									<Item>РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="169"/>
+								<ExtendedTooltip name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="170"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РќРѕРјРµСЂРЎС‚СЂРѕРєРё" id="171">
+									<DataPath>РћР±СЉРµРєС‚.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РќРѕРјРµСЂРЎС‚СЂРѕРєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="172"/>
+									<ExtendedTooltip name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РќРѕРјРµСЂРЎС‚СЂРѕРєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="173"/>
+								</LabelField>
+								<InputField name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚" id="174">
+									<DataPath>РћР±СЉРµРєС‚.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹.РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="175"/>
+									<ExtendedTooltip name="РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹РµР­Р»РµРјРµРЅС‚С‹РРЅСЃРїРµРєС‚РёСЂСѓРµРјС‹Р№Р­Р»РµРјРµРЅС‚Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="176"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Р“СЂСѓРїРїР°РџРѕРєР°Р·Р°С‚РµР»Рё" id="26">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РџРѕРєР°Р·Р°С‚РµР»Рё</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Indicators</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Р“СЂСѓРїРїР°РџРѕРєР°Р·Р°С‚РµР»РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="65"/>
+					<ChildItems>
+						<Table name="РџРѕРєР°Р·Р°С‚РµР»Рё" id="27">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РћР±СЉРµРєС‚.РџРѕРєР°Р·Р°С‚РµР»Рё</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РџРѕРєР°Р·Р°С‚РµР»РёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="28"/>
+							<AutoCommandBar name="РџРѕРєР°Р·Р°С‚РµР»РёРљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="29"/>
+							<ExtendedTooltip name="РџРѕРєР°Р·Р°С‚РµР»РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="66"/>
+							<SearchStringAddition name="РџРѕРєР°Р·Р°С‚РµР»РёРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°" id="67">
+								<AdditionSource>
+									<Item>РџРѕРєР°Р·Р°С‚РµР»Рё</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РџРѕРєР°Р·Р°С‚РµР»РёРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="68"/>
+								<ExtendedTooltip name="РџРѕРєР°Р·Р°С‚РµР»РёРЎС‚СЂРѕРєР°РџРѕРёСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="69"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РџРѕРєР°Р·Р°С‚РµР»РёРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°" id="70">
+								<AdditionSource>
+									<Item>РџРѕРєР°Р·Р°С‚РµР»Рё</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РџРѕРєР°Р·Р°С‚РµР»РёРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="71"/>
+								<ExtendedTooltip name="РџРѕРєР°Р·Р°С‚РµР»РёРЎРѕСЃС‚РѕСЏРЅРёРµРџСЂРѕСЃРјРѕС‚СЂР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="72"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РџРѕРєР°Р·Р°С‚РµР»РёРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРј" id="73">
+								<AdditionSource>
+									<Item>РџРѕРєР°Р·Р°С‚РµР»Рё</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РџРѕРєР°Р·Р°С‚РµР»РёРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="74"/>
+								<ExtendedTooltip name="РџРѕРєР°Р·Р°С‚РµР»РёРЈРїСЂР°РІР»РµРЅРёРµРџРѕРёСЃРєРѕРјР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="75"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="РџРѕРєР°Р·Р°С‚РµР»РёРќРѕРјРµСЂРЎС‚СЂРѕРєРё" id="30">
+									<DataPath>РћР±СЉРµРєС‚.РџРѕРєР°Р·Р°С‚РµР»Рё.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РџРѕРєР°Р·Р°С‚РµР»РёРќРѕРјРµСЂРЎС‚СЂРѕРєРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="31"/>
+									<ExtendedTooltip name="РџРѕРєР°Р·Р°С‚РµР»РёРќРѕРјРµСЂРЎС‚СЂРѕРєРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="76"/>
+								</LabelField>
+								<InputField name="РџРѕРєР°Р·Р°С‚РµР»РёРџРѕРєР°Р·Р°С‚РµР»СЊ" id="32">
+									<DataPath>РћР±СЉРµРєС‚.РџРѕРєР°Р·Р°С‚РµР»Рё.РџРѕРєР°Р·Р°С‚РµР»СЊ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РџРѕРєР°Р·Р°С‚РµР»РёРџРѕРєР°Р·Р°С‚РµР»СЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="33"/>
+									<ExtendedTooltip name="РџРѕРєР°Р·Р°С‚РµР»РёРџРѕРєР°Р·Р°С‚РµР»СЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="77"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±СЉРµРєС‚" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.РџРѕРєР°Р·Р°С‚РµР»РёРЈСЂРѕРІРЅСЏР”РµС„РµРєС‚РЅРѕСЃС‚Рё</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

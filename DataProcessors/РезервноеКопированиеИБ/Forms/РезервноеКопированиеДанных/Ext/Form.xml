@@ -1,1 +1,899 @@
-<?xml version="1.0" encoding="UTF-8"?><Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">	<Title>		<v8:item>			<v8:lang>ru</v8:lang>			<v8:content>Создание резервной копии</v8:content>		</v8:item>	</Title>	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>	<AutoTitle>false</AutoTitle>	<Customizable>false</Customizable>	<CommandBarLocation>Bottom</CommandBarLocation>	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">		<HorizontalAlign>Right</HorizontalAlign>		<Autofill>false</Autofill>		<ChildItems>			<Button name="Далее" id="1">				<Type>CommandBarButton</Type>				<DefaultButton>true</DefaultButton>				<CommandName>Form.Command.ФормаДалее</CommandName>				<Title>					<v8:item>						<v8:lang>ru</v8:lang>						<v8:content>Далее &gt;</v8:content>					</v8:item>				</Title>				<ExtendedTooltip name="ДалееExtendedTooltip" id="288"/>			</Button>			<Button name="Отмена" id="2">				<Type>CommandBarButton</Type>				<CommandName>Form.Command.ФормаОтмена</CommandName>				<Title>					<v8:item>						<v8:lang>ru</v8:lang>						<v8:content>Отмена</v8:content>					</v8:item>				</Title>				<ExtendedTooltip name="ОтменаExtendedTooltip" id="289"/>			</Button>			<Button name="Справка" id="385">				<Type>CommandBarButton</Type>				<CommandName>Form.StandardCommand.Help</CommandName>				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="386"/>			</Button>		</ChildItems>	</AutoCommandBar>	<Events>		<Event name="NotificationProcessing">ОбработкаОповещения</Event>		<Event name="OnOpen">ПриОткрытии</Event>		<Event name="BeforeClose">ПередЗакрытием</Event>		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>		<Event name="OnClose">ПриЗакрытии</Event>	</Events>	<ChildItems>		<Pages name="СтраницыПомощника" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Страницы помощника</v8:content>				</v8:item>			</Title>			<PagesRepresentation>None</PagesRepresentation>			<ExtendedTooltip name="СтраницыПомощникаExtendedTooltip" id="290"/>			<ChildItems>				<Page name="СтраницаВыполненияРезервногоКопирования" id="5">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Страница выполнения резервного копирования</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="СтраницаВыполненияРезервногоКопированияExtendedTooltip" id="291"/>					<ChildItems>						<LabelDecoration name="НадписьДатаПроведенияПоследнегоРезервногоКопирования" id="17">							<AutoMaxWidth>false</AutoMaxWidth>							<Height>1</Height>							<TextColor>style:ПоясняющийТекст</TextColor>							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>&lt;Дата последнего резервного копирования&gt;</v8:content>								</v8:item>							</Title>							<ContextMenu name="НадписьДатаПроведенияПоследнегоРезервногоКопированияКонтекстноеМеню" id="18"/>							<ExtendedTooltip name="НадписьДатаПроведенияПоследнегоРезервногоКопированияExtendedTooltip" id="293"/>						</LabelDecoration>						<InputField name="ПутьККаталогуАрхивов" id="24">							<DataPath>Объект.КаталогСРезервнымиКопиями</DataPath>							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Выберите каталог для сохранения резервной копии</v8:content>								</v8:item>							</Title>							<TitleLocation>Top</TitleLocation>							<AutoMaxWidth>false</AutoMaxWidth>							<ChoiceButton>true</ChoiceButton>							<ContextMenu name="ПутьККаталогуАрхивовКонтекстноеМеню" id="25"/>							<ExtendedTooltip name="ПутьККаталогуАрхивовExtendedTooltip" id="299"/>							<Events>								<Event name="StartChoice">ПутьККаталогуАрхивовНачалоВыбора</Event>							</Events>						</InputField>						<LabelDecoration name="НадписьРекомендацииПоВыборуПути" id="139">							<AutoMaxWidth>false</AutoMaxWidth>							<TextColor>style:ПоясняющийТекст</TextColor>							<Title formatted="false">								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Рекомендуется выполнять резервное копирование на другой компьютер или внешний носитель.</v8:content>								</v8:item>							</Title>							<VerticalAlign>Top</VerticalAlign>							<ContextMenu name="НадписьРекомендацииПоВыборуПутиКонтекстноеМеню" id="140"/>							<ExtendedTooltip name="НадписьРекомендацииПоВыборуПутиExtendedTooltip" id="300"/>						</LabelDecoration>						<UsualGroup name="ГруппаАвторизации" id="263">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Авторизации</v8:content>								</v8:item>							</Title>							<Group>Vertical</Group>							<Behavior>Usual</Behavior>							<Representation>NormalSeparation</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="ГруппаАвторизацииРасширеннаяПодсказка" id="303"/>							<ChildItems>								<InputField name="АдминистраторИБ" id="264">									<DataPath>АдминистраторИБ</DataPath>									<Enabled>false</Enabled>									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Имя администратора</v8:content>										</v8:item>									</Title>									<HorizontalStretch>false</HorizontalStretch>									<ContextMenu name="АдминистраторИБКонтекстноеМеню" id="265"/>									<ExtendedTooltip name="АдминистраторИБExtendedTooltip" id="304"/>								</InputField>								<InputField name="ПарольАдминистратораИБ" id="266">									<DataPath>ПарольАдминистратораИБ</DataPath>									<HorizontalStretch>false</HorizontalStretch>									<PasswordMode>true</PasswordMode>									<ContextMenu name="ПарольАдминистратораИБКонтекстноеМеню" id="267"/>									<ExtendedTooltip name="ПарольАдминистратораИБExtendedTooltip" id="305"/>								</InputField>							</ChildItems>						</UsualGroup>						<Pages name="СтраницыСтатусаКопирования" id="392">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Страницы статуса копирования</v8:content>								</v8:item>							</Title>							<PagesRepresentation>None</PagesRepresentation>							<ExtendedTooltip name="СтраницыСтатусаКопированияРасширеннаяПодсказка" id="393"/>							<ChildItems>								<Page name="СтраницаПустая" id="396">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Страница пустая</v8:content>										</v8:item>									</Title>									<ExtendedTooltip name="СтраницаПустаяРасширеннаяПодсказка" id="397"/>									<ChildItems>										<LabelDecoration name="Декорация1" id="400">											<ContextMenu name="Декорация1КонтекстноеМеню" id="401"/>											<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="402"/>										</LabelDecoration>									</ChildItems>								</Page>								<Page name="СтраницаАктивныеПользователи" id="394">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Страница активные пользователи</v8:content>										</v8:item>									</Title>									<Group>AlwaysHorizontal</Group>									<ExtendedTooltip name="СтраницаАктивныеПользователиРасширеннаяПодсказка" id="395"/>									<ChildItems>										<PictureDecoration name="КартинкаПредупреждение" id="35">											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Картинка предупреждение</v8:content>												</v8:item>											</Title>											<Picture>												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>												<xr:LoadTransparent>false</xr:LoadTransparent>											</Picture>											<FileDragMode>AsFile</FileDragMode>											<ContextMenu name="КартинкаПредупреждениеКонтекстноеМеню" id="36"/>											<ExtendedTooltip name="КартинкаПредупреждениеExtendedTooltip" id="308"/>										</PictureDecoration>										<UsualGroup name="ГруппаНадписей" id="37">											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Надписей</v8:content>												</v8:item>											</Title>											<Group>Vertical</Group>											<Behavior>Usual</Behavior>											<Representation>None</Representation>											<ShowTitle>false</ShowTitle>											<ExtendedTooltip name="ГруппаНадписейExtendedTooltip" id="309"/>											<ChildItems>												<LabelDecoration name="НадписьРаботыПользователей" id="38">													<AutoMaxWidth>false</AutoMaxWidth>													<SkipOnInput>false</SkipOnInput>													<Title formatted="false">														<v8:item>															<v8:lang>ru</v8:lang>															<v8:content>В данный момент с программой работают другие пользователи.При проведении резервного копирования их работа будет завершена.</v8:content>														</v8:item>													</Title>													<TitleHeight>2</TitleHeight>													<ContextMenu name="НадписьРаботыПользователейКонтекстноеМеню" id="39"/>													<ExtendedTooltip name="НадписьРаботыПользователейExtendedTooltip" id="310"/>												</LabelDecoration>												<LabelDecoration name="НадписьСписокДействий" id="40">													<AutoMaxWidth>false</AutoMaxWidth>													<SkipOnInput>false</SkipOnInput>													<Title formatted="false">														<v8:item>															<v8:lang>ru</v8:lang>															<v8:content>Посмотреть список активных сеансов</v8:content>														</v8:item>													</Title>													<Hyperlink>true</Hyperlink>													<VerticalAlign>Top</VerticalAlign>													<ContextMenu name="НадписьСписокДействийКонтекстноеМеню" id="41"/>													<ExtendedTooltip name="НадписьСписокДействийExtendedTooltip" id="311"/>													<Events>														<Event name="Click">СписокПользователейНажатие</Event>													</Events>												</LabelDecoration>											</ChildItems>										</UsualGroup>									</ChildItems>								</Page>								<Page name="СтраницаОшибкаПодключения" id="398">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Страница ошибка подключения</v8:content>										</v8:item>									</Title>									<Group>AlwaysHorizontal</Group>									<ExtendedTooltip name="СтраницаОшибкаПодключенияРасширеннаяПодсказка" id="399"/>									<ChildItems>										<PictureDecoration name="Картинка12" id="221">											<SkipOnInput>false</SkipOnInput>											<Picture>												<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>												<xr:LoadTransparent>false</xr:LoadTransparent>											</Picture>											<FileDragMode>AsFile</FileDragMode>											<ContextMenu name="Картинка12КонтекстноеМеню" id="222"/>											<ExtendedTooltip name="Картинка12ExtendedTooltip" id="359"/>										</PictureDecoration>										<UsualGroup name="ГруппаОшибка" id="274">											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Ошибка</v8:content>												</v8:item>											</Title>											<Group>Vertical</Group>											<Behavior>Usual</Behavior>											<Representation>None</Representation>											<ShowTitle>false</ShowTitle>											<ExtendedTooltip name="ГруппаОшибкаРасширеннаяПодсказка" id="360"/>											<ChildItems>												<InputField name="ОбнаруженнаяОшибкаПодключения" id="223">													<DataPath>ОбнаруженнаяОшибкаПодключения</DataPath>													<ReadOnly>true</ReadOnly>													<Title>														<v8:item>															<v8:lang>ru</v8:lang>															<v8:content>Ошибка проверки подключения</v8:content>														</v8:item>													</Title>													<TitleLocation>None</TitleLocation>													<VerticalAlign>Center</VerticalAlign>													<AutoMaxWidth>false</AutoMaxWidth>													<Height>3</Height>													<MultiLine>true</MultiLine>													<ContextMenu name="ОбнаруженнаяОшибкаПодключенияКонтекстноеМеню" id="224"/>													<ExtendedTooltip name="ОбнаруженнаяОшибкаПодключенияРасширеннаяПодсказка" id="361"/>												</InputField>												<Button name="ПерейтиВЖурналРегистрации" id="403">													<Type>Hyperlink</Type>													<CommandName>Form.Command.ПерейтиВЖурналРегистрации</CommandName>													<ExtendedTooltip name="ПерейтиВЖурналРегистрацииРасширеннаяПодсказка" id="404"/>												</Button>												<LabelDecoration name="НадписьОбновитьВерсиюКомпоненты" id="437">													<Width>60</Width>													<SkipOnInput>false</SkipOnInput>													<Title formatted="true">														<v8:item>															<v8:lang>ru</v8:lang>															<v8:content>При ошибках версии компоненты comcntr, "не найдена указанная процедура", "класс не зарегистрирован" и аналогичных, рекомендуется выполнить &lt;link Перерегистрация&gt;регистрацию компоненты comcntr&lt;/&gt; (потребуется перезапуск сеанса).</v8:content>														</v8:item>													</Title>													<TitleHeight>2</TitleHeight>													<ContextMenu name="НадписьОбновитьВерсиюКомпонентыКонтекстноеМеню" id="438"/>													<ExtendedTooltip name="НадписьОбновитьВерсиюКомпонентыРасширеннаяПодсказка" id="439"/>													<Events>														<Event name="URLProcessing">НадписьОбновитьВерсиюКомпонентыОбработкаНавигационнойСсылки</Event>													</Events>												</LabelDecoration>											</ChildItems>										</UsualGroup>									</ChildItems>								</Page>							</ChildItems>						</Pages>					</ChildItems>				</Page>				<Page name="СтраницаИнформацииИВыполненияРезервногоКопирования" id="7">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Страница информации и выполнения резервного копирования</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="СтраницаИнформацииИВыполненияРезервногоКопированияExtendedTooltip" id="331"/>					<ChildItems>						<UsualGroup name="ГруппаАктивныхПользователей" id="81">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Подготовка к резервному копированию.Пожалуйста, не выключайте компьютер.</v8:content>								</v8:item>							</Title>							<Group>Vertical</Group>							<Behavior>Usual</Behavior>							<Representation>NormalSeparation</Representation>							<ExtendedTooltip name="ГруппаАктивныхПользователейExtendedTooltip" id="334"/>							<ChildItems>								<UsualGroup name="ГруппаАктивныеСеансы" id="420">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Активные сеансы</v8:content>										</v8:item>									</Title>									<Group>AlwaysHorizontal</Group>									<Behavior>Usual</Behavior>									<Representation>None</Representation>									<ShowTitle>false</ShowTitle>									<ExtendedTooltip name="ГруппаАктивныеСеансыРасширеннаяПодсказка" id="421"/>									<ChildItems>										<PictureDecoration name="Декорация5" id="83">											<Picture>												<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>												<xr:LoadTransparent>false</xr:LoadTransparent>											</Picture>											<FileDragMode>AsFile</FileDragMode>											<ContextMenu name="Декорация5КонтекстноеМеню" id="84"/>											<ExtendedTooltip name="Декорация5ExtendedTooltip" id="336"/>										</PictureDecoration>										<UsualGroup name="ГруппаЗавершениеСеансов" id="435">											<Title>												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Завершение сеансов</v8:content>												</v8:item>											</Title>											<Group>Vertical</Group>											<Behavior>Usual</Behavior>											<Representation>None</Representation>											<ShowTitle>false</ShowTitle>											<ExtendedTooltip name="ГруппаЗавершениеСеансовРасширеннаяПодсказка" id="436"/>											<ChildItems>												<Pages name="ГруппаОжидание" id="373">													<Title>														<v8:item>															<v8:lang>ru</v8:lang>															<v8:content>Ожидание</v8:content>														</v8:item>													</Title>													<PagesRepresentation>None</PagesRepresentation>													<ExtendedTooltip name="ГруппаОжиданиеРасширеннаяПодсказка" id="374"/>													<ChildItems>														<Page name="СтраницаОжиданияАктивныхПользователей" id="85">															<Title>																<v8:item>																	<v8:lang>ru</v8:lang>																	<v8:content>Страница ожидания активных пользователей</v8:content>																</v8:item>															</Title>															<ExtendedTooltip name="СтраницаОжиданияАктивныхПользователейРасширеннаяПодсказка" id="337"/>															<ChildItems>																<LabelDecoration name="НадписьОтключениеПользователей" id="190">																	<AutoMaxWidth>false</AutoMaxWidth>																	<Height>2</Height>																	<Title formatted="false">																		<v8:item>																			<v8:lang>ru</v8:lang>																			<v8:content>Производится отключение сеансов других пользователей,работающих в программе...</v8:content>																		</v8:item>																	</Title>																	<VerticalAlign>Bottom</VerticalAlign>																	<ContextMenu name="НадписьОтключениеПользователейКонтекстноеМеню" id="191"/>																	<ExtendedTooltip name="НадписьОтключениеПользователейExtendedTooltip" id="340"/>																</LabelDecoration>																<UsualGroup name="ГруппаОжиданияАктивныхПользователей" id="375">																	<Title>																		<v8:item>																			<v8:lang>ru</v8:lang>																			<v8:content>Ожидания активных пользователей</v8:content>																		</v8:item>																	</Title>																	<Group>AlwaysHorizontal</Group>																	<Behavior>Usual</Behavior>																	<Representation>None</Representation>																	<ShowTitle>false</ShowTitle>																	<ExtendedTooltip name="ГруппаОжиданияАктивныхПользователейРасширеннаяПодсказка" id="376"/>																	<ChildItems>																		<LabelDecoration name="СписокПользователей" id="91">																			<AutoMaxWidth>false</AutoMaxWidth>																			<Title formatted="false">																				<v8:item>																					<v8:lang>ru</v8:lang>																					<v8:content>Активные сеансы:</v8:content>																				</v8:item>																			</Title>																			<Hyperlink>true</Hyperlink>																			<VerticalAlign>Center</VerticalAlign>																			<ContextMenu name="СписокПользователейКонтекстноеМеню" id="92"/>																			<ExtendedTooltip name="СписокПользователейExtendedTooltip" id="338"/>																			<Events>																				<Event name="Click">СписокПользователейНажатие</Event>																			</Events>																		</LabelDecoration>																		<LabelDecoration name="КоличествоАктивныхПользователей" id="89">																			<VerticalAlign>Center</VerticalAlign>																			<ContextMenu name="КоличествоАктивныхПользователейКонтекстноеМеню" id="90"/>																			<ExtendedTooltip name="КоличествоАктивныхПользователейExtendedTooltip" id="339"/>																		</LabelDecoration>																	</ChildItems>																</UsualGroup>															</ChildItems>														</Page>														<Page name="СтраницаОжиданияВремениЗапуска" id="377">															<Title>																<v8:item>																	<v8:lang>ru</v8:lang>																	<v8:content>Страница ожидания времени запуска</v8:content>																</v8:item>															</Title>															<ShowTitle>false</ShowTitle>															<ExtendedTooltip name="СтраницаОжиданияВремениЗапускаРасширеннаяПодсказка" id="378"/>															<ChildItems>																<LabelDecoration name="НадписьВремяОжиданияРезервногоКопирования" id="117">																	<AutoMaxWidth>false</AutoMaxWidth>																	<Height>3</Height>																	<Title formatted="false">																		<v8:item>																			<v8:lang>ru</v8:lang>																			<v8:content>Резервное копирование начнется в запланированное время &lt;дата время&gt;...</v8:content>																		</v8:item>																	</Title>																	<VerticalAlign>Center</VerticalAlign>																	<ContextMenu name="НадписьВремяОжиданияРезервногоКопированияКонтекстноеМеню" id="118"/>																	<ExtendedTooltip name="НадписьВремяОжиданияРезервногоКопированияExtendedTooltip" id="341"/>																</LabelDecoration>															</ChildItems>														</Page>													</ChildItems>												</Pages>												<LabelDecoration name="ДекорацияАктивныеСеансы" id="430">													<AutoMaxWidth>false</AutoMaxWidth>													<Title formatted="false">														<v8:item>															<v8:lang>ru</v8:lang>															<v8:content>Имеются активные сеансы работы с программой,которые не могут быть завершены принудительно:</v8:content>														</v8:item>													</Title>													<ContextMenu name="ДекорацияАктивныеСеансыКонтекстноеМеню" id="431"/>													<ExtendedTooltip name="ДекорацияАктивныеСеансыРасширеннаяПодсказка" id="432"/>												</LabelDecoration>												<Button name="НеДожидатьсяЗавершенияСеансов" id="440">													<Type>UsualButton</Type>													<CommandName>Form.Command.НеДожидатьсяЗавершенияСеансов</CommandName>													<ExtendedTooltip name="НеДожидатьсяЗавершенияСеансовРасширеннаяПодсказка" id="441"/>												</Button>											</ChildItems>										</UsualGroup>									</ChildItems>								</UsualGroup>							</ChildItems>						</UsualGroup>					</ChildItems>				</Page>				<Page name="СтраницаУспешногоВыполненияКопирования" id="95">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Страница успешного выполнения копирования</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="СтраницаУспешногоВыполненияКопированияExtendedTooltip" id="342"/>					<ChildItems>						<UsualGroup name="ГруппаОбъявленияОУспешномРезервномКопирование" id="96">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Объявления о успешном резервном копирование</v8:content>								</v8:item>							</Title>							<Group>Vertical</Group>							<Behavior>Usual</Behavior>							<Representation>None</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="ГруппаОбъявленияОУспешномРезервномКопированиеРасширеннаяПодсказка" id="343"/>							<ChildItems>								<LabelDecoration name="НадписьУспешногоКопирования" id="99">									<AutoMaxWidth>false</AutoMaxWidth>									<Height>2</Height>									<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>									<Title formatted="false">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Резервное копирование проведено успешно</v8:content>										</v8:item>									</Title>									<ContextMenu name="НадписьУспешногоКопированияКонтекстноеМеню" id="100"/>									<ExtendedTooltip name="НадписьУспешногоКопированияExtendedTooltip" id="344"/>								</LabelDecoration>								<InputField name="ИмяФайлаРезервнойКопии" id="260">									<DataPath>ИмяФайлаРезервнойКопии</DataPath>									<ReadOnly>true</ReadOnly>									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Файл сохраненной резервной копии</v8:content>										</v8:item>									</Title>									<TitleLocation>Top</TitleLocation>									<AutoMaxWidth>false</AutoMaxWidth>									<OpenButton>true</OpenButton>									<ContextMenu name="ИмяФайлаРезервнойКопииКонтекстноеМеню" id="261"/>									<ExtendedTooltip name="ИмяФайлаРезервнойКопииРасширеннаяПодсказка" id="345"/>									<Events>										<Event name="Opening">ИмяФайлаРезервнойКопииОткрытие</Event>									</Events>								</InputField>								<LabelDecoration name="НадписьИнформацияОВосстановлении" id="285">									<AutoMaxWidth>false</AutoMaxWidth>									<TextColor>style:ПоясняющийТекст</TextColor>									<Title formatted="false">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Для восстановления данных из резервной копии можно воспользоваться командой"Восстановление из резервной копии" раздела Администрирование.</v8:content>										</v8:item>									</Title>									<ContextMenu name="НадписьИнформацияОВосстановленииКонтекстноеМеню" id="286"/>									<ExtendedTooltip name="НадписьИнформацияОВосстановленииExtendedTooltip" id="346"/>								</LabelDecoration>							</ChildItems>						</UsualGroup>						<UsualGroup name="ГруппаАвтоматическоеРезервноеКопирование" id="418">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Автоматическое резервное копирование</v8:content>								</v8:item>							</Title>							<Group>AlwaysHorizontal</Group>							<Behavior>Usual</Behavior>							<Representation>NormalSeparation</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="ГруппаАвтоматическоеРезервноеКопированиеРасширеннаяПодсказка" id="419"/>							<ChildItems>								<PictureDecoration name="ДекорацияИконкаИнфо" id="415">									<Title formatted="false">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Декорация иконка инфо</v8:content>										</v8:item>									</Title>									<Picture>										<xr:Ref>StdPicture.Information</xr:Ref>										<xr:LoadTransparent>true</xr:LoadTransparent>									</Picture>									<FileDragMode>AsFile</FileDragMode>									<ContextMenu name="ДекорацияИконкаИнфоКонтекстноеМеню" id="416"/>									<ExtendedTooltip name="ДекорацияИконкаИнфоРасширеннаяПодсказка" id="417"/>								</PictureDecoration>								<LabelDecoration name="ДекорацияАвтоматическоеРезервноеКопирование" id="409">									<AutoMaxWidth>false</AutoMaxWidth>									<Title formatted="true">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Для надежной защиты от потери данных рекомендуется&lt;link e1cib/app/Обработка.НастройкаРезервногоКопированияИБ/&gt;настроить автоматическое резервное копирование&lt;/&gt;.</v8:content>										</v8:item>									</Title>									<VerticalAlign>Center</VerticalAlign>									<ContextMenu name="ДекорацияАвтоматическоеРезервноеКопированиеКонтекстноеМеню" id="410"/>									<ExtendedTooltip name="ДекорацияАвтоматическоеРезервноеКопированиеРасширеннаяПодсказка" id="411"/>								</LabelDecoration>							</ChildItems>						</UsualGroup>					</ChildItems>				</Page>				<Page name="СтраницаОшибокПриКопировании" id="104">					<Title>						<v8:item>							<v8:lang>ru</v8:lang>							<v8:content>Страница ошибок при копировании</v8:content>						</v8:item>					</Title>					<ExtendedTooltip name="СтраницаОшибокПриКопированииExtendedTooltip" id="347"/>					<ChildItems>						<UsualGroup name="ГруппаНеуспешногоКопирования" id="105">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Неуспешного копирования</v8:content>								</v8:item>							</Title>							<Behavior>Usual</Behavior>							<Representation>None</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="ГруппаНеуспешногоКопированияРасширеннаяПодсказка" id="348"/>							<ChildItems>								<LabelDecoration name="НадписьНеуспешногоКопирования" id="108">									<AutoMaxWidth>false</AutoMaxWidth>									<Height>2</Height>									<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>									<Title formatted="false">										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Резервное копирование не было проведено</v8:content>										</v8:item>									</Title>									<ContextMenu name="НадписьНеуспешногоКопированияКонтекстноеМеню" id="109"/>									<ExtendedTooltip name="НадписьНеуспешногоКопированияРасширеннаяПодсказка" id="349"/>								</LabelDecoration>							</ChildItems>						</UsualGroup>						<UsualGroup name="ГруппаНеУдалось" id="110">							<Title>								<v8:item>									<v8:lang>ru</v8:lang>									<v8:content>Не удалось</v8:content>								</v8:item>							</Title>							<Group>AlwaysHorizontal</Group>							<Behavior>Usual</Behavior>							<Representation>None</Representation>							<ShowTitle>false</ShowTitle>							<ExtendedTooltip name="ГруппаНеУдалосьРасширеннаяПодсказка" id="350"/>							<ChildItems>								<PictureDecoration name="ДекорацияПредупреждение" id="111">									<Picture>										<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>										<xr:LoadTransparent>false</xr:LoadTransparent>									</Picture>									<FileDragMode>AsFile</FileDragMode>									<ContextMenu name="ДекорацияПредупреждениеКонтекстноеМеню" id="112"/>									<ExtendedTooltip name="ДекорацияПредупреждениеРасширеннаяПодсказка" id="351"/>								</PictureDecoration>								<UsualGroup name="ГруппаРасшифровка" id="407">									<Title>										<v8:item>											<v8:lang>ru</v8:lang>											<v8:content>Расшифровка</v8:content>										</v8:item>									</Title>									<Group>Vertical</Group>									<Behavior>Usual</Behavior>									<Representation>None</Representation>									<ShowTitle>false</ShowTitle>									<ExtendedTooltip name="ГруппаРасшифровкаРасширеннаяПодсказка" id="408"/>									<ChildItems>										<LabelDecoration name="НадписьНеУдалось" id="113">											<AutoMaxWidth>false</AutoMaxWidth>											<Title formatted="false">												<v8:item>													<v8:lang>ru</v8:lang>													<v8:content>Не удалось выполнить резервное копирование.Техническая информация о проблеме записана в журнал регистрации. Рекомендуется повторить резервное копирование вручную.</v8:content>												</v8:item>											</Title>											<ContextMenu name="НадписьНеУдалосьКонтекстноеМеню" id="114"/>											<ExtendedTooltip name="НадписьНеУдалосьРасширеннаяПодсказка" id="352"/>										</LabelDecoration>										<Button name="ПерейтиВЖурналРегистрации1" id="405">											<Type>Hyperlink</Type>											<CommandName>Form.Command.ПерейтиВЖурналРегистрации</CommandName>											<ExtendedTooltip name="ПерейтиВЖурналРегистрации1РасширеннаяПодсказка" id="406"/>										</Button>									</ChildItems>								</UsualGroup>							</ChildItems>						</UsualGroup>					</ChildItems>				</Page>			</ChildItems>		</Pages>	</ChildItems>	<Attributes>		<Attribute name="Объект" id="1">			<Type>				<v8:Type>cfg:DataProcessorObject.РезервноеКопированиеИБ</v8:Type>			</Type>			<MainAttribute>true</MainAttribute>		</Attribute>		<Attribute name="АдминистраторИБ" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Имя</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ПарольАдминистратораИБ" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Пароль</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<FillCheck>ShowError</FillCheck>		</Attribute>		<Attribute name="ОбнаруженнаяОшибкаПодключения" id="5">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Обнаруженная ошибка подключения</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ИмяФайлаРезервнойКопии" id="6">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Имя файла резервной копии</v8:content>				</v8:item>			</Title>			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Attribute>		<Attribute name="ЗакрытьФормуБезусловно" id="10">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>		<Attribute name="ТребуетсяВводПароля" id="7">			<Type>				<v8:Type>xs:boolean</v8:Type>			</Type>		</Attribute>	</Attributes>	<Commands>		<Command name="ФормаДалее" id="1">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Далее &gt;</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Далее &gt;&gt;</v8:content>				</v8:item>			</ToolTip>			<Action>Далее</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ФормаОтмена" id="2">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Форма отмена</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Отмена</v8:content>				</v8:item>			</ToolTip>			<Action>Отмена</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="ПерейтиВЖурналРегистрации" id="5">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Техническая информация об ошибке</v8:content>				</v8:item>			</Title>			<ToolTip>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Перейти в журнал регистрации</v8:content>				</v8:item>			</ToolTip>			<Action>ПерейтиВЖурналРегистрации</Action>			<CurrentRowUse>DontUse</CurrentRowUse>		</Command>		<Command name="НеДожидатьсяЗавершенияСеансов" id="3">			<Title>				<v8:item>					<v8:lang>ru</v8:lang>					<v8:content>Не дожидаться завершения сеансов (режим отладки)</v8:content>				</v8:item>			</Title>			<Action>НеДожидатьсяЗавершенияСеансов</Action>		</Command>	</Commands>	<Parameters>		<Parameter name="РежимРаботы">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<KeyParameter>true</KeyParameter>		</Parameter>		<Parameter name="ИмяФайлаРезервнойКопии">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>		<Parameter name="Пояснение">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>		</Parameter>		<Parameter name="КаталогПрограммы">			<Type>				<v8:Type>xs:string</v8:Type>				<v8:StringQualifiers>					<v8:Length>0</v8:Length>					<v8:AllowedLength>Variable</v8:AllowedLength>				</v8:StringQualifiers>			</Type>			<KeyParameter>true</KeyParameter>		</Parameter>	</Parameters></Form>
+п»ї<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>РЎРѕР·РґР°РЅРёРµ СЂРµР·РµСЂРІРЅРѕР№ РєРѕРїРёРё</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="Р¤РѕСЂРјР°РљРѕРјР°РЅРґРЅР°СЏРџР°РЅРµР»СЊ" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Р”Р°Р»РµРµ" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Р¤РѕСЂРјР°Р”Р°Р»РµРµ</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Р”Р°Р»РµРµ &gt;</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="Р”Р°Р»РµРµExtendedTooltip" id="288"/>
+			</Button>
+			<Button name="РћС‚РјРµРЅР°" id="2">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Р¤РѕСЂРјР°РћС‚РјРµРЅР°</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>РћС‚РјРµРЅР°</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="РћС‚РјРµРЅР°ExtendedTooltip" id="289"/>
+			</Button>
+			<Button name="РЎРїСЂР°РІРєР°" id="385">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="РЎРїСЂР°РІРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="386"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">РћР±СЂР°Р±РѕС‚РєР°РћРїРѕРІРµС‰РµРЅРёСЏ</Event>
+		<Event name="OnOpen">РџСЂРёРћС‚РєСЂС‹С‚РёРё</Event>
+		<Event name="BeforeClose">РџРµСЂРµРґР—Р°РєСЂС‹С‚РёРµРј</Event>
+		<Event name="OnCreateAtServer">РџСЂРёРЎРѕР·РґР°РЅРёРёРќР°РЎРµСЂРІРµСЂРµ</Event>
+		<Event name="OnClose">РџСЂРёР—Р°РєСЂС‹С‚РёРё</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="РЎС‚СЂР°РЅРёС†С‹РџРѕРјРѕС‰РЅРёРєР°" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РЎС‚СЂР°РЅРёС†С‹ РїРѕРјРѕС‰РЅРёРєР°</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†С‹РџРѕРјРѕС‰РЅРёРєР°ExtendedTooltip" id="290"/>
+			<ChildItems>
+				<Page name="РЎС‚СЂР°РЅРёС†Р°Р’С‹РїРѕР»РЅРµРЅРёСЏР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂР°РЅРёС†Р° РІС‹РїРѕР»РЅРµРЅРёСЏ СЂРµР·РµСЂРІРЅРѕРіРѕ РєРѕРїРёСЂРѕРІР°РЅРёСЏ</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°Р’С‹РїРѕР»РЅРµРЅРёСЏР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="291"/>
+					<ChildItems>
+						<LabelDecoration name="РќР°РґРїРёСЃСЊР”Р°С‚Р°РџСЂРѕРІРµРґРµРЅРёСЏРџРѕСЃР»РµРґРЅРµРіРѕР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="17">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>1</Height>
+							<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ СЂРµР·РµСЂРІРЅРѕРіРѕ РєРѕРїРёСЂРѕРІР°РЅРёСЏ&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="РќР°РґРїРёСЃСЊР”Р°С‚Р°РџСЂРѕРІРµРґРµРЅРёСЏРџРѕСЃР»РµРґРЅРµРіРѕР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="18"/>
+							<ExtendedTooltip name="РќР°РґРїРёСЃСЊР”Р°С‚Р°РџСЂРѕРІРµРґРµРЅРёСЏРџРѕСЃР»РµРґРЅРµРіРѕР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="293"/>
+						</LabelDecoration>
+						<InputField name="РџСѓС‚СЊРљРљР°С‚Р°Р»РѕРіСѓРђСЂС…РёРІРѕРІ" id="24">
+							<DataPath>РћР±СЉРµРєС‚.РљР°С‚Р°Р»РѕРіРЎР РµР·РµСЂРІРЅС‹РјРёРљРѕРїРёСЏРјРё</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚Р°Р»РѕРі РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ СЂРµР·РµСЂРІРЅРѕР№ РєРѕРїРёРё</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Top</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="РџСѓС‚СЊРљРљР°С‚Р°Р»РѕРіСѓРђСЂС…РёРІРѕРІРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="25"/>
+							<ExtendedTooltip name="РџСѓС‚СЊРљРљР°С‚Р°Р»РѕРіСѓРђСЂС…РёРІРѕРІExtendedTooltip" id="299"/>
+							<Events>
+								<Event name="StartChoice">РџСѓС‚СЊРљРљР°С‚Р°Р»РѕРіСѓРђСЂС…РёРІРѕРІРќР°С‡Р°Р»РѕР’С‹Р±РѕСЂР°</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="РќР°РґРїРёСЃСЊР РµРєРѕРјРµРЅРґР°С†РёРёРџРѕР’С‹Р±РѕСЂСѓРџСѓС‚Рё" id="139">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Р РµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РІС‹РїРѕР»РЅСЏС‚СЊ СЂРµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ РЅР° РґСЂСѓРіРѕР№ РєРѕРјРїСЊСЋС‚РµСЂ РёР»Рё РІРЅРµС€РЅРёР№ РЅРѕСЃРёС‚РµР»СЊ.</v8:content>
+								</v8:item>
+							</Title>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="РќР°РґРїРёСЃСЊР РµРєРѕРјРµРЅРґР°С†РёРёРџРѕР’С‹Р±РѕСЂСѓРџСѓС‚РёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="140"/>
+							<ExtendedTooltip name="РќР°РґРїРёСЃСЊР РµРєРѕРјРµРЅРґР°С†РёРёРџРѕР’С‹Р±РѕСЂСѓРџСѓС‚РёExtendedTooltip" id="300"/>
+						</LabelDecoration>
+						<UsualGroup name="Р“СЂСѓРїРїР°РђРІС‚РѕСЂРёР·Р°С†РёРё" id="263">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РђРІС‚РѕСЂРёР·Р°С†РёРё</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РђРІС‚РѕСЂРёР·Р°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="303"/>
+							<ChildItems>
+								<InputField name="РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРР‘" id="264">
+									<DataPath>РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРР‘</DataPath>
+									<Enabled>false</Enabled>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РРјСЏ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРР‘РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="265"/>
+									<ExtendedTooltip name="РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРР‘ExtendedTooltip" id="304"/>
+								</InputField>
+								<InputField name="РџР°СЂРѕР»СЊРђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°РР‘" id="266">
+									<DataPath>РџР°СЂРѕР»СЊРђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°РР‘</DataPath>
+									<HorizontalStretch>false</HorizontalStretch>
+									<PasswordMode>true</PasswordMode>
+									<ContextMenu name="РџР°СЂРѕР»СЊРђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°РР‘РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="267"/>
+									<ExtendedTooltip name="РџР°СЂРѕР»СЊРђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°РР‘ExtendedTooltip" id="305"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<Pages name="РЎС‚СЂР°РЅРёС†С‹РЎС‚Р°С‚СѓСЃР°РљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="392">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РЎС‚СЂР°РЅРёС†С‹ СЃС‚Р°С‚СѓСЃР° РєРѕРїРёСЂРѕРІР°РЅРёСЏ</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†С‹РЎС‚Р°С‚СѓСЃР°РљРѕРїРёСЂРѕРІР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="393"/>
+							<ChildItems>
+								<Page name="РЎС‚СЂР°РЅРёС†Р°РџСѓСЃС‚Р°СЏ" id="396">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РЎС‚СЂР°РЅРёС†Р° РїСѓСЃС‚Р°СЏ</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РџСѓСЃС‚Р°СЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="397"/>
+									<ChildItems>
+										<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏ1" id="400">
+											<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏ1РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="401"/>
+											<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏ1Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="402"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="РЎС‚СЂР°РЅРёС†Р°РђРєС‚РёРІРЅС‹РµРџРѕР»СЊР·РѕРІР°С‚РµР»Рё" id="394">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РЎС‚СЂР°РЅРёС†Р° Р°РєС‚РёРІРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РђРєС‚РёРІРЅС‹РµРџРѕР»СЊР·РѕРІР°С‚РµР»РёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="395"/>
+									<ChildItems>
+										<PictureDecoration name="РљР°СЂС‚РёРЅРєР°РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ" id="35">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РљР°СЂС‚РёРЅРєР° РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ</v8:content>
+												</v8:item>
+											</Title>
+											<Picture>
+												<xr:Ref>CommonPicture.РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ32</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="РљР°СЂС‚РёРЅРєР°РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="36"/>
+											<ExtendedTooltip name="РљР°СЂС‚РёРЅРєР°РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµExtendedTooltip" id="308"/>
+										</PictureDecoration>
+										<UsualGroup name="Р“СЂСѓРїРїР°РќР°РґРїРёСЃРµР№" id="37">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РќР°РґРїРёСЃРµР№</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Р“СЂСѓРїРїР°РќР°РґРїРёСЃРµР№ExtendedTooltip" id="309"/>
+											<ChildItems>
+												<LabelDecoration name="РќР°РґРїРёСЃСЊР Р°Р±РѕС‚С‹РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№" id="38">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<SkipOnInput>false</SkipOnInput>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Р’ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ СЃ РїСЂРѕРіСЂР°РјРјРѕР№ СЂР°Р±РѕС‚Р°СЋС‚ РґСЂСѓРіРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё.
+РџСЂРё РїСЂРѕРІРµРґРµРЅРёРё СЂРµР·РµСЂРІРЅРѕРіРѕ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РёС… СЂР°Р±РѕС‚Р° Р±СѓРґРµС‚ Р·Р°РІРµСЂС€РµРЅР°.</v8:content>
+														</v8:item>
+													</Title>
+													<TitleHeight>2</TitleHeight>
+													<ContextMenu name="РќР°РґРїРёСЃСЊР Р°Р±РѕС‚С‹РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="39"/>
+													<ExtendedTooltip name="РќР°РґРїРёСЃСЊР Р°Р±РѕС‚С‹РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№ExtendedTooltip" id="310"/>
+												</LabelDecoration>
+												<LabelDecoration name="РќР°РґРїРёСЃСЊРЎРїРёСЃРѕРєР”РµР№СЃС‚РІРёР№" id="40">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<SkipOnInput>false</SkipOnInput>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>РџРѕСЃРјРѕС‚СЂРµС‚СЊ СЃРїРёСЃРѕРє Р°РєС‚РёРІРЅС‹С… СЃРµР°РЅСЃРѕРІ</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<VerticalAlign>Top</VerticalAlign>
+													<ContextMenu name="РќР°РґРїРёСЃСЊРЎРїРёСЃРѕРєР”РµР№СЃС‚РІРёР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="41"/>
+													<ExtendedTooltip name="РќР°РґРїРёСЃСЊРЎРїРёСЃРѕРєР”РµР№СЃС‚РІРёР№ExtendedTooltip" id="311"/>
+													<Events>
+														<Event name="Click">РЎРїРёСЃРѕРєРџРѕР»СЊР·РѕРІР°С‚РµР»РµР№РќР°Р¶Р°С‚РёРµ</Event>
+													</Events>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="РЎС‚СЂР°РЅРёС†Р°РћС€РёР±РєР°РџРѕРґРєР»СЋС‡РµРЅРёСЏ" id="398">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РЎС‚СЂР°РЅРёС†Р° РѕС€РёР±РєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РћС€РёР±РєР°РџРѕРґРєР»СЋС‡РµРЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="399"/>
+									<ChildItems>
+										<PictureDecoration name="РљР°СЂС‚РёРЅРєР°12" id="221">
+											<SkipOnInput>false</SkipOnInput>
+											<Picture>
+												<xr:Ref>CommonPicture.РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ32</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="РљР°СЂС‚РёРЅРєР°12РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="222"/>
+											<ExtendedTooltip name="РљР°СЂС‚РёРЅРєР°12ExtendedTooltip" id="359"/>
+										</PictureDecoration>
+										<UsualGroup name="Р“СЂСѓРїРїР°РћС€РёР±РєР°" id="274">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РћС€РёР±РєР°</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Р“СЂСѓРїРїР°РћС€РёР±РєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="360"/>
+											<ChildItems>
+												<InputField name="РћР±РЅР°СЂСѓР¶РµРЅРЅР°СЏРћС€РёР±РєР°РџРѕРґРєР»СЋС‡РµРЅРёСЏ" id="223">
+													<DataPath>РћР±РЅР°СЂСѓР¶РµРЅРЅР°СЏРћС€РёР±РєР°РџРѕРґРєР»СЋС‡РµРЅРёСЏ</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>РћС€РёР±РєР° РїСЂРѕРІРµСЂРєРё РїРѕРґРєР»СЋС‡РµРЅРёСЏ</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<VerticalAlign>Center</VerticalAlign>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Height>3</Height>
+													<MultiLine>true</MultiLine>
+													<ContextMenu name="РћР±РЅР°СЂСѓР¶РµРЅРЅР°СЏРћС€РёР±РєР°РџРѕРґРєР»СЋС‡РµРЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="224"/>
+													<ExtendedTooltip name="РћР±РЅР°СЂСѓР¶РµРЅРЅР°СЏРћС€РёР±РєР°РџРѕРґРєР»СЋС‡РµРЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="361"/>
+												</InputField>
+												<Button name="РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё" id="403">
+													<Type>Hyperlink</Type>
+													<CommandName>Form.Command.РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё</CommandName>
+													<ExtendedTooltip name="РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="404"/>
+												</Button>
+												<LabelDecoration name="РќР°РґРїРёСЃСЊРћР±РЅРѕРІРёС‚СЊР’РµСЂСЃРёСЋРљРѕРјРїРѕРЅРµРЅС‚С‹" id="437">
+													<Width>60</Width>
+													<SkipOnInput>false</SkipOnInput>
+													<Title formatted="true">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>РџСЂРё РѕС€РёР±РєР°С… РІРµСЂСЃРёРё РєРѕРјРїРѕРЅРµРЅС‚С‹ comcntr, "РЅРµ РЅР°Р№РґРµРЅР° СѓРєР°Р·Р°РЅРЅР°СЏ РїСЂРѕС†РµРґСѓСЂР°", "РєР»Р°СЃСЃ РЅРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ" Рё Р°РЅР°Р»РѕРіРёС‡РЅС‹С…, СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РІС‹РїРѕР»РЅРёС‚СЊ &lt;link РџРµСЂРµСЂРµРіРёСЃС‚СЂР°С†РёСЏ&gt;СЂРµРіРёСЃС‚СЂР°С†РёСЋ РєРѕРјРїРѕРЅРµРЅС‚С‹ comcntr&lt;/&gt; (РїРѕС‚СЂРµР±СѓРµС‚СЃСЏ РїРµСЂРµР·Р°РїСѓСЃРє СЃРµР°РЅСЃР°).</v8:content>
+														</v8:item>
+													</Title>
+													<TitleHeight>2</TitleHeight>
+													<ContextMenu name="РќР°РґРїРёСЃСЊРћР±РЅРѕРІРёС‚СЊР’РµСЂСЃРёСЋРљРѕРјРїРѕРЅРµРЅС‚С‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="438"/>
+													<ExtendedTooltip name="РќР°РґРїРёСЃСЊРћР±РЅРѕРІРёС‚СЊР’РµСЂСЃРёСЋРљРѕРјРїРѕРЅРµРЅС‚С‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="439"/>
+													<Events>
+														<Event name="URLProcessing">РќР°РґРїРёСЃСЊРћР±РЅРѕРІРёС‚СЊР’РµСЂСЃРёСЋРљРѕРјРїРѕРЅРµРЅС‚С‹РћР±СЂР°Р±РѕС‚РєР°РќР°РІРёРіР°С†РёРѕРЅРЅРѕР№РЎСЃС‹Р»РєРё</Event>
+													</Events>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="РЎС‚СЂР°РЅРёС†Р°РРЅС„РѕСЂРјР°С†РёРёРР’С‹РїРѕР»РЅРµРЅРёСЏР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂР°РЅРёС†Р° РёРЅС„РѕСЂРјР°С†РёРё Рё РІС‹РїРѕР»РЅРµРЅРёСЏ СЂРµР·РµСЂРІРЅРѕРіРѕ РєРѕРїРёСЂРѕРІР°РЅРёСЏ</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РРЅС„РѕСЂРјР°С†РёРёРР’С‹РїРѕР»РЅРµРЅРёСЏР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="331"/>
+					<ChildItems>
+						<UsualGroup name="Р“СЂСѓРїРїР°РђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№" id="81">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РџРѕРґРіРѕС‚РѕРІРєР° Рє СЂРµР·РµСЂРІРЅРѕРјСѓ РєРѕРїРёСЂРѕРІР°РЅРёСЋ.
+РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РЅРµ РІС‹РєР»СЋС‡Р°Р№С‚Рµ РєРѕРјРїСЊСЋС‚РµСЂ.</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№ExtendedTooltip" id="334"/>
+							<ChildItems>
+								<UsualGroup name="Р“СЂСѓРїРїР°РђРєС‚РёРІРЅС‹РµРЎРµР°РЅСЃС‹" id="420">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>РђРєС‚РёРІРЅС‹Рµ СЃРµР°РЅСЃС‹</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Р“СЂСѓРїРїР°РђРєС‚РёРІРЅС‹РµРЎРµР°РЅСЃС‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="421"/>
+									<ChildItems>
+										<PictureDecoration name="Р”РµРєРѕСЂР°С†РёСЏ5" id="83">
+											<Picture>
+												<xr:Ref>CommonPicture.Р”Р»РёС‚РµР»СЊРЅР°СЏРћРїРµСЂР°С†РёСЏ48</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏ5РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="84"/>
+											<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏ5ExtendedTooltip" id="336"/>
+										</PictureDecoration>
+										<UsualGroup name="Р“СЂСѓРїРїР°Р—Р°РІРµСЂС€РµРЅРёРµРЎРµР°РЅСЃРѕРІ" id="435">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Р—Р°РІРµСЂС€РµРЅРёРµ СЃРµР°РЅСЃРѕРІ</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Р“СЂСѓРїРїР°Р—Р°РІРµСЂС€РµРЅРёРµРЎРµР°РЅСЃРѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="436"/>
+											<ChildItems>
+												<Pages name="Р“СЂСѓРїРїР°РћР¶РёРґР°РЅРёРµ" id="373">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>РћР¶РёРґР°РЅРёРµ</v8:content>
+														</v8:item>
+													</Title>
+													<PagesRepresentation>None</PagesRepresentation>
+													<ExtendedTooltip name="Р“СЂСѓРїРїР°РћР¶РёРґР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="374"/>
+													<ChildItems>
+														<Page name="РЎС‚СЂР°РЅРёС†Р°РћР¶РёРґР°РЅРёСЏРђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№" id="85">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>РЎС‚СЂР°РЅРёС†Р° РѕР¶РёРґР°РЅРёСЏ Р°РєС‚РёРІРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</v8:content>
+																</v8:item>
+															</Title>
+															<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РћР¶РёРґР°РЅРёСЏРђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="337"/>
+															<ChildItems>
+																<LabelDecoration name="РќР°РґРїРёСЃСЊРћС‚РєР»СЋС‡РµРЅРёРµРџРѕР»СЊР·РѕРІР°С‚РµР»РµР№" id="190">
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<Height>2</Height>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>РџСЂРѕРёР·РІРѕРґРёС‚СЃСЏ РѕС‚РєР»СЋС‡РµРЅРёРµ СЃРµР°РЅСЃРѕРІ РґСЂСѓРіРёС… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№,
+СЂР°Р±РѕС‚Р°СЋС‰РёС… РІ РїСЂРѕРіСЂР°РјРјРµ...</v8:content>
+																		</v8:item>
+																	</Title>
+																	<VerticalAlign>Bottom</VerticalAlign>
+																	<ContextMenu name="РќР°РґРїРёСЃСЊРћС‚РєР»СЋС‡РµРЅРёРµРџРѕР»СЊР·РѕРІР°С‚РµР»РµР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="191"/>
+																	<ExtendedTooltip name="РќР°РґРїРёСЃСЊРћС‚РєР»СЋС‡РµРЅРёРµРџРѕР»СЊР·РѕРІР°С‚РµР»РµР№ExtendedTooltip" id="340"/>
+																</LabelDecoration>
+																<UsualGroup name="Р“СЂСѓРїРїР°РћР¶РёРґР°РЅРёСЏРђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№" id="375">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>РћР¶РёРґР°РЅРёСЏ Р°РєС‚РёРІРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Group>AlwaysHorizontal</Group>
+																	<Behavior>Usual</Behavior>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="Р“СЂСѓРїРїР°РћР¶РёРґР°РЅРёСЏРђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="376"/>
+																	<ChildItems>
+																		<LabelDecoration name="РЎРїРёСЃРѕРєРџРѕР»СЊР·РѕРІР°С‚РµР»РµР№" id="91">
+																			<AutoMaxWidth>false</AutoMaxWidth>
+																			<Title formatted="false">
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>РђРєС‚РёРІРЅС‹Рµ СЃРµР°РЅСЃС‹:</v8:content>
+																				</v8:item>
+																			</Title>
+																			<Hyperlink>true</Hyperlink>
+																			<VerticalAlign>Center</VerticalAlign>
+																			<ContextMenu name="РЎРїРёСЃРѕРєРџРѕР»СЊР·РѕРІР°С‚РµР»РµР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="92"/>
+																			<ExtendedTooltip name="РЎРїРёСЃРѕРєРџРѕР»СЊР·РѕРІР°С‚РµР»РµР№ExtendedTooltip" id="338"/>
+																			<Events>
+																				<Event name="Click">РЎРїРёСЃРѕРєРџРѕР»СЊР·РѕРІР°С‚РµР»РµР№РќР°Р¶Р°С‚РёРµ</Event>
+																			</Events>
+																		</LabelDecoration>
+																		<LabelDecoration name="РљРѕР»РёС‡РµСЃС‚РІРѕРђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№" id="89">
+																			<VerticalAlign>Center</VerticalAlign>
+																			<ContextMenu name="РљРѕР»РёС‡РµСЃС‚РІРѕРђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="90"/>
+																			<ExtendedTooltip name="РљРѕР»РёС‡РµСЃС‚РІРѕРђРєС‚РёРІРЅС‹С…РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№ExtendedTooltip" id="339"/>
+																		</LabelDecoration>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</Page>
+														<Page name="РЎС‚СЂР°РЅРёС†Р°РћР¶РёРґР°РЅРёСЏР’СЂРµРјРµРЅРёР—Р°РїСѓСЃРєР°" id="377">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>РЎС‚СЂР°РЅРёС†Р° РѕР¶РёРґР°РЅРёСЏ РІСЂРµРјРµРЅРё Р·Р°РїСѓСЃРєР°</v8:content>
+																</v8:item>
+															</Title>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РћР¶РёРґР°РЅРёСЏР’СЂРµРјРµРЅРёР—Р°РїСѓСЃРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="378"/>
+															<ChildItems>
+																<LabelDecoration name="РќР°РґРїРёСЃСЊР’СЂРµРјСЏРћР¶РёРґР°РЅРёСЏР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="117">
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<Height>3</Height>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Р РµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ РЅР°С‡РЅРµС‚СЃСЏ РІ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅРЅРѕРµ РІСЂРµРјСЏ &lt;РґР°С‚Р° РІСЂРµРјСЏ&gt;...</v8:content>
+																		</v8:item>
+																	</Title>
+																	<VerticalAlign>Center</VerticalAlign>
+																	<ContextMenu name="РќР°РґРїРёСЃСЊР’СЂРµРјСЏРћР¶РёРґР°РЅРёСЏР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="118"/>
+																	<ExtendedTooltip name="РќР°РґРїРёСЃСЊР’СЂРµРјСЏРћР¶РёРґР°РЅРёСЏР РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="341"/>
+																</LabelDecoration>
+															</ChildItems>
+														</Page>
+													</ChildItems>
+												</Pages>
+												<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏРђРєС‚РёРІРЅС‹РµРЎРµР°РЅСЃС‹" id="430">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>РРјРµСЋС‚СЃСЏ Р°РєС‚РёРІРЅС‹Рµ СЃРµР°РЅСЃС‹ СЂР°Р±РѕС‚С‹ СЃ РїСЂРѕРіСЂР°РјРјРѕР№,
+РєРѕС‚РѕСЂС‹Рµ РЅРµ РјРѕРіСѓС‚ Р±С‹С‚СЊ Р·Р°РІРµСЂС€РµРЅС‹ РїСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕ:
+</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРђРєС‚РёРІРЅС‹РµРЎРµР°РЅСЃС‹РљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="431"/>
+													<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРђРєС‚РёРІРЅС‹РµРЎРµР°РЅСЃС‹Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="432"/>
+												</LabelDecoration>
+												<Button name="РќРµР”РѕР¶РёРґР°С‚СЊСЃСЏР—Р°РІРµСЂС€РµРЅРёСЏРЎРµР°РЅСЃРѕРІ" id="440">
+													<Type>UsualButton</Type>
+													<CommandName>Form.Command.РќРµР”РѕР¶РёРґР°С‚СЊСЃСЏР—Р°РІРµСЂС€РµРЅРёСЏРЎРµР°РЅСЃРѕРІ</CommandName>
+													<ExtendedTooltip name="РќРµР”РѕР¶РёРґР°С‚СЊСЃСЏР—Р°РІРµСЂС€РµРЅРёСЏРЎРµР°РЅСЃРѕРІР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="441"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="РЎС‚СЂР°РЅРёС†Р°РЈСЃРїРµС€РЅРѕРіРѕР’С‹РїРѕР»РЅРµРЅРёСЏРљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="95">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂР°РЅРёС†Р° СѓСЃРїРµС€РЅРѕРіРѕ РІС‹РїРѕР»РЅРµРЅРёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РЈСЃРїРµС€РЅРѕРіРѕР’С‹РїРѕР»РЅРµРЅРёСЏРљРѕРїРёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="342"/>
+					<ChildItems>
+						<UsualGroup name="Р“СЂСѓРїРїР°РћР±СЉСЏРІР»РµРЅРёСЏРћРЈСЃРїРµС€РЅРѕРјР РµР·РµСЂРІРЅРѕРјРљРѕРїРёСЂРѕРІР°РЅРёРµ" id="96">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РћР±СЉСЏРІР»РµРЅРёСЏ Рѕ СѓСЃРїРµС€РЅРѕРј СЂРµР·РµСЂРІРЅРѕРј РєРѕРїРёСЂРѕРІР°РЅРёРµ</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РћР±СЉСЏРІР»РµРЅРёСЏРћРЈСЃРїРµС€РЅРѕРјР РµР·РµСЂРІРЅРѕРјРљРѕРїРёСЂРѕРІР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="343"/>
+							<ChildItems>
+								<LabelDecoration name="РќР°РґРїРёСЃСЊРЈСЃРїРµС€РЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="99">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>2</Height>
+									<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р РµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ РїСЂРѕРІРµРґРµРЅРѕ СѓСЃРїРµС€РЅРѕ</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РќР°РґРїРёСЃСЊРЈСЃРїРµС€РЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="100"/>
+									<ExtendedTooltip name="РќР°РґРїРёСЃСЊРЈСЃРїРµС€РЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏExtendedTooltip" id="344"/>
+								</LabelDecoration>
+								<InputField name="РРјСЏР¤Р°Р№Р»Р°Р РµР·РµСЂРІРЅРѕР№РљРѕРїРёРё" id="260">
+									<DataPath>РРјСЏР¤Р°Р№Р»Р°Р РµР·РµСЂРІРЅРѕР№РљРѕРїРёРё</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р¤Р°Р№Р» СЃРѕС…СЂР°РЅРµРЅРЅРѕР№ СЂРµР·РµСЂРІРЅРѕР№ РєРѕРїРёРё</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Top</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<OpenButton>true</OpenButton>
+									<ContextMenu name="РРјСЏР¤Р°Р№Р»Р°Р РµР·РµСЂРІРЅРѕР№РљРѕРїРёРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="261"/>
+									<ExtendedTooltip name="РРјСЏР¤Р°Р№Р»Р°Р РµР·РµСЂРІРЅРѕР№РљРѕРїРёРёР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="345"/>
+									<Events>
+										<Event name="Opening">РРјСЏР¤Р°Р№Р»Р°Р РµР·РµСЂРІРЅРѕР№РљРѕРїРёРёРћС‚РєСЂС‹С‚РёРµ</Event>
+									</Events>
+								</InputField>
+								<LabelDecoration name="РќР°РґРїРёСЃСЊРРЅС„РѕСЂРјР°С†РёСЏРћР’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРё" id="285">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:РџРѕСЏСЃРЅСЏСЋС‰РёР№РўРµРєСЃС‚</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р”Р»СЏ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ РґР°РЅРЅС‹С… РёР· СЂРµР·РµСЂРІРЅРѕР№ РєРѕРїРёРё РјРѕР¶РЅРѕ РІРѕСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РєРѕРјР°РЅРґРѕР№
+"Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РёР· СЂРµР·РµСЂРІРЅРѕР№ РєРѕРїРёРё" СЂР°Р·РґРµР»Р° РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РќР°РґРїРёСЃСЊРРЅС„РѕСЂРјР°С†РёСЏРћР’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРёРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="286"/>
+									<ExtendedTooltip name="РќР°РґРїРёСЃСЊРРЅС„РѕСЂРјР°С†РёСЏРћР’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРёExtendedTooltip" id="346"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Р“СЂСѓРїРїР°РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµР РµР·РµСЂРІРЅРѕРµРљРѕРїРёСЂРѕРІР°РЅРёРµ" id="418">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ СЂРµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµР РµР·РµСЂРІРЅРѕРµРљРѕРїРёСЂРѕРІР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="419"/>
+							<ChildItems>
+								<PictureDecoration name="Р”РµРєРѕСЂР°С†РёСЏРРєРѕРЅРєР°РРЅС„Рѕ" id="415">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р”РµРєРѕСЂР°С†РёСЏ РёРєРѕРЅРєР° РёРЅС„Рѕ</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>StdPicture.Information</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРРєРѕРЅРєР°РРЅС„РѕРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="416"/>
+									<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРРєРѕРЅРєР°РРЅС„РѕР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="417"/>
+								</PictureDecoration>
+								<LabelDecoration name="Р”РµРєРѕСЂР°С†РёСЏРђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµР РµР·РµСЂРІРЅРѕРµРљРѕРїРёСЂРѕРІР°РЅРёРµ" id="409">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р”Р»СЏ РЅР°РґРµР¶РЅРѕР№ Р·Р°С‰РёС‚С‹ РѕС‚ РїРѕС‚РµСЂРё РґР°РЅРЅС‹С… СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ
+&lt;link e1cib/app/РћР±СЂР°Р±РѕС‚РєР°.РќР°СЃС‚СЂРѕР№РєР°Р РµР·РµСЂРІРЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏРР‘/&gt;РЅР°СЃС‚СЂРѕРёС‚СЊ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ СЂРµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ&lt;/&gt;.</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Center</VerticalAlign>
+									<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµР РµР·РµСЂРІРЅРѕРµРљРѕРїРёСЂРѕРІР°РЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="410"/>
+									<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµР РµР·РµСЂРІРЅРѕРµРљРѕРїРёСЂРѕРІР°РЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="411"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="РЎС‚СЂР°РЅРёС†Р°РћС€РёР±РѕРєРџСЂРёРљРѕРїРёСЂРѕРІР°РЅРёРё" id="104">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РЎС‚СЂР°РЅРёС†Р° РѕС€РёР±РѕРє РїСЂРё РєРѕРїРёСЂРѕРІР°РЅРёРё</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="РЎС‚СЂР°РЅРёС†Р°РћС€РёР±РѕРєРџСЂРёРљРѕРїРёСЂРѕРІР°РЅРёРёExtendedTooltip" id="347"/>
+					<ChildItems>
+						<UsualGroup name="Р“СЂСѓРїРїР°РќРµСѓСЃРїРµС€РЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="105">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РќРµСѓСЃРїРµС€РЅРѕРіРѕ РєРѕРїРёСЂРѕРІР°РЅРёСЏ</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РќРµСѓСЃРїРµС€РЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="348"/>
+							<ChildItems>
+								<LabelDecoration name="РќР°РґРїРёСЃСЊРќРµСѓСЃРїРµС€РЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏ" id="108">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>2</Height>
+									<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р РµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ РЅРµ Р±С‹Р»Рѕ РїСЂРѕРІРµРґРµРЅРѕ</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РќР°РґРїРёСЃСЊРќРµСѓСЃРїРµС€РЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="109"/>
+									<ExtendedTooltip name="РќР°РґРїРёСЃСЊРќРµСѓСЃРїРµС€РЅРѕРіРѕРљРѕРїРёСЂРѕРІР°РЅРёСЏР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="349"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Р“СЂСѓРїРїР°РќРµРЈРґР°Р»РѕСЃСЊ" id="110">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>РќРµ СѓРґР°Р»РѕСЃСЊ</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Р“СЂСѓРїРїР°РќРµРЈРґР°Р»РѕСЃСЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="350"/>
+							<ChildItems>
+								<PictureDecoration name="Р”РµРєРѕСЂР°С†РёСЏРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ" id="111">
+									<Picture>
+										<xr:Ref>CommonPicture.РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="Р”РµРєРѕСЂР°С†РёСЏРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="112"/>
+									<ExtendedTooltip name="Р”РµРєРѕСЂР°С†РёСЏРџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="351"/>
+								</PictureDecoration>
+								<UsualGroup name="Р“СЂСѓРїРїР°Р Р°СЃС€РёС„СЂРѕРІРєР°" id="407">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Р Р°СЃС€РёС„СЂРѕРІРєР°</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Р“СЂСѓРїРїР°Р Р°СЃС€РёС„СЂРѕРІРєР°Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="408"/>
+									<ChildItems>
+										<LabelDecoration name="РќР°РґРїРёСЃСЊРќРµРЈРґР°Р»РѕСЃСЊ" id="113">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>РќРµ СѓРґР°Р»РѕСЃСЊ РІС‹РїРѕР»РЅРёС‚СЊ СЂРµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ.
+РўРµС…РЅРёС‡РµСЃРєР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂРѕР±Р»РµРјРµ Р·Р°РїРёСЃР°РЅР° РІ Р¶СѓСЂРЅР°Р» СЂРµРіРёСЃС‚СЂР°С†РёРё. 
+Р РµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РїРѕРІС‚РѕСЂРёС‚СЊ СЂРµР·РµСЂРІРЅРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ РІСЂСѓС‡РЅСѓСЋ.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="РќР°РґРїРёСЃСЊРќРµРЈРґР°Р»РѕСЃСЊРљРѕРЅС‚РµРєСЃС‚РЅРѕРµРњРµРЅСЋ" id="114"/>
+											<ExtendedTooltip name="РќР°РґРїРёСЃСЊРќРµРЈРґР°Р»РѕСЃСЊР Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="352"/>
+										</LabelDecoration>
+										<Button name="РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё1" id="405">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё</CommandName>
+											<ExtendedTooltip name="РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё1Р Р°СЃС€РёСЂРµРЅРЅР°СЏРџРѕРґСЃРєР°Р·РєР°" id="406"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РћР±СЉРµРєС‚" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Р РµР·РµСЂРІРЅРѕРµРљРѕРїРёСЂРѕРІР°РЅРёРµРР‘</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРР‘" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РРјСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РџР°СЂРѕР»СЊРђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°РР‘" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџР°СЂРѕР»СЊ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="РћР±РЅР°СЂСѓР¶РµРЅРЅР°СЏРћС€РёР±РєР°РџРѕРґРєР»СЋС‡РµРЅРёСЏ" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћР±РЅР°СЂСѓР¶РµРЅРЅР°СЏ РѕС€РёР±РєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РРјСЏР¤Р°Р№Р»Р°Р РµР·РµСЂРІРЅРѕР№РљРѕРїРёРё" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РРјСЏ С„Р°Р№Р»Р° СЂРµР·РµСЂРІРЅРѕР№ РєРѕРїРёРё</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Р—Р°РєСЂС‹С‚СЊР¤РѕСЂРјСѓР‘РµР·СѓСЃР»РѕРІРЅРѕ" id="10">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РўСЂРµР±СѓРµС‚СЃСЏР’РІРѕРґРџР°СЂРѕР»СЏ" id="7">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Р¤РѕСЂРјР°Р”Р°Р»РµРµ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”Р°Р»РµРµ &gt;</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р”Р°Р»РµРµ &gt;&gt;</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Р”Р°Р»РµРµ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Р¤РѕСЂРјР°РћС‚РјРµРЅР°" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Р¤РѕСЂРјР° РѕС‚РјРµРЅР°</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РћС‚РјРµРЅР°</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РћС‚РјРµРЅР°</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РўРµС…РЅРёС‡РµСЃРєР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕС€РёР±РєРµ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РџРµСЂРµР№С‚Рё РІ Р¶СѓСЂРЅР°Р» СЂРµРіРёСЃС‚СЂР°С†РёРё</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РџРµСЂРµР№С‚РёР’Р–СѓСЂРЅР°Р»Р РµРіРёСЃС‚СЂР°С†РёРё</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РќРµР”РѕР¶РёРґР°С‚СЊСЃСЏР—Р°РІРµСЂС€РµРЅРёСЏРЎРµР°РЅСЃРѕРІ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РќРµ РґРѕР¶РёРґР°С‚СЊСЃСЏ Р·Р°РІРµСЂС€РµРЅРёСЏ СЃРµР°РЅСЃРѕРІ (СЂРµР¶РёРј РѕС‚Р»Р°РґРєРё)</v8:content>
+				</v8:item>
+			</Title>
+			<Action>РќРµР”РѕР¶РёРґР°С‚СЊСЃСЏР—Р°РІРµСЂС€РµРЅРёСЏРЎРµР°РЅСЃРѕРІ</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Р РµР¶РёРјР Р°Р±РѕС‚С‹">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="РРјСЏР¤Р°Р№Р»Р°Р РµР·РµСЂРІРЅРѕР№РљРѕРїРёРё">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="РџРѕСЏСЃРЅРµРЅРёРµ">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="РљР°С‚Р°Р»РѕРіРџСЂРѕРіСЂР°РјРјС‹">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>
