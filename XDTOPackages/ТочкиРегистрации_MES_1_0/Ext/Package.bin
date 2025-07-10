@@ -1,0 +1,39 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://mes.fordsollers.com/registrationPoint/1.0" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://v8.1c.ru/8.1/data/enterprise"/>
+	<import namespace="http://v8.1c.ru/8.1/data/enterprise/current-config"/>
+	<valueType name="EnumRef.Процессы" base="xs:string" variety="Atomic">
+		<enumeration/>
+		<enumeration>БанкЗаказов</enumeration>
+		<enumeration>DKDПоставка</enumeration>
+		<enumeration>ПодготовкаКПроизводству</enumeration>
+		<enumeration>Сварка</enumeration>
+		<enumeration>Окраска</enumeration>
+		<enumeration>Сборка</enumeration>
+		<enumeration>Тестирование</enumeration>
+		<enumeration>Транспортировка</enumeration>
+		<enumeration>СГП</enumeration>
+	</valueType>
+	<valueType name="EnumRef.ФазыПроцесса" base="xs:string" variety="Atomic">
+		<enumeration/>
+		<enumeration>Начало</enumeration>
+		<enumeration>Продолжение</enumeration>
+		<enumeration>Окончание</enumeration>
+	</valueType>
+	<objectType name="CatalogObject.ТочкиРегистрации" open="true" sequenced="true">
+		<property name="ЭтоГруппа" type="xs:boolean"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Ссылка" type="d3p1:CatalogRef.ТочкиРегистрации"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Родитель" type="d3p1:CatalogRef.ТочкиРегистрации"/>
+		<property name="Код">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="5"/>
+		</property>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/registrationPoint/1.0" name="ТипТочкиРегистрации" type="d3p1:КлючевыеСвойстваТипыТочекРегистрации" lowerBound="0"/>
+		<property name="ЭтоПерваяТочкаКонвейера" type="xs:boolean" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваТипыТочекРегистрации" open="true" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Процесс" type="xs:string"/>
+		<property name="ФазаПроцесса" type="xs:string"/>
+	</objectType>
+</package>

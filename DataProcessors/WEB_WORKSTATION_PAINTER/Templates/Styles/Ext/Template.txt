@@ -1,0 +1,249 @@
+﻿										/*	Главная страница	*/
+
+#allDivMainBodyBlock {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#painterButtonIconGetBack {
+	display: none;
+	cursor: pointer;
+}
+#painterCanvasForServiceUse {
+	display: none;
+}
+#painterDivMainBodyBlock {
+	flex: 1 0 0%;
+	display: flex;
+	flex-direction: column;
+}
+#painterDivOperationBlock {
+	flex: 1 0 0%;
+	display: flex;
+	flex-direction: row;
+}
+
+											/* Панель инструментов */
+#painterDivToolsMain {
+	font-size: 4vmin;
+	display: flex;
+	flex-direction: row;
+}
+.painterDivToolBlock {
+	flex: 1 0 0%;
+}
+.painterDivTool {
+	border: 1px solid #ddd;
+	margin: 1vmin;
+	font-size: 5vmin;
+	cursor: pointer;
+	border-radius: 5px;
+    padding: 1.5vmin;
+}
+.painterDivTool:hover {
+	background-color: #e8e8e8;
+}
+.painterDivToolCaption {
+	font-size: 2vmin;	
+}
+
+										/*	Белый блок-заглушка	*/
+										
+.painterDivWhiteBlock {
+	display: none !important;
+	opacity: 0.1;
+	cursor: not-allowed;
+	pointer-events: none;
+	background: rgba( 255, 255, 255, .8 ) url(/images/ajax-loader.gif) 50% 50% no-repeat;
+}
+
+										/*	Сообщение пользователю	*/
+
+#painterSpanMessageToUserCaption {
+	display: block;
+	font-size: 3.5vmin;
+	width: 100%;
+	padding: 0px 5px;
+	max-height: 15vmin;
+    overflow-y: auto;
+}
+#painterDivMessageToUserBlock {
+	padding-top: 0vmin;
+	padding-bottom: 0vmin;
+}
+
+										/*	Заголовок картинки	*/
+
+#painterDivImageTitle, #painterDivAvailableObjectsTitle {
+	font-size: 4vmin;
+    text-align: center;
+}
+#painterDivObjectsBlock {
+	flex: 1 0 25%;
+	display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
+    margin-right: -1px;
+    max-width:50%
+ }
+#painterDivAvailableObjects {
+	overflow-y: auto;
+	flex: 1 0 0%;
+}
+#painterDivImageBlock {
+	flex: 3 0 0%;
+	/*width: 100%;*/
+    text-align: center;
+}
+
+										/* Блок варианта области */
+										
+.painterDivArea {
+	border-bottom: 1px solid #ddd;
+    padding: 1vmin;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+.painterDivAreaInspectionItemBlock {
+	flex: 1;
+}
+.painterDivAreaCheckIconBlock, .painterDivAreaEditIconBlock, .painterDivAreaNoneIconBlock {
+	font-size: 3vmin;
+}
+.painterDivAreaNameBlock {
+	font-size: 3vmin;
+	font-weight: bold;
+}
+.painterDivAreaABlock, .painterDivAreaBBlock, .painterDivAreaCBlock {
+	display: flex;
+}
+.painterDivAreaANameBlock, .painterDivAreaBNameBlock, .painterDivAreaCNameBlock {
+	font-weight: bold;
+	font-size: 2.5vmin;
+}
+.painterDivAreaAValueBlock, .painterDivAreaBValueBlock, .painterDivAreaCValueBlock {
+	flex: 1 0 0%;
+	font-size: 2vmin;
+	display: flex;
+    padding-left: 1vmin;
+    align-items: center;
+}
+
+										/*	Все изображения на одной странице */
+
+#painterDivAllImagesBlock {
+	display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+	padding-top: 1vmin;
+    overflow-y: auto;
+    justify-content: space-evenly;
+}
+.painterDivOneImageBlock {
+	display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 50vmin;
+    height: 30vmin;
+    margin: 1vmin;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.painterDivOneImageBlock:hover {
+	background-color: #474747 !important;
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+.painterDivOneImageContent {
+	display: flex;
+	flex: 1 0 0%;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+.painterDivOneImageName {
+	font-size: 4vmin;
+	text-align: center;
+	font-weight: bold;
+}
+.painterDivOneImageMarked {
+	font-size: 3vmin;
+	border-radius: 100%;
+	padding: 4vmin;
+	font-weight: bold;
+	border: 1px solid #757575;
+	opacity: 0.8;
+}
+
+
+										/* Сжатие изображений */
+
+#painterImgCompressedTarget {
+	display: none;
+}
+
+
+
+										/*	Общие стили	*/
+										
+.styleActive {
+	background-color: #474747 !important;  
+	color: #ffffff !important;	
+}								
+.styleSuccess {
+	background-color: #5cb85c !important;
+	color: white;
+}
+.styleUpdate {
+	background-color: #356b35 !important;
+	color: white;
+}
+.styleDanger {
+	background-color: #d9534f !important;
+	color: white;
+}
+.styleWarning {
+	background-color: #f0ad4e !important;
+	color: white;
+}
+.stylePrimary {
+	background-color: #428bca !important;
+	color: white;
+}
+.styleInfo {
+	background-color: #5bc0de !important;
+	color: white;
+}
+.styleDefault {
+	background-color: white;	
+	color: #bdbdbd;
+}
+.styleDisabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+.styleHidden {
+	display: none !important;
+}
+.styleBoringGray {
+	color: #000000;
+    background-color: #e4e4e4;
+}
+.styleSuccessCaption {
+	font-weight: bold;
+    color: #5cb85c;	
+}
+.styleDangerCaption {
+	font-weight: bold;
+    color: #d9534f;	
+}
+.styleOpacity {
+	opacity: 0.9;
+}
+.styleBold {
+	font-weight: bold;
+}

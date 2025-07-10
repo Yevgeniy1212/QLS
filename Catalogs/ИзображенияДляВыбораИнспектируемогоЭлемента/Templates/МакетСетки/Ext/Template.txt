@@ -1,0 +1,200 @@
+﻿<html>
+<header>
+  <script>
+    [ПараметрKonva]
+  </script>
+  <style> 
+      #error {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background-color: red;
+        color: white;
+        display: none;
+        padding: 5px;
+      }
+  </style>
+</header>
+<body>
+  <div id="container"></div>
+  <div id="error"></div>
+  <script>
+    const data = {};
+    const anchorSize = 10;
+    let elemId = 0;
+    var image, stage, layer, dataJSON, areas;
+    
+    function start() {
+      data.selected = [];
+      data.areas = [];
+      dataJSON = JSON.stringify(data);
+    }
+
+    function selectElement(el, e) {
+      if (e.ctrlKey && areas.some(({ id }) => id === el.id)) {
+        showError('Ячейка уже привязана, для массовой привязки сначала деактивируйте эту ячейку');
+        return;
+      }
+
+      if (e.ctrlKey && data.selected.length && areas.some(({ id }) => id === data.selected[0].id)) {
+        showError(`Нельзя сделать массовую привязки для активированной ячейки, сначала деактивируйте ячейку ${data.selected[0].id}`);
+        return;
+      }
+      
+      const wasSelected = data.selected.some(({ id }) => id === el.id)
+
+      if (e.ctrlKey && wasSelected) {
+        deselectElement(el.id);
+        return;
+      } 
+      if (!e.ctrlKey) {
+        deselectAll();
+      }
+
+      if (!wasSelected) {
+        const shape = stage.findOne(`#${el.id}`);
+        shape.origColor = shape.fill();
+        shape.fill('#F0D2FF');
+        
+        const x =  shape.x();
+        const y =  shape.y();
+        const width = shape.width();
+        const height = shape.height();
+        const points = [
+          x, y,
+          x + width, y,
+          x + width, y + height,
+          x, y + height,
+        ];
+
+        data.selected.push({ id: el.id, cell: shape.name(), points });
+      }
+
+      dataJSON = JSON.stringify(data);
+    }
+
+    function deselectElement(id) {
+      const shape = stage.findOne(`#${id}`);
+      if (shape.origColor) {
+        shape.fill(shape.origColor);
+      }
+      data.selected = data.selected.filter((area) => area.id !== id)
+    }
+
+    function deselectAll() {
+      data.selected.forEach((el) => deselectElement(el.id));
+    }
+    
+    function drawGrid() {
+      const xSnaps = [ПараметрКоличествоКолонок];
+      const ySnaps = [ПараметрКоличествоСтрок];
+      const cellWidth = stage.width() / xSnaps;
+      const cellHeight = stage.height() / ySnaps;
+
+      for (var j = 0; j < ySnaps; j++) {
+        for (var i = 0; i < xSnaps; i++) {
+          elemId = elemId + 1;
+          const cell = `C${i+1}R${j+1}`;
+          const id = `elem-${elemId}-${cell}`;
+          const isActive = areas.some((item) => item.id === id);
+          const opacity = isActive ? 0.6 : 0.3; 
+          const rect = new Konva.Rect({
+            x: i * cellWidth,
+            y: j * cellHeight,
+            width: cellWidth,
+            height: cellHeight,
+            stroke: 'rgba(0, 0, 1, 1)',
+            strokeWidth: 3,
+            fill: '#99ffcc',
+            id,
+            name: cell,
+            opacity,
+          });
+          
+          rect.on('click', function(e) { selectElement({ id: rect.id() }, e.evt) });
+          data.areas.push({ type: 'poly', ref: rect, id });
+
+          layer.add(rect);
+        }
+      }
+    }
+    
+    function activateArea(id) {
+      const shape = stage.findOne(`#${id}`);
+      if (shape) {
+        areas.push({ id });
+        shape.opacity(0.6);
+      }
+    }
+    
+    function deactivateArea(id) {
+      const shape = stage.findOne(`#${id}`);
+      if (shape) {
+        areas = areas.filter((item) => item.id !== id);
+        shape.opacity(0.3);
+      }
+    }
+  
+    function getDistance(point1, point2) {
+      const [x1, y1] = point1;
+      const [x2, y2] = point2;
+
+      return Math.hypot(x1 - x2, y1 - y2);
+    }
+
+    function getPointChunks(arr) {
+      return arr.reduce((all,one,i) => {
+        const ch = Math.floor(i/2); 
+        all[ch] = [].concat((all[ch]||[]),one); 
+        return all
+      }, [])
+    }
+    
+    function showError(message) {
+      const errorBlock = document.getElementById('error');
+      errorBlock.innerText = message;
+      errorBlock.style.display = 'block';
+      setTimeout(hideError, 5000);
+    }
+
+    function hideError() {
+      const errorBlock = document.getElementById('error');
+      errorBlock.innerText = '';
+      errorBlock.style.display = 'none';
+    }
+
+    const imgObj = new Image(); // Create new img element
+    imgObj.onload = function() {
+      image = new Konva.Image({
+        image: imgObj,
+      });
+
+      stage = new Konva.Stage({
+        container: 'container',   // id of container <div>
+        width: imgObj.width,
+        height: imgObj.height
+      });
+
+      // then create layer
+      layer = new Konva.Layer();
+
+      // add the layer to the stage
+      stage.add(layer);
+      
+      layer.add(image);
+      
+      areas = [ПараметрОбласти];
+      
+      start();
+      drawGrid();
+
+      stage.on('contextmenu', function (e) {
+        // prevent default behavior
+        e.evt.preventDefault();
+      });
+    };
+
+    imgObj.src = "[ПараметрКартинка]";
+  </script>
+</body>
+</html>

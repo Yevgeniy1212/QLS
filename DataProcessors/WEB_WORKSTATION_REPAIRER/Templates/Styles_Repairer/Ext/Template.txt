@@ -1,0 +1,458 @@
+﻿										/*	Главная страница	*/
+
+#allDivMainBodyBlock {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#repairerDivMainBodyBlock {
+	flex: 1 0 0%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 131px);
+}
+#repairerDivMainInspectionBlock {
+	display: flex;
+    flex-direction: row;
+    flex: 1 0 0%;       
+    height: calc(100% - 50px);
+}
+.form-control:focus {
+	border-color: #8a8a8a;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(71, 71, 71, 0.5);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(71, 71, 71, 0.5);
+}
+#repairerButtonIconGetBack {
+	display: none;
+	cursor: pointer;
+}
+
+										/*	Белый блок-заглушка	*/
+										
+.repairerDivWhiteBlock {
+	display: none !important;
+	opacity: 0.1;
+	cursor: not-allowed;
+	pointer-events: none;
+	background: rgba( 255, 255, 255, .8 ) url(/images/ajax-loader.gif) 50% 50% no-repeat;
+}
+
+
+										/*	Поле для сканирования	*/
+#repairerDivMainScanningBlock {
+	display: flex;
+}
+#repairerInputMainScanningInputField {
+	font-size: 5vmin;
+    height: 8vmin;
+	border-radius: 0px;
+	border-left: 0px;
+    border-right: 0px;
+}
+#repairerDivCurrentVINBlock {
+	padding-left: 1vmin;
+}
+#repairerButtonComplete {
+    font-size: 2.5vmin;
+    white-space: normal;
+    border-radius: 0px;
+    padding: 0px;
+    border-color: #8a8a8a;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(71, 71, 71, 0.5);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(71, 71, 71, 0.5);
+}						
+								
+										/*	Текущий заказ	*/
+
+#repairerDivCurrentVINCaption {
+    font-size: 5.5vmin;
+    font-weight: bold;
+}
+
+
+										/*	Сообщение пользователю	*/
+
+#repairerSpanMessageToUserCaption {
+	display: block;
+	font-size: 3.5vmin;
+	width: 100%;
+	padding: 0px 5px;
+	max-height: 15vmin;
+    overflow-y: auto;
+}
+#repairerDivMessageToUserBlock {
+	padding-top: 0vmin;
+	padding-bottom: 0vmin;
+}
+
+
+
+										/*	Блок дополнительных проверок	*/
+
+#repairerDivCheckMainBlock {
+	display: flex;
+	flex-direction: row;
+    padding-top: 0.5vmin;
+    padding-bottom: 0.5vmin;
+	overflow-x: auto;
+	width: 100%;
+}
+#repairerDivCheckSubBlockDefects, #repairerDivCheckSubBlockActions, #repairerDivCheckSubBlockShortage, #repairerDivCheckSubBlockCampaign {
+	flex: 1 0 0%;
+	font-size: 3vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1vmin;
+    cursor: pointer;
+    border-top: 1px solid #8d8d8d;
+    border-bottom: 1px solid #8d8d8d;
+    border-left: 1px solid #8d8d8d;
+}
+.repairerDivCheckSubBlockContent {
+	display: flex;
+    overflow-y: auto;
+    font-size: 3.5vmin;
+	cursor: pointer;
+}  
+#repairerDivCheckSubBlockContentLines::-webkit-scrollbar{
+	display: none; 
+}
+.repairerDivCheckSubBlockContentDetails {
+	flex: 1 0 0%;
+	border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    text-align: center;
+}
+.btn-block {
+	font-size: 3vmin;
+}
+.repairerDivEmptyBlock {
+	flex: 1 0 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    text-align: center;
+    overflow-y: auto;
+    font-size: 3.5vmin;
+    cursor: no-drop;
+}
+
+
+								/*	Блок описания дефекта инспектируемого элемента	*/
+										
+.repairerDivInspectionItemContent {
+	overflow-y: auto;
+	flex: 1 0 0%;
+	height: calc(100% - 164px);
+}
+.repairerDivInspectionItemTitle {
+	font-size: 3vmin;
+    text-align: center;
+    background-color: #474747;
+    color: #ffffff;
+}
+#repairerDivInspectionItemDetailsBlock {
+	flex: 3 0 0%;
+	display: flex;
+    flex-direction: column;
+    height: 100%;
+    /*padding-left: 3vmin;
+    padding-right: 3vmin;*/
+}
+
+								/*	Блок описания некомплекта	*/
+
+.repairerInputInspectionItemNomenclatureSetCount {
+	width: 100%;
+	border: none;
+	text-align: center;
+}
+
+
+								/*	Блок описания дефекта	*/
+
+.repairerDivInspectionItemDefectDetailsBlock {
+	display: flex;
+    flex-direction: column;
+    flex: 1 0 0%;
+    height: 100%;	
+}
+#repairerDivDefectsContentCommentValue {
+	font-size: 3vmin;
+}
+.repairerDivDefectsContentBlockName {
+	font-size: 2.5vmin;
+    margin-top: 1vmin;
+    margin-bottom: 1vmin;
+}
+#repairerDivDefectsContentAnalyzeBlock {
+	display: flex;
+	padding-bottom: 1vmin;
+}
+#repairerDivDefectsContentCommentBlock {
+	flex: 1 0 0%;
+}
+.toggle {
+	flex: 1 0 0%;
+	width: 100% !important;
+	padding: 0px !important;
+}
+.toggle-on, .toggle-off {
+	font-size: 4vmin !important;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#repairerDivDefectsContentReplaceBlock, #repairerDivDefectsContentRemoveBlock {
+	display: flex;
+	flex-direction: column;
+	min-width: 15vmin;
+}
+#repairerDivDefectsContentReplaceBlock {
+	padding-left: 1vmin;
+	padding-right: 1vmin;
+}       
+
+#repairerDivCheckSubBlockContentLines {
+	height: calc(100% - 29px);
+    overflow-y: scroll;
+}
+
+
+										/*	Блок подтверждения операции 	*/
+
+
+.repairerDivCreateQualityCheckDocument {
+	margin: 1vmin;
+}
+.repairerButtonCreateQualityDocument {
+	font-size: 3vmin;
+    height: 6vmin;	
+}
+.repairerButtonCreateDocument {
+	border-radius: 0px;
+	font-size: 4vmin;
+}
+
+
+
+										/*	Общие стили	*/
+										
+.arrowRight {
+	width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #dddddd;
+}
+.styleActive {
+	background-color: #474747;  
+	color: #ffffff;	
+}								
+.styleSuccess {
+	background-color: #5cb85c !important;
+	color: white;
+}
+.styleUpdate {
+	background-color: #356b35 !important;
+	color: white;
+}
+.styleDanger {
+	background-color: #d9534f !important;
+	color: white;
+}
+.styleWarning {
+	background-color: #f0ad4e !important;
+	color: white;
+}
+.stylePrimary {
+	background-color: #428bca !important;
+	color: white;
+}
+.styleInfo {
+	background-color: #5bc0de !important;
+	color: white;
+}
+.styleDefault {
+	background-color: white;	
+	color: #bdbdbd;
+}
+.styleHidden {
+	display: none !important;
+}
+.styleSuccessCaption {
+	font-weight: bold;
+    color: #5cb85c;	
+}
+.styleDangerCaption {
+	font-weight: bold;
+    color: #d9534f;	
+}
+.styleOpacity {
+	opacity: 0.9;
+}
+.styleBold {
+	font-weight: bold;
+}
+
+											/* Кнопка для получения значений от RFID сканера */
+											
+#repairerAMainScanningFieldContent {
+	flex: 1 0 0%;
+	display: flex;
+	text-decoration: none;
+}
+#repairerButtonMainScanningFieldContent {
+	width: 100%;
+	font-size: 5vmin;
+	border-radius: 0;
+	text-align: left;
+}
+
+
+									/*	Портретная ориентация	*/
+							
+@media all and (orientation: portrait), all and (max-width: 600px) {
+	#repairerButtonIconGetBack {
+		font-size: 9vh;
+		display: block;
+	}
+	#repairerDivMainInspectionBlock {
+		flex-direction: column;
+	}
+	#repairerDivInspectionItemDetailsBlock {
+		flex: 2 0 0%;
+	}
+	#repairerInputMainScanningInputField {
+		font-size: 3.2vh !important;
+	    height: 8vh !important;
+	}
+	#repairerDivCurrentVINCaption {
+	    font-size: 5vh !important;
+	}
+	#repairerSpanMessageToUserCaption {
+		font-size: 3.5vh !important;
+		max-height: 20vh;
+   		overflow-y: auto;
+	}
+	#repairerDivCheckSubBlockDefects, #repairerDivCheckSubBlockActions, #repairerDivCheckSubBlockShortage, #repairerDivCheckSubBlockCampaign {
+		font-size: 3vh !important;
+		padding-left: 0vh !important;
+		padding-right: 0vh !important;
+		padding-top: 2vh !important;
+		padding-bottom: 2vh !important;
+		overflow-x: auto;
+		/*justify-content: flex-start; */
+   		text-align: center;
+    	word-break: break-word;
+	}
+	.repairerDivInspectionItemHeaderName {
+		font-size: 3.5vh !important;
+	}
+	.repairerButtonInspectionItemHeader {
+		font-size: 2.5vh !important;
+	    height: 5vh !important;
+	}
+	.repairerDivInspectionItemHeaderButtons {
+		height: 6vh !important;
+	}
+	.repairerDivInspectionItemHeader {
+		min-height: 12vh !important;
+		height: 12vh !important;
+	}
+	.repairerStyleMobileHidden {
+		display: none !important;
+	}
+	.repairerStyleMobileVisible {
+		display: initial !important;
+	}
+	#repairerDivCurrentVINCaption {
+		text-align: center !important;
+	}
+	.repairerDivCheckSubBlockContent {
+		font-size: 2.5vh !important;
+	}
+	.repairerDivInspectionItemTitle {
+		font-size: 3vh !important;
+	}
+	.repairerDivBlockName {
+		font-size: 3vh !important;
+	}
+	.repairerInputComment {
+		font-size: 4vh !important;
+		height: 5vh !important;
+	}
+	.repairerButtonCreateQualityCheckDocument {
+		font-size: 4vh !important;
+	    height: 8vh !important;	
+	}
+	.repairerInputInspectionItemInput {
+		font-size: 4vh !important;
+    	height: 6vh !important;
+	}
+	.dropdown-toggle {
+		height: 8vh !important;
+    	font-size: 4vh !important;
+	}
+	.dropdown-menu {
+		font-size: 3vh !important;
+	}
+	.toggle {
+		height: 8vh !important;
+	}
+	.toggle-on, .toggle-off {
+		font-size: 5vh !important;
+	}
+	#repairerInputInspectionItemInput {
+		font-size: 4vh;
+		height: 6vh;
+	}
+	#repairerButtonCreateNotFullComplectDocument {
+		font-size: 3vh;
+	}
+	#repairerButtonGetPreviousVIN, #repairerButtonGetNextVIN {
+		font-size: 5vh;
+	}
+	.repairerIconBlock {
+	    font-size: 4vh;
+	}
+	#repairerDivPreviousVINName, #repairerDivNextVINName {
+		display: none;
+	}
+	#repairerDivPreviousVINShortName, #repairerDivNextVINShortName {
+		flex: 1 0 0%;
+		font-weight: bold;
+		display: block;
+	}
+	#repairerButtonComplete {
+	    font-size: 2.5vh !important;
+	} 
+	.repairerDivDefectsContentBlockName {
+		font-size: 2.5vh;
+	    margin-top: 1vh;
+	    margin-bottom: 1vh;
+	}
+	.repairerButtonCreateDocument {
+		border-radius: 0px;
+		font-size: 4vh;
+	}
+	#repairerDivDefectsContentCommentValue {
+		font-size: 3vh;
+	}
+	#repairerDivDefectsContentReplaceBlock, #repairerDivDefectsContentRemoveBlock {
+		min-width: 15vh;
+	}
+	.repairerDivEmptyBlock {
+		font-size: 2.5vh;
+	}
+
+
+}
+

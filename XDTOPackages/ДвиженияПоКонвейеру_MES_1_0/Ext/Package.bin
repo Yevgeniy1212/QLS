@@ -1,0 +1,34 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://mes.fordsollers.com/ordersRegistrations/1.0" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://v8.1c.ru/8.1/data/enterprise/current-config"/>
+	<objectType name="ДвижениеПоКонвейеру" open="true" sequenced="true">
+		<property name="Период" type="xs:dateTime" lowerBound="1" form="Attribute"/>
+		<property name="ВидДвижения" type="xs:string" lowerBound="1" fixed="true" default="Приход" form="Attribute"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/1.0" name="ТочкаРегистрации" type="d3p1:КлючевыеСвойстваТочкиРегистрации"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/1.0" name="ПредшествующаяТочкаРегистрации" type="d3p1:КлючевыеСвойстваТочкиРегистрации" lowerBound="0"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/1.0" name="Смена" type="d3p1:КлючевыеСвойстваСмены" lowerBound="0"/>
+		<property name="ДатаСмены" type="xs:dateTime" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваЗаказы" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Ссылка" type="d3p1:CatalogRef.Заказы" lowerBound="0"/>
+		<property name="VIN">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="17"/>
+		</property>
+		<property name="НомерЗаказа">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="20"/>
+		</property>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСмены" open="true" sequenced="true">
+		<property name="Ссылка" type="xs:string" lowerBound="0"/>
+		<property name="Код" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваТочкиРегистрации" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Ссылка" type="d3p1:CatalogRef.ТочкиРегистрации" lowerBound="0"/>
+		<property name="Код">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="5"/>
+		</property>
+	</objectType>
+	<objectType name="РегистрацииЗаказовНаКонвейере" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/1.0" name="Заказ" type="d3p1:КлючевыеСвойстваЗаказы"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/1.0" name="ДвижениеПоКонвейеру" type="d3p1:ДвижениеПоКонвейеру" upperBound="-1"/>
+	</objectType>
+</package>

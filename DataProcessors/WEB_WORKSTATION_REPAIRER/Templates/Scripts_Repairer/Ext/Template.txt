@@ -1,0 +1,296 @@
+﻿var timerIdCurrentVINFromRFID = 0;
+
+$(document).ready(function() {
+	
+	//Устанавливаем фокус и скрываем клавиатуру	
+	setTimeout(function() { 
+		$('#repairerInputMainScanningInputField').attr('readonly', '').focus().removeAttr('readonly'); 
+	}, 100);
+
+	//Вешаем событие на наше главное поле ввода
+	$('#repairerInputMainScanningInputField').on('keypress', function (element) {
+		if( element.keyCode == 13 && $('#repairerInputMainScanningInputField').val() ){
+			newFormEvent('newScanningEvent');
+		}
+	});
+	
+	//Получение следующего VIN-номера из RFID
+	$(document).on('click', '#repairerButtonMainScanningFieldContent', function (element) {	
+		if ( timerIdCurrentVINFromRFID == 0 ){
+			
+			//Сохранение идентификатора вызова сканера RFID в QLS
+			newFormEvent('saveCurrentRFIDGuid');	
+		
+			//Сам вызов сканера RFID
+			repairerGetCurrentVINFromRFID();
+			
+		};
+			
+	});
+	
+	//Завершить инспекцию
+	$('#repairerButtonComplete').on('click', function(){
+		var buttonComplete = $(this);
+		if( !buttonComplete.hasClass('disabled') ){
+			newFormEvent( 'completeInspection', null );
+		};
+	});
+			
+	//Выбор из таблицы
+	$(document).on('click', '.repairerDivCheckSubBlockContent', function (element) {
+		
+		//Снятие активности строк во всех табличных частях
+		$('.repairerDivCheckSubBlockContent').parent().children().removeClass('active');
+		$('.repairerDivCheckSubBlockContent').parent().children().removeClass('stylePrimary');
+		$('.repairerDivCheckSubBlockContent').parent().children().children().removeClass('stylePrimary');
+		$('.repairerDivCheckSubBlockContent').parent().children().children().children().removeClass('stylePrimary');
+		
+		//Снятие активности кнопок
+		$('#repairerButtonDefectsContentCreateDocuments').removeClass('btn-primary');
+		$('#repairerButtonActionsContentCreateDocuments').removeClass('btn-primary');
+		$('#repairerButtonShortageContentCreateDocuments').removeClass('btn-primary');
+		$('#repairerButtonCampaignContentCreateDocuments').removeClass('btn-primary');
+		$('#repairerButtonDefectsContentCreateDocuments').removeClass('active');
+		$('#repairerButtonActionsContentCreateDocuments').removeClass('active');
+		$('#repairerButtonShortageContentCreateDocuments').removeClass('active');
+		$('#repairerButtonCampaignContentCreateDocuments').removeClass('active');
+		$('#repairerDivDefectsContentAnalyzeBlock').addClass('styleHidden');
+		
+		//Установка недоступности этих элементов
+		$('#repairerButtonDefectsContentCreateDocuments').addClass('disabled');
+		$('#repairerButtonActionsContentCreateDocuments').addClass('disabled');
+		$('#repairerButtonShortageContentCreateDocuments').addClass('disabled');
+		$('#repairerButtonCampaignContentCreateDocuments').addClass('disabled');
+
+		//Установка активности выбранного элемента
+		if (!$(this).hasClass('repairerDivInspectionItemTitle')) {
+			
+			var actionButton = $('#'+$(this).parent().parent().attr('action')+'');
+		
+			//Подсветка строк
+			$(this).addClass('active');
+			$(this).addClass('stylePrimary');
+			$(this).children().addClass('stylePrimary');
+			$(this).children().children().addClass('stylePrimary');
+			
+			//Подсветка кнопки
+			actionButton.removeClass('disabled');
+			actionButton.addClass('btn-primary');
+			
+			//Вывод блока с комментарием
+			if (actionButton[0] == $('#repairerButtonDefectsContentCreateDocuments')[0]) {
+				$('#repairerDivDefectsContentAnalyzeBlock').removeClass('styleHidden');
+			}
+		};
+		
+	});
+	
+	//Дефекты. Создание документа
+	$('#repairerButtonDefectsContentCreateDocuments').on('click', function(){
+		if( !$(this).hasClass('disabled') ){
+			newFormEvent('createDocumentDefects');
+		};
+	});
+	
+	//Дефекты. Отображение блока детализации
+    $('#repairerDivCheckSubBlockDefects').click(function(e) {
+		if (!$(this).hasClass('disabled')) {
+			
+			//Подсветка текущего блока
+			$('#repairerDivCheckMainBlock').children().removeClass('active');
+			$(this).addClass('active');
+		
+			//Содержимое вкладок
+			$("#repairerDivInspectionItemDetailsBlock").children().addClass("styleHidden");	        			
+			$('#repairerDivTabDefects').removeClass("styleHidden");
+			setVisibilityDetalisationBlock(true);
+	   	};      
+    });
+ 	
+ 	//Действия. Создание документа
+	$('#repairerButtonActionsContentCreateDocuments').on('click', function(){
+		if( !$(this).hasClass('disabled') ){
+			newFormEvent('createDocumentActions');
+		};
+	});
+	
+	//Действия. Отображение блока детализации
+    $('#repairerDivCheckSubBlockActions').click(function(e) {
+		if (!$(this).hasClass('disabled')) {
+			
+			//Подсветка текущего блока
+			$('#repairerDivCheckMainBlock').children().removeClass('active');
+			$(this).addClass('active');
+		
+			//Содержимое вкладок
+			$("#repairerDivInspectionItemDetailsBlock").children().addClass("styleHidden");	        			
+			$('#repairerDivTabActions').removeClass("styleHidden");
+			setVisibilityDetalisationBlock(true);
+	   	};      
+    });
+
+	//Некомплект. Создание документа
+	$('#repairerButtonShortageContentCreateDocuments').on('click', function(){
+		if( !$(this).hasClass('disabled') ){
+			newFormEvent('createDocumentShortage');
+		};
+	});
+	
+	//Некомплект. Отображение блока детализации
+    $('#repairerDivCheckSubBlockShortage').click(function(e) {
+		if (!$(this).hasClass('disabled')) {
+						
+			//Подсветка текущего блока
+			$('#repairerDivCheckMainBlock').children().removeClass('active');
+			$(this).addClass('active');
+			
+			//Содержимое вкладок
+			$("#repairerDivInspectionItemDetailsBlock").children().addClass("styleHidden");	        			
+			$('#repairerDivTabShortage').removeClass("styleHidden");
+			setVisibilityDetalisationBlock(true);
+	   	};      
+    });
+
+	//Кампании. Создание документа
+	$('#repairerButtonCampaignContentCreateDocuments').on('click', function(){
+		if( !$(this).hasClass('disabled') ){
+			newFormEvent('createDocumentCampaign');
+		};
+	});
+		
+	//Кампании. Отображение блока детализации
+    $('#repairerDivCheckSubBlockCampaign').click(function(e) {
+		if (!$(this).hasClass('disabled')) {
+			
+			//Подсветка текущего блока
+			$('#repairerDivCheckMainBlock').children().removeClass('active');
+			$(this).addClass('active');
+				
+			//Содержимое вкладок
+			$("#repairerDivInspectionItemDetailsBlock").children().addClass("styleHidden");	        			
+			$('#repairerDivTabCampaign').removeClass("styleHidden");
+			setVisibilityDetalisationBlock(true);
+	   	};      
+    });
+   	        
+    //Нажали на кнопку "Назад". Скрываем блок с описанием дефекта и делаем всё как было
+	$('#repairerButtonIconGetBack').click(function(e) {
+		$('#repairerDivCheckMainBlock').children().removeClass('active');
+		setVisibilityDetalisationBlock(false);
+	});       
+        
+});
+
+//Функция обработки отсканированного значения
+function newFormEvent(type) { 
+	
+	//Получаем данные с формы в формате JSON
+	var dataObject = getAllFormValues();	
+
+	//Отсканировали новое значение
+	if (type == 'newScanningEvent') {
+		//Также получаем отсканированное значение
+		dataObject.newScanningValue = $('#repairerInputMainScanningInputField').val();		
+	}
+
+	//Закрытие консерна
+	if (type == 'createDocumentDefects') {
+		dataObject.guidCurrentVIN = $.trim($('#repairerDivCurrentVINGUID').text());
+		dataObject.documentDefectGUID = $('#repairerDivDefectsContent').find('.active').attr('guid');
+		dataObject.documentDefectComment = $('#repairerDivDefectsContentCommentValue').val(); 
+		dataObject.documentDefectReplace = false;
+		if ( $('#repairerDivDefectsContentReplaceBlock > .toggle.btn-primary').length > 0	) {
+			dataObject.documentDefectReplace = true;
+		};
+		dataObject.documentDefectRemove = false;
+		if ( $('#repairerDivDefectsContentRemoveBlock > .toggle.btn-primary').length > 0	) {
+			dataObject.documentDefectRemove = true;
+		};
+	}
+	
+	//Выполнение действия	
+	if (type == 'createDocumentActions') {
+		dataObject.guidCurrentVIN = $.trim($('#repairerDivCurrentVINGUID').text());
+		dataObject.documentActionsGUID = $('#repairerDivActionsContent').find('.active').attr('guid');		
+	}
+	
+	//Закрытие некомплекта
+	if (type == 'createDocumentShortage') {
+		dataObject.guidCurrentVIN = $.trim($('#repairerDivCurrentVINGUID').text());
+		dataObject.documentShortageGUID = $('#repairerDivShortageContent').find('.active').attr('guid');
+		dataObject.documentShortageNomenclatureCount = $('#repairerDivShortageContent').find('.active').find('.repairerInputInspectionItemNomenclatureSetCount').val();
+	}
+	
+	//Выполнение кампании
+	if (type == 'createDocumentCampaign') {
+		dataObject.guidCurrentVIN = $.trim($('#repairerDivCurrentVINGUID').text());
+		dataObject.referenceCampaignGUID = $('#repairerDivCampaignContent').find('.active').attr('guid');		
+	}
+		    	
+	//Завершить инспекцию этого заказа
+	if (type == 'completeInspection') {
+		dataObject.guidCurrentVIN = $.trim($('#repairerDivCurrentVINGUID').text());
+	}
+	
+	//Сохраняем GUID этого вызова сканера RFID меток 
+	if (type == 'saveCurrentRFIDGuid') {
+		dataObject.repairerAttributeRFIDSessionGUID = $.trim($('#repairerAttributeRFIDSessionGUID').text());
+	}
+		
+	//Упаковка в JSON
+	var dataJSON = JSON.stringify(dataObject);
+
+	//Очищаем поле
+	$('#repairerInputMainScanningInputField').val('');
+
+	//И лезем в QLS
+	executeRequestPOST(window.location.href, type, dataJSON, false);
+	      
+}
+
+//Показываем блок детализации/описания дефекта
+function setVisibilityDetalisationBlock(visible) {
+	
+	if (visible == true) {
+		$('#repairerDivInspectionItemDetailsBlock').removeClass('repairerStyleMobileHidden');
+		$('#repairerDivMainScanningBlock').addClass('repairerStyleMobileHidden');
+		$('#repairerDivCheckMainBlock').addClass('repairerStyleMobileHidden');
+		$('#repairerDivInspectionItemNamesBlock').addClass('repairerStyleMobileHidden');
+		$('#allDivWorkstationGroup').addClass('repairerStyleMobileHidden');
+		$('#repairerDivMessageToUserBlock').addClass('repairerStyleMobileHidden');
+		$('#repairerDivTakeVINCurrentPoint').addClass('repairerStyleMobileHidden');
+		$('#repairerButtonIconGetBack').removeClass('repairerStyleMobileHidden');
+	}
+	else if (visible == false) {
+		$('#repairerDivInspectionItemDetailsBlock').addClass('repairerStyleMobileHidden');
+		$('#repairerDivMainScanningBlock').removeClass('repairerStyleMobileHidden');
+		$('#repairerDivCheckMainBlock').removeClass('repairerStyleMobileHidden');
+		$('#repairerDivInspectionItemNamesBlock').removeClass('repairerStyleMobileHidden');
+		$('#allDivWorkstationGroup').removeClass('repairerStyleMobileHidden');
+		$('#repairerDivMessageToUserBlock').removeClass('repairerStyleMobileHidden');
+		$('#repairerDivTakeVINCurrentPoint').removeClass('repairerStyleMobileHidden');
+		$('#repairerButtonIconGetBack').addClass('repairerStyleMobileHidden');
+	}
+	
+}
+
+//Автоматическое получение вин-номера из QLS. Алгоритм функции срабатывает каждую секунду
+function repairerGetCurrentVINFromRFID(){
+
+	//Устанавливаем таймер с интервалом, через который обращаемся в QLS
+	timerIdCurrentVINFromRFID = setInterval(function() {
+		
+		//Получаем Object для отправки
+		var dataObject = getAllFormValues();
+		dataObject.repairerAttributeRFIDEnabled = stringToBoolean($("#repairerAttributeRFIDEnabled").text());
+		
+		//Можем обратиться только в этом случае
+		if ( dataObject.repairerAttributeRFIDEnabled && timerIdCurrentVINFromRFID != 0 ) {					
+			executeRequestPOST(window.location.href, 'getNextVINFromRFID', JSON.stringify(dataObject), false, false);			
+		}
+		else
+		{
+			clearTimeout(timerIdCurrentVINFromRFID);
+		};
+	}, 1000);
+}

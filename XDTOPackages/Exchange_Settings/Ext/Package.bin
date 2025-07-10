@@ -1,0 +1,43 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://localhost/WS/Exchange_Settings">
+	<objectType name="НастройкиОбмена">
+		<property name="БазаДанных" lowerBound="1" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="ИмяСервера" type="xs:string" form="Attribute"/>
+				<property name="ИмяБазыДанных" type="xs:string" form="Attribute"/>
+				<property name="ЭлементНастроек" lowerBound="0" upperBound="-1" form="Element">
+					<typeDef xsi:type="ObjectType">
+						<property name="Идентификатор" type="xs:string" lowerBound="0" nillable="false" form="Attribute"/>
+						<property name="ИдентификаторОбщейНастройки" type="xs:string" lowerBound="0" nillable="false" form="Attribute"/>
+						<property name="ПутьККаталогуОбмена" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="ПутьККаталогуАрхива" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="FTPАдресСервера" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="FTPПорт" type="xs:decimal" lowerBound="0" nillable="true" form="Element"/>
+						<property name="ПутьНаFTPСервере" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="SQL_Driver" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="SQL_DataSource" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="SQL_InitialCatalog" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="SQL_Tablename" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="SQL_IntegratedSecurity" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="SQL_Trusted_Connection" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="WEB_Service_WSDL" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="WEB_Service_URIПространстваИмен" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="WEB_Service_ИмяСервиса" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="WEB_Service_ИмяТочкиПодключения" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="ВнешнийИсточникДанных_СУБД" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="ВнешнийИсточникДанных_АутентификацияСтандартная" type="xs:boolean" lowerBound="0" nillable="true" form="Element"/>
+						<property name="ВнешнийИсточникДанных_СтрокаПодключения" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="ВнешнийИсточникДанных_GUID_УчетнойЗаписи" type="xs:string" lowerBound="0" nillable="true"/>
+						<property name="COM_1C_ИмяСервера" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="COM_1C_ИмяБазыДанных" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+						<property name="GUID_УчетнойЗаписи" type="xs:string" lowerBound="0" nillable="true"/>
+						<property name="Таймаут" type="xs:decimal" lowerBound="0" nillable="true"/>
+						<property name="HTTPАдресСервера" type="xs:string" lowerBound="0" nillable="true"/>
+						<property name="HTTPПорт" type="xs:decimal" lowerBound="0" nillable="true"/>
+						<property name="ПутьНаHTTPСервере" type="xs:string" lowerBound="0" nillable="true"/>
+						<property name="ЗащищенноеСоединение" type="xs:boolean" lowerBound="0" nillable="true"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

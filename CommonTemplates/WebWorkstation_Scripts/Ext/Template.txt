@@ -1,0 +1,392 @@
+﻿var timerHideMobileDeviceKeyboard;
+var currentInputScanningField;
+											//* Работа с сессиями *//
+
+//Обфускация функции encrypt. Оригинал в 1С в функции РасшифроватьСтрокуJS()
+eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('f e(3){2=4 b;6=4 8();7=4 8();5=3.d;9(i=0;i<5;i++){1=a.c(a.j()*l)+k;6[i]=3.g(i)+1;7[i]=1}9(i=0;i<5;i++){2+=b.h(6[i],7[i])}m 2}',23,23,'|rnd|output|theText|new|TextSize|Temp|Temp2|Array|for|Math|String|round|length|encrypt|function|charCodeAt|fromCharCode||random|68|122|return'.split('|'),0,{}))
+
+//Сохраняем куки
+function setCookie(cname, cvalue) {
+	var d = new Date();
+    d.setTime(d.getTime() + (9999 * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    return document.cookie;
+}
+
+//Получаем куки
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+//Очищаем куки
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+    return document.cookie;
+}
+
+//Сохраняем логин пользователя в куки
+function saveUsername(username) {
+	setCookie("username_"+getUrlParameter("exchange"), username);
+	setCookie("username", username);
+}
+
+//Получаем параметр из URL
+function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+											//* Прочие полезные функции *//
+
+//Скрыть клавиатуру на мобильных устройствах при установке фокуса
+function setFocusAndHideMobileDeviceKeyboard(inputScanningField) {
+	
+	currentInputScanningField = inputScanningField;
+	
+	inputScanningField.focus();
+	
+	if (inputScanningField.length > 0 ) {
+		
+		timerHideMobileDeviceKeyboard = setInterval(function() {
+			if (	isElementVisible(inputScanningField)	) {
+				inputScanningField.focus();
+			}
+			else {
+				inputScanningField.blur();
+			};
+		}, 1000);
+	}
+	
+	return timerHideMobileDeviceKeyboard;
+}
+
+//Преобразование в булево
+function stringToBoolean(string){
+	if (string == null){
+		return null;
+	}
+	switch(string.toLowerCase().trim()){
+		case "true": case "yes": case "1": case "истина": case "да": return true;
+		case "false": case "no": case "0": case "ложь": case "нет": case null: return false;
+		default: return null;
+    }
+}
+
+//Функция проверки на пустое значение
+function notEmptyValue(value){
+	if (value == null){
+		return false;
+	}
+	if (value == ""){
+		return false;
+	}
+	return true;
+}
+
+//Исправление сортировки по дате в скрипте DataTables
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+	"de_datetime-asc": function ( a, b ) {
+		var x, y;
+		if (jQuery.trim(a) !== '') {
+			var deDatea = jQuery.trim(a).split(' ');
+			var deTimea = deDatea[1].split(':');
+			var deDatea2 = deDatea[0].split('.');
+			x = (deDatea2[2] + deDatea2[1] + deDatea2[0] + deTimea[0] + deTimea[1]) * 1;
+		} else {
+			x = Infinity; // = l'an 1000 ...
+		}
+
+		if (jQuery.trim(b) !== '') {
+			var deDateb = jQuery.trim(b).split(' ');
+			var deTimeb = deDateb[1].split(':');
+			deDateb = deDateb[0].split('.');
+			y = (deDateb[2] + deDateb[1] + deDateb[0] + deTimeb[0] + deTimeb[1]) * 1;
+		} else {
+			y = Infinity;
+		}
+		var z = ((x < y) ? -1 : ((x > y) ? 1 : 0));
+		return z;
+	},
+
+	"de_datetime-desc": function ( a, b ) {
+		var x, y;
+		if (jQuery.trim(a) !== '') {
+			var deDatea = jQuery.trim(a).split(' ');
+			var deTimea = deDatea[1].split(':');
+			var deDatea2 = deDatea[0].split('.');
+			x = (deDatea2[2] + deDatea2[1] + deDatea2[0] + deTimea[0] + deTimea[1]) * 1;
+		} else {
+			x = Infinity;
+		}
+
+		if (jQuery.trim(b) !== '') {
+			var deDateb = jQuery.trim(b).split(' ');
+			var deTimeb = deDateb[1].split(':');
+			deDateb = deDateb[0].split('.');
+			y = (deDateb[2] + deDateb[1] + deDateb[0] + deTimeb[0] + deTimeb[1]) * 1;
+		} else {
+			y = Infinity;
+		}
+		var z = ((x < y) ? 1 : ((x > y) ? -1 : 0));
+		return z;
+	},
+
+	"de_date-asc": function ( a, b ) {
+		var x, y;
+		if (jQuery.trim(a) !== '') {
+			var deDatea = jQuery.trim(a).split('.');
+			x = (deDatea[2] + deDatea[1] + deDatea[0]) * 1;
+		} else {
+			x = Infinity; // = l'an 1000 ...
+		}
+
+		if (jQuery.trim(b) !== '') {
+			var deDateb = jQuery.trim(b).split('.');
+			y = (deDateb[2] + deDateb[1] + deDateb[0]) * 1;
+		} else {
+			y = Infinity;
+		}
+		var z = ((x < y) ? -1 : ((x > y) ? 1 : 0));
+		return z;
+	},
+
+	"de_date-desc": function ( a, b ) {
+		var x, y;
+		if (jQuery.trim(a) !== '') {
+			var deDatea = jQuery.trim(a).split('.');
+			x = (deDatea[2] + deDatea[1] + deDatea[0]) * 1;
+		} else {
+			x = Infinity;
+		}
+
+		if (jQuery.trim(b) !== '') {
+			var deDateb = jQuery.trim(b).split('.');
+			y = (deDateb[2] + deDateb[1] + deDateb[0]) * 1;
+		} else {
+			y = Infinity;
+		}
+		var z = ((x < y) ? 1 : ((x > y) ? -1 : 0));
+		return z;
+	}
+} );
+
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+											//* Подписки на действия на форме *//
+
+//Обработка базовых действий на странице
+$(document).ready(function(){
+
+	//Окончание действия кругляша ожидания
+	$("body").removeClass("loading");
+
+	//Кнопка "Домой"
+	$("#allButtonExitFromWorkstation").click(function(){
+			
+		//Получаем переменные для отправки в QLS
+		var dataObject = {};
+			dataObject.allAttributeUserSessionGuid = $('#allAttributeUserSessionGuid').text();
+	
+		//Определяем переменные для отправки в QLS
+		var url = window.location.href;
+		var type = "exit";		
+		var dataJSON = JSON.stringify(dataObject);
+		var reload = true;
+		
+		//Отправка данных в QLS. Перезагрузка страницы
+		executeRequestPOST(url, type, dataJSON, reload);
+	});
+		
+	//Меняем рабочее место оператора
+	$("#allTableChangeCurrentWorkstation tr").click(function(){
+		if ($(this).hasClass('selected') == false){
+			
+			//Выделяем выбранную строку жирным
+			$(this).addClass('active').siblings().removeClass('active');
+
+			//Получаем Object для отправки
+			var dataObject = getAllFormValues();
+				dataObject.allAttributeCurrentWorkstationGuid = $(this).find("td").attr("guid");
+				dataObject.buildCaptionCurrentPointGUID = "";
+			
+			//Определяем URL
+			var url = window.location.href;
+			var exchangeName = getQueryVariable('exchange');
+			if (exchangeName) {
+				url = 'http://'+window.location.host+window.location.pathname+'?exchange='+exchangeName;
+			};
+				
+			//Определяем переменные для отправки в QLS
+			var type = 'changeWorkstation';
+			var dataJSON = JSON.stringify(dataObject);
+			var reload = true;
+
+			//Отправка данных в QLS. Перезагрузка страницы			
+			executeRequestPOST(url, type, dataJSON, reload);
+		}
+	});
+	
+	//Скрипты, сгенерированные в ходе выполнения обработки
+	<!--СкриптыСгенерированныеОбработкой-->
+});
+
+//Получаем все значения с формы для отправки в QLS
+function getAllFormValues(){
+	
+	//Структура
+	var dataObject = {};
+		
+	//Общие значения
+	dataObject.allAttributeUserSessionGuid = $('#allAttributeUserSessionGuid').text();
+	dataObject.allAttributeUserSessionBeginningDate = $('#allAttributeUserSessionBeginningDate').text();
+	dataObject.allAttributeCurrentWorkstationGuid  = $('#allAttributeCurrentWorkstationGuid').text();
+	
+	return dataObject;
+}
+
+//Функция отправки данных в QLS и полной перезаписи страницы
+function executeRequestPOST(url, type, data, reload, loading){
+	
+	//По умолчанию всегда true, но в параметре это не пропишешь
+	if (loading != false) {
+		loading = true;
+	}
+
+	if (loading == true) {
+		//Начало действия кругляша ожидания
+		$("body").addClass("loading");
+	};
+		
+	//Очистка таймера установки фокуса	
+	if (timerHideMobileDeviceKeyboard != null) {
+		clearTimeout(timerHideMobileDeviceKeyboard);
+	};
+		
+	//Отправка в QLS
+	if (reload == true) {
+		$('#allFormPageReload').attr('action', url);		
+		$('#allInputPageReloadType').val(type);
+		$('#allInputPageReloadData').val(data);
+		document.getElementById('allFormPageReload').submit();
+	}
+	else if (reload == false) {
+	
+	     //POST-запрос в QLS
+	    $.ajax({
+			type: 'post',
+			url: url,
+			async: true,
+			cache: false,
+			data: {
+				'type': type,
+				'data': data
+			},
+			timeout: 60000,
+			response: 'html',
+			error: function(xmlhttprequest, textstatus, message) {
+				if(textstatus==="timeout") {
+		            alert("Timeout error");
+		        }
+		    },
+			success: function (result) {
+				
+				 //Закрываем модальные окна
+				$('.modal').modal('hide');
+				$('.modal-backdrop').remove();
+				
+				if (loading == true) {
+					//Удаляем кругляш
+					$('body').removeClass('loading');
+				};
+				
+				try {
+					//Пытаемся выполнить скрипт
+					eval(result);
+				} catch (err) {
+					//Загружаем страницу
+					document.open();
+					document.write(result);
+					document.close();
+				}		
+
+			}
+		});
+	};
+	
+};
+
+//Позволяет проверить видимость элемента на форме
+function isElementVisible(elem){
+	
+	var elementIsVisible = false;
+	
+	//Модальное оконо 
+	if ($('#allDivSelectWorkstationDialog').hasClass('in')) {
+		return elementIsVisible;
+	}
+	
+	if ($(elem).length > 0) {
+	    var $elem = $(elem);
+	    var $window = $(window);
+
+	    var docViewTop = $window.scrollTop();
+	    var docViewBottom = docViewTop + $window.height();
+
+	    var elemTop = $elem.offset().top;
+	    var elemBottom = elemTop + $elem.height();
+	    
+	    elementIsVisible = ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+	}
+    
+    return elementIsVisible;
+}
+
+//Получение параметра из URL
+function getQueryVariable(variable) {
+    
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    
+    return '';
+    
+}

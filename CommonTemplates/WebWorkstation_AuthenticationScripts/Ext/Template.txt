@@ -1,0 +1,69 @@
+﻿//Обработка всех действий на странице
+$(document).ready(function(){
+		
+	//Пытаемся получить логин, который ранее сохраняли в куки. Срабатывает только при загрузке этой страницы и только для определенного обмена 
+	var usernameCookie = getCookie("username_"+getUrlParameter("exchange"));
+	var usernameField = $("#allInputUserLogin").val();
+
+	if ( notEmptyValue(usernameCookie) && !notEmptyValue(usernameField) ) {
+		$("#allInputUserLogin").val(usernameCookie);	
+		setTimeout(function() { 
+			document.getElementById("allInputUserPassword").focus();
+			$('#allInputUserPassword').focus();
+		}, 10);
+	}
+	else {
+		setTimeout(function() { 
+			document.getElementById("allInputUserLogin").focus();
+			$('#allInputUserLogin').focus();
+		}, 10);
+	}
+
+	//Окно ввода логина и пароля. Перескакиваем в поле "Пароль" во вводу
+	$('#allInputUserLogin').on('keypress', function (element) {
+		if( element.keyCode == 13 && $('#allInputUserLogin').val() ){
+			document.getElementById("allInputUserPassword").focus();
+		}
+   	});
+	
+	//Окно ввода логина и пароля. Пытаемся авторизоваться
+	$('#allInputUserPassword').on('keypress', function (element) {
+		if( element.keyCode == 13 && $('#allInputUserPassword').val() ){
+        		
+        	//Получаем переменные для отправки в QLS
+			var dataObject = getAllFormValues(true);
+				dataObject.allInputUserLogin = $('#allInputUserLogin').val();
+				dataObject.allInputUserPassword = encrypt($('#allInputUserPassword').val());	
+		
+			//Определяем переменные для отправки в QLS
+			var url = window.location.href;
+			var type = "authentication";		
+			var dataJSON = JSON.stringify(dataObject);
+			var reload = true;
+		
+			//Отправка данных в QLS. Перезагрузка страницы
+			executeRequestPOST(url, type, dataJSON, reload);
+		}
+   	});
+
+	//Окно ввода логина и пароля. Нажатие кнопки "Войти"
+	$("#allButtonSubmitLoginPassword").click(function(){
+		
+		//Получаем переменные для отправки в QLS
+		var dataObject = getAllFormValues(true);
+			dataObject.allInputUserLogin = $('#allInputUserLogin').val();
+			dataObject.allInputUserPassword = encrypt($('#allInputUserPassword').val());
+		
+		//Определяем переменные для отправки в QLS
+		var url = window.location.href;
+		var type = "authentication";		
+		var dataJSON = JSON.stringify(dataObject);
+		var reload = true;
+		
+		//Отправка данных в QLS. Перезагрузка страницы
+		executeRequestPOST(url, type, dataJSON, reload);
+	});
+		
+});
+
+

@@ -1,0 +1,88 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://mes.fordsollers.com/ordersRegistrations/2.0" elementFormQualified="true" attributeFormQualified="true">
+	<import namespace="http://v8.1c.ru/8.1/data/enterprise/current-config"/>
+	<import namespace="http://mes.fordsollers.com/Exchange/Message"/>
+	<valueType name="EnumRef.Процессы" base="xs:string">
+		<enumeration/>
+		<enumeration>БанкЗаказов</enumeration>
+		<enumeration>DKDПоставка</enumeration>
+		<enumeration>ПодготовкаКПроизводству</enumeration>
+		<enumeration>Сварка</enumeration>
+		<enumeration>Окраска</enumeration>
+		<enumeration>Сборка</enumeration>
+		<enumeration>Тестирование</enumeration>
+		<enumeration>Транспортировка</enumeration>
+		<enumeration>СГП</enumeration>
+	</valueType>
+	<valueType name="EnumRef.ФазыПроцесса" base="xs:string">
+		<enumeration/>
+		<enumeration>Начало</enumeration>
+		<enumeration>Продолжение</enumeration>
+		<enumeration>Окончание</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.Заказы" base="d2p1:CatalogRef.Заказы"/>
+	<valueType xmlns:d2p1="http://mes.fordsollers.com/Exchange/Message" name="СправочникСсылка.Смены" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://mes.fordsollers.com/Exchange/Message" name="СправочникСсылка.ТипыТочекРегистрации" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ТочкиРегистрации" base="d2p1:CatalogRef.ТочкиРегистрации"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ТочкиРегистрацииГруппа" base="d2p1:CatalogRef.ТочкиРегистрации"/>
+	<objectType name="КлючевыеСвойстваЗаказы" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Ссылка" type="d3p1:СправочникСсылка.Заказы" lowerBound="0"/>
+		<property name="Код" type="xs:string" lowerBound="0"/>
+		<property name="VIN" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="17"/>
+		</property>
+		<property name="НомерЗаказа">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="20"/>
+		</property>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСмены" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Ссылка" type="d3p1:СправочникСсылка.Смены" lowerBound="0"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваТипыТочекРегистрации" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Ссылка" type="d3p1:СправочникСсылка.ТипыТочекРегистрации" lowerBound="0"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Процесс" type="d3p1:EnumRef.Процессы"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="ФазаПроцесса" type="d3p1:EnumRef.ФазыПроцесса" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваТочкиРегистрации" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Ссылка" type="d3p1:СправочникСсылка.ТочкиРегистрации" lowerBound="0"/>
+		<property name="Код">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="5"/>
+		</property>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваТочкиРегистрацииГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Ссылка" type="d3p1:СправочникСсылка.ТочкиРегистрацииГруппа" lowerBound="0"/>
+		<property name="Код">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="5"/>
+		</property>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Группа" type="d3p1:КлючевыеСвойстваТочкиРегистрацииГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="РегистрацииЗаказа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Заказ" type="d3p1:КлючевыеСвойстваЗаказы"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="РегистрацииНаСтанциях" type="d3p1:РегистрацииЗаказа.РегистрацииНаСтанциях"/>
+	</objectType>
+	<objectType name="РегистрацииЗаказа.РегистрацииНаСтанциях">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Строка" type="d3p1:РегистрацииЗаказа.РегистрацииНаСтанциях.Строка" upperBound="-1"/>
+	</objectType>
+	<objectType name="РегистрацииЗаказа.РегистрацииНаСтанциях.Строка" open="true" sequenced="true">
+		<property name="Период" type="xs:dateTime"/>
+		<property name="ВидДвижения" type="xs:string" fixed="true" default="Receipt"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="ТочкаРегистрации" type="d3p1:КлючевыеСвойстваТочкиРегистрации"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="ПредшествующаяТочкаРегистрации" type="d3p1:КлючевыеСвойстваТочкиРегистрации" lowerBound="0"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Смена" type="d3p1:КлючевыеСвойстваСмены" lowerBound="0"/>
+		<property name="ДатаСмены" type="xs:dateTime" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://mes.fordsollers.com/Exchange/Message" name="Справочник.ТочкиРегистрации" base="d2p1:Object" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваТочкиРегистрации"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="Группа" type="d3p1:КлючевыеСвойстваТочкиРегистрацииГруппа" lowerBound="0"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="ТипТочкиРегистрации" type="d3p1:КлючевыеСвойстваТипыТочекРегистрации" lowerBound="0"/>
+		<property name="ЭтоПерваяТочкаКонвейера" type="xs:boolean"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://mes.fordsollers.com/Exchange/Message" name="Справочник.ТочкиРегистрацииГруппа" base="d2p1:Object" open="true" sequenced="true">
+		<property xmlns:d3p1="http://mes.fordsollers.com/ordersRegistrations/2.0" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваТочкиРегистрацииГруппа"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+	</objectType>
+</package>

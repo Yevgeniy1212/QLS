@@ -1,0 +1,22 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://mes.fordsollers.com/Exchange/Message" elementFormQualified="true" attributeFormQualified="true">
+	<valueType name="Ref" base="xs:string"/>
+	<objectType name="AvailableObjectTypes">
+		<property xmlns:d3p1="http://mes.fordsollers.com/Exchange/Message" name="ObjectType" type="d3p1:ObjectType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Object" abstract="false">
+		<property name="AdditionalInfo" lowerBound="0"/>
+	</objectType>
+	<objectType name="ErrorResponse">
+		<property name="Error">
+			<typeDef xsi:type="ObjectType">
+				<property name="code" type="xs:string"/>
+				<property name="message" type="xs:string"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ObjectType">
+		<property name="Name" type="xs:string"/>
+		<property name="Sending" type="xs:string" lowerBound="0"/>
+		<property name="Receiving" type="xs:string" lowerBound="0"/>
+	</objectType>
+</package>

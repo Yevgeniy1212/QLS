@@ -1,0 +1,958 @@
+﻿var timerIdCurrentVINFromRFID = 0;
+
+//Расположение курсора
+var mouse = { x: 0, y: 0, startX: 0, startY: 0, absoluteX: 0, absoluteY: 0 };			
+
+//Параметры изображения
+var img = imgVariableCreate();
+function imgVariableCreate() { return { reference: '' , currentWidth: 0, currentHeight: 0, originalWidth: 0, originalHeight: 0, figures: [], figuresBackup: [] }; }
+
+//Изменение размеров браузера
+$( window ).resize(function() {
+	resizeScreen(img);
+});
+
+//Изменение размеров браузера
+function resizeScreen(img) {
+	
+	if (img.reference) {
+		drawImage(img);
+	}
+	else {
+		var canvas = document.getElementById('inspectorCanvasInspectionItemChecking');
+		if (canvas) {
+			canvas.width = 0;
+			canvas.height = 0;
+		};
+	};
+	
+}
+	
+//При загрузке документа
+$(document).ready(function() {
+
+	//Главное поле сканирования
+	var inputScanningField = $('#inspectorInputMainScanningInputField');	
+	setTimeout(function() { 
+		inputScanningField.attr('readonly', '').focus().removeAttr('readonly'); 
+	}, 100);
+
+
+	//Получение следующего VIN-номера из RFID
+	$(document).on('click', '#inspectorButtonMainScanningFieldContent', function (element) {	
+		if ( timerIdCurrentVINFromRFID == 0 ){
+			
+			//Сохранение идентификатора вызова сканера RFID в QLS
+			newFormEvent('saveCurrentRFIDGuid');	
+		
+			//Сам вызов сканера RFID
+			gateGetCurrentVINFromRFID();
+			
+		};
+			
+	});
+
+	//Вешаем событие на наше главное поле ввода
+	$(inputScanningField).on('keypress', function (element) {
+		if( element.keyCode == 13 && $(inputScanningField).val() ){
+			newFormEvent('newScanningEvent');
+		}
+	});
+    
+	//Поле поиска инспекционного элемента
+	$(document).on('keyup', '#inspectorInputInspectionItemSearchField', function (element) {	
+		inspectionItemMask = $('#inspectorInputInspectionItemSearchField').val().toLowerCase();
+		if ( inspectionItemMask ) {
+			$( ".inspectorDivInspectionItemHeader").hide();
+			$( ".inspectorDivImageInspectionItem").hide();
+			$( ".inspectorDivInspectionItemHeader[name*='"+inspectionItemMask+"']").show();
+			$( ".inspectorDivImageInspectionItem[name*='"+inspectionItemMask+"']").show();
+		}
+		else {
+			$( ".inspectorDivInspectionItemHeader").show();
+			$( ".inspectorDivImageInspectionItem").show();
+		}
+			
+	});
+	
+	//Кнопки-вкладки "Defects, Rare options, Shortages, Campaigns"
+	$(document).on('click', '#inspectorDivCheckSubBlockDefects, #inspectorDivCheckSubBlockRareOptions, #inspectorDivCheckSubBlockShortage, #inspectorDivCheckSubBlockCampaign, #inspectorDivCheckSubBlockControl', function (element) {	
+		
+		if ( $(this).hasClass('disabled') ) {
+			return;
+		}
+		
+		//Модальное окно для мобильного интерфейса
+		setVisibilityDetalisationBlockMobile(true);
+		
+		//Видимость таблиц
+		$('#inspectorDivInspectionItemDetailsBlock').children().addClass('styleHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').addClass('styleHidden');
+		
+		//Управление подсветкой кнопок
+		$('#inspectorDivCheckMainBlock').children().removeClass('active');
+		$(this).addClass('active');
+		
+		//Отображаем "Defects"
+		if (	$(this).is($('#inspectorDivCheckSubBlockDefects'))	) {
+			$('#inspectorDivInspectionItemNamesMainBlock').removeClass('styleHidden');
+			$('#inspectorDivVINAdditionalInformationDefects').removeClass('styleHidden');
+			$('#inspectorDivInspectionItemNamesMainBlock').removeClass('styleHidden');		
+		}
+
+		//Отображаем "Rare options"
+		if (	$(this).is($('#inspectorDivCheckSubBlockRareOptions'))	) {
+			$('#inspectorDivVINAdditionalInformationRareOptions').removeClass('styleHidden');
+		}
+		//Отображаем "Shortages"
+		if (	$(this).is($('#inspectorDivCheckSubBlockShortage'))	) {
+			$('#inspectorDivVINAdditionalInformationShortages').removeClass('styleHidden');
+		}
+		
+		//Отображаем "Campaigns"
+		if (	$(this).is($('#inspectorDivCheckSubBlockCampaign'))	) {
+			$('#inspectorDivVINAdditionalInformationCampaigns').removeClass('styleHidden');
+		}
+			
+		//Отображаем "Controls"
+		if (	$(this).is($('#inspectorDivCheckSubBlockControl'))	) {
+			$('#inspectorDivVINAdditionalInformationControl').removeClass('styleHidden');
+		}	
+		
+	});	
+		
+	//Кнопки-вкладки "ON, NOK"
+	$(document).on('click', '.inspectorButtonInspectionItemOK, .inspectorButtonInspectionItemNOK', function (element) {	
+		
+		if ( $(this).hasClass('disabled') ) {
+			return;
+		}
+	
+		//Модальное окно для мобильного интерфейса
+		setVisibilityDetalisationBlockMobile(true);
+		
+		//Скрываем все вкладки
+		$('#inspectorDivInspectionItemDetailsBlock').children().addClass('styleHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').addClass('styleHidden');
+		
+		//Открываем только то, что нужно
+		$('#inspectorDivQualityDetails').removeClass('styleHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').removeClass('styleHidden');
+
+		//Подсветка кнопок и строк
+		$('#inspectorButtonCreateQualityCheckDocument').removeClass('btn-danger btn-success');
+		$('.inspectorDivInspectionItemHeader').removeClass('styleActive')
+		
+		//Параметры текущего инспектируемого элемента
+		var settings = JSON.parse($(this).parent().parent().attr('settings'));
+		
+		//Определяем тип операции
+		var typeOperation = '';
+		
+		//Отображаем "OK"
+		if (	$(this).hasClass('inspectorButtonInspectionItemOK')	) {		
+		    typeOperation = 'OK';			
+		}
+		
+		//Отображаем "NOK"
+		if (	$(this).hasClass('inspectorButtonInspectionItemNOK')	) {
+			typeOperation = 'NOK';
+		}	
+		
+		//Если смогли определить параметры, то применяем их
+		pageCreated = createDefectPage(settings, typeOperation);
+		if ( pageCreated ) {
+			$(this).parent().parent().addClass('styleActive');
+		};
+				
+	});	
+			
+	//Завершить инспекцию
+	$(document).on('click', '#inspectorButtonComplete', function (element) {
+		var buttonComplete = $(this);
+		if( !buttonComplete.hasClass('disabled') ){
+			newFormEvent( 'completeInspection' );
+		};
+	});
+	
+	//Также добавляем события на кнопки перемещения между винами на точке конвейера
+	$(document).on('click', '#inspectorButtonGetPreviousVIN', function (element) {
+		var buttonPreviousVIN = $(this);
+		if( !buttonPreviousVIN.hasClass('disabled') ){
+			newFormEvent( 'getPreviousVIN' );
+		};
+	});	
+	
+	//Также добавляем события на кнопки перемещения между винами на точке конвейера
+	$(document).on('click', '#inspectorButtonGetNextVIN', function (element) {
+		var buttonNextVIN = $(this);
+		if( !buttonNextVIN.hasClass('disabled') ){
+			newFormEvent( 'getNextVIN' );
+		};
+	});
+		
+	//Поле поиска номенклатуры
+	$(document).on('keyup', '#inspectorInputInspectionItemInput', function (element) {	
+			
+		//Получаем данные с формы в формате JSON
+		var dataObject = getAllFormValues();	
+		dataObject.nomenclatureMask = $('#inspectorInputInspectionItemInput').val();		
+		dataObject.guidCurrentVIN = $.trim($('#inspectorDivCurrentVINGUID').text());
+		var dataJSON = JSON.stringify(dataObject);
+		 
+		//POST-запрос в QLS
+	    $.ajax({
+			type: 'post',
+			async: true,
+			cache: false,
+			data: {
+				'type': 'contextNomenclatureList',
+				'data': dataJSON
+			},
+			timeout: 10000,
+			response: 'html',
+			error: function(xmlhttprequest, textstatus, message) {
+				if(textstatus==="timeout") {
+		            alert("Timeout error");
+		        }
+		    },
+			success: function (result) {			
+				try {
+					eval(result);
+				} catch (err) {
+					$('#inspectorDivInspectionItemNomenclatureResult').html(result);
+				}
+			}
+		});
+			
+	});
+	
+	//Таблица выбора номенклатуры	
+	$(document).on('click', '#inspectorDivInspectionItemNomenclatureResult > .inspectorDivInspectionItemContent > .inspectorDivCheckSubBlockContent', function (element) {
+		$('#inspectorDivInspectionItemNomenclatureResult').find('.btn-primary').removeClass('btn-primary');
+		$('#inspectorDivInspectionItemNomenclatureResult').find('.active').removeClass('active');		
+		$(this).find('.inspectorInputInspectionItemNomenclatureSetCount').addClass('btn-primary');
+		$(this).addClass('btn-primary');
+		$(this).addClass('active');
+	});
+	
+	//Создание документа некомплекта
+	$(document).on('click', '#inspectorButtonCreateNotFullComplectDocument', function (element) {
+		var buttonNotFullComplect = $(this);
+		if( !buttonNotFullComplect.hasClass('disabled') && $('#inspectorDivInspectionItemNomenclatureResult').find('.active').length == 1 ){
+			newFormEvent( 'createNotFullComplectDocument' );
+		};
+	});
+			
+	//Вешаем событие на кнопку создания дефекта
+	$(document).on('click', '#inspectorButtonCreateQualityCheckDocument', function (element) {
+		var buttonConfirmation = $(this);
+		if( !buttonConfirmation.hasClass('disabled') ){
+			newFormEvent( 'createQualityDocument' );
+		};
+	});
+		
+	//Вешаем событие на кнопку контроля исправленного дефекта. Дефект успешно исправлен
+	$(document).on('click', '#inspectorButtonDefectSuccessfullyRepaired', function (element) {
+		var buttonConfirmation = $(this);
+		if( !buttonConfirmation.hasClass('disabled') ){
+			$('#inspectorDivDefectRepairedButtons').attr('qualityOperationType','OK');
+			newFormEvent( 'createControlDocument' );
+		};
+	});
+	
+	//Вешаем событие на кнопку контроля исправленного дефекта. Дефект не был исправлен
+	$(document).on('click', '#inspectorButtonDefectUnsuccessfullyRepaired', function (element) {
+		var buttonConfirmation = $(this);
+		if( !buttonConfirmation.hasClass('disabled') ){
+			$('#inspectorDivDefectRepairedButtons').attr('qualityOperationType','NOK');
+			newFormEvent( 'createControlDocument' );
+		};
+	});
+	
+				
+	//После выбора дефекта, мы должны выбрать тип дефекта
+	$(document).on('change', '.selectpicker', function (element) {
+		
+		var defectid = $(this).find("option:selected").attr('defectid');
+		if ( defectid !=null ) {
+	
+			//Скрыть все типы дефектов
+			$('.inspectorDivInspectionItemDetailsTypeDefect').addClass('styleHidden')
+			$('.inspectorDivInspectionItemDetailsTypeDefect').removeClass('active')
+
+			//Поиск типа дефекта с этим кодом дефекта
+			if ( $('.inspectorDivInspectionItemDetailsTypeDefect[defectid='+defectid+']').length > 0 ) {
+				
+				//Отобразить блок
+				$('#inspectorDivInspectionItemDetailsTypeDefectsBlock').removeClass('styleHidden');
+
+				//Отобразить нужный тип дефекта
+				$('.inspectorDivInspectionItemDetailsTypeDefect[defectid='+defectid+']').removeClass('styleHidden');
+				$('.inspectorDivInspectionItemDetailsTypeDefect[defectid='+defectid+']').addClass('active');
+			
+			}
+			else {
+				
+				//Скрыть блок
+				$('#inspectorDivInspectionItemDetailsTypeDefectsBlock').addClass('styleHidden');
+				
+			}
+				
+		};
+		
+	});
+        
+    //Нажали на кнопку "Назад". Скрываем блок с описанием дефекта и делаем всё как было
+    $(document).on('click', '#inspectorButtonIconGetBack', function (element) {
+		$('#inspectorDivCheckMainBlock').children().removeClass('active');
+		setVisibilityDetalisationBlockMobile(false);
+	});       
+
+
+									/* Работа с изображением */
+
+	//Двигаем мышкой и определяем текущее расположение курсора
+	$(document).on('mousemove', '#inspectorCanvasInspectionItemChecking', function (move) {
+		
+		var parentOffset = $(this).offset();
+		mouse.x = move.pageX - parentOffset.left;
+		mouse.y = move.pageY - parentOffset.top;
+		
+		mouse.absoluteX = move.pageX;
+		mouse.absoluteY = move.pageY;
+		
+		var figureId = getSelectedPolygon();
+		var settings = img.figures[figureId];
+		if (settings == null) {
+			document.getElementById("inspectorCanvasInspectionItemChecking").style.cursor = "default";		
+		}
+		else {
+			if ( settings.CheckIsRequired == true && settings.FigurePosition.InspectionComplete == true && settings.FigurePosition.InspectionCompleteIsOK) {
+				document.getElementById("inspectorCanvasInspectionItemChecking").style.cursor = "not-allowed";
+			} else {
+				document.getElementById("inspectorCanvasInspectionItemChecking").style.cursor = "pointer";
+			}
+		}
+		showTooltip(settings);
+
+	});
+
+	//Выбор области-дефекта на большом изображении
+	$(document).on('click', '#inspectorCanvasInspectionItemChecking', function (element) {
+		
+		var figureId = getSelectedPolygon();
+		if ( figureId == null ) {
+			return;
+		}
+		
+		var settings = img.figures[figureId];
+		if ( settings == null ) {
+			return;
+		}
+		
+		
+		//Если проверка этого элемента обязательна, то даём возможность выбора статуса "OK" или "NOK"
+		if ( settings.CheckIsRequired == true && settings.FigurePosition.InspectionComplete == false) {
+			createDefectPage(settings);
+		} else if ( settings.CheckIsRequired == true && settings.FigurePosition.InspectionComplete == true && settings.FigurePosition.InspectionCompleteIsOK){
+			return; //noting
+		} 
+		else {
+			createDefectPage(settings, 'NOK');
+		}
+		
+	}); 
+		
+	//Выбор области-дефекта на большом изображении
+	$(document).on('click', '#inspectorDivCheckMainBlock, .inspectorDivInspectionItemHeader', function (element) {	
+		$("#inspectorDivInspectionItemNamesMainBlock").removeClass('inspectorDivInspectionItemNamesMainBlockNarrow inspectorDivInspectionItemNamesMainBlockWide');
+		$("#inspectorDivInspectionItemNamesMainBlock").addClass('inspectorDivInspectionItemNamesMainBlockWide');	
+	});		
+				
+	//Статус инспектируемого элемента "ОК"
+	$(document).on('click', '#inspectorButtonInspectionItemCheckChooseOperationOK', function (element) {
+		var settings = JSON.parse( $('#inspectorDivInspectionItemCheckChooseOperation').attr('settings') );
+		createDefectPage(settings, 'OK');
+	});
+	
+	//Статус инспектируемого элемента "NОК"
+	$(document).on('click', '#inspectorButtonInspectionItemCheckChooseOperationNOK', function (element) {
+		var settings = JSON.parse( $('#inspectorDivInspectionItemCheckChooseOperation').attr('settings') );
+		createDefectPage(settings, 'NOK');
+	});
+	
+	//Нажатие по блоку инспектируемого элемента
+	$(document).on('click', '.inspectorDivInspectionItemHeader', function (element) {
+		if (	$(element.target).hasClass('btn')	) return;
+		
+		var settings = JSON.parse( $(this).attr('settings') );
+		if (settings != null ) {
+			
+			if (settings.ScanningStatus != 0) {
+				return;
+			}
+			
+			if (settings.CheckIsRequired) {
+				createDefectPage(settings);
+			} else {
+				createDefectPage(settings, 'NOK');
+			}
+			$(this).addClass('styleActive');
+		};
+	});
+	
+	//Выбор изображения из списка
+	$(document).on('click', '.inspectorDivImageInspectionItem', function (element) { //.inspectorImageInspectionItemPicture
+		
+		//Ширина колонки
+		$("#inspectorDivInspectionItemNamesMainBlock").removeClass('inspectorDivInspectionItemNamesMainBlockNarrow inspectorDivInspectionItemNamesMainBlockWide');
+		$("#inspectorDivInspectionItemNamesMainBlock").addClass('inspectorDivInspectionItemNamesMainBlockNarrow');	
+		
+		//Если картинка доступна
+		if ( $(this).hasClass('disabled') ) { return; }
+		
+		//Модальное окно для мобильного интерфейса
+		setVisibilityDetalisationBlockMobile(true);
+		
+		//Скрываем все вкладки
+		$('#inspectorDivInspectionItemDetailsBlock').children().addClass('styleHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').addClass('styleHidden');
+		 
+		//Открываем только то, что нужно
+		$('#inspectorDivInspectionItemImageHiResSelectDefect').removeClass('styleHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').removeClass('styleHidden');
+		
+		//Отрисовка изображения
+		img = imgVariableCreate();
+		resizeScreen(img);
+		img.reference = $(this).find('img')[0];
+		drawImage(img);
+		
+		//Моментальный ресайз
+		resizeScreen(img);
+		
+	});
+	
+	//Для каждой мелкой картинки подгружаем картинку побольше
+	setTimeout(getAllOriginalImages, 10);
+
+	//Обновляем статусы каждого изображения
+	setTimeout(refreshImagesStatuses, 10);
+
+	//Вкладка "Контроль"
+	$(document).on('click', '#inspectorDivControlContent>.inspectorDivCheckSubBlockContent', function (element) {
+		
+		//Снятие активности строк во всех табличных частях
+		$('.inspectorDivCheckSubBlockContent').parent().children().removeClass('active');
+		$('.inspectorDivCheckSubBlockContent').parent().children().removeClass('stylePrimary');
+		$('.inspectorDivCheckSubBlockContent').parent().children().children().removeClass('stylePrimary');
+		$('.inspectorDivCheckSubBlockContent').parent().children().children().children().removeClass('stylePrimary');
+		
+		//Установка недоступности этих элементов
+		$('#inspectorDivDefectsContentCreateDocuments').addClass('styleHidden');
+
+		//Установка активности выбранного элемента
+		if (!$(this).hasClass('inspectorDivInspectionItemTitle')) {
+					
+			//Подсветка строк
+			$(this).addClass('active');
+			$(this).addClass('stylePrimary');
+			$(this).children().addClass('stylePrimary');
+			$(this).children().children().addClass('stylePrimary');
+			
+			//Активация блока
+			$('#inspectorDivDefectsContentCreateDocuments').removeClass('styleHidden');			
+		};
+		
+	});
+
+});
+
+//Функция обработки отсканированного значения
+function newFormEvent(type) { 
+	
+	//Получаем данные с формы в формате JSON
+	var dataObject = getAllFormValues();	
+
+	//Отсканировали новое значение
+	if (type == 'newScanningEvent') {
+		//Также получаем отсканированное значение
+		dataObject.newScanningValue = $('#inspectorInputMainScanningInputField').val();		
+	}
+
+	//Создаём новый документ консерн
+	if (type == 'createQualityDocument') {
+		//Получаем данные с формы
+		dataObject.guidCurrentVIN = $.trim($('#inspectorDivCurrentVINGUID').text());
+		dataObject.inspectorDivFilterBlockPositionA = $('#inspectorDivFilterBlockPositionA .selectpicker').val();
+		dataObject.inspectorDivFilterBlockPositionB = $('#inspectorDivFilterBlockPositionB .selectpicker').val();
+		dataObject.inspectorDivFilterBlockPositionC = $('#inspectorDivFilterBlockPositionC .selectpicker.active').val();
+		dataObject.inspectorInputValueOfConcern = $('#inspectorInputValueOfConcern .selectpicker').val();    
+		dataObject.inspectorInputResponsibleForDefect = $('#inspectorInputResponsibleForDefect .selectpicker').val();
+		dataObject.inspectorDivInspectionItemDetailsDefectsBlock = $('#inspectorDivInspectionItemDetailsDefectsBlock .selectpicker').val();
+		dataObject.inspectorDivInspectionItemDetailsTypeDefectsBlock = $('.inspectorDivInspectionItemDetailsTypeDefect.active .selectpicker').val();
+		dataObject.inspectorInputComment = $('#inspectorInputComment').val();
+		dataObject.inspectorDivInspectionItemTitle = $('#inspectorDivInspectionItemTitle').attr('guid');
+		dataObject.inspectorDivInspectionItemPosition = $('#inspectorDivInspectionItemPositionFilterBlock').attr('guid');
+		dataObject.qualityOperationType = $('#inspectorButtonCreateQualityCheckDocument').attr('qualityOperationType');					
+		dataObject.inspectorDivInspectionItemDetailsRepairBlock = false;
+		if ( $('#inspectorDivInspectionItemDetailsRepairBlock > .toggle.btn-primary').length > 0	) {
+			dataObject.inspectorDivInspectionItemDetailsRepairBlock = true;
+		};
+	}	
+
+	//Создаём новый документ некомплекта
+	if (type == 'createNotFullComplectDocument') {
+		var activeRowNomenclature = $('#inspectorDivInspectionItemNomenclatureResult').find('.active');
+		dataObject.inspectorInputNotFullComplectGUID = activeRowNomenclature.find('.inspectorDivInspectionItemNomenclatureGUID').text();
+		dataObject.inspectorInputNotFullComplectCount = activeRowNomenclature.find('.inspectorInputInspectionItemNomenclatureSetCount').val();
+		dataObject.guidCurrentVIN = $.trim($('#inspectorDivCurrentVINGUID').text());
+	}
+	
+	//Переходим к предыдущему заказу
+	if (type == 'getPreviousVIN') {
+		dataObject.guidCurrentVIN = $.trim($('#inspectorDivCurrentVINGUID').text());
+		dataObject.guidPreviousVIN = $('#inspectorButtonGetPreviousVIN').attr('guid');
+	}	
+	
+	//Переходим к последующему заказу
+	if (type == 'getNextVIN') {
+		dataObject.guidCurrentVIN = $.trim($('#inspectorDivCurrentVINGUID').text());
+		dataObject.guidNextVIN = $('#inspectorButtonGetNextVIN').attr('guid');
+	}
+	
+	//Завершить инспекцию этого заказа
+	if (type == 'completeInspection') {
+		dataObject.guidCurrentVIN = $.trim($('#inspectorDivCurrentVINGUID').text());
+	}
+		
+	//Сохраняем GUID этого вызова сканера RFID меток 
+	if (type == 'saveCurrentRFIDGuid') {
+		dataObject.inspectorAttributeRFIDSessionGUID = $.trim($('#inspectorAttributeRFIDSessionGUID').text());
+	}
+	
+	//Контроль выполненного ремонта
+	if (type == 'createControlDocument') {
+		dataObject.guidCurrentVIN = $.trim($('#inspectorDivCurrentVINGUID').text());
+		dataObject.qualityOperationType = $('#inspectorDivDefectRepairedButtons').attr('qualityOperationType');
+		dataObject.qualityOperationConcernGUID = $('#inspectorDivControlContent > .inspectorDivCheckSubBlockContent.active').attr('concernguid');
+		dataObject.inspectorInputComment = $('#inspectorDivDefectsContentCommentValue').val();
+	}
+			
+	//Упаковка в JSON
+	var dataJSON = JSON.stringify(dataObject);
+
+	//Очищаем поле
+	$('#inspectorInputMainScanningInputField').val('');
+
+	//И лезем в QLS
+	executeRequestPOST(window.location.href, type, dataJSON, false);
+	      
+}
+
+//Устанавливаем фокус на первый непроверенный обязательный инспекционный элемент
+function setFocusOnFirstUnscanningItem(FirstUnscanningElementNumber) {
+	var FirstUnscanningElementRef = $('.inspectorDivInspectionItemHeader[order='+FirstUnscanningElementNumber+']');
+	if (FirstUnscanningElementRef.length > 0) {
+		$('#inspectorDivInspectionItemNamesBlock').animate({ 
+			scrollTop: FirstUnscanningElementRef.position().top - $('#inspectorDivInspectionItemNamesBlock').position().top
+		}, 'slow');
+	}
+}
+
+//Показываем блок детализации/описания дефекта
+function setVisibilityDetalisationBlockMobile(visible) {
+	
+	if (visible == true) {
+		$('#inspectorDivInspectionItemDetailsBlock').removeClass('inspectorStyleMobileHidden');
+		$('#inspectorDivMainScanningBlock').addClass('inspectorStyleMobileHidden');
+		$('#inspectorDivCheckMainBlock').addClass('inspectorStyleMobileHidden');
+		$('#allDivWorkstationGroup').addClass('inspectorStyleMobileHidden');
+		$('#inspectorDivMessageToUserBlock').addClass('inspectorStyleMobileHidden');
+		$('#inspectorDivTakeVINCurrentPoint').addClass('inspectorStyleMobileHidden');
+		$('#inspectorButtonIconGetBack').removeClass('inspectorStyleMobileHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').addClass('inspectorStyleMobileHidden');
+		$('#inspectorDivCurrentShortVINCaption').addClass('inspectorStyleMobileHidden');
+		$('#inspectorButtonComplete').addClass('inspectorStyleMobileHidden');		
+	}
+	else if (visible == false) {
+		$('#inspectorDivInspectionItemDetailsBlock').addClass('inspectorStyleMobileHidden');
+		$('#inspectorDivMainScanningBlock').removeClass('inspectorStyleMobileHidden');
+		$('#inspectorDivCheckMainBlock').removeClass('inspectorStyleMobileHidden');
+		$('#allDivWorkstationGroup').removeClass('inspectorStyleMobileHidden');
+		$('#inspectorDivMessageToUserBlock').removeClass('inspectorStyleMobileHidden');
+		$('#inspectorDivTakeVINCurrentPoint').removeClass('inspectorStyleMobileHidden');
+		$('#inspectorButtonIconGetBack').addClass('inspectorStyleMobileHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').removeClass('inspectorStyleMobileHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').removeClass('styleHidden');		
+		$('#inspectorDivCurrentShortVINCaption').removeClass('inspectorStyleMobileHidden');
+		$('#inspectorButtonComplete').removeClass('inspectorStyleMobileHidden');
+	}
+	
+}
+
+//Отрисовка изображения на всю страницу
+function drawImage(img) {
+
+	//Получаем информацию об изображении
+	img.figures = JSON.parse(img.reference.getAttribute('settings'));
+	img.figuresBackup = img.figures;
+	img.originalWidth = img.reference.naturalWidth;
+	img.originalHeight = img.reference.naturalHeight;
+	
+	//Получаем canvas
+	var canvas = document.getElementById('inspectorCanvasInspectionItemChecking');
+	var maxWidth = $('#inspectorDivInspectionItemImageHiResSelectDefect').width();
+	var maxHeight = $('#inspectorDivInspectionItemImageHiResSelectDefect').height()-$('#inspectorDivImageTooltip').height();
+		
+	//Масштабируем	
+	if (maxWidth/img.originalWidth > maxHeight/img.originalHeight) {
+		maxWidth = maxHeight*img.originalWidth/img.originalHeight;
+	} else {
+		maxHeight = maxWidth/(img.originalWidth/img.originalHeight);
+	}
+	
+	//Назначаем
+	img.currentHeight = maxHeight;
+	img.currentWidth = maxWidth;
+	canvas.height = maxHeight; 
+	canvas.width = maxWidth; 
+	
+	//Очистка экрана
+	var canvas = document.getElementById('inspectorCanvasInspectionItemChecking');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, document.body.clientWidth, document.body.clientHeight);
+	
+	//Рисуем изображение
+	canvas.getContext('2d').drawImage(img.reference,0,0,img.currentWidth,img.currentHeight);
+		
+	//Рисуем кривые по координатам
+	for (var i = 0; i < img.figures.length; i++) {
+		drawFigure(canvas, img.figures[i].FigurePosition.Position, img.figures[i].FigurePosition.Style, img.figures[i].CheckIsRequired);
+	}
+
+}
+
+//Отрисовка блока по координатам
+function drawFigure(canvas, coordinates, style, checkIsRequired) {
+	
+	var context = canvas.getContext('2d');
+	
+	context.fillStyle = style;
+	context.beginPath();
+	
+	for (var i = 0; i < coordinates.length; i++) {
+		var x = coordinates[i].x;
+		var y = coordinates[i].y;
+		
+		x = x * img.currentWidth/img.originalWidth;
+		y = y * img.currentHeight/img.originalHeight;
+		
+		if (i == 0) {
+			context.moveTo(x, y);
+		}
+		else {
+			context.lineTo(x, y);
+		}
+	}
+	
+	context.closePath();
+	context.fill();
+	
+	if (checkIsRequired == false) {
+		//context.setLineDash([5]);
+		context.lineWidth=3;
+		context.strokeStyle='#474747';
+	} else {
+		context.lineWidth=5;
+		context.strokeStyle='#b43f3b';	
+	}
+	
+	context.stroke();
+
+}
+
+//Определяем, какая из областей была нажата
+function getSelectedPolygon() {
+		
+	var canvas = document.getElementById('inspectorCanvasForServiceUse');
+	var context = canvas.getContext('2d');
+	var figureId = null;
+	
+	canvas.width = img.currentWidth;
+	canvas.height = img.currentHeight;
+	
+	for (var i = 0; i < img.figures.length; i++) {
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		drawFigure(canvas, img.figures[i].FigurePosition.Position, img.figures[i].FigurePosition.Style, img.figures[i].CheckIsRequired);
+		if (context.isPointInPath(mouse.x, mouse.y) == true) {
+			figureId = i;
+		}
+	}
+	
+	return figureId;
+}
+
+//Нарисовать страницу создания дефекта
+function createDefectPage(settings, type) {
+	
+	pageCreated = false;
+	
+	//Определяем тип операции
+	if ( type == 'OK' ) {
+		//Кнопка создания документа проверки качества
+		$('#inspectorButtonCreateQualityCheckDocument').removeClass('btn-danger btn-success');
+		$('#inspectorButtonCreateQualityCheckDocument').addClass('btn-success');		
+		$('#inspectorButtonCreateQualityCheckDocument').attr('qualityOperationType', type);
+		
+		//Видимость блоков настройки дефекта
+		$('#inspectorDivInspectionItemPositionFilterBlock').addClass('styleHidden');
+		$('#inspectorDivInspectionItemValueOfConcern').addClass('styleHidden'); 
+		$('#inspectorDivInspectionItemResponsibleForDefect').addClass('styleHidden');
+		$('#inspectorDivInspectionItemDetailsMainDefectsBlock').addClass('styleHidden');
+		$('#inspectorDivInspectionItemCheckChooseOperation').addClass('styleHidden');
+		$('#inspectorDivInspectionItemDetailsMainCommentRepairBlock').removeClass('styleHidden');
+		$('#inspectorDivCreateQualityCheckDocument').removeClass('styleHidden');
+	} else if ( type == 'NOK' ) {
+		//Кнопка создания документа проверки качества
+		$('#inspectorButtonCreateQualityCheckDocument').removeClass('btn-danger btn-success');
+		$('#inspectorButtonCreateQualityCheckDocument').addClass('btn-danger');
+		$('#inspectorButtonCreateQualityCheckDocument').attr('qualityOperationType', type);
+		
+		//Видимость блоков настройки дефекта
+		$('#inspectorDivInspectionItemCheckChooseOperation').addClass('styleHidden');
+		$('#inspectorDivInspectionItemPositionFilterBlock').removeClass('styleHidden');
+		$('#inspectorDivInspectionItemValueOfConcern').removeClass('styleHidden');  
+		$('#inspectorDivInspectionItemResponsibleForDefect').removeClass('styleHidden');
+		$('#inspectorDivInspectionItemDetailsMainDefectsBlock').removeClass('styleHidden');		
+		$('#inspectorDivInspectionItemDetailsMainCommentRepairBlock').removeClass('styleHidden');
+		$('#inspectorDivCreateQualityCheckDocument').removeClass('styleHidden');
+	} else {
+		//Кнопка создания документа проверки качества
+		$('#inspectorButtonCreateQualityCheckDocument').removeClass('btn-danger btn-success');
+		
+		//Редактирование большой надписи
+		$('#inspectorButtonInspectionItemCheckChooseOperationCaption').text($('#inspectorButtonInspectionItemCheckChooseOperationCaption').attr('textPattern')+settings.InspectionItemName);
+		
+		//Сохраняем параметры выбора инспектируемого элемента
+		var settingsJSON = JSON.stringify(settings);
+		$('#inspectorDivInspectionItemCheckChooseOperation').attr('settings', settingsJSON);
+		
+		//Видимость блоков настройки дефекта
+		$('#inspectorDivInspectionItemCheckChooseOperation').removeClass('styleHidden');
+		$('#inspectorDivInspectionItemPositionFilterBlock').addClass('styleHidden');
+		$('#inspectorDivInspectionItemDetailsMainDefectsBlock').addClass('styleHidden');
+		$('#inspectorDivInspectionItemDetailsMainCommentRepairBlock').addClass('styleHidden');
+		$('#inspectorDivCreateQualityCheckDocument').addClass('styleHidden');
+	}
+
+	//Если смогли определить параметры, то применяем их
+	if ( settings ) {
+
+		//Модальное окно для мобильного интерфейса
+		setVisibilityDetalisationBlockMobile(true);
+		
+		//Скрываем все вкладки
+		$('#inspectorDivInspectionItemDetailsBlock').children().addClass('styleHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').addClass('styleHidden');
+		
+		//Открываем только то, что нужно
+		$('#inspectorDivQualityDetails').removeClass('styleHidden');
+		$('#inspectorDivInspectionItemNamesMainBlock').removeClass('styleHidden');
+
+		//Подсветка кнопок и строк
+		$('.inspectorDivInspectionItemHeader').removeClass('styleActive');
+		
+		//Наименование идентификатор инспектируемого элемента
+		$('#inspectorDivInspectionItemTitle').text(settings.InspectionItemName);
+		
+		//Уникальный идентификатор инспектируемого элемента
+		$('#inspectorDivInspectionItemTitle').attr('guid', settings.InspectionItemGUID);
+		
+		//Уникальный идентификатор расположения инспектируемого элемента
+		$('#inspectorDivInspectionItemPositionFilterBlock').attr('guid', settings.InspectionItemVersionGUID);
+		
+		//Обнуление переменных
+		$('#inspectorDivFilterBlockPositionA').find('.selectpicker').selectpicker('val', 'select');
+		$('#inspectorDivFilterBlockPositionB').find('.selectpicker').selectpicker('val', 'select');
+		$('#inspectorDivFilterBlockPositionC').find('.selectpicker').selectpicker('val', 'select');
+		$('#inspectorInputValueOfConcern').find('.selectpicker').selectpicker('val', 'select');   
+		$('#inspectorInputResponsibleForDefect').find('.selectpicker').selectpicker('val', 'select');
+		$('#inspectorDivInspectionItemDetailsDefectsBlock').find('.selectpicker').selectpicker('val', 'select');;
+		$('#inspectorDivInspectionItemDetailsTypeDefectsBlock').find('.selectpicker').selectpicker('val', 'select');;
+		$('#inspectorDivInspectionItemDetailsTypeDefectsBlock').addClass('styleHidden');
+		
+		//Позиция А
+		if (settings.PositionA == true) {
+			$('#inspectorDivFilterBlockPositionA').removeClass('styleHidden');
+			$('#inspectorDivFilterBlockPositionA').find('.selectpicker').selectpicker('val', settings.PositionAValue);
+		}
+		else {
+			$('#inspectorDivFilterBlockPositionA').addClass('styleHidden');		
+		}
+		
+		//Позиция B
+		if (settings.PositionB == true) {
+			$('#inspectorDivFilterBlockPositionB').removeClass('styleHidden');
+			$('#inspectorDivFilterBlockPositionB').find('.selectpicker').selectpicker('val', settings.PositionBValue);
+		}
+		else {
+			$('#inspectorDivFilterBlockPositionB').addClass('styleHidden');		
+		}
+		
+		//Позиция C
+		if (settings.PositionC == true) {
+			$('#inspectorDivFilterBlockPositionC').removeClass('styleHidden');
+			$('#inspectorDivFilterBlockPositionC').find('.selectpicker').selectpicker('val', settings.PositionCValue);
+			
+			//У каждого инспектируемого элемента может быть свой вариант С
+			$('.inspectorSelectFilterBlockPositionC').addClass('styleHidden');
+			$('.inspectorSelectFilterBlockPositionC').removeClass('active');
+			var inspectorCurrentSelectFilterBlockPositionC = $('.inspectorSelectFilterBlockPositionC[guid="'+settings.InspectionItemGUID+'"]');
+			inspectorCurrentSelectFilterBlockPositionC.removeClass('styleHidden');
+			inspectorCurrentSelectFilterBlockPositionC.addClass('active');
+			inspectorCurrentSelectFilterBlockPositionC.parent().removeClass('styleHidden')
+			inspectorCurrentSelectFilterBlockPositionC.parent().addClass('active')			
+		}
+		else {
+			$('#inspectorDivFilterBlockPositionC').addClass('styleHidden');		
+		}
+		
+		//Ширина колонок
+		$("#inspectorDivInspectionItemNamesMainBlock").removeClass('inspectorDivInspectionItemNamesMainBlockNarrow inspectorDivInspectionItemNamesMainBlockWide');
+		$("#inspectorDivInspectionItemNamesMainBlock").addClass('inspectorDivInspectionItemNamesMainBlockWide');	
+		
+		pageCreated = true;
+		
+	}
+	
+	return pageCreated;
+}
+
+//Показать подсказку
+function showTooltip(settings) {
+	if (settings) {
+		if (settings.CheckIsRequired == true) {
+			$('#inspectorDivImageTooltip').html('<span style="color: #ffb127;">★&nbsp;</span>'+settings.InspectionItemName);
+		}
+		else {
+			$('#inspectorDivImageTooltip').html(settings.InspectionItemName);
+		}
+		//$('#inspectorDivImageTooltip').addClass('styleActive');
+	}
+	else {
+		var caption = $('#inspectorDivImageTooltip').attr('caption');
+		$('#inspectorDivImageTooltip').text(caption);
+		//$('#inspectorDivImageTooltip').removeClass('styleActive');
+	}
+}
+
+//Обработка всех изображений
+function getAllOriginalImages() {
+
+	//Перебор каждого изображения на странице
+	$('.inspectorImageInspectionItemPicture').each(function( index ) {
+		getOriginalImage($(this));	
+	});
+	
+}
+
+//Получить изображение оригинального размера
+function getOriginalImage(img) {
+	
+	//Получаем данные с формы в формате JSON
+	var dataObject = getAllFormValues();	
+	dataObject.guidImage = img.find('img').attr('guid');		
+	
+	//POST-запрос в QLS
+	$.ajax({
+		type: 'post',
+		async: true,
+		cache: false,
+		data: {	
+			'type': 'getOriginalImage', 
+			'data': JSON.stringify(dataObject)	
+		},
+		response: 'text',
+		complete : function (result) {
+			if (result.responseText) {
+				img.find('img').attr('src', result.responseText);
+				img.css('background-image', 'url("' + result.responseText + '")');
+			};
+		}
+	});
+	
+}
+
+//Обновление статусов на изображениях
+function refreshImagesStatuses() {
+	
+	//По умолчанию скрываем всё
+	$('.inspectorDivInspectionItemHint').addClass('styleHidden')
+	$('.inspectorDivInspectionItemHint').removeClass('styleHidden')
+	$('.inspectorDivInspectionItemHint').removeClass('styleHidden')
+	
+	//Перебор всех статусов
+	$('.inspectorDivInspectionItemHint').each(function( index ) {
+		
+		//Родительский блок
+		var elementInspectionItemHint = $(this);
+		
+		//Анализируемые настройки
+		var settings = JSON.parse($(this).attr('settings'));
+		
+		//Обязательная проверка
+		var elementStar = $(this).find('.styleStar');
+		if (settings.AllRequiredChecked == false) {
+			elementStar.removeClass('styleHidden');			
+		} else {
+			elementStar.addClass('styleHidden');
+		};
+		
+		//Количество проверенных элементов
+		var elementCheckedElementsCount = $(this).find('.inspectorDivInspectionItemCheckedElementsCount');
+		if (settings.CheckedElementsCount) {
+			elementCheckedElementsCount.text(settings.CheckedElementsCount);
+			elementInspectionItemHint.removeClass('styleHidden');
+		};
+		
+		//Общее количество элементов
+		var elementAllElementsCount = $(this).find('.inspectorDivInspectionItemAllElementsCount');
+		if (settings.AllElementsCount) {		
+			elementAllElementsCount.text(settings.AllElementsCount);
+			elementInspectionItemHint.removeClass('styleHidden');
+		};
+
+		//Статус блока
+		if (settings.CheckedElementsCount != settings.AllElementsCount && settings.AllRequiredChecked == false) {
+			//elementInspectionItemHint.addClass('styleDanger');
+			elementInspectionItemHint.addClass('styleActive');
+		} else {
+			elementInspectionItemHint.addClass('styleActive');
+		}
+		
+	});
+	
+}
+
+//Автоматическое получение вин-номера из QLS. Алгоритм функции срабатывает каждую секунду
+function gateGetCurrentVINFromRFID(){
+
+	//Устанавливаем таймер с интервалом, через который обращаемся в QLS
+	timerIdCurrentVINFromRFID = setInterval(function() {
+		
+		//Получаем Object для отправки
+		var dataObject = getAllFormValues();
+		dataObject.inspectorAttributeRFIDEnabled = stringToBoolean($("#inspectorAttributeRFIDEnabled").text());
+		
+		//Можем обратиться только в этом случае
+		if ( dataObject.inspectorAttributeRFIDEnabled && timerIdCurrentVINFromRFID != 0 ) {					
+			executeRequestPOST(window.location.href, 'getNextVINFromRFID', JSON.stringify(dataObject), false, false);			
+		}
+		else
+		{
+			clearTimeout(timerIdCurrentVINFromRFID);
+		};
+	}, 1000);
+}

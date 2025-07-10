@@ -1,0 +1,253 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://QLS/icommon/workstations/1.0" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://v8.1c.ru/8.1/data/enterprise/current-config"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.РабочиеМестаОператоров" base="d2p1:CatalogRef.РабочиеМестаОператоров"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ТочкиРегистрации" base="d2p1:CatalogRef.ТочкиРегистрации"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.Дефекты" base="d2p1:CatalogRef.Дефекты"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ВариантыПозицииA" base="d2p1:CatalogRef.ВариантыПозицииA"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ВариантыПозицииB" base="d2p1:CatalogRef.ВариантыПозицииB"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ВариантыПозицииC" base="d2p1:CatalogRef.ВариантыПозицииC"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ТипыДефектов" base="d2p1:CatalogRef.ТипыДефектов"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="ДокументСсылка.ОперацияПоКачеству" base="d2p1:DocumentRef.ОперацияПоКачеству"/>
+	<valueType name="ConcernStatus" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">OK</enumeration>
+		<enumeration xsi:type="xs:string">NotScanning</enumeration>
+		<enumeration xsi:type="xs:string">Repaired</enumeration>
+		<enumeration xsi:type="xs:string">Open</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.Заказы" base="d2p1:CatalogRef.Заказы"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ИнспектируемыеЭлементы" base="d2p1:CatalogRef.ИнспектируемыеЭлементы"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ГруппыИнспектируемыхЭлементов" base="d2p1:CatalogRef.ГруппыИнспектируемыхЭлементов"/>
+	<valueType name="DefectStatus" base="xs:string">
+		<enumeration xsi:type="xs:string">открыт</enumeration>
+		<enumeration xsi:type="xs:string">закрыт</enumeration>
+		<enumeration xsi:type="xs:string">проверен</enumeration>
+	</valueType>
+	<valueType name="Positions" base="xs:string">
+		<enumeration xsi:type="xs:string">A</enumeration>
+		<enumeration xsi:type="xs:string">B</enumeration>
+		<enumeration xsi:type="xs:string">C</enumeration>
+	</valueType>
+	<valueType name="InspectionStatus" base="xs:string">
+		<enumeration xsi:type="xs:string">OK</enumeration>
+		<enumeration xsi:type="xs:string">NOK</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ОтветственныйЗаДефект" base="d2p1:CatalogRef.ОтветственныйЗаДефект"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.СтоимостьКонсернов" base="d2p1:CatalogRef.СтоимостьКонсернов"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ДействияПриЗакрытииКонсерна" base="d2p1:CatalogRef.ДействияПриЗакрытииКонсерна"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="ЗадачаСсылка.ОбслуживаниеПриЗакрытииКонсерна" base="d2p1:TaskRef.ОбслуживаниеПриЗакрытииКонсерна"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ИзображенияДляВыбораИнспектируемогоЭлемента" base="d2p1:CatalogRef.ИзображенияДляВыбораИнспектируемогоЭлемента"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="СправочникСсылка.ИзображенияПрисоединенныеФайлы" base="d2p1:CatalogRef.ИзображенияПрисоединенныеФайлы"/>
+	<objectType name="WorkstationsList">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="workstationObject" type="d3p1:WorkstationKeyProperties" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="WorkstationKeyProperties">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.РабочиеМестаОператоров"/>
+		<property name="presentation" type="xs:string"/>
+	</objectType>
+	<objectType name="WorkstationDetailedObject">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="keyProperties" type="d3p1:WorkstationKeyProperties"/>
+		<property name="isControlTabEnabled" type="xs:boolean"/>
+		<property name="isRareOptionsTabEnabled" type="xs:boolean"/>
+		<property name="isShortagesTabEnabled" type="xs:boolean"/>
+		<property name="isCampaignsTabEnabled" type="xs:boolean"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="inspectionFormSettings" type="d3p1:InspectionFormSettings"/>
+		<property name="workstationType" type="xs:string" nillable="true"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="currentOrder" type="d3p1:OrderObject" nillable="true"/>
+	</objectType>
+	<objectType name="InspectionFormSettings">
+		<property name="isConcernCostFieldEnabled" type="xs:boolean"/>
+		<property name="isResponsibleFieldEnabled" type="xs:boolean"/>
+		<property name="isClosingDefectOnLineOptionEnabled" type="xs:boolean"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="positionAOptions" type="d3p1:PositionA" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="positionBOptions" type="d3p1:PositionB" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="positionCOptions" type="d3p1:PositionC" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="concernCostOptions" type="d3p1:ConsernCosts" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="responsibleOptions" type="d3p1:Responsible" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="useAllDefects" type="xs:boolean"/>
+		<property name="useAllInspectionItems" type="xs:boolean"/>
+		<property name="useGroupsOfInspectionItems" type="xs:boolean"/>
+		<property name="isConcernDiscoveryTypeFieldEnabled" type="xs:boolean"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="concernDiscoveryTypes" type="d3p1:ConcernDiscoveryType" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="isRepairTimeFieldEnabled" type="xs:boolean"/>
+		<property name="isMultipleDefectsAllowed" type="xs:boolean"/>
+		<property name="isClosingCampaignsFromListOptionEnabled" type="xs:boolean"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="campaignsAvailableForClosing" type="d3p1:Campaign" upperBound="-1"/>
+	</objectType>
+	<objectType name="OrderObject">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.Заказы"/>
+		<property name="vin" type="xs:string"/>
+		<property name="isInspectionCompleted" type="xs:boolean"/>
+		<property name="isError" type="xs:boolean"/>
+		<property name="errorMessage" type="xs:string"/>
+	</objectType>
+	<objectType name="ConcernsList">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="ConcernsListElement" type="d3p1:Concern" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Concern">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:ДокументСсылка.ОперацияПоКачеству"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="inspectionItem" type="d3p1:InspectionItemKeyProperties"/>
+		<property name="defect" type="xs:string"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="status" type="d3p1:DefectStatus"/>
+		<property name="cost" type="xs:string"/>
+		<property name="responsible" type="xs:string"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="imageId" type="d3p1:СправочникСсылка.ИзображенияПрисоединенныеФайлы"/>
+		<property name="points" type="xs:string"/>
+	</objectType>
+	<objectType name="InspectionItemsList">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="keyProperties" type="d3p1:InspectionListElement" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="InspectionListElement">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="keyProperties" type="d3p1:InspectionItemKeyProperties"/>
+		<property name="isCheckRequired" type="xs:boolean"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="positions" type="d3p1:Positions" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="status" type="d3p1:DefectStatus" nillable="true"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="positionCOptions" type="d3p1:PositionC" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="InspectionItemKeyProperties">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.ИнспектируемыеЭлементы"/>
+		<property name="presentation" type="xs:string"/>
+		<property name="group">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://QLS/icommon/workstations/1.0" name="id" type="d5p1:СправочникСсылка.ГруппыИнспектируемыхЭлементов"/>
+				<property name="presentation" type="xs:string"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="DefectsList">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="defects" type="d3p1:Defect" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Defect" open="true" ordered="false">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.Дефекты"/>
+		<property name="presentation" type="xs:string"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="types" type="d3p1:DefectType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="inspectionItems" type="d3p1:СправочникСсылка.ИнспектируемыеЭлементы" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="DefectType">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.ТипыДефектов"/>
+		<property name="presentation" type="xs:string"/>
+	</objectType>
+	<objectType name="PositionA">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.ВариантыПозицииA"/>
+		<property name="presentation" type="xs:string"/>
+	</objectType>
+	<objectType name="PositionB">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.ВариантыПозицииB"/>
+		<property name="presentation" type="xs:string"/>
+	</objectType>
+	<objectType name="PositionC">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.ВариантыПозицииC"/>
+		<property name="presentation" type="xs:string"/>
+	</objectType>
+	<objectType name="QualityStatusRequest" open="true" ordered="false">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="status" type="d3p1:DefectStatus"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="inspectionItemId" type="d3p1:СправочникСсылка.ИнспектируемыеЭлементы"/>
+		<property name="positionAId" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="positionBId" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="positionCId" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="defectId" type="xs:string"/>
+		<property name="defectTypeId" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="concernCostId" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="responsibleId" type="xs:string" lowerBound="0"/>
+		<property name="isRepairedOnLine" type="xs:boolean"/>
+		<property name="commentary" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="consernDiscoveryTypeId" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="imageId" type="d3p1:СправочникСсылка.ИзображенияПрисоединенныеФайлы" lowerBound="0"/>
+		<property name="points" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="RegisterResponse">
+		<property name="isError" type="xs:boolean"/>
+		<property name="errorMessage" type="xs:string"/>
+	</objectType>
+	<objectType name="ConsernCosts">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:ДокументСсылка.ОперацияПоКачеству"/>
+		<property name="presentation" type="xs:string"/>
+	</objectType>
+	<objectType name="rConcern">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:ДокументСсылка.ОперацияПоКачеству"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="inspectionItem" type="d3p1:InspectionItemKeyProperties"/>
+		<property name="defect" type="xs:string"/>
+		<property name="comment" type="xs:string"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="positionA" type="d3p1:PositionA"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="positionB" type="d3p1:PositionB"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="positionC" type="d3p1:PositionC"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="imageId" type="d3p1:СправочникСсылка.ИзображенияПрисоединенныеФайлы"/>
+		<property name="points" type="xs:string"/>
+	</objectType>
+	<objectType name="rConcerns">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="rConcernsElement" type="d3p1:rConcern" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rData">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="rConsernsList" type="d3p1:rConcerns" nillable="true"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="rTasksList" type="d3p1:rTasks" nillable="true"/>
+	</objectType>
+	<objectType name="CloseDefectRequest" open="true" ordered="false">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="documentDefectGUID" type="d3p1:ДокументСсылка.ОперацияПоКачеству"/>
+		<property name="documentDefectComment" type="xs:string"/>
+		<property name="documentDefectReplace" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="documentDefectRemove" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="documentDefectRepairTime" type="xs:int" nillable="true"/>
+	</objectType>
+	<objectType name="Responsible">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.ОтветственныйЗаДефект"/>
+		<property name="presentation" type="xs:string"/>
+		<property name="isFolder" type="xs:boolean"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="parentId" type="d3p1:СправочникСсылка.ОтветственныйЗаДефект"/>
+	</objectType>
+	<objectType name="rTask">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:ЗадачаСсылка.ОбслуживаниеПриЗакрытииКонсерна"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="inspectionItem" type="d3p1:InspectionItemKeyProperties"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="actionItem" type="d3p1:ActionItemKeyProperties"/>
+		<property name="description" type="xs:string"/>
+	</objectType>
+	<objectType name="ActionItemKeyProperties">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.ДействияПриЗакрытииКонсерна"/>
+		<property name="presentation" type="xs:string"/>
+	</objectType>
+	<objectType name="rTasks">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="rTasksElement" type="d3p1:rTask" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="CompleteTaskRequest" open="true" ordered="false">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="taskId" type="d3p1:ЗадачаСсылка.ОбслуживаниеПриЗакрытииКонсерна"/>
+	</objectType>
+	<objectType name="ConcernDiscoveryType">
+		<property name="id" type="xs:string"/>
+		<property name="presentation" type="xs:string"/>
+	</objectType>
+	<objectType name="CampaignsList">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="CampaignsListElement" type="d3p1:Campaign" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Campaign">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:ДокументСсылка.ОперацияПоКачеству"/>
+		<property name="presentation" type="xs:string"/>
+		<property name="status" type="xs:string"/>
+		<property name="closable" type="xs:boolean"/>
+	</objectType>
+	<objectType name="CompleteCheckRequest" open="true" ordered="false">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="documentDefectGUID" type="d3p1:ДокументСсылка.ОперацияПоКачеству"/>
+		<property name="documentDefectComment" type="xs:string"/>
+		<property name="documentStatus" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="documentDefectRepairTime" type="xs:int" nillable="true"/>
+	</objectType>
+	<objectType name="InspectedImage">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="polygons" type="d3p1:Polygon" upperBound="-1"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="image" type="d3p1:СправочникСсылка.ИзображенияПрисоединенныеФайлы"/>
+		<property name="isRoot" type="xs:boolean"/>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="id" type="d3p1:СправочникСсылка.ИзображенияДляВыбораИнспектируемогоЭлемента"/>
+	</objectType>
+	<objectType name="InspectedImageList">
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="InspectedImage" type="d3p1:InspectedImage" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Polygon">
+		<property name="concern">
+			<typeDef xsi:type="ObjectType">
+				<property name="positions" type="xs:string" upperBound="-1" nillable="true"/>
+				<property xmlns:d5p1="http://QLS/icommon/workstations/1.0" name="positionC" type="d5p1:PositionC" nillable="true"/>
+				<property xmlns:d5p1="http://QLS/icommon/workstations/1.0" name="positionB" type="d5p1:PositionB" nillable="true"/>
+				<property xmlns:d5p1="http://QLS/icommon/workstations/1.0" name="positionA" type="d5p1:PositionA" nillable="true"/>
+				<property xmlns:d5p1="http://QLS/icommon/workstations/1.0" name="inspectionItem" type="d5p1:InspectionItemKeyProperties"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://QLS/icommon/workstations/1.0" name="ref" type="d3p1:СправочникСсылка.ИзображенияДляВыбораИнспектируемогоЭлемента"/>
+		<property name="points" type="xs:float" upperBound="-1"/>
+	</objectType>
+</package>

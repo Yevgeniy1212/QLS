@@ -1,0 +1,505 @@
+﻿
+																			/* Переменные */
+
+//Курсор мыши
+var mouse = { x: 0, y: 0, startX: 0, startY: 0, absoluteX: 0, absoluteY: 0 };		
+
+//Область на canvas
+var figure = createFigure();
+function createFigure() {
+	return {reference: '', coordinates: [], closed: false, changed: false, drawing: false};
+}
+
+//Временная линия, следующая за курсором
+var line = {beginX: 0, beginY: 0, endX: 0, endY: 0};
+
+//Изображение
+var img = imgVariableCreate();
+function imgVariableCreate() { 
+	return { reference: document.getElementById('painterImageContent') , currentWidth: 0, currentHeight: 0, originalWidth: 0, originalHeight: 0, figures: [], figuresBackup: [] }; 
+}
+
+
+																			/* Подписки */
+																			
+//Изменение размеров браузера
+$( window ).resize(function() {
+	resizeScreen();
+});
+
+//Изменение размеров браузера. Делаем это по таймауту, чтобы не нагружать клиент лишний раз
+var timeoutResize = 0;
+function resizeScreen() {
+
+	clearTimeout(timeoutResize);	
+	timeoutResize = setTimeout(refreshCanvas, 5);
+	
+}
+
+//При загрузке документа
+$(document).ready(function() {
+		
+	//Загрузка изображения в canvas
+	img = imgVariableCreate();
+	setTimeout(refreshCanvas, 5);
+
+	//Двигаем мышкой и определяем текущее расположение курсора
+	$(document).on('mousemove', '#painterCanvasImage', function (move) {
+		
+		//Определяем координаты курсора на canvas
+		var parentOffset = $(this).offset();
+		mouse.x = move.pageX - parentOffset.left;
+		mouse.y = move.pageY - parentOffset.top;	
+		mouse.absoluteX = mouse.x*img.originalHeight/img.currentHeight;
+		mouse.absoluteY = mouse.y*img.originalWidth/img.currentWidth;
+
+		//Таким образом мы отрисовываем линию при перемещении курсора
+		refreshCanvas();
+		drawLine(mouse.x, mouse.y);
+			
+		//Во время рисования курсор изменяется на перекрестие
+		if (figure.drawing) {
+			document.getElementById('painterCanvasImage').style.cursor = 'crosshair';
+		} else {
+			document.getElementById('painterCanvasImage').style.cursor = 'default';
+		};
+		
+	});	
+		
+	//Одиночное нажате на canvas запускает процесс рисования
+	$(document).on('click', '#painterCanvasImage', function (element) {
+
+		//Если фигура завершена, то мы не сможем рисовать, пока не обнулим эту фигуру
+		if (figure.closed) {
+			return;
+		}
+		
+		//Мы можем рисовать только если кнопка 'Карандаш' активна
+		if ( ! $('#painterSpanToolsLine').hasClass('styleActive') ) {
+			$('#painterSpanToolsLine').addClass('styleActive');
+		}
+		
+		//Линия от текущей точки тянется к текущему расположению курсора
+		figure.drawing = true;
+		
+		//В массиве координат всегда хранятся абсолютные значения области относительно картинки
+		figure.coordinates.push({x: mouse.absoluteX, y: mouse.absoluteY});
+		
+		//Если мы нажали рядом с началом фигуры, то мы можем завершить её
+		if (closeAreaPath(mouse.absoluteX, mouse.absoluteY) == true) {
+			drawingCompleted(figure);
+			clickOnToolbarButton();
+		}
+		
+		//Отрисовка фигуры
+		refreshCanvas();
+		
+	}); 
+	
+	//Двойное нажатие на canvas закрывает фигуру, проводя кратчайшую линию от текущей точки к самой первой из координат
+	$(document).on('dblclick', '#painterCanvasImage', function (element) {
+			
+		//Если фигура завершена, то мы не сможем рисовать, пока не обнулим эту фигуру
+		if (figure.closed) {
+			return;
+		}
+		
+		//Завершаем рисование фигуры
+		figure.coordinates.push({x: mouse.absoluteX, y: mouse.absoluteY});
+		drawingCompleted(figure);
+		
+		//Отрисовака фигуры
+		refreshCanvas();
+		
+		//Настройка видимости панели инструментов
+		clickOnToolbarButton();
+		
+	});
+
+	//Выбрали инспектируемый элемент
+	$(document).on('click', '.painterDivArea', function (element) {
+
+		//Изменение активности инспектируемых элементов
+		$('#painterDivAvailableObjects').children().removeClass('styleActive');
+		$(this).addClass('styleActive');		
+		
+		//Обнуляем информацию о предыдущем инспектируемом элементе
+		figure = createFigure();
+		figure.reference = $(this);
+
+		//Определяем координаты текущей фигуры
+		figure.coordinates = JSON.parse($(this).attr('temporarysettings'));
+		if (figure.coordinates.length) {
+			figure.closed = true;
+		}
+
+		//Отрисовака фигуры
+		refreshCanvas();
+		
+		//Настройка видимости панели инструментов
+		clickOnToolbarButton();
+	
+	}); 	
+		
+	//Нажатие на одну из кнопок на приборной панели
+	$(document).on('click', '.painterDivTool', function (element) {		
+		clickOnToolbarButton(this);	
+	}); 
+
+	//На экране отображаются несколько изображений и мы можем выбрать конкретное, чтобы перейти к нему
+	$(document).on('click', '.painterDivOneImageBlock', function (element) {		
+		
+		//Устанавливаем активность
+		$('.painterDivOneImageBlock').removeClass('styleActive');
+		$(this).addClass('styleActive');
+	
+		//Получаем уникальный идентификатор изображения и добавляем к URL
+		var guid = $(this).find('.painterDivOneImageGUID').text().trim();		
+		
+		//Кругляш ожидания
+		$('body').addClass('loading');
+
+		//Переход по URL
+		window.location.href = window.location.href+'?image='+guid;
+		
+	});
+	
+	//Сжатие изображения
+	setTimeout(compressImage, 10);
+
+});
+
+
+																			/* Рисование */
+
+//Отрисовка изображения на всю страницу
+function drawImage(img) {
+
+	//Получаем информацию об изображении
+	img.originalWidth = img.reference.naturalWidth;
+	img.originalHeight = img.reference.naturalHeight;
+	
+	//Получаем canvas
+	var canvas = document.getElementById('painterCanvasImage');
+	var maxWidth = $('#allDivMainBodyBlock').width()-$('#painterDivAvailableObjects').width();
+	var maxHeight = $('#allDivMainBodyBlock').height()-$('#painterDivMainBlockHeader').height()-$('#painterDivImageTitle').height()-$('#painterDivToolsMain').height()-1;
+		
+	//Масштабируем	
+	if (maxWidth/img.originalWidth > maxHeight/img.originalHeight) {
+		maxWidth = maxHeight*img.originalWidth/img.originalHeight;
+	} else {
+		maxHeight = maxWidth/(img.originalWidth/img.originalHeight);
+	}
+	
+	//Назначаем
+	img.currentHeight = maxHeight;
+	img.currentWidth = maxWidth;
+	canvas.height = maxHeight; 
+	canvas.width = maxWidth; 
+	
+	//Очистка экрана
+	var canvas = document.getElementById('painterCanvasImage');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, document.body.clientWidth, document.body.clientHeight);
+	
+	//Рисуем изображение
+	canvas.getContext('2d').drawImage(img.reference,0,0,img.currentWidth,img.currentHeight);
+
+}
+																		
+//При перемещении курсора мы отрисовываем линию
+function drawLine(x, y) {
+	
+	//Если фигура завершена, то мы не сможем рисовать, пока не обнулим эту фигуру
+	if (figure.closed) {
+		return;
+	}
+	
+	//Можем тянуть прямую только если включен режим рисования
+	if (!figure.drawing) {
+		return;
+	}
+	
+	//Задаём координаты линии
+	line.beginX = figure.coordinates[figure.coordinates.length-1].x;
+	line.beginY = figure.coordinates[figure.coordinates.length-1].y;	
+	line.beginX = line.beginX * img.currentWidth/img.originalWidth;
+	line.beginY = line.beginY * img.currentHeight/img.originalHeight;		
+	line.endX = x;
+	line.endY = y;
+	
+	//Отрисовка линии по координатам
+	var canvas = document.getElementById('painterCanvasImage');
+	var context = canvas.getContext('2d');
+	context.beginPath();
+	context.moveTo(line.beginX, line.beginY);
+	context.lineTo(line.endX, line.endY);
+	context.lineWidth=3;
+	context.setLineDash([5]);
+	context.strokeStyle='#cf4542';
+	context.stroke();
+
+}
+
+//Отрисовка блока по координатам
+function drawFigure(figure) {
+	
+	var canvas = document.getElementById('painterCanvasImage');
+	var context = canvas.getContext('2d');
+	
+	context.fillStyle = 'rgba(255,255,255,0.5)';
+	context.beginPath();
+	
+	for (var i = 0; i < figure.coordinates.length; i++) {
+		var x = figure.coordinates[i].x;
+		var y = figure.coordinates[i].y;
+		
+		x = x * img.currentWidth/img.originalWidth;
+		y = y * img.currentHeight/img.originalHeight;
+		
+		if (i == 0) {
+			context.moveTo(x, y);
+		} else {
+			context.lineTo(x, y);
+		}
+	}
+	
+	//Закрываем фигуру, заодно заполняя её заливкой
+	if (figure.closed) {
+		context.closePath();
+		context.fill();
+	}
+	
+	context.lineWidth=3;
+	context.strokeStyle='#b43f3b';
+	context.stroke();
+
+}
+
+//Обновить canvas, загрузив в него изображение и отрисовав блоки
+function refreshCanvas() {		
+	
+	//Очистка блоков
+	clearCanvas();
+	
+	//Отрисовка изображения
+	drawImage(img);
+	
+	//Отрисовка фигур
+	drawFigure(figure);		
+		
+	//Текущие статусы инспектируемых элементов
+	changeInspectionItemsStatus();
+	
+	//Доступность блока
+	setCanvasVisibility();
+}
+
+//Очистка canvas
+function clearCanvas() {	
+	
+	var canvas = document.getElementById('painterCanvasImage');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, document.body.clientWidth, document.body.clientHeight);	
+	
+}
+
+																		/* Служебные функции */
+
+//Фигура завершена
+function closeAreaPath(x, y) {
+	
+	var closed = false;
+	
+	if (figure.coordinates.length > 2) {
+		if (figure.coordinates[0].x-10 < x && figure.coordinates[0].x+10 > x && figure.coordinates[0].y-10 < y && figure.coordinates[0].y+10) {
+			closed = true;
+		};
+	};
+	
+	return closed;
+	
+}
+
+//Изменить статус
+function changeInspectionItemsStatus() {
+
+	//По умолчанию все иконки скрыты
+	$('.painterDivAreaCheckIconBlock').addClass('styleHidden');
+	$('.painterDivAreaEditIconBlock').addClass('styleHidden');
+	$('.painterDivAreaNoneIconBlock').addClass('styleHidden');
+
+	//Анализируем все доступные инспектируемые элементы и расставляем видимость иконок
+	$('#painterDivAvailableObjects').children('.painterDivArea').each(function () {
+
+		var settings_original = $(this).attr('settings');
+		var settings_edited = $(this).attr('temporarysettings');
+	
+		var settings_original_array = JSON.parse(settings_original);
+		var settings_edited_array = JSON.parse(settings_edited);
+
+		if (settings_original_array.length == 0 && settings_edited_array.length == 0) {
+			//Ни-че-го
+		} else if (settings_original == settings_edited ) {
+			$(this).find('.painterDivAreaCheckIconBlock').removeClass('styleHidden');
+		} else {
+			$(this).find('.painterDivAreaEditIconBlock').removeClass('styleHidden');
+		}
+
+	});
+}
+
+//Завершили рисование фигуры
+function drawingCompleted(figure) {
+	figure.closed = true;
+	figure.drawing = false;	
+	document.getElementById('painterCanvasImage').style.cursor = 'default';
+	var currentSettings = JSON.stringify(figure.coordinates);
+	figure.reference.attr('temporarysettings', currentSettings);
+}
+
+																		/* Панель инструментов */
+																	
+//Нажатие на одну из кнопок на приборной панели
+function clickOnToolbarButton(element) {
+	
+	var button = $(element);
+		
+	//Можем что-то сделать только если кнопка активна
+	if (button.hasClass('disabled')) {
+		return;
+	}
+	
+	//Обнуляем активность всех кнопок
+	$('.painterDivTool').removeClass('styleActive');
+
+	//Устанавливаем активность этой кнопки
+	button.addClass('styleActive');
+	button.parent().removeClass('styleDisabled');
+	
+	//Нажали на кнопку 'Рисовать'
+	if ( element && button[0] == $('#painterSpanToolsLine')[0] ) {
+		
+		//Обнуляем всю информацию о координатах и рисуем свою фигуру
+		figure.coordinates = [];
+		figure.closed = false;
+		
+		var currentSettings = JSON.stringify(figure.coordinates);
+		figure.reference.attr('temporarysettings', currentSettings);
+		
+	};
+	
+	//Нажали на кнопку 'Сжать'
+	if ( element && button[0] == $('#painterSpanToolsCompress')[0] ) {
+		
+		//Получаем первоначальные координаты
+		figure.coordinates = JSON.parse(figure.reference.attr('settings'));
+		drawingCompleted(figure);
+		
+		//Затухание кнопки
+		timeoutCompress = setTimeout(
+			function() { button.removeClass('styleActive'); }
+		, 10);
+		
+	};
+	
+	//Нажали на кнопку 'Обновить'
+	if ( element && button[0] == $('#painterSpanToolsRepeat')[0] ) {
+		
+		//Получаем первоначальные координаты
+		figure.coordinates = JSON.parse(figure.reference.attr('settings'));
+		drawingCompleted(figure);
+		
+		//Затухание кнопки
+		timeoutResize = setTimeout(
+			function() { button.removeClass('styleActive'); }
+		, 10);
+		
+	};
+	
+	//Нажали на кнопку 'Сохранить'
+	if ( element && button[0] == $('#painterSpanToolsSave')[0] ) {
+		
+		//Обращаемся в QLS
+		sendCoordinates('sendCoordinates');
+		
+		//Затухание кнопки
+		timeoutResize = setTimeout(
+			function() { button.removeClass('styleActive'); }
+		, 10);
+		
+	};
+		
+	//Отрисовака фигуры
+	refreshCanvas();
+	
+}
+
+//Видимость и доступность блока canvas с панелью инструментов
+function setCanvasVisibility() {
+	if (figure.reference) {
+		$('#painterDivImageBlock').removeClass('styleDisabled');
+	} else {
+		$('#painterDivImageBlock').addClass('styleDisabled');
+	};
+}
+
+//Обращаемся в QLS, передавая туда координаты
+function sendCoordinates(type) { 
+	
+	//Получаем данные с формы в формате JSON
+	var dataObject = getAllFormValues();	
+
+	//Отсканировали новое значение
+	if (type == 'sendCoordinates') {
+		dataObject.guidVariant = figure.reference.attr('guid');
+		dataObject.arrayCoordinates = JSON.stringify(figure.coordinates);
+		dataObject.compressedImage = document.getElementById("painterImgCompressedTarget").src;
+	}
+		
+	//Упаковка в JSON
+	var dataJSON = JSON.stringify(dataObject);
+
+	//И лезем в QLS
+	executeRequestPOST(window.location.href, type, dataJSON, false);
+	      
+}
+
+
+										/* Сжатие изображения */
+
+function compressImage() {
+	
+	var source_img = document.getElementById("painterImageContent");
+	var target_img = document.getElementById("painterImgCompressedTarget");
+	
+	target_img.src = jic.compress(source_img, 10, 'jpg').src;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

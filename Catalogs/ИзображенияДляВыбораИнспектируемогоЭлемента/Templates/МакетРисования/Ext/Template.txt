@@ -1,0 +1,371 @@
+﻿<html>
+<header>
+  <script>
+    [ПараметрKonva]
+  </script>
+  <style>
+    #menu {
+        display: none;
+        position: absolute;
+        width: 60px;
+        background-color: white;
+        box-shadow: 0 0 5px grey;
+        border-radius: 3px;
+      }
+
+      #menu button {
+        width: 100%;
+        background-color: white;
+        border: none;
+        margin: 0;
+        padding: 10px;
+      }
+
+      #menu button:hover {
+        background-color: lightgray;
+      }
+  </style>
+</header>
+<body>
+  <div id="container"></div>
+  <div id="menu">
+    <div>
+      <button id="add-node-button">Add node</button>
+    </div>
+  </div>
+  <script>
+    const data = {};
+    const anchorSize = 10;
+    let elemId = 0;
+    var image, stage, text, layer, dataJSON, areas;
+    
+    function start() {
+      data.selected = [];
+      data.areas = [];
+      dataJSON = JSON.stringify(data);
+    }
+
+    function addElement(area) {
+      const points = area
+        ? area.points
+        : [
+          stage.width() / 2 - 50, stage.height() / 2 - 50, 
+          stage.width() / 2 + 50, stage.height() / 2 - 50,
+          stage.width() / 2 + 50, stage.height() / 2 + 50,
+          stage.width() / 2 - 50, stage.height() / 2 + 50
+        ];
+      
+      if (!area) {
+        elemId = elemId + 1;
+      }
+      
+      const poly = new Konva.Line({
+        points,
+        fill: '#00D2FF',
+        stroke: 'black',
+        strokeWidth: 2,
+        hitStrokeWidth: 4,
+        closed: true,
+        draggable: 'true',
+        id: area ? area.id : `elem-${elemId}`,
+        opacity: 0.5
+      });
+
+      poly.on('click', function(e) { selectElement({ id: poly.id() }, e) });
+      poly.on('dragmove', function() { updateAnchors(poly) });
+      // add the shape to the layer
+      layer.add(poly);
+
+      createAnchors(poly);
+      data.areas.push({ type: 'poly', ref: poly, id: poly.id() });
+      dataJSON = JSON.stringify(data);
+    }
+
+    function removeElement() {
+      data.selected.forEach((area) => {
+        const shape = stage.findOne(`#${area.id}`);
+        data.areas = data.areas.filter((el) => el.id !== area.id);
+        deselectElement();
+        if (shape) {
+          destroyAnchors(shape.anchors);
+          shape.destroy();
+        }
+        layer.draw();
+      });
+      dataJSON = JSON.stringify(data);
+    }
+
+    function selectElement(el, e) {
+      let isRightMB;
+      if ("which" in e.evt) {
+        isRightMB = e.evt.which == 3; 
+      } else if ("button" in e.evt) {
+        isRightMB = e.evt.button == 2;
+      }
+
+      if (isRightMB) {
+        return;
+      }
+
+      const wasSelected = data.selected.some(({ id }) => id === el.id);
+      
+      deselectAll();
+      
+      if (!wasSelected) {
+        const shape = stage.findOne(`#${el.id}`);
+        shape.origColor = shape.fill();
+        shape.fill('#F0D2FF');
+  
+        if (shape.anchors) {
+          shape.anchors.forEach(anchor => anchor.show())
+        }
+        points = shape.points().map((item, i) => i % 2 ? item + shape.y() : item + shape.x());
+        data.selected.push({ id: el.id, points });
+      }
+
+      dataJSON = JSON.stringify(data);
+    }
+
+    function deselectAll() {
+      data.selected.forEach((area) => {
+        const shape = stage.findOne(`#${area.id}`);
+        if (shape.origColor) {
+          shape.fill(shape.origColor);
+        }
+
+        if (shape.anchors) {
+          shape.anchors.forEach(anchor => anchor.hide())
+        }
+      });
+      data.selected = [];
+    }
+  
+    function addShapeNode(mousePos) {
+      if (!data.selected.length) {
+        return;
+      }
+
+      const { x, y } = mousePos;
+      const shape = stage.findOne(`#${data.selected[0].id}`);
+      const points = getPointChunks(shape.points())
+
+      const nearest = points.reduce((min, point, i) => {
+        const prevIndex = i === 0 ? points.length - 1 : i - 1;
+        const x1 = points[prevIndex][0];
+        const y1 = points[prevIndex][1];
+        const x2 = point[0];
+        const y2 = point[1];
+        const dst = getDistance(mousePos.x, mousePos.y, x1 + shape.x(), y1 + shape.y(), x2 + shape.x(), y2 + shape.y());
+        if (min.value > dst) {
+          min.value = dst;
+          min.point = i === 0 ? points.length - 1 : i - 1;
+        }
+        return min;
+      }, { value: Number.MAX_VALUE })
+
+      const pointArray = [...shape.points()];
+      pointArray.splice(nearest.point * 2 + 2, 0, mousePos.x - shape.x(), mousePos.y - shape.y());
+      
+      shape.points(pointArray);
+      createAnchors(shape);
+      dataJSON = JSON.stringify(data);
+    }
+
+    function removeShapeNode(anchor, poly) {
+      const points = getPointChunks(poly.points())
+      if (points.length < 4) {
+        // Can't remove node of triangle
+        return;
+      }
+
+      const point = anchor.origPoint;
+      const idx = points.findIndex((node) => (node[0] === point[0]) && (node[1] === point[1]));
+
+      const pointArray = [...poly.points()];
+
+      pointArray.splice(idx * 2, 2)
+      poly.points(pointArray);
+      createAnchors(poly);
+      dataJSON = JSON.stringify(data);
+    }
+
+    function createAnchors(poly) {
+      let visible = destroyAnchors(poly.anchors);
+
+      poly.anchors = [];
+      const points = getPointChunks(poly.points())
+
+      points.forEach((point) => {
+        const [x, y] = point;
+
+        const anchor = new Konva.Rect({
+          x: x + poly.x(),
+          y: y + poly.y(),
+          width: anchorSize,
+          height: anchorSize,
+          offsetX: anchorSize / 2,
+          offsetY: anchorSize / 2,
+          stroke: 'rgb(0, 161, 255)',
+          fill: 'white',
+          strokeWidth: 1,
+          name: name + ' _anchor',
+          dragDistance: 0,
+          // make it draggable,
+          // so activating the anchor will not start drag&drop of any parent
+          draggable: true,
+          visible: visible,
+          hitStrokeWidth: 'auto',
+        }); 
+
+        anchor.origPoint = point;
+        anchor.on('dragmove', function() { updateAnchorPoint(anchor, poly); })
+        anchor.on('contextmenu', function(e) { 
+          e.evt.preventDefault();
+          removeShapeNode(anchor, poly)
+        });
+        layer.add(anchor);
+        poly.anchors.push(anchor);
+      })
+    }
+    
+    function destroyAnchors(anchors) {
+      let visible = false;
+      if (anchors && anchors[0]) {
+        visible = anchors[0].isVisible();
+        anchors.forEach(anchor => anchor.destroy())
+      }
+      return visible;
+   }
+
+    function updateAnchors(poly) {
+      const points = getPointChunks(poly.points())
+      points.forEach((point, idx) => {
+        const [ x, y ] = point;
+        poly.anchors[idx].absolutePosition({x: x + poly.x(), y: y + poly.y()})
+      });
+      dataJSON = JSON.stringify(data);
+    }
+
+    function updateAnchorPoint(anchor, poly) {
+      const point = anchor.origPoint;
+      const points = getPointChunks(poly.points())
+      const idx = points.findIndex((node) => (node[0] === point[0]) && (node[1] === point[1]));
+
+      const pointArray = [...poly.points()];
+
+      pointArray.splice(idx * 2, 2, anchor.x() - poly.x(), anchor.y() - poly.y())
+      poly.points(pointArray);
+      anchor.origPoint = [anchor.x() - poly.x(), anchor.y() - poly.y()];
+      dataJSON = JSON.stringify(data);
+    }
+
+    function getDistance(x, y, x1, y1, x2, y2) {
+      const A = x - x1;
+      const B = y - y1;
+      const C = x2 - x1;
+      const D = y2 - y1;
+
+      const dot = A * C + B * D;
+      const len_sq = C * C + D * D;
+      let param = -1;
+      if (len_sq != 0) {
+        param = dot / len_sq;
+      }
+
+      let xx, yy;
+
+      if (param < 0) {
+        xx = x1;
+        yy = y1;
+      }
+      else if (param > 1) {
+        xx = x2;
+        yy = y2;
+      }
+      else {
+        xx = x1 + param * C;
+        yy = y1 + param * D;
+      }
+
+      const dx = x - xx;
+      const dy = y - yy;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    function getPointChunks(arr) {
+      return arr.reduce((all,one,i) => {
+        const ch = Math.floor(i/2); 
+        all[ch] = [].concat((all[ch]||[]),one); 
+        return all
+      }, [])
+    }
+
+    const imgObj = new Image(); // Create new img element
+    imgObj.onload = function() {
+      image = new Konva.Image({
+        image: imgObj,
+      });
+
+      stage = new Konva.Stage({
+        container: 'container',   // id of container <div>
+        width: imgObj.width,
+        height: imgObj.height
+      });
+
+      text = new Konva.Text({
+        x: 10,
+        y: 10,
+        fontFamily: 'Calibri',
+        fontSize: 24,
+        text: '',
+        fill: 'black',
+      });
+
+      // then create layer
+      layer = new Konva.Layer();
+
+      layer.add(text);
+      // add the layer to the stage
+      stage.add(layer);
+      
+      layer.add(image);
+      start();
+
+      /** Setup menu **/
+      // See https://konvajs.org/docs/sandbox/Canvas_Context_Menu.html
+      var menuNode = document.getElementById('menu');
+      document.getElementById('add-node-button').addEventListener('click', () => {
+        var mousePos = stage.getPointerPosition();
+        addShapeNode(mousePos);
+      });
+
+      window.addEventListener('click', () => {
+        // hide menu
+        menuNode.style.display = 'none';
+      });
+
+      stage.on('contextmenu', function (e) {
+        // prevent default behavior
+        e.evt.preventDefault();
+        // If no shape selected
+        if (!data.selected.length) {
+          return;
+        }
+        // show menu
+        menuNode.style.display = 'initial';
+        menuNode.style.top = stage.getPointerPosition().y + 4 + 'px';
+        menuNode.style.left = stage.getPointerPosition().x + 4 + 'px';
+      });
+
+      areas = [ПараметрОбласти];
+      areas.forEach((area) => addElement(area));
+      elemId = areas.reduce((acc, { id }) => {
+          const num = Number(id.replace('elem-', ''));
+          return Math.max(num, acc);
+        }, 0);
+    };
+
+    imgObj.src = "[ПараметрКартинка]";
+  </script>
+</body>
+</html>

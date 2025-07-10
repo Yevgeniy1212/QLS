@@ -1,0 +1,813 @@
+﻿										/*	Главная страница	*/
+
+#allDivMainBodyBlock {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#inspectorDivMainBodyBlock {
+	flex: 1 0 0%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 99px);
+}
+#inspectorDivMainInspectionBlock {
+	display: flex;
+    flex-direction: row;
+    flex: 1 0 0%;
+    height: calc(100% - 49px);    
+}
+.form-control:focus {
+	border-color: #8a8a8a;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(71, 71, 71, 0.5);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(71, 71, 71, 0.5);
+}
+#inspectorInputInspectionItemInput {
+	border-color: #ddd;
+	-webkit-box-shadow: none;
+    box-shadow: none;
+}
+#inspectorButtonIconGetBack {
+	display: none;
+	cursor: pointer;
+}
+
+										/*	Белый блок-заглушка	*/
+										
+.inspectorDivWhiteBlock {
+	display: none !important;
+	opacity: 0.1;
+	cursor: not-allowed;
+	pointer-events: none;
+	background: rgba( 255, 255, 255, .8 ) url(/images/ajax-loader.gif) 50% 50% no-repeat;
+}
+
+										/*	Поле для сканирования	*/
+#inspectorDivMainScanningBlock {
+	display: flex;
+}
+#inspectorInputMainScanningInputField, #inspectorDivCurrentVINCaption {
+	font-size: 5vmin;
+    height: 8vmin;
+	border-radius: 0px;
+	border-left: 0px;
+    border-right: 0px;
+}
+#inspectorDivCurrentVINBlock {
+	display: flex;
+}
+input[data-placeholder] {
+    color: #AAA;
+}
+input[data-placeholder].active {
+    color: black;
+}
+#inspectorButtonComplete {
+	max-width: 30%;
+    font-size: 2.5vmin;
+    white-space: normal;
+    border-radius: 0px;
+    border-color: #8a8a8a;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(71, 71, 71, 0.5);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(71, 71, 71, 0.5);
+    /*padding: 0px !important;
+    border: 0px;
+    margin: 0.5vmin;
+    padding: 1vmin !important;*/
+}
+
+											/* Кнопка для получения значений от RFID сканера */
+											
+#inspectorAMainScanningFieldContent {
+	flex: 1 0 0%;
+	display: flex;
+	text-decoration: none;
+}
+#inspectorButtonMainScanningFieldContent {
+	width: 100%;
+	font-size: 5vmin;
+	border-radius: 0;
+	text-align: left;
+}
+
+								/* Переключение между предыдущими, текущим и следующими заказами */
+								
+#inspectorDivTakeVINCurrentPoint{
+	display: flex;
+}
+#inspectorButtonGetPreviousVIN, #inspectorButtonGetNextVIN {
+	flex: 1 0 0%;
+	font-size: 5vmin;
+	display: flex;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    align-content: center;
+    margin: 0.5vmin;
+    color: #909090;
+    overflow-x: auto;
+}
+#inspectorButtonGetPreviousVIN:hover, #inspectorButtonGetNextVIN:hover {
+	color: #4e4e4e;
+}
+#inspectorDivPreviousVINName, #inspectorDivNextVINName, #inspectorDivCurrentVINCaption {
+	flex: 1 0 0%;
+	font-weight: bold;
+	display: block;
+}
+#inspectorDivPreviousVINShortName, #inspectorDivNextVINShortName, #inspectorDivCurrentShortVINCaption {
+	display: none;
+}
+.inspectorIconBlock {
+    top: 0px;
+    font-size: 5vmin;
+}						
+								
+										/*	Текущий заказ	*/
+
+#inspectorDivCurrentVINCaption {
+    font-size: 5vmin;
+    font-weight: bold;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 1vmin;
+    border: 1px solid #ddd;
+}
+
+#inspectorDivCurrentShortVINCaption {
+    font-size: 4.5vmin;
+    font-weight: bold;
+    flex: 1;
+    align-items: center;
+}
+
+
+										/*	Сообщение пользователю	*/
+
+#inspectorSpanMessageToUserCaption {
+	display: block;
+	font-size: 3.5vmin;
+	width: 100%;
+	padding: 0px 5px;
+	max-height: 15vmin;
+    overflow-y: auto;
+}
+#inspectorDivMessageToUserBlock {
+	padding-top: 0vmin;
+	padding-bottom: 0vmin;
+}
+
+
+
+										/*	Блок дополнительных проверок	*/
+
+#inspectorDivCheckMainBlock {
+	display: flex;
+	flex-direction: row;
+    padding-top: 0.5vmin;
+    padding-bottom: 0.5vmin;
+	overflow-x: auto;
+	width: 100%;
+}
+#inspectorDivCheckSubBlockRareOptions, #inspectorDivCheckSubBlockCampaign, #inspectorDivCheckSubBlockDefects, #inspectorDivCheckSubBlockShortage, #inspectorDivCheckSubBlockControl {
+	flex: 1 0 0%;
+	font-size: 3vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1vmin;
+    cursor: pointer;
+    border-top: 1px solid #8d8d8d;
+    border-bottom: 1px solid #8d8d8d;
+    border-left: 1px solid #8d8d8d;
+}
+.inspectorDivCheckSubBlockContent {
+	display: flex;
+    overflow-y: auto;
+    font-size: 2.5vmin;
+}
+.inspectorDivCheckSubBlockContentDetails {
+	flex: 1 0 0%;
+	border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    text-align: center;
+}
+
+								/*	Кнопки-вкладки, соответствующие инспектируемым элементам	*/
+#inspectorDivInspectionItemNamesMainBlock {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+}
+.inspectorDivInspectionItemNamesMainBlockWide {
+	flex: 2 0 0%;
+}
+.inspectorDivInspectionItemNamesMainBlockNarrow {
+	flex: 2 0 0%;
+}
+#inspectorInputInspectionItemSearchField {
+	font-size: 3vmin;
+    height: 4.2vmin;
+    margin-bottom: 0.5vmin;
+}
+#inspectorDivInspectionItemNamesBlock {
+	/*display: flex;
+	flex-direction: column;*/
+	overflow-y: auto;
+	flex: 1 0 0%;
+}
+.inspectorDivInspectionItemHeaderName {
+	text-align: left;
+	font-size: 3vmin;
+	flex: 2 0 0%;
+	padding-left: 1vmin;
+}
+.inspectorDivInspectionItemHeader {
+	font-size: 3vmin;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    cursor: default;
+    display: flex;
+    padding-top: 0.5vmin;
+    padding-bottom: 0.5vmin;
+}
+.inspectorDivInspectionItemHeaderButtons {
+	display: flex;
+    /*padding-bottom: 1vmin;*/
+    flex: 1 0 0%;
+    align-items: center;
+}
+.inspectorButtonInspectionItemHeader {
+	flex:1 0 0%;
+	margin-left: 1vmin;
+	margin-right: 1vmin;
+	cursor: pointer;
+	font-size: 2vmin;
+    height: 4vmin;
+    padding: 0px !important;
+}
+
+										/*	Блок наименования инспектируемого элемента	*/
+
+.inspectorDivInspectionItemTitle {
+	font-size: 3vmin;
+    text-align: center;
+    background-color: #474747;
+    color: #ffffff;
+}
+.inspectorDivBlockName {
+	font-size: 2.5vmin;
+    margin-top: 1vmin;
+    margin-bottom: 1vmin;
+}
+										/*	Блок описания дефекта инспектируемого элемента	*/
+.inspectorDivInspectionItemContent {
+	overflow-y: auto;
+}
+#inspectorDivInspectionItemDetailsBlock {
+	flex: 3 0 0%;
+	display: flex;
+    flex-direction: column;  
+	overflow: auto;
+}
+.inspectorDivInspectionItemDefectDetailsBlock {
+	display: flex;
+    flex-direction: column;
+    flex: 1 0 0%;	
+}
+
+#inspectorDivQualityDetails {
+	flex: initial;
+}
+
+
+									/*	Блок описания позиции инспектируемого элемента	*/
+
+.inspectorDivInspectionItemDetailsPositionBlock {
+	flex: 1 0 0%;
+	display: flex;
+    flex-direction: row;	
+}
+.inspectorDivInspectionItemPositionFilterBlock {
+	display: flex;
+	flex: 1 0 0%;
+}
+.inspectorDivFilterBlock {
+	flex: 1 0 0%;
+    display: flex;
+    flex-direction: column;
+    margin: 1vmin;
+}
+
+
+									/*	Блок описания дефектов инспектируемого элемента	*/
+
+.inspectorDivInspectionItemDetailsMainDefectsBlock {
+	display: flex;
+	flex: 1 0 0%;
+}
+.inspectorDivInspectionItemDetailsDefectsBlock {
+	flex: 1 0 0%;
+	display: flex;
+    flex-direction: column;
+    margin: 1vmin;
+}
+.inspectorDivInspectionItemDetailsTypeDefectsBlock {
+	flex: 1 0 0%;
+	display: flex;
+    flex-direction: column;
+    margin: 1vmin;
+}
+.inspectorDivInspectionItemDetailsTypeDefect {
+	/*display: none;*/
+}
+
+									/*	Блок комментария и статуса ремонта	*/
+
+.inspectorDivInspectionItemDetailsMainCommentRepairBlock {
+	display: flex;
+	flex: 2 0 0%;
+}
+.inspectorDivInspectionItemDetailsCommentBlock {
+	flex: 1 0 0%;
+	display: flex;
+    flex-direction: column;
+    margin: 1vmin;
+}
+.inspectorDivInspectionItemDetailsRepairBlock {
+	display: flex;
+    flex-direction: column;
+    margin: 1vmin;
+}
+.inspectorInputComment {
+	font-size: 3vmin;
+	height: 5vmin;
+	flex: 1 0 0%;
+}
+.inspectorCheckboxInspectionItemDetailsRepair {
+	height: 5vmin !important;
+    font-size: 5vmin !important;
+}
+.toggle {
+	height: 6vmin !important;
+	width: 100% !important;
+	padding: 0px !important;
+}
+@media screen and (orientation: landscape) {
+	.bootstrap-select {	
+	    height: 6vmin;
+	}
+}
+
+
+										/*	Блок подтверждения операции 	*/
+
+
+#inspectorDivCreateQualityCheckDocument {
+	margin: 1vmin;
+}
+.inspectorButtonCreateQualityCheckDocument {
+	font-size: 3vmin;
+    height: 6vmin;	
+}
+
+
+										/*	Блок ввода некомплекта 	*/
+
+#inspectorInputInspectionItemInput {
+	font-size: 4vmin;
+    height: 6vmin;
+	border-radius: 0px;
+}
+#inspectorDivInspectionItemResult {
+	padding-top: 1vmin;
+}
+.inspectorInputInspectionItemNomenclatureSetCount {
+	width: 100%;
+	border: none;
+	text-align: center;
+}
+#inspectorDivInspectionItemNomenclatureResult {
+	overflow-y: auto;
+}
+.inspectorDivNomenclatureTableRow {
+	cursor: pointer;
+}
+#inspectorDivInspectionItemInput {
+	display: flex;
+	border: 1px solid #474747;
+	min-height: 6vmin !important;
+}
+#inspectorButtonCreateNotFullComplectDocument {
+	font-size: 3vmin;
+	border-radius: 0px;
+}
+#inspectorDivInspectionItemNumenclatureSearchBlock {
+	flex: 1 0 0%;
+	display: flex;
+	flex-direction: column;
+}
+#inspectorDivInspectionItemNomenclatureCurrentNotFullComplectDocuments {
+	flex: 1 0 0%;
+	overflow-y: auto;
+}
+
+									/* Блок контроля выполненного ремонта */
+#inspectorDivDefectRepairedButtons {
+	display: flex;
+	flex-direction: row;
+}
+#inspectorDivControlContent {
+	cursor: pointer;
+	flex: 1 0 0%;
+}
+#inspectorButtonDefectSuccessfullyRepaired, #inspectorButtonDefectUnsuccessfullyRepaired {
+	border-radius: 0px;
+	font-size: 4vmin;
+	flex: 1 0 0%;
+    padding: 0px !important;
+}
+#inspectorDivDefectsContentCommentBlock {
+	font-size: 2.5vmin;
+    margin-top: 1vmin;
+}
+#inspectorDivDefectsContentCommentValue {
+	font-size: 3vmin;
+	resize: none;
+}
+
+
+
+										/*	Переопределение стилей	*/
+.btn {
+	padding: 0px 12px !important;
+}
+.bootstrap-select {
+	width: auto !important;
+	display: flex !important;
+}
+.dropdown-toggle {
+	font-size: 3vmin;
+	white-space: normal;
+	word-break: break-all;
+	overflow: hidden;
+}
+.dropdown-menu {
+	font-size: 2vmin;
+}
+.toggle-on, .toggle-off {
+	font-size: 3.7vmin !important;
+	padding-right: 0px !important;
+    padding-left: 0px !important;
+} 
+.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+	 width: auto !important;
+}
+.filter-option {
+	height: 100%;
+	padding-top: 0.5vmin !important;
+	padding-bottom: 0.5vmin !important;
+}
+
+
+
+										/*	Общие стили	*/
+										
+.arrowRight {
+	width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #dddddd;
+}
+.styleActive {
+	background-color: #474747 !important;  
+	color: #ffffff !important;	
+}								
+.styleSuccess {
+	background-color: #5cb85c !important;
+	color: white;
+}
+.styleUpdate {
+	background-color: #356b35 !important;
+	color: white;
+}
+.styleDanger {
+	background-color: #d9534f !important;
+	color: white;
+}
+.styleWarning {
+	background-color: #f0ad4e !important;
+	color: white;
+}
+.stylePrimary {
+	background-color: #428bca !important;
+	color: white;
+}
+.styleInfo {
+	background-color: #5bc0de !important;
+	color: white;
+}
+.styleDefault {
+	background-color: white;	
+	color: #bdbdbd;
+}
+.styleHidden {
+	display: none !important;
+}
+.styleBoringGray {
+	color: #000000;
+    background-color: #e4e4e4;
+}
+.styleSuccessCaption {
+	font-weight: bold;
+    color: #5cb85c;	
+}
+.styleDangerCaption {
+	font-weight: bold;
+    color: #d9534f;	
+}
+.styleOpacity {
+	opacity: 0.9;
+}
+.styleBold {
+	font-weight: bold;
+}
+.styleStar {
+	color: #ffb127;
+    font-weight: bold;
+}
+
+
+
+									/*	Портретная ориентация	*/
+							
+@media all and (orientation: portrait), all and (max-width: 600px) {
+	#inspectorInputInspectionItemSearchField {
+		font-size: 4.5vmin;
+		height: 6vmin;
+	}
+	#inspectorButtonMainScanningFieldContent {
+		font-size: 6vmin;
+	}
+	#inspectorButtonIconGetBack {
+		font-size: 9vh;
+		display: block;
+	}
+	#inspectorDivMainInspectionBlock {
+		flex-direction: column;
+	}
+	#inspectorDivInspectionItemDetailsBlock {
+		flex: 3 0 0%;
+	}
+	#inspectorInputMainScanningInputField {
+		font-size: 3.2vh !important;
+	    height: 8vh !important;
+	}
+	#inspectorDivCurrentVINCaption, #inspectorDivCurrentShortVINCaption {
+	    font-size: 5vh !important;
+	}
+	#inspectorSpanMessageToUserCaption {
+		font-size: 3.5vh !important;
+		max-height: 20vh;
+   		overflow-y: auto;
+	}
+	#inspectorDivCheckSubBlockRareOptions, #inspectorDivCheckSubBlockCampaign, #inspectorDivCheckSubBlockDefects, #inspectorDivCheckSubBlockShortage, #inspectorDivCheckSubBlockControl {
+		font-size: 3vh !important;
+		padding-left: 0vh !important;
+		padding-right: 0vh !important;
+		padding-top: 1vh !important;
+		padding-bottom: 1vh !important;
+		overflow-x: auto;
+		/*justify-content: flex-start; */
+   		text-align: center;
+    	/* word-break: break-word; */
+    	word-break: break-word;
+	}
+	.inspectorDivInspectionItemHeaderName {
+		font-size: 3.5vh !important;
+		text-align: center;
+		padding-left: 0px;
+	}
+	.inspectorButtonInspectionItemHeader {
+		font-size: 2.5vh !important;
+	    height: 5vh !important;
+	}
+	.inspectorDivInspectionItemHeaderButtons {
+		height: 6vh !important;
+	}
+	.inspectorDivInspectionItemHeader {
+		/*min-height: 12vh !important;
+		height: 12vh !important;*/
+		flex-direction: column;
+		display: block;
+	}
+	.inspectorStyleMobileHidden {
+		display: none !important;
+	}
+	#inspectorDivCurrentVINCaption, #inspectorDivCurrentShortVINCaption {
+		text-align: center !important;
+	}
+	.inspectorDivCheckSubBlockContent {
+		font-size: 2.5vh !important;
+	}
+	.inspectorDivInspectionItemTitle {
+		font-size: 3vh !important;
+	}
+	.inspectorDivBlockName {
+		font-size: 3vh !important;
+	}
+	.inspectorInputComment {
+		font-size: 4vh !important;
+		height: 5vh !important;
+	}
+	.inspectorButtonCreateQualityCheckDocument {
+		font-size: 4vh !important;
+	    height: 8vh !important;	
+	}
+	.inspectorInputInspectionItemInput {
+		font-size: 4vh !important;
+    	height: 6vh !important;
+	}
+	.dropdown-toggle {
+		height: 8vh !important;
+    	font-size: 4vh !important;
+	}
+	.dropdown-menu {
+		font-size: 3vh !important;
+	}
+	.toggle {
+		height: 8vh !important;
+	}
+	.toggle-on, .toggle-off {
+		font-size: 5vh !important;
+	}
+	#inspectorInputInspectionItemInput {
+		font-size: 4vh;
+		height: 6vh;
+	}
+	#inspectorButtonCreateNotFullComplectDocument {
+		font-size: 3vh;
+	}
+	#inspectorButtonGetPreviousVIN, #inspectorButtonGetNextVIN {
+		font-size: 5vh;
+	}
+	.inspectorIconBlock {
+	    font-size: 4vh;
+	}
+	#inspectorDivPreviousVINName, #inspectorDivNextVINName, #inspectorDivCurrentVINCaption {
+		display: none;
+	}
+	#inspectorDivPreviousVINShortName, #inspectorDivNextVINShortName, #inspectorDivCurrentShortVINCaption {
+		flex: 1 0 0%;
+		font-weight: bold;
+		display: block;
+	}
+	#inspectorDivInspectionItemNamesBlock {
+		/*display: flex;
+		flex-direction: column;*/
+	}
+	#inspectorButtonComplete {
+	    font-size: 2.5vh !important;
+	}
+	.filter-option {
+		padding-top: 1vh !important;
+		padding-bottom: 1vh !important;
+	}
+	.inspectorDivImageInspectionItem {	
+		height: 10vh !important;
+	}
+	.inspectorDivInspectionItemHint {
+    	font-size: 3.5vh !important;
+    	/*padding: 2.5vh !important;*/
+	}
+	#inspectorDivDefectsContentCommentBlock {
+		font-size: 2.5vh;
+	    margin-top: 1vh;
+	}
+	#inspectorDivDefectsContentCommentValue {
+		font-size: 3vh;
+	}
+	#inspectorButtonDefectSuccessfullyRepaired, #inspectorButtonDefectUnsuccessfullyRepaired {
+		font-size: 4vh;
+	}
+ 
+}
+
+						/* Открытие дефекта по изображению */
+.img-thumbnail {
+	padding: 0px !important;
+}
+.inspectorImageInspectionItemPicture {
+	flex: none;
+	/*width: 100%;
+	cursor: pointer;
+	display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+
+.inspectorImageName {
+	font-size: 3vmin;
+    font-weight: bold;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1vmin;
+}
+
+.inspectorDivImageInspectionItem {	
+    cursor: pointer;
+	display: flex;
+	height: 10vmin;
+	overflow: hidden;
+    justify-content: center;   
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;     
+}
+.inspectorDivInspectionItemHint {
+	font-size: 3vmin;
+    /*border-radius: 100%;
+    padding: 2vmin;*/
+    font-weight: bold;
+    border: 1px solid #757575;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 15vmin;
+}
+#canvas {
+	width: 100%;
+}
+#inspectorCanvasForServiceUse {
+	display: none;
+}
+#inspectorDivImageTooltip {
+	/*display:block !important;
+	font-size: 3vmin;
+    padding-left: 1vmin;
+    height: 4vmin;
+    text-align: center;*/
+}
+#inspectorDivInspectionItemImageHiResSelectDefect {
+	overflow-y: auto;
+}
+#inspectorDivInspectionItemChecking {
+	width: 100%;
+    text-align: center;
+}
+#inspectorCanvasInspectionItemChecking {
+	display: inline-block;
+}
+
+								/* Блок выбора типа дефекта */
+								
+#inspectorDivInspectionItemCheckChooseOperation {
+	flex: 1 0 0%;
+    display: flex;
+    flex-direction: column;
+}
+#inspectorDivInspectionItemCheckChooseOperationOK, #inspectorDivInspectionItemCheckChooseOperationNOK {
+	display: flex;
+    margin-top: 2vmin;
+    margin-left: 2vmin;
+    margin-right: 2vmin;
+}
+#inspectorButtonInspectionItemCheckChooseOperationOK, #inspectorButtonInspectionItemCheckChooseOperationNOK {
+	flex: 1;
+    font-size: 12.5vmin;
+}
+#inspectorButtonInspectionItemCheckChooseOperationCaption {
+	font-size: 5vmin;
+    text-align: center;
+    margin-top: 1vmin;	
+}
+
+
+					/* Переключение между способами выбора инспектируемых элементов */
+					
+#inspectorDivInspectionItemChange {
+	display: flex;
+	flex-direction: row;
+}					
+#inspectorDivInspectionItemChangeToList, #inspectorDivInspectionItemChangeToImages {
+	flex: 1 0 0%;
+    font-size: 2vmin;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0.5vmin;
+    padding: 0.5vmin;
+    cursor: pointer;
+}
